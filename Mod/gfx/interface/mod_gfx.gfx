@@ -1,0 +1,211 @@
+spriteTypes = {
+	### LUXEMBURG ###
+	spriteType = {
+		name = "GFX_idea_charlotte_grand_duchess"
+		texturefile = "gfx/interface/ideas/idea_charlotte_grand_duchess.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_protect_benilux"
+		texturefile = "gfx/interface/focus/protect_benilux.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_chile_elections"
+		texturefile = "gfx/interface/focus/chile_elections.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_charlotte_grand_duchess_3k2_main"
+		texturefile = "gfx/interface/ideas/idea_charlotte_grand_duchess_3k2_main.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_charlotte_grand_duchess_3k2_idea"
+		texturefile = "gfx/interface/ideas/idea_charlotte_grand_duchess_3k2_idea.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_prime_ministe_dictature"
+		texturefile = "gfx/interface/focus/focus_prime_ministre_dictature.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_coup_fascism"
+		texturefile = "gfx/interface/focus/focus_coup_fascism.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_fascism_coup_2"
+		texturefile = "gfx/interface/focus/focus_fascism_coup.dds"
+	}
+	spriteType = {
+		name = "GFX_agency_logo_lux"
+		texturefile = "gfx/interface/operatives/agency_logo_lux.dds"
+	},
+	spriteType = {
+		name = "GFX_event_luxemburg_events.0"
+		texturefile = "gfx/events/news_sign_white_peace_lux.dds"
+	}
+    spriteType = {
+		name = "GFX_portrait_luxembourg_charlotte_grand_duchess"
+		texturefile = "gfx/leaders/LUX/Portrait_Luxemburg_Charlotte.png"
+	}
+	spriteType = {
+		name = "GFX_idea_lux_five_year_plan"
+		texturefile = "gfx/interface/ideas/idea_lux_five_year_plan.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_lux_new_ambitions"
+		texturefile = "gfx/interface/ideas/idea_lux_new_ambitions.png"
+	}
+	spriteType = {
+		name = "GFX_idea_lux_monarchy_support"
+		texturefile = "gfx/interface/ideas/idea_lux_monarchy_support.png"
+	}
+	spriteType = {
+		name = "GFX_idea_lux_lux_investment"
+		texturefile = "gfx/interface/ideas/lux_investment.png"
+	}
+	spriteType = {
+		name = "GFX_focus_lux_tank_upgrade"
+		texturefile = "gfx/interface/focus/focus_lux_tank_upgrade.png"
+	}
+	spriteType = {
+		name = "GFX_focus_lux_commune_act"
+		texturefile = "gfx/interface/focus/focus_lux_commune_act.png"
+	}	
+	spriteType = {
+		name = "GFX_idea_lux_no_parliment"
+		texturefile = "gfx/interface/ideas/lux_no_parliment.png"
+	}	
+	spriteType = {
+		name = "GFX_idea_france_credit"
+		texturefile = "gfx/interface/ideas/idea_france_credit.png"
+	}
+	spriteType = {
+		name = "GFX_focus_lux_benelux_join_eng_dominion"
+		texturefile = "gfx/interface/focus/focus_lux_benelux_join_eng_dominion.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_lux_benelux_creating"
+		texturefile = "gfx/interface/focus/focus_lux_benelux_creating.png"
+	}
+	spriteType = {
+		name = "GFX_focus_lux_benelux_unite"
+		texturefile = "gfx/interface/focus/focus_lux_benelux_unite.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_constitution_rewrite"
+		texturefile = "gfx/interface/ideas/idea_constitution_rewrite.png"
+	}
+	spriteType = {
+		name = "GFX_idea_anti_monarchist"
+		texturefile = "gfx/interface/ideas/idea_anti_monarchist.png"
+	}
+	spriteType = {
+		name = "GFX_idea_great_attack"
+		texturefile = "gfx/interface/ideas/idea_great_attack.png"
+	}
+	spriteType = {
+		name = "GFX_idea_lux_democracy_opossition"
+		texturefile = "gfx/interface/ideas/lux_democracy_opossition.png"
+	}
+	spriteType = {
+		name = "GFX_idea_national_law"
+		texturefile = "gfx/interface/ideas/idea_national_law.png"
+	}
+	spriteType = {
+		name = "GFX_focus_lux_himmler_leader"
+		texturefile = "gfx/interface/focus/focus_lux_himmler_leader.dds"
+	}
+	spriteType = {
+		name = "GFX_pierre_dupong_leader"
+		texturefile = "gfx/leaders/LUX/Pierre_Dupong.png"
+	}
+	spriteType = {
+		name = "GFX_focus_joseph_bech_is_elected"
+		texturefile = "gfx/interface/focus/focus_joseph_bech_is_elected.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_pierre_dupong_is_elected"
+		texturefile = "gfx/interface/focus/focus_pierre_dupong_is_elected.dds"
+	}
+	spriteType = {
+		name = "GFX_county_event_LUX_white_peace"
+		texturefile = "gfx/events/county_event_LUX_white_peace.png"
+	}
+	spriteType = {
+		name = "GFX_idea_germany_hitler_dead"
+		texturefile = "gfx/interface/ideas/idea_germany_hitler_dead.png"
+	}
+	spriteType = {
+		name = "GFX_decision_luxemburg_resistence"
+		texturefile = "gfx/interface/decisions/decision_luxemburg_resistence.png"
+	}
+	spriteType = {
+		name = "GFX_decision_luxemburg_credit"
+		texturefile = "gfx/interface/decisions/decision_luxemburg_credit.png"
+	}
+	spriteType = {
+		name = "GFX_leader_normand_ferdinand"
+		texturefile = "gfx/leaders/LUX/normand_ferdinand.jpg"
+	}
+	spriteType = {
+		name = "GFX_leader_people_council"
+		texturefile = "gfx/leaders/LUX/people_council.jpg"
+	}
+	spriteType = {
+		name = "GFX_general_emile_speller"
+		texturefile = "gfx/leaders/LUX/general_emile_speller.dds"
+	}
+	spriteType = {
+        name = "GFX_autonomy_republic_icon"
+        textureFile = "gfx/interface/autonomy/autonomy_republic_icon.dds"
+    }
+	spriteType = {
+		name = "GFX_focus_leader_war_coup_fascism"
+		texturefile = "gfx/interface/focus/focus_leader_war_coup_fascism.png"
+	}
+	spriteType = {
+		name = "GFX_arsène_tancrède"
+		texturefile = "gfx/leaders/LUX/arsène_tancrède.jpg"
+	}
+	spriteType = {
+		name = "GFX_news_peace_sign_with_germany"
+		texturefile = "gfx/events/news_peace_sign_with_germany.dds"
+	}
+	spriteType = {
+		name = "GFX_news_liberation_luxembourg"
+		texturefile = "gfx/events/news_liberation_luxembourg.dds"
+	}
+	spriteType = {
+		name = "GFX_news_liberation_luxembourg2"
+		texturefile = "gfx/events/news_liberation_luxembourg2.dds"
+	}
+	spriteType = {
+		name = "GFX_reportevent_liberation_luxembourg"
+		texturefile = "gfx/events/reportevent_liberation_luxembourg.dds"
+	}
+	spriteType = {
+		name = "GFX_news_liberation_luxembourg2"
+		texturefile = "gfx/events/news_liberation_luxembourg2.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_benelux_economic_union"
+		texturefile = "gfx/events/report_event_picture_benelux_economic_union.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_better_diplomatic_relations"
+		texturefile = "gfx/interface/ideas/idea_better_diplomatic_relations.png"
+	}
+	spriteType = {
+		name = "GFX_focus_ultimatum_to_benelux"
+		texturefile = "gfx/interface/focus/focus_ultimatum_to_benelux.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_benelux_economic_union"
+		texturefile = "gfx/interface/focus/focus_benelux_economic_union.dds"
+	}
+	spriteType = {
+		name = "GFX_Christophe_Jessé"
+		texturefile = "gfx/leaders/LUX/Christophe_Jessé.png"
+	}
+	spriteType = {
+		name = "GFX_Gertrude_Gerda"
+		texturefile = "gfx/leaders/LUX/Gertrude_Gerda.jpg"
+	}
+}
