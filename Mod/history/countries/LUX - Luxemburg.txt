@@ -1,0 +1,155 @@
+﻿capital = 8
+
+oob = "LUX_1936"
+
+add_ideas = {
+	volunteer_only
+	LUX_useless_army
+	neutrality_idea
+	lux_great_depression
+	lux_sell_forest
+	LUX_idea_charlotte_grand_duchess
+}
+set_party_name = {
+	ideology = fascism 
+	name = LUX_independ_national_party
+	long_name = LUX_independ_national_party
+}
+every_possible_country = {
+	limit = {
+		is_on_continent = north_america 
+		is_on_continent = south_america
+		is_on_continent = australia
+		is_on_continent = africa
+		is_on_continent = asia
+		is_on_continent = middle_east
+	}
+add_relation_rule_override = {
+    target = LUX
+    can_access_market = no
+}
+	}
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_trucks = 1
+	gw_artillery = 1
+	tech_support = 1		
+	tech_engineers = 1
+	basic_train = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "By Blood Alone" }
+	}
+	set_technology = {
+		early_fighter = 1
+	}
+}
+
+set_rule = {
+	can_create_factions = no
+	can_send_volunteers = no
+}
+#party popularyties
+set_popularities = {
+	democratic = 70
+	communism = 25
+	neutrality = 5
+	fascism = 0
+}
+#variables
+set_variable = { idea_political_power_gain_factor = 0.15 }
+set_variable = { idea_stability_factor = 0.10 }
+set_variable = { idea_neutrality_drift_factor = 0.02 }
+#elections set
+set_politics = {
+    ruling_party = democratic
+    elections_allowed = yes
+    last_election = "1934.06.03"
+    election_frequency = 36
+}
+set_war_support = 0.00
+set_stability = 0.65
+set_global_flag = start_1936
+
+recruit_character = LUX_joseph_bech
+recruit_character = LUX_gustave_lebeau
+recruit_character = LUX_frédéric_nagelmackers
+recruit_character = LUX_jean_pirson
+recruit_character = LUX_damien_roeser
+recruit_character = LUX_florent_destriveaux
+recruit_character = LUX_alexander_von_falkenhausen
+recruit_character = LUX_pierre_fischbach
+recruit_character = LUX_guillaume_soisson
+recruit_character = LUX_alex_federspiel
+recruit_character = LUX_henri_ahnen
+recruit_character = LUX_emile_speller
+recruit_character = LUX_francois_schammel
+recruit_character = LUX_aloyse_glodt
+recruit_character = LUX_nicolas_de_dixmude
+recruit_character = LUX_paul_medinger
+recruit_character = LUX_nicholas_diedrich
+recruit_character = LUX_pierre_dupong
+recruit_character = LUX_pierre_krier
+recruit_character = LUX_martin_karp
+recruit_character = LUX_charlotte_grand_duchess
+recruit_character = LUX_anarchist_commune_party
+recruit_character = LUX_Parliament
+recruit_character = LUX_Maximin_Céline_general
+
+1939.1.1 = {
+
+	add_political_power = 1000
+	add_command_power = 50
+	
+	LUX_complete_focuses_1939 = yes
+	oob = "LUX_1939"
+	set_global_flag = start_1939
+	set_technology = {
+		tech_recon = 1
+		interwar_artillery = 1
+		interwar_antiair = 1
+		
+		#doctrines
+		air_superiority = 1
+		
+		mass_assault = 1
+		pocket_defence = 1
+		defence_in_depth = 1
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		radio_detection = 1
+		mechanical_computing = 1
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		fuel_silos = 1
+		construction1 = 1
+		construction2 = 1
+		concentrated_industry = 1
+		concentrated_industry2 = 1
+	}
+	if = {
+		limit = {
+			NOT = { has_dlc = "By Blood Alone" }
+		}
+		set_technology = {
+			fighter1 = 1
+		}
+	}
+	set_popularities = {
+		democratic = 65
+		communism = 30
+		neutrality = 10
+		fascism = 0
+	}
+	LUX_pierre_dupong_add_1939 = yes
+	hold_election = ROOT
+}

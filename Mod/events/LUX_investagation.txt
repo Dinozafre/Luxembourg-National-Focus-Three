@@ -1,0 +1,162 @@
+add_namespace = LUX_investegation
+#investigation start
+country_event = {
+	id = LUX_investegation.0
+	title = LUX_investegation.0.t
+	desc = LUX_investegation.0.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = no
+	fire_only_once = yes
+	option = { 
+		name = LUX_investegation.0.a
+	}
+	trigger = {
+       original_tag = LUX
+	   has_completed_focus = LUX_investegate_planninig_coup
+	}
+	mean_time_to_happen = {
+        hours = 10
+	}
+	immediate = {
+		hidden_effect = {
+            set_country_flag = LUX_investegation_start_flag
+	    }
+	}
+}
+country_event = {
+	id = LUX_investegation.1
+	title = LUX_investegation.1.t
+	desc = LUX_investegation.1.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = no
+	fire_only_once = yes
+	option = { 
+		name = LUX_investegation.1.a
+	}
+	trigger = {
+       original_tag = LUX
+	   has_country_flag = LUX_investegation_start_flag
+	}
+	mean_time_to_happen = {
+        days = 45
+	}
+	immediate = {
+		hidden_effect = {
+            set_country_flag = LUX_investegation_02_flag
+	    }
+	}
+}
+country_event = {
+	id = LUX_investegation.2
+	title = LUX_investegation.2.t
+	desc = LUX_investegation.2.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = no
+	fire_only_once = yes
+	option = { 
+		name = LUX_investegation.2.a
+		add_opinion_modifier = {
+			target = FRA
+			modifier = diplomatic_relatation_is_over
+		}
+		effect_tooltip = {
+			FRA = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = diplomatic_relatation_is_over
+				}
+			}
+		}
+			#report event LUX over diplomatic relations
+			FRA = {
+			   country_event = {
+				  id = LUX_diplomacy.6
+				  days = 5
+				  random_hours = 15
+			   }
+			}
+		}
+		if = {
+			limit = {
+				has_dlc = "By Blood Alone"
+			}
+			send_embargo = FRA
+		}
+		if  = {
+			limit = {
+				is_guaranteed_by = FRA
+			}
+			FRA = {
+				diplomatic_relation = {
+					country = ROOT
+					relation = guarantee
+					active = no
+				}
+			}
+		}
+	option = { 
+		name = LUX_investegation.2.b
+	}
+	trigger = {
+       original_tag = LUX
+	   has_country_flag = LUX_investegation_02_flag
+	}
+	mean_time_to_happen = {
+        days = 60
+	}
+	immediate = {
+		hidden_effect = {
+            set_country_flag = LUX_investegation_03_flag
+	    }
+	}
+}
+country_event = {
+	id = LUX_investegation.3
+	title = LUX_investegation.3.t
+	desc = LUX_investegation.3.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = no
+	fire_only_once = yes
+	option = { 
+		name = LUX_investegation.3.a
+	}
+	trigger = {
+       original_tag = LUX
+	   has_country_flag = LUX_investegation_03_flag
+	}
+	mean_time_to_happen = {
+        days = 30
+	}
+	immediate = {
+		hidden_effect = {
+            set_country_flag = LUX_investegation_finish_flag
+	    }
+	}
+}
+country_event = {
+	id = LUX_investegation.4
+	title = LUX_investegation.4.t
+	desc = LUX_investegation.4.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	#is_triggered_only = no
+	fire_only_once = yes
+	option = { 
+		name = LUX_investegation.4.a
+		remove_idea = LUX_planned_democratic_coup2
+	}
+	option = { 
+		name = LUX_investegation.4.b
+	}
+	#trigger = {
+       #original_tag = LUX
+	   #has_country_flag = LUX_investegation_03_flag
+	#}
+	#mean_time_to_happen = {
+       #days = 30
+	#}
+	immediate = {
+		hidden_effect = {
+            set_country_flag = LUX_investegation_finish_flag
+	    }
+	}
+}
