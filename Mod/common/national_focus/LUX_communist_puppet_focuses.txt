@@ -1,0 +1,52 @@
+focus_tree = {
+	id = LUX_communist_puppet_focuses
+	country = {
+		factor = 0
+	}
+	default = no
+	focus = {
+		id = LUX_puppet_communist_people_revolution
+		icon = GFX_goal_generic_demand_territory
+		cost = 5
+		x = 8
+		y = 0
+			completion_reward = {
+
+}
+			available = {
+					has_civil_war = yes
+				}
+			bypass = {
+					has_civil_war = no
+				}
+
+	}
+	focus = {
+		id = LUX_puppet_communist_stay_loyality_to_LUX
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 5
+		prerequisite = {
+			focus = LUX_puppet_communist_people_revolution
+		}
+		mutually_exclusive = {
+			focus = LUX_puppet_communist_independ_from_LUX
+		}
+		x = 7
+		y = 1
+
+	}
+	focus = {
+		id = LUX_puppet_communist_independ_from_LUX
+		icon = GFX_goal_generic_political_pressure
+		cost = 5
+		prerequisite = {
+			focus = LUX_puppet_communist_people_revolution
+		}
+		mutually_exclusive = {
+			focus = LUX_puppet_communist_stay_loyality_to_LUX
+		}
+		x = 9
+		y = 1
+
+	}
+}

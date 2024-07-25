@@ -1,0 +1,13 @@
+LUX_democratic_coup = {
+ custom_effect_tooltip = democratic_coup_tt
+  hidden_effect = {
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = no
+	}
+	remove_ideas = lux_democracy_opossition
+	remove_ideas = constitution_rewrite
+	remove_ideas = LUX_no_parliment
+  }
+  set_country_flag = LUX_democratic_coup_success_flag
+}

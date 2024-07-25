@@ -1,0 +1,841 @@
+#anarchism
+LUX_anarchist_international_creation = {
+	set_global_flag = international_anarchism_created
+	add_stability = 0.04
+	if = {
+			LUX = {
+					add_to_faction = SPC
+				}
+			limit = {
+					country_exists = SPC
+				}
+		}
+	if = {
+			create_faction = ANARCHIST_INTERNATIONAL_FACTION
+			limit = {
+					is_in_faction = no
+				}
+		}
+	if = {
+			SPC = {
+					set_rule = {
+							can_join_factions = yes
+							can_create_factions = yes
+						}
+				}
+			limit = {
+					country_exists = SPC
+				}
+		}
+}
+LUX_all_equile_in_army_focus_effect = {
+	all_character = {
+		limit = {
+			is_unit_leader = yes
+			is_army_leader = yes
+			is_high_command = yes
+			is_corps_commander = yes
+		}
+		retire_character = ROOT
+	}
+	hidden_effect = {
+		add_ideas = LUX_general_commander
+	}
+}
+#resource getting
+LUX_steel_get = {
+	add_resource = {
+		type = steel
+		amount = 20
+		state = 8
+	}
+}
+LUX_oil_get = {
+	add_resource = {
+		type = oil
+		amount = 15
+		state = 8
+	}
+}
+LUX_get_oil_from_SAU = {
+SAU = {
+	add_opinion_modifier = {
+		target = ROOT
+		modifier = LUX_has_oil_from_SAU
+	}
+	give_resource_rights = { 
+		receiver = ROOT
+		state = 292
+	}
+	give_resource_rights = { 
+		receiver = ROOT
+		state = 858
+	}
+	give_resource_rights = { 
+		receiver = ROOT
+		state = 678
+	}
+	add_offsite_building = {
+		type = arms_factory
+		level = 2
+	}
+}
+hidden_effect = {
+	add_resource = {
+		type = oil
+		amount = 20
+		state = 292
+	}
+	add_resource = {
+		type = oil
+		amount = 10
+		state = 678
+	}
+	add_resource = {
+		type = oil
+		amount = 10
+		state = 858
+	}
+	add_resource = {
+		type = oil
+		amount = 15
+		state = 856
+	}
+	add_resource = {
+		type = oil
+		amount = 15
+		state = 859
+	}	
+	add_resource = {
+		type = oil
+		amount = 5
+		state = 857
+	}
+	add_resource = {
+		type = oil
+		amount = 10
+		state = 854
+	}
+	add_resource = {
+		type = oil
+		amount = 10
+		state = 855
+	}
+}
+}
+LUX_gets_steel_from_SWE = {
+	SWE = {
+		add_offsite_building = {
+			type = industrial_complex
+			level = 2
+		}
+		give_resource_rights = {
+			receiver = ROOT 
+			state = 918 #Västerbotten 
+		}
+	}
+}
+LUX_credit_give_army_factory = {
+	add_offsite_building = {
+		type = arms_factory
+		level = 2
+	}
+}
+LUX_equipment_give_SAU = {
+	add_equipment_to_stockpile = {
+		type = support_equipment_1
+		amount = -500
+		producer = ROOT
+	}
+SAU = {
+	add_equipment_to_stockpile = {
+		type = support_equipment_1
+		amount = 500
+		producer = ROOT
+	}
+}
+}
+LUX_equipment_give_SWE = {
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_0
+		amount = -1500
+		producer = ROOT
+	}
+  SWE = {
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_0
+		amount = 1500
+		producer = ROOT
+  }
+  }
+}
+#border wars
+LUX_strart_border_war_with_belgum = {
+	start_border_war = {
+		change_state_after_war = no
+		attacker = {
+				state = 8
+				num_provinces = 4083
+				modifier = 0.15
+				dig_in_factor = 0
+				terrain_factor = 0
+				on_win = LUX_provcation.0
+				on_lose = LUX_provcation.0
+				on_cancel = LUX_provcation.0
+			}
+		defender = {
+				state = 34
+				num_provinces = 11407
+			}
+	}
+}
+LUX_strart_border_war_with_niderlands = {
+	start_border_war = {
+		change_state_after_war = no
+		attacker = {
+				state = 6
+				num_provinces = 11419
+				modifier = 0.20
+				dig_in_factor = 0
+				terrain_factor = 0
+				on_win = LUX_provcation.1
+				on_lose = LUX_provcation.1
+				on_cancel = LUX_provcation.1
+			}
+		defender = {
+				state = 35
+				num_provinces = 3262
+			}
+	}
+}
+LUX_complete_focus_declare_war_BEL = {
+	LUX = {
+		complete_national_focus = LUX_declare_war_belgum
+		set_country_flag = belgum_provoaction_flag
+	}
+}
+LUX_complete_focus_declare_war_HOL = {
+	LUX = {
+		complete_national_focus = LUX_HOL_declare_war_LUX
+		set_country_flag = niderlands_provoaction_flag
+	}
+}
+#county leaders
+LUX_parliment_leader_set = {
+	add_country_leader_role = {
+		character = LUX_Parliament
+		country_leader={
+			expire = "1965.1.1"
+			ideology = liberalism
+			traits = {
+				likes_allies
+			}
+		}
+		promote_leader = yes
+	} 
+}
+LUX_anarchist_commune_leader_set = {
+	add_country_leader_role = {
+		character = LUX_anarchist_commune_party
+		country_leader={
+			expire = "1965.1.1"
+			ideology = anarchism
+			traits = {
+				decentrelisation
+			}
+		}
+		promote_leader = yes
+	} 
+}
+LUX_national_law_effect = {
+	add_stability = 0.05
+	add_war_support = 0.1
+	add_political_power = 50
+	add_manpower = 10000
+	add_popularity = {
+		ideology = fascism
+		popularity = -0.10
+	}
+	add_popularity = {
+		ideology = communism
+		popularity = -0.15
+	}
+	add_popularity = {
+		ideology = democratic
+		popularity = 0.10
+	}
+	add_popularity = {
+		ideology = neutrality
+		popularity = -0.05
+	}
+}
+LUX_trade_oponion = {
+	add_opinion_modifier = {
+		target = ROOT
+		modifier = LUX_trade_wtih
+	}
+}
+LUX_ban_communism = {
+	set_popularities = {
+		communism = 0
+	}
+}
+LUX_unlock_dicisions_democratic_opossition = {
+	unlock_decision_category_tooltip = LUX_democratic_opposition_catogory
+}
+LUX_coup_facsimt_unite_benelux = {
+	start_civil_war = {
+		ruling_party = fascism
+		ideology = ROOT
+		capital = 8
+		states = { 7 35 36 8 }
+		keep_political_leader = yes
+		keep_political_party_members = yes
+	}
+	set_country_flag = LUX_fascism_coup_flag
+}
+LUX_coup_fascism = {
+	set_politics = {
+		ruling_party = fascism
+		elections_allowed = no
+	}
+	set_country_flag = LUX_fascism_coup_flag
+}
+LUX_benelux_event = {
+	unlock_decision_tooltip = HOL_propose_benelux_unification
+}
+LUX_get_tank_from_germany = {
+	add_tech_bonus = {
+		bonus = 0.7
+		uses = 3
+		category = light_armor
+	}
+}
+LUX_referendum_random_events = {
+	custom_effect_tooltip = LUX_referendum_tt
+	hidden_effect = {
+		random_list = {
+			#people not agree
+			85 = {
+				country_event = LUX_referendums.1
+			}
+			#people agree
+			15 = {
+				country_event = LUX_referendums.2
+			}
+		}
+	}
+}
+LUX_cancel_referendums_effects ={
+	add_political_power = 250
+	add_popularity = {
+		ideology = democratic
+		popularity = -0.15
+	}
+	swap_ideas = {
+		remove_idea = idea_charlotte_grand_duchess2
+		add_idea = idea_charlotte_grand_duchess3
+	}
+}
+LUX_rename_party_democratic = {
+	remove_country_leader_role = {
+		character = LUX_joseph_bech
+		ideology = conservatism
+	}
+	add_country_leader_role = {
+		character = LUX_joseph_bech
+		promote_leader = yes
+		country_leader = {
+			ideology = despotism
+			expire = "1965.1.1.1"
+		}
+	}
+	set_politics = {
+		ruling_party = neutrality
+		elections_allowed = no
+		name = LUX_democratic_pary_neutrality
+		long_name = LUX_democratic_pary_neutrality
+	}
+	set_party_name = {
+		ideology = democratic
+		name = LUX_democratic_party_rename
+		long_name = LUX_democratic_party_rename
+	}
+	set_popularities = {
+		democratic = 16
+		neutrality = 84
+		fascism = 0
+		communism = 0
+	}
+}
+#effects for 1939 scenario
+LUX_complete_focuses_1939 = {
+	complete_national_focus = LUX_military_operation
+	complete_national_focus = LUX_confirm_neutrality
+	complete_national_focus = LUX_continue_policy
+	complete_national_focus = LUX_industry
+	complete_national_focus = LUX_civil_factory1
+	complete_national_focus = lUX_civil_factory2
+	complete_national_focus = lUX_education_reform
+	complete_national_focus = LUX_arm_factory1
+	complete_national_focus = LUX_Benilux_quastion
+	complete_national_focus = LUX_protect_benilux
+	complete_national_focus = LUX_army_reform
+	complete_national_focus = LUX_training_army
+	complete_national_focus = LUX_get_ready_to_war
+	complete_national_focus = LUX_new_military_leaders
+	complete_national_focus = LUX_allow_send_volunteers
+	complete_national_focus = LUX_give_guarantee
+	complete_national_focus = LUX_continue_support
+	complete_national_focus = LUX_trade_with_france
+	complete_national_focus = LUX_rights_for_workers
+	complete_national_focus = LUX_bank_credit
+	complete_national_focus = LUX_great_depression
+	complete_national_focus = LUX_friendly_only
+	complete_national_focus = LUX_ban_communisn_party_referendum
+	complete_national_focus = LUX_election_1937
+	complete_national_focus = LUX_pierre_dupong_elected
+	complete_national_focus = LUX_pro_france_policy
+	complete_national_focus = LUX_france_gerentes
+	complete_national_focus = LUX_peacment_communist
+	complete_national_focus = LUX_constitution_reforms
+	complete_national_focus = LUX_referendums_change_laws
+	complete_national_focus = LUX_agreement_with_ENG_focus
+
+}
+LUX_pierre_dupong_add_1939 = {
+	create_country_leader = {
+		name = LUX_pierre_dupong
+		picture = GFX_pierre_dupong_leader
+		expire = "1965.1.1"
+		ideology = conservatism
+		traits = {
+			cornered_fox
+		}
+	}
+	if = {
+		retire_country_leader = yes
+		limit = {
+			has_country_leader = {
+				name = "Joseph Bech"
+				ruling_only = yes
+			}
+		}
+	}
+}
+#join axis 
+General_join_axis = {
+	GER = {
+		country_event = generic.2
+	}
+}
+#future of germany effects
+LUX_germany_future = {
+	GER = {
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = no
+		}
+		set_popularities = {
+			democratic = 80
+			neutrality = 5
+			fascism = 0
+			communism = 15
+		}
+		set_major = no
+	}
+	POL = {
+		add_state_claim = 763
+		add_state_claim = 5
+	}
+	add_named_threat = {
+		threat = -15
+		name = LUX_germany_security
+	}
+	if = {
+    limit = {LUX_DEN_is_GER_puppet = yes}
+	GER  ={
+		set_autonomy = {
+			target = DEN
+			autonomous_state = autonomy_free
+		}
+	}
+	}
+}
+LUX_confirm_claims = {
+	POL = {
+		set_state_owner = 763
+		set_state_owner = 5
+		release_autonomy = {
+			target = DNZ
+			autonomy_state = autonomy_colony
+			freedom_level = 0.2
+		}
+	}
+}
+LUX_demilitorization_rain_land = {
+	42 = {
+		set_demilitarized_zone = yes
+	}
+	51 = {
+		set_demilitarized_zone = yes
+	}
+}
+GER_declare_war_LUX = {
+	GER = {
+	declare_war_on = {
+		target = ROOT
+		type = puppet_wargoal_focus
+	}
+}
+}
+GER_kill_hitler_no_LaR = {
+	GER = {
+		kill_country_leader = yes
+	}
+}
+GER_start_civil_war = {
+	start_civil_war = {
+		ideology = communism
+		states = {
+          61 62 56 
+		}
+		states_filter = {
+			is_on_continent = europe
+			is_capital = no
+		}
+		keep_all_characters = yes
+		promote_character = GER_heinrich_himmler
+		set_global_flag = GER_civil_war_against_communist
+		# Sets a country flag that gets used in a country tag alias.
+	}
+}
+GER_Puppet_lux_peace = {
+	set_country_flag = LUX_peace_with_germany
+	white_peace = GER
+	GER = {
+		set_autonomy = {
+			target = LUX
+			autonomous_state = autonomy_reichsprotectorate
+			end_wars = yes
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "By Blood Alone"
+		}
+		send_embargo = FRA
+		send_embargo = ENG
+	}
+	end_exile = yes
+	set_rule = {
+		can_not_declare_war = yes
+		can_join_factions = no
+		can_decline_call_to_war = yes
+		can_access_market = no
+	}
+	add_ideas = LUX_dont_want_join_war_puppet
+	add_ideas = LUX_germany_pressure
+}
+#set veribles
+set_variable_charlotte_grand_duchess1 = {
+	add_to_variable = {idea_neutrality_drift_factor = 0.01 tooltip = neutrality_drift_factor_tt}
+	add_to_variable = {idea_political_power_gain_factor = 0.25}
+}
+effect_world_revolution = {
+	every_possible_country = {
+		limit = {
+			NOT = {
+				has_government = communism
+			}
+		}
+		start_civil_war = {
+			ideology = communism
+			size = 0.9
+			states_filter = {
+				is_capital = no
+			}
+			set_global_flag = global_world_revolution_start_flag
+		}
+	}
+}
+fouth_international_set_national_states = {
+	every_state = {
+		limit = {
+			NOT  = {
+			  is_core_of = ROOT
+			}
+		}
+		add_core_of = ROOT
+	}
+}
+crate_Parliament = {
+	create_country_leader = {
+		desc = "Parlament"
+		picture = GFX_portrait_POL_the_sejm
+		ideology = liberalism
+		traits = { likes_allies }
+		name = "Parlament"
+	}
+}
+crate_corps_commander_emile_speller = {
+	create_corps_commander = {
+		name = "Emile Speller"
+		picture = "general_emile_speller.dds"
+		traits = { brilliant_strategist }
+		skill = 2
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 3
+		logistics_skill = 2
+	}
+}
+get_wargoal_earope = {
+hidden_effect = {
+	every_possible_country = {
+		limit = {
+			capital_scope = {
+				is_on_continent = europe
+			}
+		}
+    ROOT = {
+	   create_wargoal = {
+		  type = puppet_wargoal_focus
+		  target = PREV
+	   }
+    }
+    }
+}
+custom_effect_tooltip = LUX_get_wargoal_puppet_europe_tt
+}
+get_wargoal_latin_america = {
+	hidden_effect = {
+	every_possible_country = {
+		limit = {
+			capital_scope = {
+				is_on_continent = south_america
+			}
+		}
+		ROOT = {
+	create_wargoal = {
+		type = puppet_wargoal_focus
+		target = PREV
+	}
+}}
+every_possible_country = {
+	limit = {
+		capital_scope = {
+			is_on_continent = north_america
+		}
+	}
+	ROOT = {
+create_wargoal = {
+	type = puppet_wargoal_focus
+	target = PREV
+}
+}}
+}
+custom_effect_tooltip = LUX_get_wargoal_puppet_latin_america_tt
+}
+get_wargoal_africa = {
+	hidden_effect = {
+	every_possible_country = {
+		limit = {
+			capital_scope = {
+				is_on_continent = africa
+			}
+		}
+		ROOT = {
+	create_wargoal = {
+		type = puppet_wargoal_focus
+		target = PREV
+	}
+}}
+}
+custom_effect_tooltip = LUX_get_wargoal_puppet_africa_tt
+}
+get_wargoal_middle_east = {
+	hidden_effect = {
+	every_possible_country = {
+		limit = {
+			capital_scope = {
+				is_on_continent = middle_east
+			}
+		}
+		ROOT = {
+	create_wargoal = {
+		type = puppet_wargoal_focus
+		target = PREV
+	}
+}}
+}
+custom_effect_tooltip = LUX_get_wargoal_puppet_middle_east_tt
+}
+get_wargoal_asia = {
+	hidden_effect = {
+	every_possible_country = {
+		limit = {
+			capital_scope = {
+				is_on_continent = asia
+			}
+		}
+		ROOT = {
+	create_wargoal = {
+		type = puppet_wargoal_focus
+		target = PREV
+	}
+}
+	}
+}
+custom_effect_tooltip = LUX_get_wargoal_puppet_asia_tt
+}
+LUX_tooltip_effect_revolution_europe = {
+	custom_effect_tooltip = focus_effect_revolution_europe_tt
+}
+LUX_tooltip_effect_revolution_middle_east = {
+	custom_effect_tooltip = focus_effect_revolution_middle_east_tt
+}
+LUX_tooltip_effect_revolution_asia = {
+	custom_effect_tooltip = focus_effect_revolution_asia_tt
+}
+LUX_tooltip_effect_revolution_latin_america = {
+	custom_effect_tooltip = focus_effect_revolution_latin_america_tt
+}
+LUX_tooltip_effect_revolution_africa = {
+	custom_effect_tooltip = focus_effect_revolution_africa_tt
+}
+lUX_anarchist_ruling_set  = {
+	create_country_leader = {
+		name = "Anarchist Commune"
+		desc = "POLITICS_ANARCHIST_COMMUNE_DESC"
+		picture = "GFX_portrait_SPR_anarchist_commune"
+		expire = "1965.1.1"
+		ideology = anarchism
+		traits = {
+			our_right_to_survive
+		}
+	}
+}
+LUX_crate_leader_fasism_coup_leader =  {
+	create_country_leader = {
+		name = "Arsène Tancrède"
+		desc = "POLITICS_MOHAMMED_ZAHIR_SHAH_DESC"
+		picture = GFX_arsène_tancrède
+		expire = "1965.1.1"
+		ideology = fascism_ideology
+		traits = {
+			ambition_dictator
+		}
+	}
+}
+LUX_germany_crate_autonomy_reichskommissariat = {
+	set_autonomy = {
+		target = LUX
+		autonomous_state = autonomy_reichskommissariat
+	}
+}
+LUX_fascism_coup = {
+	set_politics = {
+		ruling_party = fascism
+		elections_allowed = no
+	}
+}
+LUX_upload_idea_youth_organization = {
+	if = {
+		limit = {
+           has_idea = LUX_youth_organization
+		}
+		swap_ideas = {
+			remove_idea = LUX_youth_organization
+			add_idea = LUX_youth_organization2
+		}
+	}
+}
+LUX_get_wargoal_on_benelux = {
+	declare_war_on = {
+		target = BEL
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = HOL
+		type = annex_everything
+	}
+	set_rule = {
+		can_not_declare_war = no
+	}
+	add_autonomy_score = {
+		value = 250
+	}
+	GER = {
+		add_to_war = {
+			targeted_alliance = ROOT
+			enemy = HOL
+			hostility_reason = asked_to_join
+		}
+		add_to_war = {
+			targeted_alliance = ROOT
+			enemy = BEL
+			hostility_reason = asked_to_join
+		}
+	}
+}
+LUX_get_opinion_general_benelux_work_together = {
+	add_opinion_modifier = {
+		target = ROOT
+		modifier = benelux_work_together_in_exile_opinion
+	}
+}
+LUX_economic_union_get_opinion = {
+	
+}
+LKUX_rename_fascism_aprty_into_NSDP = {
+	set_party_name = {
+		ideology = fascism
+		long_name = GER_fascism_party_long
+		name = GER_fascism_party
+	}
+}
+LUX_rename_faascism_party_back = {
+	set_party_name = {
+		ideology = fascism 
+		name = LUX_independ_national_party
+		long_name = LUX_independ_national_party
+	}
+	set_party_name = {
+		ideology = communism 
+		name = LUX_workers_party
+		long_name = LUX_workers_party_desc
+	}
+	add_popularity = {
+		ideology = fascism
+		popularity = -0.15
+	}
+}
+LUX_change_on_communism = {
+	create_country_leader = {
+		name = "Christophe Jessé"
+		desc = ""
+		picture = GFX_Christophe_Jessé
+		expire = "1965.1.1"
+		ideology = marxism
+		traits = {
+			LUX_socialist
+		}
+	}
+	#add_country_leader_role = {
+		#character = LUX_Christophe_Jessé_communist
+		#promote_leader = yes
+	#}
+	set_politics = {
+		ruling_party = communism
+		elections_allowed = no
+	}
+	set_political_party = {
+		ideology = fascism
+		popularity = 10
+	}
+	set_political_party = {
+		ideology = communism
+		popularity = 67
+	}
+}

@@ -1,0 +1,72 @@
+#uprising
+LUX_belgum_uprising = {
+	every_state = {
+		limit = {
+			is_core_of = BEL
+			is_controlled_by = GER
+		}
+		add_resistance = 30
+		add_compliance = -10
+		add_resistance_target = 50
+	}
+}
+LUX_niderlands_uprsing = {
+	every_state = {
+			limit = {
+				is_core_of = HOL
+				is_controlled_by = GER
+			}
+			add_resistance = 25
+			add_compliance = -5
+			add_resistance_target = 40
+	}
+}
+LUX_luxemburg_uprising = {
+	every_state = {
+		limit = {
+			is_core_of = ROOT
+			is_controlled_by = GER
+		}
+		add_resistance = 15
+		add_compliance = -15
+		add_resistance_target = 65
+	}
+}
+#two variation if player has dlc AAT and if not
+LUX_uprising_norway_AAT = {
+	every_state = {
+		limit = {
+				is_controlled_by = NOR
+				is_core_of = NOR
+		}
+		add_resistance = 30
+		add_compliance = -20
+		add_resistance_target = 50
+	}
+}
+LUX_uprising_norway = {
+	every_state = {
+		limit = {
+			is_controlled_by = GER
+			is_core_of = NOR
+		}
+		add_resistance = 30
+		add_compliance = -20
+		add_resistance_target = 50
+	}
+}
+LUX_crate_leader_himmler = {
+	custom_effect_tooltip = crate_leader_himmpler_tt
+	hidden_effect = {
+	create_country_leader = {
+		name = GER_heinrich_himmler
+		picture = GFX_portrait_GER_heinrich_himmler
+		expire = "1965.1.1"
+		ideology = nazism
+		traits = {
+			army_explert
+			political_expert
+		}
+	}
+}
+}

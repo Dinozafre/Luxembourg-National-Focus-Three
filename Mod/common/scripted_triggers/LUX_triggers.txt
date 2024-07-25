@@ -1,0 +1,210 @@
+
+LUX_controlled_belgum = {
+	custom_trigger_tooltip = {
+		tooltip = form_eu_belgium_required_states_tt
+		controls_state = 6
+		controls_state = 34
+	}
+}
+LUX_controlled_niderlands = {
+	custom_trigger_tooltip = {
+		tooltip = form_eu_netherlands_required_states_tt
+		controls_state = 7
+		controls_state = 35
+		controls_state = 36
+	}
+}
+LUX_has_oppossition = {
+	custom_trigger_tooltip = {
+		tooltip = lux_opossittion_tt
+        has_idea = lux_democracy_opossition
+	}
+}
+LUX_exprenation_policy = {
+	custom_trigger_tooltip = LUX_exprenation_policy
+	NOT = {
+		
+	}
+}
+LUX_belgum_controlled_core_state = {
+	custom_trigger_tooltip = {
+		tooltip = belgum_controlled_core_state_tt
+	BEL = {
+		controls_state = 6
+		controls_state = 34
+	}
+    }
+}
+LUX_niderlands_controlled_core_state = {
+	custom_trigger_tooltip = {
+		tooltip = niderlands_controlled_core_state_tt
+	HOL = {
+		controls_state = 7
+		controls_state = 35
+		controls_state = 36
+	}
+    }
+}
+LUX_unite_benelux_flag = {
+  custom_trigger_tooltip = {
+		tooltip = form_united_netherlands_flag
+	has_global_flag = form_united_netherlands_flag
+  }
+}
+LUX_luxemburg_contrlled_benelux = {
+	custom_trigger_tooltip = {
+		tooltip = controlled_benelux_states_tt
+		controls_state = 7
+		controls_state = 35
+		controls_state = 36
+		controls_state = 6
+		controls_state = 34
+	}
+}
+LUX_NOT_completed_focus_provocations = {
+	NOT = {
+		has_completed_focus = LUX_start_border_war_with_belgum
+		has_completed_focus = LUX_provacation_HOL
+	}
+}
+#triggers for exile focuses
+LUX_has_dlc_AAT = {
+	has_dlc = "Arms Against Tyranny"
+}
+LUX_no_dlc_AAT = {
+	NOT = {
+		has_dlc = "Arms Against Tyranny"
+	}
+}
+#democratic oposition
+LUX_no_has_democratic_opp ={
+	NOT = {
+		has_country_flag = LUX_democratic_coup_success_flag
+	}
+}
+#elections 1937 
+LUX_pierre_dupong_elected_on_general_elections = {
+	custom_trigger_tooltip = {
+		tooltip = complete_focus_pierre_dupong_elected_tt
+		always = no
+	}
+}
+LUX_joseph_bech_is_elected_on_general_elections = {
+	custom_trigger_tooltip = {
+		tooltip = complete_focus_joseph_bech_elected_tt
+		always = no
+	}
+}
+#leader ruling check
+LUX_ruling_paarty_leader_joseph_bech = {
+	has_country_leader = {
+		name = LUX_joseph_bech
+		ruling_only = yes
+	}
+}
+LUX_ruling_paarty_leader_pierre_dupong = {
+	has_country_leader = {
+		name = "Pierre Dugong"
+		ruling_only = yes
+	}
+}
+#triggers La Résistance
+has_LaR = {
+	has_dlc = "La Resistance"
+}
+NOT_has_Lar = {
+	NOT = {
+		has_dlc = "La Resistance"
+	}
+}
+#triggers for limits
+LUX_DEN_is_GER_puppet = {
+	DEN  = {
+		is_subject_of = GER
+	}
+}
+GER_hitler_is_ruling = {
+	GER = {
+	has_country_leader = {
+		character = GER_adolf_hitler
+		ruling_only = yes
+	}
+}
+}
+LUX_controlled_world_as_communist = {
+	custom_trigger_tooltip = {
+		tooltip = LUX_controlled_world_communist_tt
+		all_state = {
+			is_fully_controlled_by = ROOT
+		}
+	}
+}
+LUX_puppet_contries = {
+	custom_trigger_tooltip = {
+		tooltip = LUX_puppet_world_communist_tt
+		all_country = {
+			limit = {
+				NOT = {
+					original_tag = ROOT
+				}
+				exists = yes
+			}
+			is_subject_of = ROOT
+		}
+	}
+}
+LUX_anarchist_ruling = {
+	has_country_leader = {
+		name = "Anarchist Commune"
+		ruling_only = yes
+	}
+}
+LUX_triggers_check_FROM_uprising = {
+	NOT = { 
+		has_government = communism 
+		has_country_flag = general_start_workers_uprisng
+	}
+}
+#lux peace with BEL HOL FRA
+LUX_has_peace_with_trigger = {
+   LUX  ={
+	 NOT = {
+		has_war_with = BEL
+		has_war_with = HOL
+		has_war_with = FRA
+	 }
+   }
+}
+LUX_has_war_with_trigger = {
+	LUX  ={
+	  OR = {
+		has_war_with = ENG
+	    has_war_with = FRA
+	  }
+	}
+ }
+LUX_trigger_NOT_leader_of_economic_union  = {
+	LUX = {
+		NOT = {
+			has_idea = benelux_leader_of_economic_union
+		}
+	}
+}
+LUX_fascism_leader_ruling = {
+	has_country_leader = {
+		name = "Arsène Tancrède"
+		ruling_only = yes
+	}
+}
+LUX_ruling_paarty_leader_christophe_jessé_trigger = {
+	has_country_leader = {
+		name = "Christophe Jessé"
+		ruling_only = yes
+	}
+}
+LUX_ruling_paarty_leader_gertrude_gerda_trigger = {
+	has_country_leader = {
+		name = "Gertrude Gerda"
+		ruling_only = yes
+	}
+}

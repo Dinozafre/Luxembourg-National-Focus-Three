@@ -1,0 +1,57 @@
+LUX_ai_behavior = {
+	name = "LUX_AI_BEHAVIOR"
+	group = "RULE_GROUP_AI_BEHAVIOR"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_AI_DESC"
+	}
+	option = {
+		name = HISTORICAL
+		text = "RULE_OPTION_HISTORICAL"
+		desc = "RULE_HISTORICAL_LUX_AI_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = FASCISM
+		text = "RULE_OPTION_FASCISM"
+		desc = "RULE_FASCISM_LUX_AI_DESC"
+		allow_achievements = no
+	}
+	option = {
+		name = COMMUNIST_PUPPET
+		text = "RULE_OPTION_COMMUNIST_PUPPET"
+		desc = "RULE_COMMUNIST_LUX_AI_DESC"
+		allow_achievements = no
+	}
+	option = {
+		name = COMMUNIST_WORKERS_UPRISING
+		text = "RULE_OPTION_COMMUNIST_WORKERS_UPRISING"
+		desc = "RULE_COMMUNIST_UPRISING_LUX_AI_DESC"
+		allow_achievements = no
+	}
+	option = {
+		name = ANARCHIST
+		text = "RULE_OPTION_ANARCHIST"
+		desc = "RULE_ANARCHIST_LUX_AI_DESC"
+		allow_achievements = no
+	}
+	option = {
+		name = DEMOCRATIC
+		text = "RULE_OPTION_DEMOCRATIC"
+		desc = "RULE_DEMOCRATIC_LUX_AI_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = DEMOCRATIC_ALT
+		text = "RULE_OPTION_DEMOCRATIC_ALT"
+		desc = "RULE_DEMOCRATIC_ALT_LUX_AI_DESC"
+		allow_achievements = no
+	}
+	option = {
+		name = RANDOM
+		text = "RULE_OPTION_RANDOM" 
+		desc = "RULE_OPTION_RANDOM_AI_DESC"
+		allow_achievements = no
+	}
+}

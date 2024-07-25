@@ -1,0 +1,1273 @@
+﻿political_actions = {
+	LUX_democratic_coup = {
+
+		allowed = { tag = LUX }
+
+		icon = GFX_decision_category_SOV_propaganda
+
+		days_mission_timeout = 180
+		is_good =  no
+		fire_only_once = yes
+
+		cancel_effect = {
+		    has_completed_focus = LUX_opossition_down_full
+		}
+		visible = {
+			has_idea = lux_democracy_opossition
+			original_tag = LUX
+			has_completed_focus = LUX_remove_parliment
+		}
+		activation = {
+			has_idea = lux_democracy_opossition
+			original_tag = LUX
+			has_completed_focus = LUX_remove_parliment
+		}
+		timeout_effect = {
+            LUX_democratic_coup = yes
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	}
+    LUX_shutdown_opposition = {
+		modifier = {
+			political_power_gain = 0.05
+			democratic_drift = -0.1
+		}
+        cost = 150
+		days_remove = 65
+        fire_only_once = no
+        icon = GFX_decision_bul_repress_nsm
+        ai_will_do = {
+			factor = 100
+		}
+        visible = {
+			has_completed_focus = LUX_go_out_opossition
+			has_idea = lux_democracy_opossition
+			original_tag = LUX
+		}
+    }
+    LUX_ban_opposition = {
+		modifier = {
+			political_power_gain = 0.25
+			democratic_drift = -0.50
+		}
+        cost = 150
+		days_remove = 30
+        fire_only_once = no
+        icon = GFX_decision_bul_imprison_leaders_bs
+        ai_will_do = {
+			factor = 100
+		}
+        visible = {
+            has_completed_focus = LUX_opossition_down_full
+			original_tag = LUX
+		}
+        complete_effect = {
+            set_country_flag = ban_democratic_flag
+			remove_idea = lux_democracy_opossition
+        }
+    }
+	HOL_propose_benelux_unification = {
+
+		icon = eng_trade_unions_support
+
+		allowed = {
+			original_tag = LUX
+			has_completed_focus = LUX_declare_war_benelux
+		}
+
+		available = {
+			has_completed_focus = LUX_declare_war_benelux
+		}
+
+		cost = 300
+
+		fire_only_once = yes
+
+		visible = {
+			original_tag = LUX
+			has_completed_focus = LUX_declare_war_benelux
+		}
+
+		complete_effect = {
+			effect_tooltip = {
+				set_cosmetic_tag = HOL_benelux_unified
+				BEL = {
+					every_unit_leader = {
+						set_nationality = ROOT
+					}
+				}
+				HOL = {
+					every_unit_leader = {
+						set_nationality = ROOT
+					}
+				}
+				annex_country = {
+				    target = BEL
+				    transfer_troops = yes
+				}
+				annex_country = {
+				    target = HOL
+				    transfer_troops = yes
+				}
+				every_state = {
+					limit = {
+						OR = {
+							is_core_of = BEL
+							is_core_of = HOL
+						}
+					}
+					add_core_of = ROOT
+				}
+			}
+			custom_effect_tooltip = HOL_propose_benelux_unification_tt
+			BEL = {
+				country_event = { 
+				  id = mtg_netherlands.77 
+				  days = 5 
+				  random_days = 3 
+			   }
+			}
+			HOL = {
+				country_event = { 
+					id = mtg_netherlands.77 
+					days = 1 
+					random_days = 3 
+				}
+			}
+		}
+	}
+}
+#LUX_general_election_1937_category = {
+	#LUX_general_election_1937  = {
+
+	#icon = generic_political_discourse
+
+	#allowed = { 
+		#original_tag = LUX
+		#has_elections = yes
+		#has_government = democratic
+	#}
+
+	#available = {
+		#date > 1937.03.30
+	#}
+
+	#days_mission_timeout = 65
+
+	#fire_only_once = yes
+
+	#activation = {
+		#date > 1937.06.05
+	#}
+
+	#visible = {
+		#NOT = { 
+			#has_country_flag = LUX_elections_start_1937_flag 
+		#}
+	#}
+
+	#cancel_if_not_visible = no
+
+	#is_good = yes
+
+	#complete_effect = {
+		#country_event = { 
+		    #id =  LUX_electins.1
+		    #days = 1
+		#}
+	#}
+
+	#timeout_effect = {
+		#country_event = { 
+			#id =  LUX_electins.1 
+			#days = 1
+		#}
+	#}
+#}
+#}
+LUX_shut_down_communist_category = {
+	LUX_arrest_communist_members = {
+		visible = { 
+			original_tag = LUX
+			has_completed_focus = LUX_destroy_communist
+		}
+		available = {
+			has_idea = LUX_communism_resistence
+			has_country_leader = {
+				name = "Joseph Bech"
+				ruling_only = yes
+			}
+		}
+		icon = generic_political_address
+		modifier = {
+			communism_drift = -0.10
+			political_power_cost = 0.15
+		}
+		fire_only_once = yes
+		days_remove = 30
+		cost = 200
+		ai_will_do = {
+			base = 10
+		}
+		complete_effect = {
+
+		}
+		remove_effect = {
+			set_country_flag = LUX_communism_arrest_dicision_flag
+			swap_ideas = {
+				remove_idea = LUX_communism_resistence
+				add_idea = LUX_communism_resistence2
+			}
+		}
+	}
+	LUX_arrest_communist_members_justice = {
+		visible = { 
+			original_tag = LUX
+			has_completed_focus = LUX_destroy_communist
+		}
+		available = {
+			has_country_flag = LUX_communism_arrest_dicision_flag
+		}
+		icon = generic_arrest
+		modifier = {
+			political_power_cost = 0.25
+		}
+		fire_only_once = yes
+		days_remove = 140
+		cost = 125
+		ai_will_do = {
+			base = 10
+		}
+		complete_effect = {
+            set_country_flag = LUX_communism_arrest_dicision_justice_flag
+		}
+		remove_effect = {
+			custom_effect_tooltip = communism_justice__diplomacy_tt
+			hidden_effect = {
+				every_possible_country = {
+					limit = {
+						has_government = communism
+					}
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = LUX_arrest_communism_mumbers
+					}
+				}
+			}
+			#if player yet not has this idea
+			if = {
+				limit = {
+					has_idea = LUX_communism_resistence2
+				}
+				remove_ideas = LUX_communism_resistence2
+			}
+			
+		}
+	}
+	LUX_communist_justice_end = {
+		visible = { 
+			original_tag = LUX
+			always = no
+		}
+		available = {
+			
+		}
+		icon = generic_arrest
+		modifier = {
+			
+		}
+		fire_only_once = yes
+		cost = 125
+		ai_will_do = {
+			base = 10
+		}
+		complete_effect = {
+          
+		}
+		remove_effect = {
+            
+		}
+	}
+}
+LUX_luxemburg_resistence_category = {
+	LUX_support_resistence_in_LUX = {
+		visible = { 
+			original_tag = LUX
+			is_government_in_exile = yes
+		}
+		available = {
+            8 ={
+			  is_controlled_by_ROOT_or_ally = no
+			}
+			NOT = {
+				has_country_flag = LUX_support_resistence_flag
+			}
+		}
+		icon = generic_prepare_civil_war
+		modifier = {
+			8 = {
+				resistance_target = 0.15
+			}
+		}
+		fire_only_once = no
+		cost = 180
+		ai_will_do = {
+			base = 10
+		}
+		complete_effect = {
+            set_country_flag = LUX_support_resistence_flag
+		}
+		remove_effect = {
+            8 = {
+				add_resistance_target = 10
+				add_resistance = 5
+				add_compliance = -5
+			}
+		clr_country_flag = LUX_support_resistence_flag
+	    }
+	}
+}
+#end Great Depression
+LUX_great_depression_category = {
+
+}
+#credits
+LUX_luximburg_credits_category = {
+	LUX_credit_for_france_decision = {
+		visible = { 
+			original_tag = LUX
+			has_completed_focus = LUX_bank_credit
+		}
+		available = {
+			NOT = {
+				has_war_with = FRA
+			}
+		    country_exists = FRA
+		}
+		icon = decision_luxemburg_credit
+		modifier = {
+			
+		}
+		fire_only_once = yes
+		cost = 180
+		ai_will_do = {
+			base = 10
+		}
+		complete_effect = {
+          
+		}
+		remove_effect = {
+			add_timed_idea = {
+				idea = lux_france_credit
+				days = 730
+			}
+		add_opinion_modifier = {
+			target = FRA
+			modifier = LUX_pick_credit_opinion
+		}
+		FRA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = LUX_france_credit_opinion
+			}
+		}
+		set_country_flag = france_get_credit_flag
+		LUX_credit_give_army_factory = yes
+	    }
+	}
+	LUX_credit_for_belgum_decision = {
+		visible = { 
+			original_tag = LUX
+			has_completed_focus = LUX_bank_credit
+		}
+		available = {
+			NOT = {
+				has_war_with = BEL
+			}
+		    country_exists = BEL
+		}
+		icon = decision_luxemburg_credit
+		modifier = {
+			
+		}
+		fire_only_once = yes
+		cost = 180
+		ai_will_do = {
+			base = 10
+		}
+		complete_effect = {
+          
+		}
+		remove_effect = {
+			add_timed_idea = {
+				idea = lux_belgum_credit
+				days = 365
+			}
+		BEL = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = LUX_belgum_credit_opinion
+			}
+		}
+		add_opinion_modifier = {
+			target = BEL
+			modifier = LUX_pick_credit_opinion
+		}
+		LUX_credit_give_army_factory = yes
+		set_country_flag = belgum_get_credit_flag
+	    }
+	}
+}
+#luxemburg referendums dicisions
+#communist uprising in parts of world
+LUX_luximburg_communism_uprising_category = {
+	LUX_uprisng_decision_EU = {
+		icon = generic_civil_support
+		visible = { 
+			original_tag = LUX
+			has_completed_focus = LUX_communist_uprisng_europe
+		}
+		available = {
+			FROM  = {
+				LUX_triggers_check_FROM_uprising = yes
+			}
+			has_government = communism
+		}
+		modifier = {
+			political_power_cost = 0.65
+			political_power_gain = 0.95
+			stability_factor = -0.02
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes 
+                NOT = {
+					has_war_with = ROOT
+				}
+				has_civil_war = no
+				NOT = {
+                    has_government = communism
+					is_subject_of = ROOT
+				}
+				capital_scope = {
+					is_on_continent = europe
+				}
+			}
+		}
+		days_remove = 120
+		fire_only_once = yes
+		cost = 100
+		ai_will_do = {
+			base = 10
+		}
+		remove_effect = {
+		    set_country_flag = LUX_start_communist_uprising
+				FROM = {
+					start_civil_war = {
+						ideology = FROM
+						ruling_party = communism
+						keep_political_leader = yes
+						keep_political_party_members = yes
+					}
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = comrade_revolution
+					}
+					add_ideas = spirit_revolution
+					set_country_flag = general_start_workers_uprisng
+				}
+				set_autonomy = {
+					target = FROM
+					autonomous_state = autonomy_republic
+					end_wars = no
+					end_civil_wars = no
+				}
+	    }
+	}
+	#communist uprising in Latin America
+	LUX_uprisng_decision_LatinAmerica = {
+		icon = generic_civil_support
+		visible = { 
+			original_tag = LUX
+			has_completed_focus = LUX_communist_uporising_latin_america
+		}
+		available = {
+			FROM  = {
+				LUX_triggers_check_FROM_uprising = yes
+			}
+			has_government = communism
+	    }
+		modifier = {
+			political_power_gain = -0.95
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes 
+                NOT = {
+					has_war_with = ROOT
+				}
+				has_civil_war = no
+				NOT = {
+                    has_government = communism
+					is_subject_of = ROOT
+				}
+				capital_scope = {
+				OR  ={
+					is_on_continent = north_america
+					is_on_continent = south_america
+				}
+				}
+			}
+		}
+		days_remove = 120
+		fire_only_once = yes
+		cost = 150
+		ai_will_do = {
+			base = 10
+		}
+		remove_effect = {
+		    set_country_flag = LUX_start_communist_uprising
+				FROM = {
+					start_civil_war = {
+						ideology = FROM
+						ruling_party = communism
+						keep_political_leader = yes
+						keep_political_party_members = yes
+					}
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = comrade_revolution
+					}
+					add_ideas = spirit_revolution
+					set_country_flag = general_start_workers_uprisng
+				}
+				set_autonomy = {
+					target = FROM
+					autonomous_state = autonomy_republic
+					end_wars = no
+					end_civil_wars = no
+				}
+	    }
+	}
+	LUX_uprisng_decision_middle_east = {
+		icon = generic_civil_support
+		visible = { 
+			original_tag = LUX 
+			has_completed_focus = LUX_communist_uprisng_middle_east
+		}
+		available = {
+			FROM  = { 
+				LUX_triggers_check_FROM_uprising = yes
+			} 
+			has_government = communism
+		}
+		modifier = {
+			political_power_gain = -0.95 
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes 
+                NOT = {
+					has_war_with = ROOT
+				}
+				has_civil_war = no
+				NOT = {
+                    has_government = communism
+					is_subject_of = ROOT
+				}
+				capital_scope = {
+					is_on_continent = middle_east
+				}
+			}
+		}
+		days_remove = 120
+		fire_only_once = yes
+		cost = 125
+		ai_will_do = {
+			base = 10
+		}
+		complete_effect = {}
+		remove_effect = {
+			FROM = {
+				start_civil_war = {
+					ideology = FROM
+					ruling_party = communism
+					keep_political_leader = yes
+					keep_political_party_members = yes
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = comrade_revolution
+				}
+				add_ideas = spirit_revolution
+				set_country_flag = general_start_workers_uprisng
+			}
+			set_autonomy = {
+				target = FROM
+				autonomous_state = autonomy_republic
+				end_wars = no
+				end_civil_wars = no
+			}
+		}
+    }
+	LUX_uprisng_decision_asia = {
+		icon = generic_civil_support
+		days_remove = 120
+		cost = 200
+		visible = { 
+			original_tag = LUX 
+			has_completed_focus = LUX_communist_uprisng_asia
+		}
+		available = {
+			FROM  = {
+				LUX_triggers_check_FROM_uprising = yes
+			} 
+			has_government = communism
+		}
+		icon = generic_civil_support
+		modifier = { 
+			political_power_cost = 0.65 
+			political_power_gain = 0.95 
+			stability_factor = -0.02
+		}
+		target_trigger = { 
+			FROM = { 
+				exists = yes 
+                NOT = {
+					has_war_with = ROOT
+				}
+				has_civil_war = no
+				NOT = {
+                    has_government = communism
+					original_tag = ROOT
+					is_subject_of = ROOT
+				}
+				capital_scope = { 
+					is_on_continent = asia 
+				} 
+			}
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			base = 10
+		}
+		remove_effect = {
+		    set_country_flag = LUX_start_communist_uprising
+				FROM = {
+					start_civil_war = {
+						ideology = FROM
+						ruling_party = communism
+						keep_political_leader = yes
+						keep_political_party_members = yes
+					}
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = comrade_revolution
+					}
+					add_ideas = spirit_revolution
+					set_country_flag = general_start_workers_uprisng
+				}
+				set_autonomy = {
+					target = FROM
+					autonomous_state = autonomy_republic
+					end_wars = no
+					end_civil_wars = no
+				}
+	    }
+    }
+	LUX_uprisng_decision_africa = {
+		icon = generic_civil_support
+		visible = { 
+			original_tag = LUX 
+			has_completed_focus = LUX_communist_uprsing_africa
+		}
+		available = {
+		 FROM = { 
+			LUX_triggers_check_FROM_uprising = yes
+		    has_government = communism
+	    }}
+		modifier = { 
+			political_power_cost = 0.65 
+			political_power_gain = 0.95 
+			stability_factor = -0.02
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes 
+                NOT = {
+					has_war_with = ROOT
+				}
+				has_civil_war = no
+				NOT = {
+                    has_government = communism
+				}
+			}
+		}
+		days_remove = 120
+		fire_only_once = yes
+		cost = 175
+		ai_will_do = {
+			base = 10
+		}
+		remove_effect = {
+			FROM = {
+				start_civil_war = {
+					ideology = FROM
+					ruling_party = communism
+					keep_political_leader = yes
+					keep_political_party_members = yes
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = comrade_revolution
+				}
+				add_ideas = spirit_revolution
+				set_country_flag = general_start_workers_uprisng
+			}
+			set_autonomy = {
+				target = FROM
+				autonomous_state = autonomy_republic
+				end_wars = no
+				end_civil_wars = no
+			}
+		}
+	}
+}
+LUX_send_ultimatum_to_country = {
+	LUX_send_ultimatum = {
+		visible = { 
+			original_tag = LUX
+			has_completed_focus = LUX_ultimattus_to_benelux
+		}
+		available = {
+            NOT = {
+				has_country_flag = LUX_send_ultimatum_flag
+			}
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes 
+                NOT = {
+					has_war_with = ROOT
+				}
+				has_civil_war = no
+			}
+		}
+		targets = {
+			HOL
+			BEL
+		}
+		icon = hol_exchange_intelligence_data
+		modifier = {
+			political_power_cost = 0.15
+		}
+		days_remove = 30
+		fire_only_once = yes
+		cost = 100
+		ai_will_do = {
+			base = 10
+		}
+		complete_effect = {
+            set_country_flag = LUX_send_ultimatum_flag
+		}
+		remove_effect = {
+		if = {
+			limit = {
+				FROM  ={
+					original_tag = HOL
+				}
+			}
+			FROM = {
+				country_event = { id = LUX_ultimatus.3 hours = 16 random_hours = 8 }
+			}
+		}
+		if = {
+			limit = {
+				FROM  = {
+					original_tag = BEL
+				}
+			}
+			FROM = {
+				country_event = { id = LUX_ultimatus.4 hours = 16 random_hours = 8 }
+			}
+		}
+			clr_country_flag = LUX_send_ultimatum_flag
+	    }
+	}
+}
+LUX_anarchist_uprisng_category = {
+	LUX_anarchist_uprisnig = {
+		visible = { 
+			original_tag = LUX 
+			has_completed_focus = LUX_anarchist_uprising_2
+		}
+		available = { 
+			LUX_anarchist_ruling = yes
+			FROM  = {
+				NOT  = {
+                    is_subject_of = ROOT
+				}
+			}
+		}
+		icon = generic_civil_support
+		modifier = { 
+			political_power_cost = 1.00
+			political_power_gain = -0.95
+		}
+		target_trigger = {
+           if = {
+			 limit  = {
+                has_dlc = "La Resistance"
+			 }
+			 FROM  = {
+				NOT  = {
+					LUX_anarchist_ruling = yes
+				}
+			 }
+		   }
+		   FROM  = {
+			  exists = yes
+			  NOT = {
+				has_war_with = ROOT
+			  }  
+			  has_civil_war = no
+		   }
+		}
+		days_remove = 65
+		fire_only_once = yes
+		cost = 150
+		ai_will_do = { 
+			base = 10
+		}
+		remove_effect = {
+			custom_effect_tooltip = LUX_uprisnig_anarchist_effect_tt
+			hidden_effect =  {
+				FROM  = {
+					lUX_anarchist_ruling_set = yes
+					start_civil_war = {
+						ideology = FROM
+						ruling_party = neutrality
+						keep_political_leader = yes
+						keep_political_party_members = yes
+					}
+					set_political_party = {
+						ideology = neutrality
+						popularity = 100
+					}
+				}
+				set_autonomy = {
+					target = FROM
+					autonomous_state = autonomy_puppet
+					end_wars = no
+					end_civil_wars = no
+				}
+			}
+		}
+	}
+}
+LUX_buy_air_category  = {
+    LUX_buy_stormtroopers = {
+		visible = { 
+			original_tag = LUX 
+			has_completed_focus = LUX_buy_stormmtroops
+		}
+		available = { 
+			has_capitulated = no
+			NOT = {
+				has_country_flag = LUX_send_requst_to_buy_flag
+			}
+		}
+		icon = generic_operation
+		modifier = { 
+			political_power_cost = 1.00
+			political_power_gain = -0.95
+			consumer_goods_factor = 0.15
+		}
+		target_trigger = {
+		   FROM  = {
+			  exists = yes
+			  NOT = {
+				has_war_with = ROOT
+			  }  
+			  has_civil_war = no
+		   }
+		}
+		
+		targets = {
+          ENG 
+		  FRA 
+		  USA
+		}
+		days_remove = 35
+		fire_only_once = yes
+		cost = 100
+		ai_will_do = { 
+			base = 10
+		}
+		remove_effect = {
+            FROM = {
+                country_event = LUX_decisions.1
+			}
+			clr_country_flag = LUX_send_requst_to_buy_flag
+	    }
+		complete_effect = {
+		    set_country_flag = LUX_send_requst_to_buy_flag
+		}
+		}
+	LUX_buy_bombers2 = {
+		visible = { 
+			original_tag = LUX 
+			has_completed_focus = LUX_buy_bombers
+		}
+		available = { 
+			has_capitulated = no
+			NOT = {
+				has_country_flag = LUX_send_requst_to_buy_flag
+			}
+		}
+		icon = generic_operation
+		modifier = { 
+			political_power_cost = 0.25
+			political_power_gain = -0.10
+			consumer_goods_factor = 0.15
+		}
+		target_trigger = {
+		   FROM  = {
+			  exists = yes
+			  NOT = {
+				has_war_with = ROOT
+			  }  
+			  has_capitulated = no
+		   }
+		}
+		targets = {
+			ENG 
+			FRA 
+			USA
+		  }
+		days_remove = 35
+		fire_only_once = yes
+		cost = 125
+		ai_will_do = { 
+			base = 10
+		}
+		remove_effect = {
+            FROM = {
+				country_event = LUX_decisions.0
+			}
+			clr_country_flag = LUX_send_requst_to_buy_flag
+		}
+		complete_effect = {
+			set_country_flag = LUX_send_requst_to_buy_flag
+		}
+	  }
+}
+LUX_prepere_to_coup_category = {
+	#dicisions if Germany agreed to help in coup
+	LUX_ask_equipment_from_GER  = {
+		visible = { 
+			original_tag = LUX 
+			has_country_flag = LUX_delegation_to_germany_accepted_flag
+		}
+		available = { 
+			NOT = {
+				has_war_with = GER
+			}
+		}
+		icon = generic_operation
+		modifier = { 
+			political_power_cost = 0.10
+			fascism_drift = 0.05
+		}
+		days_remove = 60
+		fire_only_once = yes
+		cost = 50
+		ai_will_do = { 
+			base = 10
+		}
+		remove_effect = {
+
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+	}
+	#dicisions if Germany refused to help in coup
+	LUX_crate_youth_fascism_organization  = {
+		visible = { 
+			original_tag = LUX 
+			has_completed_focus = LUX_fascism_coup_prepere
+			NOT  = {
+				has_completed_focus = LUX_youth_fascism_organization
+			}
+		}
+		available = { 
+
+		}
+		icon = generic_political_address
+		modifier = { 
+			political_power_cost = 0.10
+			fascism_drift = 0.05
+		}
+		days_remove = 60
+		fire_only_once = yes
+		cost = 150
+		ai_will_do = { 
+			base = 10
+		}
+		remove_effect = {
+            set_country_flag = LUX_crate_youth_fascism_organization_flag
+			add_ideas = LUX_youth_organization
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+	}
+	LUX_youth_fascism_organization_meeting  = {
+		visible = { 
+			original_tag = LUX 
+			has_completed_focus = LUX_youth_organization_meetings
+		}
+		available = { 
+
+		}
+		icon = eng_propaganda_campaigns
+		modifier = { 
+			political_power_cost = 0.25
+			fascism_drift = 0.10
+		}
+		days_remove = 14
+		fire_only_once = no
+		cost = 125
+		ai_will_do = { 
+			base = 10
+		}
+		remove_effect = {
+            add_stability = -0.05
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = LUX_youth_organization
+					}
+				}
+				add_ideas = LUX_youth_organization
+			}
+		}
+	}
+	LUX_workers_supporting = {
+		visible = { 
+			original_tag = LUX 
+			has_completed_focus = LUX_ally_with_communst
+		}
+		available = { 
+
+		}
+		icon = eng_propaganda_campaigns
+		modifier = { 
+			fascism_drift = 0.08
+			communism_drift = 0.03
+			stability_weekly = -0.001
+		}
+		days_remove = 35
+		fire_only_once = no
+		cost = 150
+		ai_will_do = { 
+			base = 10
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.10
+			}
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+		}
+	}
+	LUX_anti_goverment_protest = {
+		visible = { 
+			original_tag = LUX 
+			has_completed_focus = LUX_pressure_on_goverment
+		}
+		available = { 
+           NOT = {
+			has_country_flag = anti_govermnet_acting_is_doing_flag
+		   }
+		}
+		icon = eng_propaganda_campaigns
+		modifier = { 
+			fascism_drift = 0.05
+			stability_weekly = -0.005
+		}
+		days_remove = 65
+		fire_only_once = no
+		cost = 150
+		ai_will_do = { 
+			base = 10
+		}
+		remove_effect = {
+			random_list = {
+				45 = {
+					country_event = LUX_fascism.4
+					effect_tooltip = {
+						add_popularity = {
+							ideology = fascism
+							popularity = 0.10
+						}
+					}
+				}
+				55 = {
+					country_event = LUX_fascism.5
+					effect_tooltip = {
+						add_popularity = {
+							ideology = fascism
+							popularity = -0.08
+						}
+						add_stability = -0.08
+					}
+				}
+			}
+			clr_country_flag = anti_govermnet_acting_is_doing_flag
+		}
+		complete_effect = {
+			add_stability = -0.05
+			set_country_flag = anti_govermnet_acting_is_doing_flag
+		}
+	}
+	LUX_goverment_coup_execute = {
+		visible = { 
+			original_tag = LUX 
+            has_completed_focus = LUX_pressure_on_goverment
+		}
+		available = { 
+            OR = {
+				fascism > 0.55
+				has_stability < 0.3
+			}
+			has_country_flag = LUX_goverment_use_force_flag
+		}
+		icon = eng_propaganda_campaigns
+		modifier = { 
+			fascism_drift = 0.10
+			stability_weekly = -0.010
+		}
+		fire_only_once = yes
+		days_remove = 7
+		cost = 200
+		ai_will_do = { 
+			base = 10
+		}
+		remove_effect = {
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+				last_election = "1935.12.17"
+				election_frequency = 48
+			}
+			country_event = LUX_fascism.6
+			effect_tooltip = {
+				if  = {
+					limit = {
+						is_guaranteed_by = FRA
+					}
+					FRA = {
+						diplomatic_relation = {
+							country = ROOT
+							relation = guarantee
+							active = no
+						}
+					}
+				}
+				if  = {
+					limit = {
+						is_guaranteed_by = ENG
+					}
+					ENG = {
+						diplomatic_relation = {
+							country = ROOT
+							relation = guarantee
+							active = no
+						}
+					}
+				}
+			}
+		}
+		complete_effect = {
+			add_stability = -0.1
+		}
+	}
+	LUX_mission_complete_busnessmanman_requmpment = {
+		days_mission_timeout = 140
+		is_good = yes
+		cancel_if_not_visible = yes
+		fire_only_once = yes
+		activation = {
+           original_tag = LUX
+		   has_completed_focus = LUX_ask_help_from_bussnessmen
+		   has_government = fascism
+		}
+		available = {
+
+		}
+		visible = {
+           original_tag = LUX
+		}
+		timeout_effect = {
+             swap_ideas = {
+				remove_idea = support_from_industrialists
+				add_idea = support_from_industrialists2
+			 }
+		}
+		cancel_trigger = {
+            has_completed_focus = LUX_less_taxes_for_industry
+		}
+		complete_effect  = {
+
+		}
+	}
+}
+LUX_liberation_war_category = {
+   LUX_liberation_war_coming_mission = {
+	days_mission_timeout = 140
+	is_good = yes
+	cancel_if_not_visible = yes
+	fire_only_once = yes
+	activation = {
+	   original_tag = LUX
+       has_country_flag = LUX_liberation_uprising_coming_flag
+	}
+	available = {
+
+	}
+	visible = {
+	   original_tag = LUX
+	}
+	timeout_effect = {
+		
+	}
+	cancel_trigger = {
+		
+	}
+	complete_effect  = {
+
+	}
+   }
+}

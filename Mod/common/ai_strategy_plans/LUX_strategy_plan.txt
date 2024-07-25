@@ -1,0 +1,327 @@
+#historical
+LUX_historical_plan = {
+	name = "Luxemburg Historical Plan"
+	desc = "Luxemburg will pursue neutrality for as long as possible."
+
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		has_global_flag = LUX_ai_historical_flag
+		is_government_in_exile = no
+	}
+	abort = {
+		is_government_in_exile = yes
+	}
+
+	ai_national_focuses = {
+       LUX_confirm_neutrality
+	   LUX_friendly_only
+	   LUX_continue_support
+	   LUX_ban_communisn_party_referendum
+	   LUX_trade_with_france
+	   LUX_peacment_communist
+	   LUX_constitution_reforms
+	   LUX_agreement_with_ENG_focus
+	   LUX_connections_in_benelux
+	   LUX_military_operation
+	   LUX_land_fort_building
+	   LUX_foreign_army_advisers
+	   LUX_army_reform
+	   
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		LUX_useless_army = 10
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+LUX_in_exile_plan_historical = {
+	name = "Luxemburg in exile"
+	desc = "Plan foe exile goverment of the LUX"
+
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		is_government_in_exile = yes
+		has_focus_tree = luxemburg_in_exile_three
+		has_global_flag = LUX_choose_indepence_flag
+	}
+	abort = {
+		is_government_in_exile = no
+		NOT = {
+			has_focus_tree = luxemburg_in_exile_three
+		}
+	}
+
+	ai_national_focuses = {
+		LUX_in_exile_fight
+		LUX_in_exile_agency
+		LUX_speak_to_nation
+		LUX_in_exile_working_with_goverments_in_exile
+		LUX_in_exile_working_with_HOL
+		LUX_in_exile_work_with_BEL
+		LUX_in_exile_crate_economy_benelux_union
+		LUX_in_exile_benelux_radio
+		LUX_analise_our_fail
+		LUX_support_resistence
+	}
+
+	research = {
+
+	}
+}
+#alternative
+LUX_in_exile_plan_alternative_pact_with_GER = {
+	name = "Luxemburg in exile"
+	desc = "Plan foe exile goverment of the LUX"
+
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		is_government_in_exile = yes
+		has_focus_tree = luxemburg_in_exile_three
+        has_global_flag = LUX_choose_collaboration_flag
+	}
+	abort = {
+
+	}
+
+	ai_national_focuses = {
+		LUX_in_exile_executive_council
+		LUX_in_exile_indepent_puppet
+		LUX_in_exile_puppet_germany
+		LUX_himmler_is_our_leader
+		
+	}
+
+	research = {
+
+	}
+}
+LUX_fascism_plan = {
+	name = "Luxembourg go to fascism coup"
+	desc = "" # Actually smart!
+
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+        has_global_flag = LUX_ai_fascism_flag
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		#LUX_fascism_coup_prepere
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+LUX_communism_plan = {
+	name = "Luxembourg go to communism puppet"
+	desc = "" # Actually smart!
+
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+        has_global_flag = LUX_ai_communst_puppet_flag
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		LUX_communism_win
+		LUX_liberate_workers
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+LUX_communism_plan2 = {
+	name = "Luxembourg go to communism workers uprising"
+	desc = "" # Actually smart!
+
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+        has_global_flag = LUX_ai_communst_workers_uprising_flag
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+LUX_anarchist_revolutiuon = {
+	name = "Luxembourg go to anarchism"
+	desc = "" # Actually smart!
+
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+        has_global_flag = LUX_ai_communst_anarchist_flag
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+LUX_democratic_alt = {
+	name = "Luxembourg go to democratic alt"
+	desc = "" # Actually smart!
+
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+        has_global_flag = LUX_ai_communst_democratic_alt_flag
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+LUX_monarchist = {
+	name = "Luxembourg go to democratic alt"
+	desc = "" # Actually smart!
+
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+        has_global_flag = LUX_ai_communst_democratic_alt_flag
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

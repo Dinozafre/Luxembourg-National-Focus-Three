@@ -1,0 +1,28 @@
+focus_tree = {
+	id = bookmarks_focuses
+	country = {
+       tag = NON
+	}
+	focus = {
+		id = LUX_neatrality
+		icon = GFX_focus_SWI_dissolve_the_federal_council
+		cost = 10
+		x = 6
+		y = 2
+
+	}
+	focus = {
+		id = LUX_TreatyLondon
+		icon = GFX_focus_chi_british_cooperation
+		cost = 10
+		x = 8
+		y = 2
+	}
+	focus = {
+		id = LUX_unit_benilux
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		cost = 10
+		x = 10
+		y = 2
+	}
+}

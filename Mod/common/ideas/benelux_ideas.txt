@@ -1,0 +1,14 @@
+ideas = {
+    country = {
+        BEL_neatrality_guarantees = {
+			allowed = {
+				always = yes
+			}
+			modifier = {
+				ai_focus_peaceful_factor = 0.25
+				drift_defence_factor = 0.15
+			}
+			picture = generic_pp_unity_bonus
+		}
+	}
+}

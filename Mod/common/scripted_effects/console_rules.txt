@@ -1,0 +1,15 @@
+set_rule_can_create_collaboration_government = {
+	set_rule = {
+		can_create_collaboration_government = yes
+	}
+}
+set_rule_can_access_market = {
+	set_rule = {
+		can_access_market = yes
+	}
+}
+set_rule_can_create_factions = {
+	set_rule = {
+		can_create_factions = yes
+	}
+}

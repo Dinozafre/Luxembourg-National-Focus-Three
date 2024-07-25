@@ -1,0 +1,28 @@
+LUX_idea_charlotte_grand_duchess = {
+    icon = GFX_idea_charlotte_grand_duchess_3k2_idea
+    enable = { always = yes }
+    army_attack_factor = idea_army_attack_factor
+	army_defence_factor = idea_army_defence_factor
+	army_core_defence_factor = idea_army_core_defence_factor
+	army_org = idea_army_org_factor
+	neutrality_drift = idea_neutrality_drift_factor
+	stability_factor = idea_stability_factor
+	political_power_gain = idea_political_power_gain_factor
+	weekly_manpower = idea_weekly_manpower
+}
+LUX_modifier_lefts_go_1 = {
+    icon = GFX_idea_generic_volunteer_expedition_bonus
+    enable = { always = yes }
+	communism_drift = 0.05
+	neutrality_drift = 0.05
+}
+LUX_modifier_lefts_go_2 = {
+    icon = GFX_idea_generic_volunteer_expedition_bonus
+    enable = { always = yes }
+	communism_drift = 0.05
+}
+LUX_modifier_lefts_go_3 = {
+    icon = GFX_idea_generic_volunteer_expedition_bonus
+    enable = { always = yes }
+	neutrality_drift = 0.05
+}

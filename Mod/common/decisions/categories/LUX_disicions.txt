@@ -1,0 +1,96 @@
+LUX_general_election_1937_category = {
+	priority = 10
+	icon = generic_crisis
+
+	picture = GFX_decision_cat_picture_concessions_to_the_trade_unions
+
+	allowed = {
+		tag = LUX
+		NOT = {
+			has_country_flag = LUX_elections_1937_flag
+		}
+	}
+}
+LUx_oposition_democratic_category = {
+	priority = 10
+	icon = generic_crisis
+
+	picture = GFX_decision_cat_picture_concessions_to_the_trade_unions
+
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_communist_uprising_earupe = {
+	
+}
+LUX_shut_down_communist_category = {
+	priority = 40
+	icon = generic_communism
+
+	picture = GFX_decision_cat_picture_fatherland_front
+
+	allowed = {
+		tag = LUX
+	}
+}
+#add LUX in exile resistence category
+LUX_luxemburg_resistence_category = {
+	priority = 50
+	icon = generic_protection
+
+	picture = GFX_decision_luxemburg_resistence
+
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_luximburg_credits_category = {
+	priority = 30
+	icon = ITA_reggianes_exports
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_luximburg_communism_uprising_category = {
+	priority = 100
+	icon = saf_anti_colonialist_crusade
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_send_ultimatum_to_country = {
+	priority = 50
+	icon = generic_foreign_policy
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_anarchist_uprisng_category = {
+	priority = 70
+	icon = NOR_fascist_deploy_prep
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_buy_air_category = {
+	priority = 40
+	icon = generic_trade
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_prepere_to_coup_category = {
+	priority = 100
+	icon = generic_fascism
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_liberation_war_category = {
+	priority = 150
+	icon = NOR_fascist_deploy_prep
+	allowed = {
+		tag = LUX
+	}
+}

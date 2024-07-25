@@ -1,0 +1,712 @@
+focus_tree = {
+	id = luxemburg_in_exile
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = LUX
+			factor = 0
+			modifier = {
+					add = 0
+					tag = LUX
+				}
+			
+		}
+	}
+	default = no
+	focus = {
+		id = LUX_in_exile_fight
+		icon = GFX_goal_generic_demand_territory
+		cost = 10
+		mutually_exclusive = {
+			focus = LUX_in_exile_executive_council
+		}
+		x = 9
+		y = 0
+			available = {
+					has_capitulated = yes
+				}
+			completion_reward = {
+					add_legitimacy = 25
+					8 = {
+							add_resistance = 5
+						}
+					add_resistance_target = {
+							id = 8
+							amount = 10
+							occupied = LUX
+							occupier = GER
+							days = 365
+						}
+				}
+			bypass = {
+
+}
+			cancel = {
+
+}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_in_exile_cancel_core
+		icon = GFX_goal_generic_major_war
+		cost = 10
+		x = 20
+		y = 0
+			completion_reward = {
+					8 = {
+							set_resistance = 40
+							set_compliance = 10
+						}
+					GER = {
+							remove_state_core = 8
+						}
+				}
+			available = {
+					8 = {
+							is_core_of = GER
+						}
+				}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_in_exile_executive_council
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 5
+		mutually_exclusive = {
+			focus = LUX_in_exile_fight
+		}
+		x = 13
+		y = 0
+			completion_reward = {
+					add_stability = 0.1
+				}
+			available = {
+
+}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_uprising_plans
+		icon = GFX_goal_generic_military_sphere
+		cost = 10
+		x = 3
+		y = 0
+			completion_reward = {
+					hidden_effect = {
+							every_possible_country = {
+									limit = {
+											has_capitulated = yes
+											is_ally_with = ROOT
+										}
+									add_legitimacy = 15
+								}
+						}
+					custom_effect_tooltip = uprising_plan_effects_tt
+				}
+			available = {
+					OR = {
+							custom_trigger_tooltip = {
+									tooltip = ally_has_defence_war_with_GER_tt
+									any_allied_country = {
+											has_defensive_war_with = GER
+										}
+								}
+							is_government_in_exile = yes
+						}
+				}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_in_exile_working_with_goverments_in_exile
+		icon = GFX_goal_generic_major_alliance
+		cost = 10
+		x = 17
+		y = 0
+			available = {
+					is_government_in_exile = yes
+					days_since_capitulated > 140
+				}
+			completion_reward = {
+					add_political_power = 150
+				}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_liberation_poland
+		icon = GFX_focus_POL_reach_out_to_underground_state
+		cost = 10
+		prerequisite = {
+			focus = LUX_uprising_plans
+		}
+		x = 1
+		y = 1
+			completion_reward = {
+					every_state = {
+							limit = {
+									is_core_of = POL
+									is_controlled_by = GER
+								}
+							add_resistance_target = 25
+							add_resistance = 15
+						}
+					hidden_effect = {
+							POL = {
+									add_ideas = POL_polish_resistense
+								}
+						}
+					custom_effect_tooltip = polish_resistence_idea_hidden_tt
+				}
+			available = {
+					is_ally_with = POL
+					POL = {
+							days_since_capitulated > 350
+							has_capitulated = yes
+						}
+					has_equipment = {
+							infantry_equipment > 499
+						}
+				}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_uprising_poland
+		icon = GFX_focus_SWI_helvetic_junta
+		cost = 10
+		prerequisite = {
+			focus = LUX_liberation_poland
+		}
+		x = 1
+		y = 2
+			completion_reward = {
+					every_state = {
+							limit = {
+									is_core_of = POL
+									is_controlled_by = GER
+								}
+							add_resistance_target = 15
+							add_resistance = 45
+						}
+				}
+			available = {
+					all_state = {
+							limit = {
+									is_core_of = POL
+									is_controlled_by = GER
+								}
+							resistance > 50
+						}
+				}
+			bypass = {
+					POL = {
+							is_government_in_exile = no
+						}
+				}
+
+	}
+	focus = {
+		id = LUX_liberation_benelux
+		icon = GFX_goal_generic_small_arms
+		cost = 10
+		prerequisite = {
+			focus = LUX_uprising_plans
+		}
+		x = 3
+		y = 1
+			available_if_capitulated = yes
+			available = {
+					is_ally_with = HOL
+					is_ally_with = BEL
+					any_state = {
+							limit = {
+									OR = {
+											is_core_of = ROOT
+											is_core_of = BEL
+											is_core_of = HOL
+										}
+								}
+							is_controlled_by = GER
+						}
+				}
+			completion_reward = {
+					LUX_belgum_uprising = yes
+					LUX_niderlands_uprsing = yes
+					LUX_luxemburg_uprising = yes
+				}
+
+	}
+	focus = {
+		id = LUX_liberate_norway
+		icon = GFX_goal_generic_more_territorial_claims
+		cost = 10
+		prerequisite = {
+			focus = LUX_liberation_benelux
+		}
+		x = 3
+		y = 2
+			available_if_capitulated = yes
+			completion_reward = {
+					if = {
+							limit = {
+									LUX_has_dlc_AAT = yes
+								}
+							LUX_uprising_norway_AAT = yes
+						}
+					if = {
+							limit = {
+									LUX_no_dlc_AAT = yes
+								}
+							LUX_uprising_norway = yes
+						}
+				}
+			available = {
+					any_other_country = {
+							limit = {
+									original_tag = NOR
+								}
+							has_government = democratic
+						}
+				}
+
+	}
+	focus = {
+		id = LUX_liberation_france
+		icon = GFX_goal_generic_territory_or_war
+		cost = 10
+		prerequisite = {
+			focus = LUX_uprising_plans
+		}
+		x = 5
+		y = 1
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_in_exile_agency
+		icon = GFX_goal_generic_defence
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_fight
+		}
+		x = 9
+		y = 1
+			completion_reward = {
+					create_intelligence_agency = {
+							name = "LuxembourgishPatriotLeague"
+							icon = GFX_agency_logo_lux
+						}
+				}
+			available = {
+
+}
+			bypass = {
+
+}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_speak_to_nation
+		icon = GFX_focus_generic_strike_at_democracy2
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_agency
+		}
+		x = 9
+		y = 2
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = LUX_idea_charlotte_grand_duchess
+							add_idea = LUX_idea_charlotte_grand_duchess2
+						}
+				}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_in_exile_unite_all_parties
+		icon = GFX_goal_generic_national_unity
+		cost = 10
+		prerequisite = {
+			focus = LUX_speak_to_nation
+		}
+		mutually_exclusive = {
+			focus = LUX_analise_our_fail
+		}
+		x = 8
+		y = 3
+			available = {
+					custom_trigger_tooltip = {
+							if = {
+									limit = {
+											has_government = democratic
+										}
+									NOT = {
+											has_decision = ban_fascist_party
+											has_decision = ban_communist_party
+											has_decision = ban_democratic_party
+										}
+								}
+							tooltip = no_any_ban_party_tt
+						}
+				}
+			completion_reward = {
+					add_war_support = 0.1
+					add_stability = 0.06
+				}
+			bypass = {
+
+}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_in_exile_partisan_movement
+		icon = GFX_goal_generic_territory_or_war
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_unite_all_parties
+		}
+		x = 8
+		y = 4
+			bypass = {
+					NOT_has_Lar = yes
+				}
+			available = {
+
+}
+			completion_reward = {
+					add_ideas = all_adults_serve
+					upgrade_intelligence_agency = upgrade_economy_civilian
+					upgrade_intelligence_agency = upgrade_army_department
+					upgrade_intelligence_agency = upgrade_naval_department
+					upgrade_intelligence_agency = upgrade_airforce_department
+				}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_analise_our_fail
+		icon = GFX_goal_generic_army_doctrines
+		cost = 10
+		prerequisite = {
+			focus = LUX_speak_to_nation
+		}
+		mutually_exclusive = {
+			focus = LUX_in_exile_unite_all_parties
+		}
+		x = 10
+		y = 3
+			completion_reward = {
+					add_doctrine_cost_reduction = {
+							cost_reduction = 0.4
+							uses = 5
+							category = land_doctrine
+						}
+				}
+			available = {
+
+}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_in_exile_build_cover
+		icon = GFX_goal_generic_fortify_city
+		cost = 10
+		prerequisite = {
+			focus = LUX_analise_our_fail
+		}
+		x = 10
+		y = 4
+			completion_reward = {
+					8 = {
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+									type = bunker
+									level = 4
+									instant_build = yes
+								}
+						}
+				}
+			available = {
+
+}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_in_exile_rise
+		icon = GFX_goal_generic_small_arms
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_partisan_movement
+			focus = LUX_in_exile_build_cover
+		}
+		x = 9
+		y = 5
+			completion_reward = {
+					8 = {
+							add_resistance = 40
+							add_resistance_target = 30
+						}
+					hidden_effect = {
+							load_focus_tree = luxemburg
+						}
+				}
+			available = {
+					8 = {
+							resistance > 65
+							compliance < 10
+							is_core_of = ROOT
+						}
+				}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_in_exile_indepent_puppet
+		icon = GFX_focus_chi_mission_to_germany
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_executive_council
+		}
+		x = 13
+		y = 1
+			completion_reward = {
+					add_ideas = hitler_puppet
+					hidden_effect = {
+							country_event = LUX_peace.1
+							news_event = lux_news.0
+							GER_Puppet_lux_peace = yes
+						}
+					custom_effect_tooltip = LUX_germany_peace_tt
+				}
+			available_if_capitulated = yes
+			available = {
+					has_war_with = GER
+				}
+
+	}
+	focus = {
+		id = LUX_in_exile_full_independ
+		icon = GFX_goal_generic_propaganda
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_indepent_puppet
+		}
+		mutually_exclusive = {
+			focus = LUX_in_exile_puppet_germany
+		}
+		x = 12
+		y = 2
+			completion_reward = {
+					every_possible_country = {
+							limit = {
+									is_ally_with = ENG
+								}
+							white_peace = ROOT
+						}
+				}
+
+	}
+	focus = {
+		id = LUX_in_exile_coup_to_democracy_join_allies
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_full_independ
+		}
+		x = 12
+		y = 3
+
+	}
+	focus = {
+		id = LUX_in_exile_puppet_germany
+		icon = GFX_focus_generic_annex_country
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_indepent_puppet
+		}
+		mutually_exclusive = {
+			focus = LUX_in_exile_full_independ
+		}
+		x = 14
+		y = 2
+			completion_reward = {
+
+}
+			available = {
+
+}
+			bypass = {
+
+}
+
+	}
+	focus = {
+		id = LUX_himmler_is_our_leader
+		icon = GFX_focus_lux_himmler_leader
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_puppet_germany
+		}
+		x = 14
+		y = 3
+			completion_reward = {
+					LUX_crate_leader_himmler = yes
+				}
+			available = {
+					has_government = fascism
+				}
+
+	}
+	focus = {
+		id = LUX_war_factories_himmler
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10
+		prerequisite = {
+			focus = LUX_himmler_is_our_leader
+		}
+		x = 14
+		y = 4
+
+	}
+	focus = {
+		id = LUX_mobilization_law
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = LUX_war_factories_himmler
+		}
+		mutually_exclusive = {
+			focus = LUX_himmler_coup
+		}
+		x = 13
+		y = 5
+
+	}
+	focus = {
+		id = LUX_himmler_coup
+		icon = GFX_goal_unknown
+		cost = 10
+		prerequisite = {
+			focus = LUX_war_factories_himmler
+		}
+		mutually_exclusive = {
+			focus = LUX_mobilization_law
+		}
+		x = 15
+		y = 5
+
+	}
+	focus = {
+		id = LUX_in_exile_working_with_HOL
+		icon = GFX_goal_generic_improve_relations
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_working_with_goverments_in_exile
+		}
+		x = 16
+		y = 1
+			available_if_capitulated = yes
+			available = {
+					HOL = {
+							is_government_in_exile = yes
+						}
+				}
+			completion_reward = {
+					HOL = {
+							LUX_get_opinion_general_benelux_work_together = yes
+						}
+				}
+
+	}
+	focus = {
+		id = LUX_in_exile_work_with_BEL
+		icon = GFX_goal_generic_improve_relations
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_working_with_goverments_in_exile
+		}
+		x = 18
+		y = 1
+			available_if_capitulated = yes
+			available = {
+					BEL = {
+							is_government_in_exile = yes
+						}
+				}
+			completion_reward = {
+					BEL = {
+							LUX_get_opinion_general_benelux_work_together = yes
+						}
+				}
+
+	}
+	focus = {
+		id = LUX_in_exile_crate_economy_benelux_union
+		icon = GFX_focus_benelux_economic_union
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_working_with_HOL
+		}
+		prerequisite = {
+			focus = LUX_in_exile_work_with_BEL
+		}
+		x = 17
+		y = 2
+			available_if_capitulated = yes
+			completion_reward = {
+					HOL = {
+							country_event = benelux_events.0
+						}
+					BEL = {
+							country_event = benelux_events.0
+						}
+				}
+
+	}
+	focus = {
+		id = LUX_in_exile_benelux_radio
+		icon = GFX_goal_generic_radar
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_crate_economy_benelux_union
+		}
+		x = 17
+		y = 3
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_support_resistence
+		icon = GFX_goal_generic_political_pressure
+		cost = 10
+		prerequisite = {
+			focus = LUX_in_exile_benelux_radio
+		}
+		x = 17
+		y = 4
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_ready_to_coup_himmpler
+		icon = GFX_goal_generic_position_armies
+		cost = 10
+		prerequisite = {
+			focus = LUX_himmler_coup
+		}
+		x = 15
+		y = 6
+			available_if_capitulated = yes
+
+	}
+}

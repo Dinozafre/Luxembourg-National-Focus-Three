@@ -1,0 +1,80 @@
+leader_traits = {
+	decentrelisation = {
+		random = no
+		surrender_limit = 0.2
+		political_power_gain = -0.015
+		army_core_defence_factor = 0.1
+		army_speed_factor = 0.3
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	army_explert = {
+		random = no
+		army_core_defence_factor = 0.09
+		army_speed_factor = 0.07
+		planning_speed = 0.10
+		training_time_factor = -0.10
+		experience_gain_army = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	political_expert = {
+		random = no
+		fascism_drift = 0.04
+		war_support_factor = 0.05
+		subjects_autonomy_gain = -0.2
+		compliance_gain = 0.03
+		political_power_gain = 0.25
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	peoples_council  = {
+		political_power_cost = 0.50
+		surrender_limit = 0.15
+		stability_factor = -0.15
+		drift_defence_factor = 0.05
+		party_popularity_stability_factor = 0.30
+		resistance_damage_to_garrison_on_our_occupied_states = 0.10
+		subjects_autonomy_gain = 2
+		communism_acceptance = 0.04
+	}
+	leader_of_revolution = {
+		drift_defence_factor = 0.50
+		political_power_gain = 0.15
+		stability_factor = 0.20
+		communism_drift = 0.15
+	}
+    ambition_dictator = {
+		political_power_gain = 0.15
+		war_stability_factor = 0.10
+		justify_war_goal_time = -0.05
+	}
+	LUX_fascism_puppet = {
+		political_power_cost = 0.25
+		fascism_drift = 0.05
+		master_ideology_drift = 0.30
+		war_support_factor = 0.10
+		command_power_gain = 0.02
+		autonomy_gain_trade = -0.02
+	}
+	LUX_idiology_balance = {
+		fascism_drift = 0.05
+		communism_drift = 0.02
+		political_power_gain = -0.10
+		drift_defence_factor = -0.05
+	}
+	LUX_fascism_lover = {
+		fascism_drift = 0.10
+		political_power_gain = 0.05
+		drift_defence_factor = 0.10
+	}
+	LUX_collective_goverment = {
+		fascism_drift = 0.05
+		communism_drift = 0.05
+		political_power_cost = 0.15
+	}
+}
