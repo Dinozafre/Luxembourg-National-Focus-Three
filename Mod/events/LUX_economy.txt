@@ -1,0 +1,268 @@
+add_namespace = LUX_economy
+country_event = {
+	id = LUX_economy.0
+	title = LUX_economy.0.t
+	desc = LUX_economy.0.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = LUX_economy.0.a
+		add_dynamic_modifier = {
+			modifier = shared_credit_dynamic
+			days = 345
+		}
+		FROM  = {
+			clr_country_flag = try_give_credit_to_county_flag
+		}
+		set_country_flag = get_credit_from_LUX_flag
+	}
+	option = {
+		name = LUX_economy.0.b
+		FROM  = {
+			clr_country_flag = try_give_credit_to_county_flag
+		}
+	}
+	immediate = {
+
+	}
+}
+#Luxembourg cancel London agreetment shared event
+country_event = {
+	id = LUX_economy.1
+	title = LUX_economy.1.t
+	desc = LUX_economy.1.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		#lets sancion them!
+		name = LUX_economy.1.a
+		if  = {
+           limit = {
+			  has_dlc = "By Blood Alone"
+		   }
+		   send_embargo = FROM
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = LUX_cancel_london_agreetmant_trade
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		#sencation, is not right time
+		name = LUX_economy.1.b
+		ai_chance = {
+			base = 0
+		}
+	}
+	immediate = {
+
+	}
+}
+#great depression is not defeat
+country_event = {
+	id = LUX_economy.2
+	title = LUX_economy.2.t
+	desc = LUX_economy.2.desc
+	picture = GFX_report_event_generic_research_lab
+	is_triggered_only = yes
+	option = {
+		#its over...
+		name = LUX_economy.2.a
+        add_stability = -0.15
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.20
+		}
+		custom_effect_tooltip = LUX_the_great_depression_modify_tt
+		add_to_variable = {
+			var = LUX_the_great_depression_production_speed_buildings_factor
+			value = -0.05
+			tooltip = production_speed_buildings_factor_tt
+		}
+		set_country_flag = failed_to_remove_great_depression_flag
+	}
+	immediate = {
+       set_variable = {
+		   LUX_the_great_depression_production_speed_buildings_factor = -0.20
+	   }
+	}
+}
+#communist uprising
+country_event = {
+	id = LUX_economy.3
+	title = LUX_economy.3.t
+	desc = LUX_economy.3.desc
+	picture = GFX_report_event_generic_research_lab
+	is_triggered_only = yes
+	trigger = {
+		original_tag = LUX
+		communism > 0.55
+        has_country_flag = failed_to_remove_great_depression_flag
+	}
+	option = {
+		name = LUX_economy.3.a
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = no
+		}
+		add_stability = -0.10
+		add_political_power = -100
+	}
+	mean_time_to_happen = {
+        days = 1
+	}
+	immediate = {
+
+	}
+}
+#trade with allies leader
+country_event = {
+	id = LUX_economy.4
+	title = LUX_economy.5.t
+	desc = LUX_economy.5.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		#why not
+		name = LUX_economy.5.a
+		set_variable = {
+			allies_leader_var = THIS
+		}
+		FROM = {
+			country_event = {
+				id = LUX_economy.6
+				random_hours = 6
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		#no
+		name = LUX_economy.5.b
+		FROM  = {
+			country_event = {
+				id = LUX_economy.8
+				random_hours = 6
+				days = 1
+			}
+		}
+	}
+	immediate = {
+
+	}
+}
+#trade with axis leader
+country_event = {
+	id = LUX_economy.5
+	title = LUX_economy.5.t
+	desc = LUX_economy.5.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		#why not
+		name = LUX_economy.5.a
+		set_variable = {
+			axis_leader_var = THIS
+		}
+		FROM = {
+			country_event = {
+				id = LUX_economy.7
+				random_hours = 6
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		#no
+		name = LUX_economy.5.b
+		FROM  = {
+			country_event = {
+				id = LUX_economy.8
+				random_hours = 6
+				days = 1
+			}
+		}
+	}
+	immediate = {
+
+	}
+}
+#report event yes allies leader
+country_event = {
+	id = LUX_economy.6
+	title = LUX_economy.6.t
+	desc = LUX_economy.6.desc
+	picture = GFX_report_event_generic_handshake
+	is_triggered_only = yes
+	option = {
+		name = LUX_economy.6.a
+		add_ideas = LUX_trade_with_allies_ns
+		add_opinion_modifier = {
+			target = FROM
+			modifier = generic_trade_agreetments
+		}
+		if = {
+			limit = { LUX_has_dlc_AAT = yes}
+			give_market_access = FROM
+			add_equipment_subsidy = {
+				cic = 2150
+				equipment_type = infantry_equipment
+				seller_trigger = seller_trigger_allies
+			}
+		}
+	}
+	immediate = {
+
+	}
+}
+#report event yes axis leader
+country_event = {
+	id = LUX_economy.7
+	title = LUX_economy.7.t
+	desc = LUX_economy.7.desc
+	picture = GFX_report_event_generic_handshake
+	is_triggered_only = yes
+	option = {
+		name = LUX_economy.7.a
+		add_ideas = LUX_trade_with_axis_ns
+		add_opinion_modifier = {
+			target = FROM
+			modifier = generic_trade_agreetments
+		}
+		if = {
+			limit = { LUX_has_dlc_AAT = yes}
+			give_market_access = FROM
+			add_equipment_subsidy = {
+				cic = 2500
+				equipment_type = support_equipment
+				seller_trigger = seller_trigger_axis
+			}
+		}
+	}
+	immediate = {
+
+	}
+}
+#shared say no about trade
+country_event = {
+	id = LUX_economy.8
+	title = LUX_economy.8.t
+	desc = LUX_economy.8.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		name = LUX_economy.8.a
+	}
+	immediate = {
+
+	}
+}

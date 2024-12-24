@@ -1,0 +1,687 @@
+add_namespace = LUX_diplomacy
+add_namespace = LUX_corporation_with_germany
+###### COOPERATION WITH GERMANY EVENTS ######
+country_event = {
+	id = LUX_corporation_with_germany.0
+	title = LUX_corporation_with_germany.0.t
+	desc =  LUX_corporation_with_germany.0.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		name = LUX_corporation_with_germany.0.a
+		add_to_tech_sharing_group = LUX_fascism_tech_sharing_group
+		FROM = {
+			add_to_tech_sharing_group = LUX_fascism_tech_sharing_group
+			set_country_flag = added_in_tech_sharing_group_flag
+			country_event = {
+               id = LUX_corporation_with_germany.1
+			   random_hours = 6
+			}
+		}
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+			active = yes
+		}
+	}
+	option = {
+		name = LUX_corporation_with_germany.0.b
+		FROM = {
+			country_event = {
+				id = LUX_corporation_with_germany.2
+				random_hours = 6
+			 }
+		}
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_corporation_with_germany.1
+	title = LUX_corporation_with_germany.1.t
+	desc =  LUX_corporation_with_germany.1.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = LUX_corporation_with_germany.1.a
+		effect_tooltip = {
+			diplomatic_relation = {
+				country = FROM
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+		add_to_tech_sharing_group = LUX_fascism_tech_sharing_group
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_corporation_with_germany.2
+	title = LUX_corporation_with_germany.2.t
+	desc =  LUX_corporation_with_germany.2.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = LUX_corporation_with_germany.2.a
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+### LUX_diplomacy ###
+#diplomacy
+#non-aggretion pact with neighours
+country_event = {
+	id = LUX_diplomacy.0
+	title = LUX_diplomacy.0.t
+	picture = GFX_report_event_generic_sign_treaty1
+	desc = LUX_diplomacy.0.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		#yes
+		name = LUX_diplomacy.0.count.a
+		diplomatic_relation = {
+			country = LUX
+			relation = non_aggression_pact
+			active = yes
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				has_goverment = FROM
+				add = 10
+			}
+			modifier = {
+				is_neighbor_of = FROM
+				add = 5
+			}
+			modifier = {
+				is_subject_of = FROM
+				add = 100
+			}
+		}
+	}
+	option = {
+		#no
+		name = LUX_diplomacy.0.count.b
+		ai_chance = {
+			base = 5
+			modifier = {
+				is_in_faction = yes
+				add = 5
+			}
+		}
+	}
+	immediate = {
+	hidden_effect = {
+	}
+    }
+}
+#french guarantees
+country_event = {
+	id = LUX_diplomacy.1
+	title = LUX_diplomacy.1.t
+	picture = GFX_report_event_generic_sign_treaty2
+	desc = LUX_diplomacy.1.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		#yes
+		name = LUX_diplomacy.1.count.a
+		diplomatic_relation = {
+			country = LUX
+			relation = guarantee
+			active = yes
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 5
+				has_government = democratic
+			}
+		}
+	}
+	option = {
+		#no
+		name = LUX_diplomacy.0.count.b
+		ai_chance = {
+			base = 5
+		}
+	}
+	immediate = {
+	hidden_effect = {
+	}
+    }
+}
+#germany delegation
+country_event = {
+	id = LUX_diplomacy.2
+	title = LUX_diplomacy.2.t
+	picture = GFX_report_event_generic_sign_treaty2
+	desc = LUX_diplomacy.2.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		#we agree
+		name = LUX_diplomacy.2.count.a
+		set_global_flag = LUX_delegation_to_germany_accepted_flag
+		LUX  = {
+			country_event = LUX_diplomacy.3
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 10
+				has_opinion = {
+					target = GER
+					value > 65
+				}
+			}
+			modifier = {
+				add = 500
+                is_subject_of = GER
+			}
+		}
+	}
+	option = {
+		#no
+		set_global_flag = LUX_delegation_to_germany_refused_flag
+		name = LUX_diplomacy.2.count.b
+		ai_chance = {
+			base = 1
+		}
+		LUX  = {
+			country_event = LUX_diplomacy.4
+		}
+	}
+	immediate = {
+	hidden_effect = {
+	}
+    }
+}
+#germany say yes
+country_event = {
+	id = LUX_diplomacy.3
+	title = LUX_diplomacy.3.t
+	picture = GFX_report_event_finnish_letter
+	desc = LUX_diplomacy.3.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		name = LUX_diplomacy.3.count.a
+	}
+	immediate = {
+	hidden_effect = {
+		set_global_flag = LUX_delegation_to_germany_accepted_flag
+	}
+    }
+}
+#germany say no
+country_event = {
+	id = LUX_diplomacy.4
+	title = LUX_diplomacy.4.t
+	picture = GFX_report_event_generic_sign_treaty2
+	desc = LUX_diplomacy.4.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		name = LUX_diplomacy.4.count.a
+	}
+	immediate = {
+	hidden_effect = {
+		set_global_flag = LUX_delegation_to_germany_refused_flag
+	}
+    }
+}
+#капитуляция Люксимбурга
+country_event = {
+	id = LUX_diplomacy.5
+	title = LUX_diplomacy.5.t
+	desc = LUX_diplomacy.5.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = { 
+		name = LUX_diplomacy.5.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				is_historical_focus_on = yes
+				add = 500
+			}
+		}
+        set_global_flag = LUX_choose_indepence_flag
+		complete_national_focus = LUX_in_exile_fight
+	}
+	option = { 
+		name = LUX_diplomacy.5.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				is_historical_focus_on = no
+				add = 50
+			}
+		}
+		set_global_flag = LUX_choose_collaboration_flag
+		complete_national_focus = LUX_in_exile_executive_council
+	}
+	trigger = {
+	}
+	immediate = {
+		hidden_effect = {
+			load_focus_tree = {
+				tree = luxemburg_in_exile
+				keep_completed = yes
+			}
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+}
+country_event = {
+	id = LUX_diplomacy.6
+	title = LUX_diplomacy.6.t
+	desc = LUX_diplomacy.6.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = { 
+		name = LUX_diplomacy.6.a
+        set_country_flag = FRA_luxembourg_over_dipomatic_relations_flag
+		add_opinion_modifier = {
+			target = LUX
+			modifier = diplomatic_relatation_is_over
+		}
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_diplomacy.7
+	title = LUX_diplomacy.7.t
+	desc = LUX_diplomacy.7.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = { 
+		name = LUX_diplomacy.7.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = 10
+				has_government = communism
+			}
+			modifier = {
+				add = 10
+				has_war_support > 0.20
+			}
+			modifier = {
+				add = 10
+				communism > 0.30
+			}
+			modifier = {
+				add = 10
+				has_opinion = {
+					target = FROM
+					value > 40
+				}
+			}
+		}
+		if = {
+			every_possible_country = {
+				limit = {
+					is_faction_leader = yes
+					is_ally_with = LUX
+					has_government = communism
+				}
+				PREV = {
+					add_to_faction = ROOT
+				}
+			}
+		}
+	    set_country_flag = join_to_commintern_faction_flag
+		news_event = { id = news.289 hours = 12 }
+	}
+	option = {
+		name = LUX_diplomacy.7.b
+		ai_chance = {
+			back = 1
+			modifier = {
+				has_war_with = FROM
+				add = 100
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				country_event = LUX_diplomacy.8
+			}
+		}
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_diplomacy.8
+	title = LUX_diplomacy.8.t
+	desc = LUX_diplomacy.8.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		name = LUX_diplomacy.8.b
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+#agreedment with england
+country_event = {
+	id = LUX_diplomacy.9
+	title = LUX_diplomacy.9.t
+	desc = LUX_diplomacy.9.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		name = LUX_diplomacy.9.a
+		set_country_flag = eng_agreed_agreeedmant_flag
+		ROOT  = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = LUX_agreement_with_ENG
+			}
+		}
+		hidden_effect = {
+			FROM = {
+				country_event = LUX_diplomacy.10
+			}
+		}
+		ai_chance = {
+			base = 0
+            modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = 5
+				NOT  = {
+				    has_war_with = FROM
+				}
+			}
+		}
+		set_variable = {
+			LUX.host_of_luxembourg_goverment_in_exile_var = ROOT
+		}
+	}
+	option = {
+		name = LUX_diplomacy.9.b
+		hidden_effect = {
+			FROM = {
+				country_event = LUX_diplomacy.11
+			}
+		}
+		ai_chance = {
+			base = 0
+            modifier = {
+				add = 5
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = 10
+				has_opinion = {
+					target = FROM
+					value < -35
+				}
+			}
+		}
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+#england say yes
+country_event = {
+	id = LUX_diplomacy.10
+	title = LUX_diplomacy.10.t
+	desc = LUX_diplomacy.10.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		name = LUX_diplomacy.10.a
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+#england say no
+country_event = {
+	id = LUX_diplomacy.11
+	title = LUX_diplomacy.11.t
+	desc =  LUX_diplomacy.11.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		name = LUX_diplomacy.11.a
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+#### NEGOTIATINS WITH GERMANY ######
+#event for GER
+country_event = {
+	id = LUX_diplomacy.12
+	title = LUX_diplomacy.12.t
+	desc = LUX_diplomacy.12.desc
+	picture = GFX_report_event_picture_generic_meeting_with_hitler
+	is_triggered_only = yes
+	option = {
+		#they liers!
+		name = LUX_diplomacy.12.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = LUX_negoations_failed
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				is_historical_focus_on = yes
+				add = 100
+			}
+		}
+		set_variable = {
+			LUX.negotiatioans_with_germans_failed = FROM
+		}
+		hidden_effect = {
+			FROM = {
+				country_event = {
+					id = LUX_diplomacy.13
+					days = 1
+					random_hours = 12
+				}
+			}
+		}
+	}
+	option = {
+		#they can be save neatrality
+		name = LUX_diplomacy.12.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				is_historical_focus_on = no
+				add = 5
+			}
+		}
+		set_variable = {
+			LUX.negotiatioans_with_germans_success = FROM
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = LUX_negoations_success
+		}
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+			active = yes
+		}
+		hidden_effect = {
+			FROM = {
+				country_event = {
+					id = LUX_diplomacy.14
+					days = 1
+					random_hours = 12
+				}
+			}
+		}
+	}
+}
+#resolts of negotiations for LUX
+country_event = {
+	id = LUX_diplomacy.13
+	title = LUX_diplomacy.13.t
+	desc = LUX_diplomacy.13.desc
+	picture = GFX_report_event_picture_generic_meeting_with_hitler
+	is_triggered_only = yes
+	option = {
+		name = LUX_diplomacy.13.a
+		effect_tooltip = {
+			FROM = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = LUX_negoations_failed
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = LUX_diplomacy.14
+	title = LUX_diplomacy.14.t
+	desc = LUX_diplomacy.14.desc
+	picture = GFX_report_event_picture_generic_meeting_with_hitler
+	is_triggered_only = yes
+	option = {
+		name = LUX_diplomacy.14.a
+		effect_tooltip = {
+			FROM = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = LUX_negoations_success
+				}
+				diplomatic_relation = {
+					country = ROOT
+					relation = non_aggression_pact
+					active = yes
+				}
+			}
+		}
+	}
+}
+#Luxembourg invite us to faction
+country_event = {
+	id = LUX_diplomacy.15
+	title = LUX_diplomacy.15.t
+	desc = LUX_diplomacy.15.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = LUX_diplomacy.15.a
+		FROM  = {
+			add_to_faction = ROOT
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+				add = 4
+				has_opinion = {
+					target = FROM
+					value > 50
+				}
+			}
+		}
+	}
+	option = {
+		name = LUX_diplomacy.15.b
+		ai_chance = {
+			base = 5
+		}
+	}
+}
+#Luxembourg break neatrality
+country_event = {
+	id = LUX_diplomacy.16
+	title = LUX_diplomacy.16.t
+	desc = LUX_diplomacy.16.desc
+	picture = GFX_report_event_british_inspect_troops
+	is_triggered_only = yes
+	option = {
+		#demand peace
+		name = LUX_diplomacy.16.a
+		LUX = {
+			country_event = {
+				id = LUX_neatrality.0
+				days = 1
+				random_hours = 6
+			}
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		name = LUX_diplomacy.16.b
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+country_event = {
+	id = LUX_diplomacy.17
+	title = LUX_diplomacy.17.t
+	desc = LUX_diplomacy.17.desc
+	picture = GFX_report_event_chinese_soldiers_01
+	is_triggered_only = yes
+	option = {
+		#they got in real trouble!
+		name = LUX_diplomacy.17.a
+		diplomatic_relation = {
+			country = FROM
+			relation = guarantee
+			active = no
+		}
+	}
+}
+country_event = {
+	id = LUX_diplomacy.18
+    hidden = yes
+	is_triggered_only = yes
+    immediate = {
+		save_event_target_as = friend_pact_aggresser
+	}
+}
+country_event = {
+	id = LUX_diplomacy.19
+    hidden = yes
+	is_triggered_only = yes
+    immediate = {
+		save_event_target_as = friend_pact_defender
+	}
+}

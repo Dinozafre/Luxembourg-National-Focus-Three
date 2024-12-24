@@ -1,0 +1,730 @@
+add_namespace = LUX_anarchist_events
+add_namespace = LUX_anarchist_news_events
+############################
+### LUX_anarchist_events ###
+############################
+#anarchist referendum
+country_event = {
+	id = LUX_anarchist_events.0
+	title = LUX_anarchist_events.0.t
+	desc =  LUX_anarchist_events.0.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		name = LUX_anarchist_events.0.a
+		set_country_flag = anarchist_win_refenrum_flag
+		set_cosmetic_tag = LUX_anarchist_neatrality
+		add_stability = -0.1
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_anarchist_events.1
+	is_triggered_only = yes
+	hidden = yes
+	immediate = {
+        hidden_effect = {
+			LUX = {
+				random_core_state = {
+					create_unit = {
+						division = "division_template = \"Public Force\" start_experience_factor = 0.1" 
+						owner = LUX
+						allow_spawning_on_enemy_provs = no
+						count = 2
+					}
+				}
+			}
+		}
+	}
+}
+#ask to annex to luxembourg or be ally of it
+country_event = {
+	id = LUX_anarchist_events.2
+	title = LUX_anarchist_events.2.t
+	desc =  LUX_anarchist_events.2.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		#agree to annex
+		name = LUX_anarchist_events.2.a
+		ai_chance = {
+			base = 5
+		}
+		FROM  = {
+			country_event = {
+				id = LUX_anarchist_events.3
+				random_hours = 12
+			}
+		}
+	}
+	option = {
+		#agree to be ally
+		name = LUX_anarchist_events.2.b
+		trigger = {
+			FROM = {
+				is_faction_leader = yes
+			}
+		}
+		FROM = {
+			add_to_faction = ROOT
+		}
+		hidden_effect = {
+			country_event = {
+				id = news.289
+				random_hours = 6
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+			   add = 5 
+			   has_goverment = FROM
+			}
+			modifier = {
+				add = 5
+				is_subject = no
+			}
+		}
+	}
+	option = {
+		#decline offer
+		name = LUX_anarchist_events.2.c
+		FROM = {
+		   set_country_flag = INS_decline_ultimatum
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+			   add = 10
+			   threat > 0.15
+			}
+			modifier = {
+				add = 5
+				num_of_military_factories > 4
+			 }
+		}
+		FROM  = {
+           country_event = {
+			   id = LUX_anarchist_events.4
+			   random_hours = 12
+		   }
+		}
+		# add_idea = communist_influence
+	}
+	trigger = {
+	}
+	immediate = {
+		save_event_target_as = alliance_applicant
+		FROM = {
+			save_event_target_as = alliance_inviter
+		}
+	}
+}
+#INS agreed to annex
+country_event = {
+	id = LUX_anarchist_events.3
+	title = LUX_anarchist_events.3.t
+	desc =  LUX_anarchist_events.3.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		#nice
+		name = LUX_anarchist_events.3.a
+		annex_country = {
+			target = FROM
+			transfer_troops = yes
+		}
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+#INS decline ultimatum
+country_event = {
+	id = LUX_anarchist_events.4
+	title = LUX_anarchist_events.4.t
+	desc = LUX_anarchist_events.4.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		#so, there will be consequences
+		name = LUX_anarchist_events.4.a
+        FROM = {
+			add_ideas = communist_influence
+		}
+		unlock_decision_tooltip = LUX_anarchist_uprisng_in_INS
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+#Luxembourg ask to join SPC in faction
+country_event = {
+	id = LUX_anarchist_events.5
+	title = LUX_anarchist_events.5.t
+	desc = LUX_anarchist_events.5.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		#yes
+		name = LUX_anarchist_events.5.a
+		hidden_effect = {
+			news_event = { id = LUX_leader_news.0 hours = 12 }
+			set_variable = { global.alliance_applicant = ROOT }
+			set_variable = { global.alliance_inviter = FROM }
+		}
+		FROM = {
+			add_to_faction = ROOT
+		}
+		ai_chance = {
+			base = 10
+		}
+		hidden_effect = {
+			every_other_country = {
+				limit = {
+					has_war_with = SPC
+				}
+				LUX = {
+					declare_war_on = {
+						target = PREV
+						type = topple_government
+					}
+				}
+			}
+		}
+	}
+	option = {
+		#no
+		name = LUX_anarchist_events.5.b
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+#we get most support of anarchist
+country_event = {
+	id = LUX_anarchist_events.6
+	title = LUX_anarchist_events.6.t
+	desc = LUX_anarchist_events.6.desc
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+	option = {
+		#good to hear it
+		name = LUX_anarchist_events.6.a
+		add_stability = -0.05
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.07
+		}
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+#we get support from 40 chance
+country_event = {
+	id = LUX_anarchist_events.7
+	title = LUX_anarchist_events.7.t
+	desc = LUX_anarchist_events.7.desc
+	picture = GFX_report_event_generic_rally2
+	is_triggered_only = yes
+	option = {
+		#good to hear it
+		name = LUX_anarchist_events.7.a
+		add_stability = -0.02
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.03
+		}
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+#we get support from 50 chance
+country_event = {
+	id = LUX_anarchist_events.8
+	title = LUX_anarchist_events.8.t
+	desc = LUX_anarchist_events.8.desc
+	picture = GFX_report_event_generic_rally_3
+	is_triggered_only = yes
+	option = {
+		#good to hear it
+		name = LUX_anarchist_events.8.a
+		add_stability = -0.03
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.04
+		}
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_anarchist_events.9
+	title = LUX_anarchist_events.9.t
+	desc = LUX_anarchist_events.9.desc
+	picture = GFX_report_event_generic_rally_3
+	is_triggered_only = yes
+#	trigger = {
+#		has_war_with = LUX
+#		has_country_flag = anarchist_target_flag
+#	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		#anarshist uprising - as anarchist
+		name = LUX_anarchist_events.9.a
+		custom_effect_tooltip = anarchist_start_civil_war_effect_tt
+		hidden_effect = {
+			start_civil_war = {
+				ruling_party = neutrality
+				ideology = ROOT
+				size = 0.6
+				PREV = {
+					create_country_leader = {
+						name = "Anarchist Commune"
+						picture = GFX_portrait_SPR_anarchist_commune
+						ideology = anarchism
+						traits = {
+							LUX_shared_anarshist_trait
+						}
+					}
+					set_party_name = {
+						ideology = neutrality
+						long_name = LUX_anarshist_commune_shared_long
+						name = LUX_anarshist_commune_shared
+					}
+					LUX = { 
+						set_autonomy = {
+							target = PREV
+							autonomy_state = autonomy_anarchist_commune
+							end_civil_wars = no
+							end_wars = no
+						}
+					}
+					add_ideas = shared_anarsihst_revolution_ns
+					set_cosmetic_tag = LUX_shared_anarshist
+					keep_political_leader = yes
+					keep_political_party_members = yes
+				}
+				keep_political_leader = yes
+				keep_political_party_members = yes
+			}
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	#option for player
+	option = {
+		#anarshist uprising - as ruling party
+		name = LUX_anarchist_events.9.b
+		custom_effect_tooltip = anarchist_start_civil_war_effect_tt
+		hidden_effect = {
+			start_civil_war = {
+				ruling_party = ROOT
+				# Original country's ideology changes to communism
+				ideology = neutrality
+				# Breakaway gets old ideology of ROOT
+				size = 0.7
+				create_country_leader = {
+					name = "Anarchist Commune"
+					picture = GFX_portrait_SPR_anarchist_commune
+					ideology = anarchism
+					traits = {
+						LUX_shared_anarshist_trait
+					}
+				}
+				add_ideas = shared_anarsihst_revolution_ns
+				LUX = { 
+					set_autonomy = {
+						target = PREV
+						autonomy_state = autonomy_anarchist_commune
+						end_civil_wars = no
+						end_wars = no
+					}
+				}
+				set_cosmetic_tag = LUX_shared_anarshist
+				set_party_name = {
+					ideology = neutrality
+					long_name = LUX_anarshist_commune_shared_long
+					name = LUX_anarshist_commune_shared
+				}
+				keep_political_leader = yes
+				keep_political_party_members = yes
+			}
+		}
+	}
+}
+#ultimate to join event senter
+country_event = {
+	id = LUX_anarchist_events.10
+	title = LUX_anarchist_events.10.t
+	desc = LUX_anarchist_events.10.desc
+	picture = GFX_report_event_chinese_soldiers_01
+	is_triggered_only = yes
+	option = {
+		#yes
+		name = LUX_anarchist_events.10.a
+		FROM = {
+			country_event = {
+				id = LUX_anarchist_events.11
+				random_hours = 6
+				days = 1
+			}
+		}
+	}
+	option = {
+		#no
+		name = LUX_anarchist_events.10.b
+		FROM = {
+			country_event = {
+				id = LUX_anarchist_events.12 #war for independens
+				random_hours = 6
+				days = 1
+			}
+		}
+        OVERLORD = {
+			end_puppet = ROOT
+		}
+		effect_tooltip = {
+			declare_war_on = {
+				target = FROM
+				type = independence_wargoal
+			 }
+		}
+		drop_cosmetic_tag = yes
+		if = {
+			limit = { 
+				is_in_faction = yes
+			}
+			leave_faction = yes
+		}
+		declare_war_on = {
+			target = var:untimatum_sender_var
+			type = independence_wargoal
+		}
+		hidden_effect = {
+		#	country_event = {
+		#		id = LUX_anarchist_events.13  #declaration war event
+		#		hours = 1
+		#	}
+		}
+		set_country_flag = independents_war_against_FROM
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_anarchist_events.11
+	title = LUX_anarchist_events.11.t
+	desc = LUX_anarchist_events.11.desc
+	picture = GFX_report_event_czech_soldiers_01
+	is_triggered_only = yes
+	option = {
+		name = LUX_anarchist_events.11.a
+		annex_country = {
+			target = FROM
+			transfer_troops = yes
+		}
+		custom_effect_tooltip = add_core_to_anarchist_effect_tt
+        hidden_effect = {
+			FROM = {
+				every_core_state = {
+					add_core_of = ROOT
+				}
+			}
+		}
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_anarchist_events.12
+	title = LUX_anarchist_events.12.t
+	desc = LUX_anarchist_events.12.desc
+	picture = GFX_report_event_czech_soldiers_02
+	is_triggered_only = yes
+	option = {
+		name = LUX_anarchist_events.12.a
+		effect_tooltip = {
+			FROM = {
+				end_puppet = ROOT
+				effect_tooltip = {
+					declare_war_on = {
+						target = ROOT
+						type = independence_wargoal
+					 }
+				}
+				drop_cosmetic_tag = yes
+				if = {
+					limit = { 
+						is_in_faction = yes
+					}
+					leave_faction = yes
+				}
+			}
+		}
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_anarchist_events.13
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+       declare_war_on = {
+		  target = LUX
+		  type = independence_wargoal
+	   }
+	}
+}
+#anarchist propaganda - protest
+country_event = {
+	id = LUX_anarchist_events.14
+	title = LUX_anarchist_events.14.t
+	desc = LUX_anarchist_events.14.desc
+	picture = GFX_report_event_picture_generic_protest
+	is_triggered_only = yes
+    option = {
+		name = LUX_anarchist_events.14.a
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.10
+		}
+        add_timed_idea = {
+			idea = shared_anarshist_propaganda
+			days = 180
+		}
+	}
+}
+#################################
+### LUX_anarchist_news_events ###
+#################################
+#####  ANARCHISM EVENTS #####
+#Anarchism revolution news event
+news_event = {
+	id = LUX_anarchist_news_events.0
+	title = LUX_anarchist_news_events.0.t
+	desc = LUX_anarchist_news_events.0.desc
+	picture = GFX_news_anarchist_civil_war_in_luxembourg
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = LUX_anarchist_news_events.0.a
+		trigger = {
+			original_tag = LUX
+			LUX_anarchist_ruling = yes
+	    }
+	}
+	option = {
+		name = LUX_anarchist_news_events.0.b
+		trigger = {
+			 original_tag = LUX
+             NOT  = {
+			    LUX_anarchist_ruling = yes
+		     }
+		}
+	}
+	option = {
+		name = LUX_anarchist_news_events.0.c
+		trigger = {
+			NOT = {
+			   original_tag = LUX
+			}
+		}
+	}
+	trigger = {
+	}
+	mean_time_to_happen = {
+	}
+	immediate = {
+
+	}
+}
+#anarchist win civil war news
+news_event = {
+	id = LUX_anarchist_news_events.1
+	title = LUX_anarchist_news_events.1.t
+	desc = LUX_anarchist_news_events.1.desc
+	picture = GFX_news_anarchist_win_civil_war_in_luxembourg
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = LUX_anarchist_news_events.1.a
+		trigger = {
+			original_tag = LUX
+			LUX_anarchist_ruling = yes
+	    }
+		effect_tooltip = {
+			add_war_support = 0.15
+		}
+		every_other_country = {
+			limit = {
+				NOT = {
+				    original_tag = SPC
+				}
+				has_civil_war = no
+			}
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = LUX_unligimitive_goverment
+			}
+		}
+	}
+	option = {
+		name = LUX_anarchist_news_events.1.b
+		trigger = {
+             NOT  = {
+			   original_tag = LUX
+		     }
+		}
+	}
+	trigger = {
+	}
+	mean_time_to_happen = {
+	}
+	immediate = {
+       
+	}
+}
+#democrats win civil war news
+news_event = {
+	id = LUX_anarchist_news_events.2
+	title = LUX_anarchist_news_events.2.t
+	desc = LUX_anarchist_news_events.2.desc
+	picture = GFX_news_democrats_win_civil_war_in_luxembourg
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = LUX_anarchist_news_events.2.a
+		trigger = {
+			NOT = {
+			   original_tag = LUX
+			}
+			has_government = communism
+	    }
+	}
+	option = {
+		name = LUX_anarchist_news_events.2.b
+		trigger = {
+			 original_tag = LUX
+             NOT  = {
+			    LUX_anarchist_ruling = yes
+		     }
+		}
+	}
+	option = {
+		name = LUX_anarchist_news_events.2.c
+		trigger = {
+			NOT = {
+			   original_tag = LUX
+			}
+			OR = {
+				has_government = neutrality 
+				has_government = democratic
+				has_government = fascism
+			 }
+	    }
+	}
+	trigger = {
+	}
+	mean_time_to_happen = {
+	}
+	immediate = {
+       
+	}
+}
+news_event = {
+	id = LUX_anarchist_news_events.3
+	title = LUX_anarchist_news_events.3.t
+	desc = LUX_anarchist_news_events.3.desc
+	picture = GFX_news_event_generic_sign_treaty2
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = LUX_anarchist_news_events.3.a
+		trigger = {
+			NOT = {
+			   original_tag = LUX
+			}
+	    }
+	}
+	option = {
+		name = LUX_anarchist_news_events.3.b
+		trigger = {
+			original_tag = LUX
+		}
+	}
+	trigger = {
+	}
+	mean_time_to_happen = {
+	}
+	immediate = {
+       
+	}
+}
+#people liberation event
+news_event = {
+	id = LUX_anarchist_news_events.4
+	title = LUX_anarchist_news_events.4.t
+	desc = LUX_anarchist_news_events.4.desc
+	picture = GFX_news_event_worker_protests
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = LUX_anarchist_news_events.4.a
+		trigger = {
+			NOT = {
+			   original_tag = LUX
+			}
+	    }
+	}
+	option = {
+		name = LUX_anarchist_news_events.4.b
+		trigger = {
+			original_tag = LUX
+		}
+	}
+	trigger = {
+	}
+	mean_time_to_happen = {
+	}
+	immediate = {
+       
+	}
+}

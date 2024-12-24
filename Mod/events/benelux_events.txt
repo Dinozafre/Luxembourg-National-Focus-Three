@@ -1,0 +1,1148 @@
+add_namespace = benelux_events
+add_namespace = benelux_friend_pact_events
+add_namespace = benelux_news_events
+add_namespace = benelux_hidden_events
+add_namespace = benelux_economic_union_evetns
+country_event = {
+	id = benelux_events.0
+	title = benelux_events.0.t
+	desc = benelux_events.0.desc
+	picture = GFX_report_event_picture_benelux_economic_union
+	is_triggered_only = yes
+	option = { 
+		name = benelux_events.0.a
+		add_opinion_modifier = {
+			target = LUX
+			modifier = benelux_union_economic_union_opinion
+		}
+		add_dynamic_modifier = {
+			modifier = shared_member_benelux_economic_union_dynamic_modifier
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				add = 50
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = 25
+				is_ally_with = FROM
+			}
+		}
+	    add_to_variable = {
+			var = global.memebers_benelux_economic_union
+			value = 1
+		}
+		#report about confirm to go union
+        LUX = {
+			country_event = benelux_events.1
+		}
+		hidden_effect = {
+			add_ideas = member_economic_union_hidden
+		}
+	}
+	option = { 
+		name = benelux_events.0.b
+		ai_chance = {
+			base = 0
+		}
+		LUX = {
+			country_event = benelux_events.2
+		}
+		set_country_flag = economic_union_agreetmant_refused_to_sign_flag
+	}
+	trigger = {
+       
+	}
+	immediate = {
+	   set_variable = {
+		  global.memebers_benelux_economic_union = 0
+	   }
+	   FROM = {
+		 add_dynamic_modifier = {
+			modifier = LUX_leader_benelux_economic_union_dynamic_modifier
+		 }
+	   }
+	   set_variable = {
+		  leader_benelux_economic_union = FROM
+	   }
+	   FROM = {
+		  set_country_flag = leader_of_benelux_economic_union_flag
+	   }
+	   set_variables_benelux_economic_member_effect = yes
+	}
+}
+#agree to join economic union report event
+country_event = {
+	id = benelux_events.1
+	title = benelux_events.1.t
+	desc = benelux_events.1.desc
+	picture = GFX_report_event_picture_benelux_economic_union
+	is_triggered_only = yes
+	option = { 
+		name = benelux_events.1.a
+	}
+	trigger = {
+       
+	}
+	immediate = {
+       
+	}
+}
+#refuse to join economic union report event
+country_event = {
+	id = benelux_events.2
+	title = benelux_events.2.t
+	desc = benelux_events.2.desc
+	picture = GFX_report_event_picture_benelux_economic_union
+	is_triggered_only = yes
+	option = { 
+		name = benelux_events.2.a
+	}
+	trigger = {
+       
+	}
+	immediate = {
+       
+	}
+}
+#Belgum join Benelux
+news_event = {
+	id = benelux_news_events.0
+	title = benelux_news_events.0.t
+	desc = benelux_news_events.0.desc
+	picture = GFX_news_event_generic_sign_treaty3
+	is_triggered_only = no
+	major = yes
+	option = {
+		name = benelux_news_events.0.a
+		trigger = {
+			#has_country_flag = join_to_benelux_faction_flag
+			original_tag = BEL
+			is_in_faction_with = LUX
+		}
+	}
+	option = {
+		name = benelux_news_events.0.b
+		trigger = {
+			#is_in_faction = yes
+			#has_country_flag = alliance_inviter_to_benelux_faction
+			is_faction_leader = yes
+			is_in_faction_with = BEL
+			original_tag = LUX
+		}
+	}
+	#option = {
+	#	name = benelux_news_events.0.c
+    #    NOT = {
+			#has_country_flag = alliance_inviter_to_benelux_faction
+			#has_country_flag = join_to_benelux_faction_flag
+	#		is_in_faction_with = BEL
+	#		original_tag = LUX
+	#	}
+	#}
+	trigger = {
+		NOT = {
+			has_global_flag = news_belgum_join_benelux_flag
+		}
+		has_global_flag = belgum_join_benelux_flag
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+        set_global_flag = news_belgum_join_benelux_flag
+	}
+}
+#Niderlands join Benelux
+news_event = {
+	id = benelux_news_events.3
+	title = benelux_news_events.3.t
+	desc = benelux_news_events.3.desc
+	picture = GFX_news_event_generic_sign_treaty3
+	is_triggered_only = no
+	major = yes
+	option = {
+		name = benelux_news_events.3.a
+		trigger = {
+			original_tag = HOL
+			is_in_faction_with = LUX
+		}
+	}
+	option = {
+		name = benelux_news_events.3.b
+		trigger = {
+			#is_in_faction = yes
+			#has_country_flag = alliance_inviter_to_benelux_faction
+			is_faction_leader = yes
+			is_in_faction_with = HOL
+			original_tag = LUX
+		}
+	}
+	#option = {
+	#	name = benelux_news_events.3.c
+     #   NOT = {
+			#has_country_flag = alliance_inviter_to_benelux_faction
+			#has_country_flag = join_to_benelux_faction_flag
+	#		is_in_faction_with = HOL
+	#		original_tag = LUX
+	#	}
+	#}
+	trigger = {
+		NOT = {
+			has_global_flag = news_niderland_join_benelux_flag
+		}
+		has_global_flag = niderlands_join_benelux_flag
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+	   set_global_flag = news_niderland_join_benelux_flag
+	}
+}
+#fall of amsterdram
+news_event = {
+	id = benelux_news_events.1
+	title = benelux_news_events.1.t
+	desc = benelux_news_events.1.desc
+	picture = GFX_news_fall_amsterdram
+	is_triggered_only = no
+	major = yes
+	option = {
+		name = benelux_news_events.1.a
+		trigger = {
+			original_tag = var:7.owner
+		}
+	}
+	option = {
+		name = benelux_news_events.1.b
+		trigger = {
+           has_war_with = var:7.owner
+		   controls_state = 7
+		}
+	}
+	option = {
+		name = benelux_news_events.1.c
+		trigger = {
+			NOT = {
+			   original_tag = var:7.owner
+			   has_war_with = var:7.owner
+			}
+		}
+	}
+	trigger = {
+		7 = {
+			controller = {
+				NOT = {
+					original_tag = var:7.owner
+				}
+				controls_province = 391
+				has_war_with = var:7.owner
+			}
+		}
+		NOT = {
+			has_global_flag = fall_of_amsterdram
+		}
+
+	}
+	mean_time_to_happen = {
+		random_hours = 10
+	}
+	immediate = {
+        set_global_flag = fall_of_amsterdram
+	}
+}
+#fall of brussels
+news_event = {
+	id = benelux_news_events.2
+	title = benelux_news_events.2.t
+	desc = benelux_news_events.2.desc
+	picture = GFX_news_fall_brussel
+	is_triggered_only = no
+	major = yes
+	option = {
+		name = benelux_news_events.2.b
+		trigger = {
+			original_tag = var:6.owner
+		}
+	}
+	option = {
+		name = benelux_news_events.2.b
+		trigger = {
+            has_war_with = var:6.owner
+			controls_state = 6
+		}
+	}
+	option = {
+		name = benelux_news_events.2.c
+		trigger = {
+			NOT = {
+			   original_tag = var:6.owner
+			   has_war_with = var:6.owner
+			}
+		}
+	}
+	trigger = {
+			6 = {
+				controller = {
+					has_war_with = var:6.owner
+					controls_province = 516
+					NOT  = { 
+						original_tag = var:6.owner
+					}
+				}
+			}
+			NOT = {
+				has_global_flag = fall_of_brussel
+			}
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+        set_global_flag = fall_of_brussel
+	}
+}
+#join to benelux faction event
+country_event = {
+	id = benelux_events.3
+	title = benelux_events.3.t
+	desc = benelux_events.3.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		#yes
+		name = benelux_events.3.a
+		set_country_flag = join_to_benelux_faction_flag@ROOT
+		FROM = {
+			add_to_faction = ROOT
+			set_country_flag = alliance_inviter_to_benelux_faction@ROOT
+			add_ai_strategy = { 
+				type = befriend 
+				id = ROOT
+				value = 100
+			}
+		}
+		add_ai_strategy = { 
+			type = befriend 
+			id = FROM
+			value = 100
+		}
+        country_event = {
+			id = news.289
+			random_hours = 6
+			days = 1
+		}
+	#	set_variable = {
+	#		global.alliance_inviter = FROM
+	#	}
+	#	set_variable = {
+	#		global.alliance_applicant = ROOT
+	#	}
+		ai_chance = {
+			base = 15
+			modifier = {
+				add = 15
+				has_government = FROM
+			}
+		}
+		add_named_threat = {
+			threat = 0.5
+			name = LUX_join_benelux_faction
+		}
+	}
+	option = {
+		#no
+		name = benelux_events.3.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				has_war_with = FROM
+			}
+		}
+	}
+	trigger = {
+	}
+	immediate = {
+		save_event_target_as = alliance_applicant
+		FROM = {
+			save_event_target_as = alliance_inviter
+		}
+		set_country_flag = alliance_inviter@ROOT
+		FROM = { set_country_flag = alliance_applicant@ROOT }
+	}
+}
+#world public look on Benelux region
+news_event = {
+	id = benelux_news_events.4
+	title = benelux_news_events.4.t
+	desc = benelux_news_events.4.desc
+	picture = GFX_news_event_001
+	is_triggered_only = no
+	major = yes
+	option = {
+		effect_tooltip = {
+			add_ideas = LUX_benelux_public_threat1
+		}
+		name = benelux_news_events.4.a
+		trigger = {
+			original_tag = LUX
+		}
+	}
+	option = {
+		name = benelux_news_events.4.b
+		trigger = {
+           NOT = {
+			  original_tag = LUX
+		   }
+		}
+	}
+	trigger = {
+       has_global_flag = start_public_threat_benelux_flag
+	   NOT = {
+		   has_global_flag = public_threat_benelux_news1_flag
+	   }
+	}
+	mean_time_to_happen = {
+		random_days = 3
+	}
+	immediate = {
+		hidden_effect = {
+			LUX = {
+				add_ideas = LUX_benelux_public_threat1
+			}
+		}
+		set_global_flag = public_threat_benelux_news1_flag
+	}
+}
+#threat more 5
+news_event = {
+	id = benelux_news_events.5
+	title = benelux_news_events.5.t
+	desc = benelux_news_events.5.desc
+	picture = GFX_news_event_canadian_soldiers
+	is_triggered_only = no
+	major = yes
+	option = {
+		name = benelux_news_events.5.a
+		trigger = {
+			original_tag = LUX
+			effect_tooltip = {
+				swap_ideas = {
+	                add_idea = LUX_benelux_public_threat2
+				    remove_idea = LUX_benelux_public_threat1
+			    }
+			}
+		}
+	}
+	option = {
+		name = benelux_news_events.5.b
+		trigger = {
+           NOT = {
+			  original_tag = LUX
+		   }
+		}
+	}
+	trigger = {
+       LUX = {
+		  has_global_flag = start_public_threat_benelux_flag
+		  has_idea = LUX_benelux_public_threat1
+	   }
+	   threat > 0.05
+	   NOT = {
+		has_global_flag = public_threat_benelux_news2_flag
+	}
+	}
+	mean_time_to_happen = {
+		days = 3
+		hours = 6
+	}
+	immediate = {
+		hidden_effect = {
+			LUX = {
+			    swap_ideas = {
+	                add_idea = LUX_benelux_public_threat2
+				    remove_idea = LUX_benelux_public_threat1
+			    }
+			}
+		}
+		set_global_flag = public_threat_benelux_news2_flag
+	}
+}
+#threat more 12
+news_event = {
+	id = benelux_news_events.6
+	title = benelux_news_events.6.t
+	desc = benelux_news_events.6.desc
+	picture = GFX_news_event_021
+	is_triggered_only = no
+	major = yes
+	option = {
+		name = benelux_news_events.6.a
+		trigger = {
+			original_tag = LUX
+			effect_tooltip = {
+				swap_ideas = {
+					add_idea = LUX_benelux_public_threat3
+					remove_idea = LUX_benelux_public_threat2
+				}
+			}
+		}
+	}
+	option = {
+		name = benelux_news_events.6.b
+		trigger = {
+           NOT = {
+			  original_tag = LUX
+		   }
+		}
+	}
+	trigger = {
+       LUX = {
+		  has_global_flag = start_public_threat_benelux_flag
+		  has_idea = LUX_benelux_public_threat2
+		}
+		threat > 0.12
+		NOT = {
+			has_global_flag = public_threat_benelux_news3_flag
+		}
+	}
+	mean_time_to_happen = {
+		days = 5
+	}
+	immediate = {
+		hidden_effect = {
+			LUX = {
+				swap_ideas = {
+					add_idea = LUX_benelux_public_threat3
+					remove_idea = LUX_benelux_public_threat2
+				}
+			}
+		}
+		set_global_flag = public_threat_benelux_news3_flag
+	}
+}
+#benelux conference news
+news_event = {
+	id = benelux_news_events.10
+	title = benelux_news_events.10.t
+	desc = benelux_news_events.10.desc
+	picture = GFX_news_event_009
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = benelux_news_events.10.a
+		trigger = {
+			capital_scope = {
+				region = 5
+			}
+		}
+	}
+	option = {
+		name = benelux_news_events.10.b
+		trigger = {
+			NOT = {
+				capital_scope = {
+					region = 5
+				}
+			}
+		}
+	}
+	immediate = {
+
+	}
+}
+#benelux conference country event
+country_event = {
+	id = benelux_news_events.11
+	title = benelux_news_events.11.t
+	desc = benelux_news_events.11.desc
+	picture = GFX_report_event_german_politician_speech
+	is_triggered_only = yes
+	option = {
+		#agree
+		name = benelux_news_events.11.a
+		ai_chance = {
+			base = 8
+			modifier = {
+				add = 4
+				threat > 0.30
+			}
+		}
+		if = {
+           limit = {
+			   original_tag = BEL
+		   }
+		   give_guarantee = HOL
+		}
+		if = {
+			limit = {
+				original_tag = HOL
+			}
+			give_guarantee = BEL
+		}
+		FROM = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = shared_join_benelux_conference_opinion
+			}
+		}
+		event_target:LUX_starter_of_conference = {
+			give_guarantee = PREV
+		}
+		set_country_flag = join_benelux_conference_flag
+	}
+	option = {
+		#no
+		name = benelux_news_events.11.b
+		ai_chance = {
+			base = 2
+			modifier = {
+				add = 2
+				threat < 0.25
+			}
+		}
+	}
+	trigger = {
+
+	}
+	immediate = {
+		FROM = {
+			save_global_event_target_as = LUX_starter_of_conference
+		}
+	}
+}
+country_event = {
+	id = benelux_hidden_events.0
+	hidden = yes
+	is_triggered_only = no
+	immediate = {
+
+	}
+	trigger = {
+
+	}
+}
+country_event = {
+	id = benelux_friend_pact_events.0
+	title = benelux_friend_pact_events.0.t
+	desc = benelux_friend_pact_events.0.desc
+	picture = GFX_report_event_picture_ask_to_join_friend_pact
+	is_triggered_only = yes
+	fire_only_once = no
+	#agree to sign
+	option = {
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 25
+				has_government = ROOT
+			}
+		}
+		name = benelux_friend_pact_events.0.a
+		set_country_flag = agree_to_sign_friend_pact_flag
+		#if = {
+		#	limit = {
+		#		original_tag = BEL
+		#	}
+		#	give_guarantee = HOL
+		#    give_guarantee = FROM
+		#}
+		#if = {
+		#	limit = {
+		#		original_tag = HOL
+		#	}
+		#	give_guarantee = FROM
+		#    give_guarantee = BEL
+		#}
+		#LUX_effect_event_sign_friend_pact = yes
+		give_guarantee = FROM
+		give_military_access = FROM
+		add_to_variable = { var = global.sign_friend_pact value = 1 }
+		set_country_flag = in_friend_pact_flag
+		add_opinion_modifier = {
+			target = FROM
+			modifier = in_friend_pact
+		}
+	    FROM  = {
+           set_country_flag = in_friend_pact_flag
+		   give_guarantee = ROOT
+		   give_military_access = ROOT
+		   add_opinion_modifier = {
+			   target = ROOT
+			   modifier = LUX_sign_friend_pact
+		    }
+	    }
+		add_ideas = benelux_shared_friend_pact_member
+		FROM = {
+			country_event =  {
+		        id = benelux_friend_pact_events.1
+				hours = 6 
+				random = 8
+		    }
+	    }
+    }
+	#no
+	option = {
+		ai_chance = {
+			base = 0
+		#	modifier = {
+		#		add = 10
+		#		has_government = ROOT
+		#	}
+		}
+		name = benelux_friend_pact_events.0.b
+		LUX = {
+			country_event = {
+				id = benelux_friend_pact_events.2
+				hours = 6 
+				random = 8
+		    }
+	    }
+	}
+	mean_time_to_happen = {
+
+	}
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+}
+country_event = {
+	id = benelux_friend_pact_events.1
+	title = benelux_friend_pact_events.1.t
+	desc = benelux_friend_pact_events.1.desc
+	picture = GFX_report_event_picture_benelux_frined_pact_reply
+	is_triggered_only = yes
+	#fire_only_once = yes
+	#copy that
+	option = {
+		name = benelux_friend_pact_events.1.a
+		effect_tooltip = {
+		give_guarantee = FROM
+		give_military_access = FROM
+	FROM  = {
+        set_country_flag = in_friend_pact_flag
+		add_opinion_modifier = {
+			target = ROOT
+			modifier = in_friend_pact
+		}
+		give_guarantee = ROOT
+		give_military_access = ROOT
+	}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = LUX_sign_friend_pact
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_idea = benelux_shared_friend_pact
+			}
+		}
+		add_ideas = benelux_shared_friend_pact
+	}
+    }
+}
+country_event = {
+	id = benelux_friend_pact_events.2
+	title = benelux_friend_pact_events.2.t
+	desc = benelux_friend_pact_events.2.desc
+	picture = GFX_report_event_picture_benelux_frined_pact_reply
+	is_triggered_only = yes
+	#fire_only_once = yes
+	#copy that
+	option = {
+		name = benelux_friend_pact_events.2.a
+	}
+}
+#one of number of friend pact was attacked
+country_event = {
+	id = benelux_friend_pact_events.3
+	title = benelux_friend_pact_events.3.t
+	desc = benelux_friend_pact_events.3.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+           has_country_flag = defender_in_friend_pact_flag
+		   has_country_flag = stop_spam_benelux_friend_pact_events_event_flag
+		}
+	}
+	option = {
+		name = benelux_friend_pact_events.3.a
+		declare_war_on = {
+			target = var:global.var_friend_pact_aggresser
+			type = topple_government
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	immediate = {
+		set_country_flag = stop_spam_benelux_friend_pact_events_event_flag
+	}
+}
+#country go out from friend pact
+country_event = {
+	id = benelux_friend_pact_events.4
+	title = benelux_friend_pact_events.4.t
+	desc = benelux_friend_pact_events.4.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = benelux_friend_pact_events.4.a
+		FROM = {
+			diplomatic_relation = {
+				country = ROOT
+				relation = guarantee
+				active = no
+			}
+			diplomatic_relation = {
+				country = ROOT
+				relation = military_access
+				active = no
+			}
+		}
+		diplomatic_relation = {
+			country = FROM
+			relation = guarantee
+			active = no
+		}
+		diplomatic_relation = {
+			country = FROM
+			relation = military_access
+			active = no
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+#all sings friend pact
+country_event = {
+	id = benelux_friend_pact_events.5
+	title = benelux_friend_pact_events.5.t
+	desc = benelux_friend_pact_events.5.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = no
+	option = {
+		name = benelux_friend_pact_events.5.a
+		ai_chance = {
+			base = 100
+		}
+	}
+	trigger = {
+		BEL = {
+            has_country_flag = in_friend_pact_flag
+		}
+		HOL = {
+            has_country_flag = in_friend_pact_flag
+		}
+		original_tag = LUX
+	}
+    mean_time_to_happen = {
+		random_hours = 6
+		days = 1
+	}
+	immediate = {
+		hidden_effect = {
+			BEL = {
+               give_guarantee = HOL
+			}
+			HOL = {
+               give_guarantee = BEL
+			}
+		}
+	}
+}
+#country_event = {
+#	id = benelux_hidden_events.0
+#	hidden = yes
+#	is_triggered_only = no
+#	immediate = {
+#       BEL = {
+#		  give_guarantee = LUX
+#		  give_military_access = LUX
+#		  set_country_flag = in_friend_pact_flag
+#		  add_opinion_modifier = {
+#			  target = LUX
+#			  modifier = in_friend_pact
+#		  }
+#	   }
+#	   LUX = {
+#		    add_opinion_modifier = {
+#			   target = BEL
+#			   modifier = LUX_sign_friend_pact
+#		   }
+#		   give_guarantee = BEL
+#		   give_military_access = BEL
+#	   }
+#	}
+#	trigger  = {
+#        BEL = {
+#            has_country_flag = agree_to_sign_friend_pact_flag
+#		}
+#	}
+#}
+#country_event = {
+#	id = benelux_hidden_events.1
+#	hidden = yes
+#	is_triggered_only = no
+#	immediate = {
+#	   HOL = {
+#		give_guarantee = LUX
+#		give_military_access = LUX
+#		set_country_flag = in_friend_pact_flag
+#		add_opinion_modifier = {
+#			target = LUX
+#			modifier = in_friend_pact
+#		}
+#	   }
+#	   LUX = {
+#		add_opinion_modifier = {
+#			target = BEL
+#			modifier = LUX_sign_friend_pact
+#		}
+#		give_guarantee = HOL
+#		give_military_access = HOL
+#
+#	   }
+#	}
+#	trigger  = {
+#		HOL = {
+#			has_country_flag = agree_to_sign_friend_pact_flag
+#		}
+#	}
+#}
+#country_event = {
+#	id = benelux_hidden_events.2
+#	hidden = yes
+#	is_triggered_only = no
+#	immediate = {
+#		LUX = {
+#			BEL = {
+#				country_event = benelux_friend_pact_events.0
+#			}
+#		}
+#    mean_time_to_happen = {
+#		hours = 2
+#	}
+#	}
+#	trigger  = {
+#		LUX = {
+#			has_completed_focus = LUX_accept_non_pacts_with_benelux
+#		}
+#	}
+#}
+country_event = {
+	id = benelux_hidden_events.0
+	hidden = yes
+	is_triggered_only = no
+	immediate = {
+      set_global_flag = friend_pact_sign_flag
+	}
+	mean_time_to_happen = {
+		hours = 1
+	}
+	trigger  = {
+		check_variable = {
+			var = global.sign_friend_pact
+			value = 2
+		}
+	}
+}
+#invasion in Benelux
+news_event = {
+	id = benelux_news_events.7
+	title = benelux_news_events.7.t
+	desc = benelux_news_events.7.desc
+	picture = GFX_news_benelux_invasion
+	major = yes
+	option = {
+		#история вновь повторяется...
+		name = name_benelux_news_events.7.a
+		trigger = {
+			OR = {
+				benelux_countries_trigger = yes
+				capital_scope = {
+					is_on_continent = europe
+				}
+			}
+		}
+	}
+	#option = {
+		#Ситуация обостряется
+	#	name = name_benelux_news_events.7.b
+	#	trigger = {
+		#	NOT_benelux_county_trigger = yes
+	#		capital_scope = {
+     #           is_on_continent = europe
+	#		}
+	#		NOT = {
+	#			original_tag = var:global.attacker_benelux
+	#		}
+	#	}
+	#}
+	option = {
+		#Нейтралитет их не спас
+		name = name_benelux_news_events.7.b
+		trigger = {
+		#	NOT_benelux_county_trigger = yes
+			NOT =  {
+				capital_scope = {
+					is_on_continent = europe
+				}
+			}
+		}
+	}
+	#option = {
+		#мы покажем превосходство нашей армии!
+	#	name = name_benelux_news_events.7.d
+	#	trigger = {
+	#	    original_tag = var:global.attacker_benelux
+	#	}
+	#}
+	trigger = {
+       has_variable = global.attacker_benelux
+	   NOT = {
+		  has_global_flag = invasion_in_benelux_news
+	   }
+	}
+	mean_time_to_happen = {
+		random_hours = 6
+	}
+	immediate = {
+		set_global_flag = invasion_in_benelux_news
+	}
+}
+#formation benelux economic union
+news_event = {
+	id = benelux_news_events.8
+	title = benelux_news_events.8.t
+	desc = benelux_news_events.8.desc
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	trigger = {
+		NOT  = {
+			has_global_flag = formation_economic_union_benelux_news
+		}
+		check_variable = {
+			global.memebers_benelux_economic_union > 0
+		}
+	}
+	option = {
+		#это усилит нашу экономики !
+		name = benelux_news_events.8.a
+		trigger = {
+			benelux_countries_trigger = yes
+		}
+	}
+	option = {
+		#Насколоько это будет эффектианый союз для них?
+		name = benelux_news_events.8.b
+		trigger = {
+	        NOT  = {
+				benelux_countries_trigger = yes
+				has_war_with_any_benelux_county_trigger = yes
+			}
+		}
+	}
+	option = {
+		#Даже так, их ждет поражение
+		name = benelux_news_events.8.c
+		trigger = {
+	        NOT  = {
+				benelux_countries_trigger = yes
+			}
+			has_war_with_any_benelux_county_trigger = yes
+		}
+	}
+	mean_time_to_happen = {
+		random_hours = 12
+	}
+	immediate = {
+		set_global_flag = formation_economic_union_benelux_news
+	}
+}
+country_event = {
+	id = benelux_events.4
+	title = benelux_events.4.t
+	desc = benelux_events.4.desc
+	picture = GFX_report_event_picture_benelux_economic_union
+	is_triggered_only = yes
+	option = { 
+		name = benelux_events.4.a
+		FROM = {
+			remove_opinion_modifier = {
+				target = ROOT
+				modifier = benelux_union_economic_union_opinion
+			}
+		}
+	}
+	immediate = {
+       
+	}
+}
+news_event = {
+	id = benelux_news_events.9
+	title = benelux_news_events.9.t
+	desc = benelux_news_events.9.desc
+	picture = GFX_news_event_generic_read_write
+	major = yes
+    is_triggered_only = yes
+	option = {
+		#к сожалению, этого стоило ожидать
+		name = benelux_news_events.9.a
+		trigger = {
+			benelux_countries_trigger = yes
+		}
+	}
+	option = {
+		#союз оказался не крепким
+		name = benelux_news_events.9.b
+		trigger = {
+	        NOT  = {
+				benelux_countries_trigger = yes
+			}
+		}
+	}
+	mean_time_to_happen = {
+		random_hours = 12
+	}
+	immediate = {
+		set_global_flag = formation_economic_union_benelux_news
+	}
+}
+#Luxembourg want protect us
+country_event = {
+	id = benelux_events.5
+	title = benelux_events.5.t
+	desc = benelux_events.5.desc
+	picture = GFX_report_event_picture_benelux_economic_union
+	is_triggered_only = yes
+	option = { 
+		#we agree
+		name = benelux_events.5.a
+		FROM = {
+			country_event = benelux_events.6
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = { 
+		#no
+		name = benelux_events.5.b
+		FROM = {
+			country_event = benelux_events.7
+		}
+	}
+	immediate = {
+       
+	}
+}

@@ -1,0 +1,96 @@
+﻿add_namespace = LUX_referendum_events
+country_event = {
+	id = LUX_referendum_events.0
+	title = LUX_referendum_events.0.t
+	desc =  LUX_referendum_events.0.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	fire_only_once = yes
+	#all oprtion effects in Luxembourg events
+	option = { 
+		name =  LUX_referendum_events.0.a
+		FROM  = {
+           country_event = LUX_referendum_events.1
+		}
+		set_country_flag = GER_accepted_ancslues_flag
+		ai_chance = {
+	        base = 5 
+			modifier = {
+				add = 10
+				is_subject_of = FROM
+			}
+        }
+	}
+	option = { 
+		name =  LUX_referendum_events.0.b
+		FROM  = {
+			country_event = LUX_referendum_events.2
+		 }
+		set_country_flag = GER_decline_ancslues_flag
+		ai_chance = {
+	        base = 1 
+        }
+	}
+	#trigger = {
+       #original_tag = LUX
+	#}
+	#mean_time_to_happen = {
+       #days = 30
+	#}
+	immediate = {
+		hidden_effect = {
+
+	    }
+	}
+}
+country_event = {
+	id = LUX_referendum_events.1
+	title = LUX_referendum_events.1.t
+	desc =  LUX_referendum_events.1.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { 
+		name =  LUX_referendum_events.1.a
+		every_state = {
+			limit = {
+                is_core_of = GER
+			}
+			add_core_of = ROOT
+		}
+		annex_country = {
+			target = GER
+			transfer_troops = yes
+		}
+		set_cosmetic_tag = luxembourg_germany_union
+		set_global_flag = germany_luxembourg_unit_formed_flag
+	}
+	immediate = {
+		hidden_effect = {
+
+	    }
+	}
+}
+
+country_event = {
+	id = LUX_referendum_events.2
+	title = LUX_referendum_events.2.t
+	desc =  LUX_referendum_events.2.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { 
+		name =  LUX_referendum_events.2.a
+	}
+	#trigger = {
+       #original_tag = LUX
+	#}
+	#mean_time_to_happen = {
+       #days = 30
+	#}
+	immediate = {
+		hidden_effect = {
+
+	    }
+	}
+}

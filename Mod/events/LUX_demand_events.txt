@@ -1,0 +1,190 @@
+add_namespace = LUX_demand_events
+add_namespace = LUX_demand_events_news
+### LUX_demand_events ####
+country_event = {
+	id = LUX_demand_events.0
+	title = LUX_demand_events.0.t
+	desc = LUX_demand_events.0.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = LUX_demand_events.0.a
+		FROM = {
+			country_event = {
+				id = LUX_demand_events.1
+				random_hours = 16
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 6
+		}
+	}
+	option = {
+		name = LUX_demand_events.0.b
+		FROM = {
+			country_event = {
+				id = LUX_demand_events.2
+				random_hours = 12
+				days = 1
+			}
+		}
+		ai_chance = {
+			base = 4
+			modifier = {
+				strength_ratio = {
+					tag = FROM
+					ratio > 0.5
+				}
+				add = 4
+			}
+			modifier = {
+                ic_ratio = {
+					tag = fROM
+					ratio > 0.5
+				}
+				add = 4
+			}
+		}
+	}
+	immediate = {
+		set_variable = {
+			global.get_demand_on_ICE_FROM = ROOT
+		}
+	}
+}
+country_event = {
+	id = LUX_demand_events.1
+	title = LUX_demand_events.1.t
+	desc = LUX_demand_events.1.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = LUX_demand_events.1.a
+		transfer_state = 100
+	}
+}
+country_event = {
+	id = LUX_demand_events.2
+	title = LUX_demand_events.2.t
+	desc = LUX_demand_events.2.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = LUX_demand_events.2.a
+		create_wargoal = {
+			type = annex_everything
+			target = fROM
+		}
+		add_state_claim = 100
+	}
+}
+#generic benelux refused
+country_event = {
+	id = LUX_demand_events.3
+	title = LUX_demand_events.3.t
+	desc = LUX_demand_events.3.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	#option = {
+	#	name = LUX_demand_events.3.a
+	#	create_wargoal = {
+	#		type = puppet_wargoal_focus
+	#		target = fROM
+	#	}
+	#}
+	option = {
+		name = LUX_demand_events.3.b
+	}
+}
+#Luxmmbgourg want we will be they puppet - Germany event
+country_event = {
+	id = LUX_demand_events.4
+	title = LUX_demand_events.4.t
+	desc = LUX_demand_events.4.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		#no
+		name = LUX_demand_events.4.a
+		ai_chance = {
+			base = 6
+		}
+		create_wargoal = {
+           type = topple_government
+		   target = FROM
+		}
+	}
+	option = {
+		#yes
+		name = LUX_demand_events.4.b
+		ai_chance = {
+			base = 4
+			modifier = {
+				FROM = {
+					is_ai = yes
+				}
+				add = 10
+			}
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value > 40
+				}
+				add = 4
+			}
+		}
+		FROM = {
+			puppet = ROOT
+		}
+		hidden_effect = {
+			set_politics = {
+				ruling_party = ROOT
+			}
+		}
+	}
+}
+#Luxembourg claims Great Luxembourg news event
+news_event = {
+	id = LUX_demand_events.5
+	title = LUX_demand_events.5.t
+	desc = LUX_demand_events.5.desc
+	picture = GFX_news_event_election_vote
+	is_triggered_only = yes
+	option = {
+		name = LUX_demand_events.5.a
+		trigger = {
+			original_tag = LUX
+		}
+	}
+	option = {
+		name = LUX_demand_events.5.b
+		trigger = {
+			NOT = {
+				original_tag = LUX
+			}
+		}
+	}
+}
+### LUX_demand_events_news ###
+news_event = {
+	id = LUX_demand_events_news.0
+	title = LUX_demand_events_news.0.t
+	desc = LUX_demand_events_news.0.desc
+	picture = GFX_news_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = LUX_demand_events_news.0.a
+        trigger = {
+			original_tag = LUX
+		}
+	}
+	option = {
+		name = LUX_demand_events_news.0.b
+        trigger = {
+			NOT = {
+				original_tag = LUX
+			}
+		}
+	}
+}

@@ -1,0 +1,48 @@
+add_namespace = LUX_communist_goverment_in_exile
+########################################
+### LUX_communist_goverment_in_exile ###
+########################################
+country_event = {
+	id = LUX_communist_goverment_in_exile.0
+	title = LUX_communist_goverment_in_exile.0.t
+	desc = LUX_communist_goverment_in_exile.0.d
+	picture = GFX_report_event_picture_benelux_frined_pact_reply
+	is_triggered_only = yes
+	option = {
+		#welcome to exile
+		name = LUX_communist_goverment_in_exile.0.count.a
+		set_country_flag = ready_to_host_LUX_flag
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		#no
+		name = LUX_communist_goverment_in_exile.0.count.b
+		ai_chance = {
+			base = 0
+		}
+	}
+}
+#yes
+country_event = {
+	id = LUX_communist_goverment_in_exile.1
+	title = LUX_communist_goverment_in_exile.1.t
+	desc = LUX_communist_goverment_in_exile.1.d
+	picture = GFX_report_event_picture_benelux_frined_pact_reply
+	is_triggered_only = yes
+	option = {
+		name = LUX_communist_goverment_in_exile.1.count.a
+	}
+}
+#no
+country_event = {
+	id = LUX_communist_goverment_in_exile.2
+	title = LUX_communist_goverment_in_exile.2.t
+	desc = LUX_communist_goverment_in_exile.2.d
+	picture = GFX_report_event_picture_benelux_frined_pact_reply
+	is_triggered_only = yes
+	option = {
+		name = LUX_communist_goverment_in_exile.2.count.a
+	}
+}

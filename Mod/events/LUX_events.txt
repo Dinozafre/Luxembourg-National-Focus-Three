@@ -1,211 +1,206 @@
-add_namespace = international_anarchism
-add_namespace = LUX_provcation
-add_namespace = LUX_assassin
 add_namespace = LUX_referendums
 add_namespace = LUX_electins
-add_namespace = LUX_hidden
-add_namespace = lux_news
 add_namespace = LUX_ultimatus
-add_namespace = LUX_diplomacy
 add_namespace = LUX_communist
 add_namespace = LUX_decisions
 add_namespace = benelux_events
 add_namespace = LUX_puppet
 add_namespace = LUX_fascism
-#add_namespace = LUX_investegation_case
+add_namespace = LUX_neatrality
+add_namespace = LUX_monarch_in_exile_events
+add_namespace = LUX_day_of_independency
+add_namespace = LUX_army_limits_events
+add_namespace = LUX_monarch_news
+add_namespace = liberian_independs_war_events
+add_namespace = LUX_leader_news
+add_namespace = dutch_east_indies_cw_events
+add_namespace = LUX_hystorial_in_exile_events
+add_namespace = LUX_joseph_besh_events
+add_namespace = LUX_resources_events
+add_namespace = LUX_economy
 
+####### DAY OF INDEPENDACY EVENTS #########
+#1936
 country_event = {
-	id = luxemburg_events.0
-	title = luxemburg_events.0.t
-	picture = GFX_report_event_SWE_saltsjobaden
-	is_triggered_only = yes
-	desc = {
-		text = namespace.count.d.desc_id
-		trigger = {
-
-}
-
-	}
-	option = {
-	name = namespace.count.a
-
-	}
-
-	}
-country_event = {
-	id = international_anarchism.1
-	title = international_anarchism.1.t
-	picture = GFX_news_event_china_flying_tigers
-	is_triggered_only = yes
-	desc = {
-		text = namespace.count.d.desc_id
-		trigger = {
-
-}
-
-	}
-	option = {
-	name = international_anarchism.1op
-
-	}
-completion_reward = {
-		add_popularity = {
-				ideology = neutrality
-				popularity = 0.10
-			}
-	}
-trigger = {
-		has_completed_focus = LUX_crate_anarchism_international
-	}
-
-	}
-country_event = {
-	id = hol_event_lux_provocation_event.1
-	title = hol_event_lux_provocation_event.1.t
+	id = LUX_day_of_independency.0
+	title = LUX_day_of_independency.0.t
 	picture = GFX_news_event_005
-	is_triggered_only = yes
-	desc = hol_event_lux_provocation_event.1.d
-	option = {
-	name = namespace.count.b
-		LUX = {
-				complete_national_focus = LUX_HOL_declare_war_LUX
-			}
-
-	}
-
-	}
-country_event = {
-	id = belgum_event_provocation.0
-	title = belgum_event_provocation.0.t
-	picture = GFX_news_event_004
-	is_triggered_only = yes
-	desc = belgum_event_provocation.0.d
-	option = {
-	name = namespace.count.b
-		LUX = {
-				complete_national_focus = LUX_HOL_declare_war_LUX
-			}
-
-	}
-
-	}
-country_event = {
-	id = luxemburg_country_events.1
-	title = luxemburg_country_events.1.t
-	picture = GFX_event_test
-	is_triggered_only = yes
-	hidden = yes
-	desc = {
-		text = namespace.count.d.desc_id
-		trigger = {
-
-}
-
-	}
-	option = {
-	name = namespace.count.a
-		LUX = {
-				complete_national_focus = LUX_declare_war_belgum
-			}
-
-	}
-hours = 12
-trigger = {
-		original_tag = LUX
-	}
-
-	}
-country_event = {
-	id = luxemburg_country_events.2
-	title = luxemburg_country_events.2.t
-	picture = GFX_event_test
-	is_triggered_only = yes
-	hidden = yes
-	desc = {
-		text = namespace.count.d.desc_id
-
-	}
-	option = {
-	name = namespace.count.a
-		LUX = {
-				complete_national_focus = LUX_HOL_declare_war_LUX
-			}
-
-	}
-hours = 12
-trigger = {
-		original_tag = LUX
-	}
-
-	}
-country_event = {
-	id = LUX_provcation.0
-	title = LUX_provcation.0.t
-	picture = GFX_news_event_004
-	desc = LUX_provcation.1.d
-	is_triggered_only = yes
-	option = {
-	   name = LUX_provocation_option.count.a
-	   set_country_flag = belgum_provoaction_flag 
-    }
-	trigger = {
-		tag = LUX
-	}
-}
-country_event = {
-	id = LUX_provcation.1
-	title = LUX_provcation.1.t
-	picture = GFX_news_event_005
-	desc = LUX_provcation.1.d
-	is_triggered_only = yes
-	option = {
-	  name = LUX_provocation_option2.count.a
-	  set_country_flag = niderlands_provoaction_flag
-	}
-	trigger = {
-		tag = LUX
-	}
-}
-country_event = {
-	id = LUX_provcation.2
-	title = LUX_provcation.1.t
-	picture = GFX_news_event_005
-	desc = LUX_provcation.1.d
-	is_triggered_only = yes
+	desc = LUX_day_of_independency.0.d
+	is_triggered_only = no
 	fire_only_once = yes 
 	option = {
-	   name = LUX_provocation_option2.count.a
-	   complete_national_focus = LUX_declare_war_belgum
-	   set_country_flag = belgum_provoaction_war_with_LUX_flag
+	  name = LUX_day_of_independency.0.count.a
+	  effect_tooltip = {
+        add_political_power = 75
+		add_stability = 0.03
+	  }
 	}
 	trigger = {
-		tag = LUX
-		has_country_flag = belgum_provoaction_flag
+		AND  = {
+			original_tag = LUX
+			date > 22.11.1936
+			has_global_flag = start_date_1936_flag
+		}
+		always = no
 	}
 	mean_time_to_happen = {
-		days = 20
+		random_hours = 12
+		days = 2
+	}
+	immediate = {
+		hidden_effect = {
+			add_political_power = 75
+			add_stability = 0.03
+		}
 	}
 }
+#1937
 country_event = {
-	id = LUX_provcation.3
-	title = LUX_provcation.1.t
+	id = LUX_day_of_independency.1
+	title = LUX_day_of_independency.1.t
 	picture = GFX_news_event_005
-	desc = LUX_provcation.1.d
-	is_triggered_only = yes
+	desc = LUX_day_of_independency.1.d
+	is_triggered_only = no
 	fire_only_once = yes 
 	option = {
-	  name = LUX_provocation_option2.count.a
-	  complete_national_focus = LUX_HOL_declare_war_LUX
-	  set_country_flag = niderlands_provoaction_war_with_LUX_flag
+	  name = LUX_day_of_independency.1.count.a
 	}
 	trigger = {
-		tag = LUX
-		has_country_flag = niderlands_provoaction_flag
+        original_tag = LUX
+		date > 22.11.1937
+		has_global_flag = start_date_1936_flag
+		always = no
 	}
 	mean_time_to_happen = {
-		days = 15
+		random_hours = 12
+		days = 2
+	}
+	immediate = {
+
 	}
 }
+#1938
+country_event = {
+	id = LUX_day_of_independency.2
+	title = LUX_day_of_independency.2.t
+	picture = GFX_news_event_005
+	desc = LUX_day_of_independency.2.d
+	is_triggered_only = no
+	fire_only_once = yes 
+	option = {
+	  name = LUX_day_of_independency.2.count.a
+	}
+	trigger = {
+        original_tag = LUX
+		date > 22.11.1938
+		has_global_flag = start_date_1936_flag
+		always = no
+	}
+	mean_time_to_happen = {
+		random_hours = 12
+		days = 2
+	}
+	immediate = {
+
+	}
+}
+#1939
+country_event = {
+	id = LUX_day_of_independency.3
+	title = LUX_day_of_independency.3.t
+	picture = GFX_news_event_005
+	desc = LUX_day_of_independency.3.d
+	is_triggered_only = no
+	fire_only_once = yes 
+	option = {
+	  name = LUX_day_of_independency.3.count.a
+	}
+	trigger = {
+        original_tag = LUX
+		date > 22.11.1939
+		always = no
+	}
+	mean_time_to_happen = {
+		random_hours = 12
+		days = 2
+	}
+	immediate = {
+
+	}
+}
+#1940
+country_event = {
+	id = LUX_day_of_independency.4
+	title = LUX_day_of_independency.4.t
+	picture = GFX_news_event_005
+	desc = LUX_day_of_independency.4.d
+	is_triggered_only = no
+	fire_only_once = yes 
+	option = {
+	  name = LUX_day_of_independency.4.count.a
+	}
+	trigger = {
+        original_tag = LUX
+		date > 22.11.1940
+		always = no
+	}
+	mean_time_to_happen = {
+		random_hours = 12
+		days = 2
+	}
+	immediate = {
+
+	}
+}
+#1941
+country_event = {
+	id = LUX_day_of_independency.4
+	title = LUX_day_of_independency.4.t
+	picture = GFX_news_event_005
+	desc = LUX_day_of_independency.4.d
+	is_triggered_only = no
+	fire_only_once = yes 
+	option = {
+	  name = LUX_day_of_independency.4.count.a
+	}
+	trigger = {
+        original_tag = LUX
+		date > 22.11.1941
+		always = no
+	}
+	mean_time_to_happen = {
+		random_hours = 12
+		days = 2
+	}
+	immediate = {
+
+	}
+}
+#1442
+country_event = {
+	id = LUX_day_of_independency.5
+	title = LUX_day_of_independency.5.t
+	picture = GFX_news_event_005
+	desc = LUX_day_of_independency.5.d
+	is_triggered_only = no
+	fire_only_once = yes 
+	option = {
+	  name = LUX_day_of_independency.5.count.a
+	}
+	trigger = {
+        original_tag = LUX
+		date > 22.11.1942
+		always = no
+	}
+	mean_time_to_happen = {
+		random_hours = 12
+		days = 2
+	}
+	immediate = {
+
+	}
+}
+##########################################
 #himmler dead
 country_event = {
 	id = LUX_assassin.1
@@ -237,39 +232,22 @@ country_event = {
 	title = LUX_electins.1.t
 	picture = GFX_report_event_gathering_protest
 	desc = LUX_electins.1.desc
-	is_triggered_only = no
+	is_triggered_only = yes
 	fire_only_once = yes 
 	trigger = {
-		date > 1937.06.01
+		# date > 1937.06.01
 		original_tag = LUX
-		has_elections = yes
-		has_government = democratic
+		# has_elections = yes
+		# has_government = democratic
+		# has_start_date < 1936.01.02
 	}
 	mean_time_to_happen = {
-		days = 5
+	#	days = 5
 	}
 	option = {
 		ai_chance = {
 			base = 0
 			modifier = {
-				factor = 0
-				add = 10
-				is_historical_focus_on = no
-			}
-		}
-		name = LUX_electins.1.count.a
-		add_stability = -0.05
-		add_country_leader_trait = cabinet_crisis
-		hidden_effect = {
-			complete_national_focus = LUX_joseph_bech_is_elected
-		}
-		set_country_flag = LUX_joseph_bech_is_elected_on_general_elections
-	}
-	option = {
-		ai_chance = {
-			base = 0
-			modifier = {
-				factor = 0
 				add = 10
 				is_historical_focus_on = yes
 			}
@@ -277,18 +255,87 @@ country_event = {
 		name = LUX_electins.1.count.b
 		custom_effect_tooltip = piere_dugong_election_tt
 		hidden_effect = {
-			create_country_leader = {
-				name = "Pierre Dugong"
-				picture = GFX_pierre_dupong_leader
-				expire = "1965.1.1"
-				ideology = conservatism
-				traits = {
-					cornered_fox
+			#create_country_leader = {
+			#	name = "Pierre Dugong"
+			#	picture = GFX_pierre_dupong_leader
+			#	expire = "1965.1.1"
+			#	ideology = conservatism
+			#	traits = {
+			#		cornered_fox
+			#	}
+			#}
+			add_country_leader_role = {
+				character = LUX_pierre_dupong
+				promote_leader = yes
+			}
+			set_can_be_fired_in_advisor_role = {
+				character = LUX_pierre_dupong
+				value = no
+			}
+			if = {
+				limit = {
+					LUX_pierre_dupong = {
+						is_hired_as_advisor = no
+					}
 				}
+				activate_advisor = LUX_pierre_dupong
 			}
 			complete_national_focus = LUX_pierre_dupong_elected
 		}
 		set_country_flag = LUX_pierre_dupong_elected_on_general_elections
+		if = {
+			limit = {
+				has_character = LUX_joseph_bech
+			}
+			LUX_joseph_bech = {
+				retire = yes
+			}
+		}
+	}
+	option = {
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 5
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = 100
+				has_global_flag = LUX_ai_democratic_alt_flag
+			}
+		}
+		name = LUX_electins.1.count.a
+		add_stability = -0.05
+		add_country_leader_trait = LUX_unpopular_leader
+		hidden_effect = {
+			complete_national_focus = LUX_joseph_bech_is_elected
+		}
+		set_country_flag = LUX_joseph_bech_is_elected_on_general_elections
+	}
+	#communist choose
+	option = {
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 5
+				is_historical_focus_on = no
+			}
+		}
+		mark_focus_tree_layout_dirty = yes
+		name = LUX_electins.1.count.c
+		complete_national_focus = LUX_communist_win
+		set_country_flag = LUX_choose_communist_win_elections
+		trigger = {
+            NOT = {
+			   has_country_flag = LUX_referendum_accepted_communism_party
+			}
+		}
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = yes
+			last_election = "1937.06.07"
+			election_frequency = 48
+		}
 	}
 	immediate = {
 		set_country_flag = LUX_elections_1937_flag
@@ -348,7 +395,10 @@ country_event = {
 		hidden_effect ={
 			add_ideas = LUX_communism_resistence
 		    add_ideas = LUX_communist_repression
+			activate_decision = ban_communist_party
 		}
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = LUX_charles_marx
 	}
 	trigger = {
 		original_tag = LUX
@@ -359,6 +409,7 @@ country_event = {
 	immediate = {
 	hidden_effect = {
 		set_country_flag = LUX_referendum_accepted_communism_party
+		set_country_flag = banned_communism_flag
 	}
     }
 }
@@ -557,10 +608,6 @@ country_event = {
 	fire_only_once = yes 
 	option = {
 		name = LUX_ultimatus.2.count.a
-	}
-	immediate = {
-	hidden_effect = {
-		set_global_flag = LUX_germany_accepted_flag
 		add_offsite_building = { type = arms_factory level = 1 }
 		add_offsite_building = { type = industrial_complex level = 2 }
 		army_experience = 25
@@ -568,6 +615,10 @@ country_event = {
 		add_political_power = 150
 		add_war_support = 0.05
 		add_command_power = 10
+	}
+	immediate = {
+	hidden_effect = {
+		set_global_flag = LUX_germany_accepted_flag
 	}
     }
 }
@@ -589,11 +640,15 @@ country_event = {
 		}
 		every_character ={
             limit = {
-				is_unit_leader = yes
-				is_corps_commander = yes
-				is_army_chief = yes
+				OR  = {
+					is_unit_leader = yes
+					is_corps_commander = yes
+					is_army_chief = yes
+				}
 			}
 			set_nationality = LUX
+			retire_character = PREV
+			set_character_flag = go_to_luxembourg_flag
 		}
 		hidden_effect = {
 			every_possible_country = {
@@ -606,6 +661,13 @@ country_event = {
 						transfer_troops = yes
 					}
 				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				is_historical_focus_on = yes
+				add = 5
 			}
 		}
 		custom_effect_tooltip = GAME_OVER_TT
@@ -625,6 +687,9 @@ country_event = {
 		add_opinion_modifier = {
 			target = LUX
 			modifier = general_goverment_has_ultimatum
+		}
+		ai_chance = {
+			base = 0
 		}
 	}
 	immediate = {
@@ -653,20 +718,29 @@ country_event = {
 				limit = {
 					is_subject_of = ROOT
 				}
-				LUX  ={
+				LUX  = {
 					annex_country = {
 						target = PREV
 						transfer_troops = yes
 					}
 				}
-				every_character ={
+				every_character = {
 					limit = {
 						is_unit_leader = yes
 						is_corps_commander = yes
 						is_army_chief = yes
 					}
 					set_nationality = LUX
+					retire_character = PREV
+					set_character_flag = go_to_luxembourg_flag
 				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				is_historical_focus_on = yes
+				add = 5
 			}
 		}
 		custom_effect_tooltip = GAME_OVER_TT
@@ -674,18 +748,15 @@ country_event = {
 	}
 	option = {
 		name = LUX_ultimatus.4.count.b
-		LUX  ={
-			create_wargoal = {
-				type = annex_everything
-				target = ROOT
-			}
-			#event for LUx ultimatum refused
-			country_event = LUX_ultimatus.6
-		}
+		#event for LUx ultimatum refused
+		country_event = LUX_ultimatus.6
 		set_global_flag = LUX_ulimatum_to_niderland_refused
 		add_opinion_modifier = {
 			target = LUX
 			modifier = general_goverment_has_ultimatum
+		}
+		ai_chance = {
+			base = 0
 		}
 	}
 	immediate = {
@@ -699,8 +770,8 @@ news_event = {
 	title = LUX_ultimatus.5.t
 	picture = GFX_news_event_generic_read_write
 	desc = LUX_ultimatus.5.desc
-	is_triggered_only = yes
-	fire_only_once = yes 
+	is_triggered_only = no
+	major = yes
 	option = {
 		name = LLUX_ultimatus.5.count.a
 		trigger = {
@@ -743,38 +814,9 @@ country_event = {
 	fire_only_once = yes 
 	option = {
 		name = LLUX_ultimatus.6.count.a
-	}
-	immediate = {
-	hidden_effect = {
-	}
-    }
-}
-#diplomacy
-#non-aggretion pact with neighours
-country_event = {
-	id = LUX_diplomacy.0
-	title = LUX_diplomacy.0.t
-	picture = GFX_report_event_generic_sign_treaty1
-	desc = LUX_diplomacy.0.desc
-	is_triggered_only = yes
-	fire_only_once = yes 
-	option = {
-		#yes
-		name = LUX_diplomacy.0.count.a
-		diplomatic_relation = {
-			country = LUX
-			relation = non_aggression_pact
-			active = yes
-		}
-		ai_chance = {
-			base = 10
-		}
-	}
-	option = {
-		#no
-		name = LUX_diplomacy.0.count.b
-		ai_chance = {
-			base = 10
+		create_wargoal = {
+			type = annex_everything
+			target = FROM
 		}
 	}
 	immediate = {
@@ -782,233 +824,16 @@ country_event = {
 	}
     }
 }
-#french guarantees
-country_event = {
-	id = LUX_diplomacy.1
-	title = LUX_diplomacy.1.t
-	picture = GFX_report_event_generic_sign_treaty2
-	desc = LUX_diplomacy.1.desc
-	is_triggered_only = yes
-	fire_only_once = yes 
-	option = {
-		#yes
-		name = LUX_diplomacy.1.count.a
-		diplomatic_relation = {
-			country = LUX
-			relation = guarantee
-			active = yes
-		}
-		ai_chance = {
-			base = 5
-			modifier = {
-				add = 5
-				has_government = democratic
-			}
-		}
-	}
-	option = {
-		#no
-		name = LUX_diplomacy.0.count.b
-		ai_chance = {
-			base = 5
-		}
-	}
-	immediate = {
-	hidden_effect = {
-	}
-    }
-}
-#germany delegation
-country_event = {
-	id = LUX_diplomacy.2
-	title = LUX_diplomacy.2.t
-	picture = GFX_report_event_generic_sign_treaty2
-	desc = LUX_diplomacy.2.desc
-	is_triggered_only = yes
-	fire_only_once = yes 
-	option = {
-		#we agree
-		name = LUX_diplomacy.2.count.a
-		set_global_flag = LUX_delegation_to_germany_accepted_flag
-		LUX  = {
-			country_event = LUX_diplomacy.3
-		}
-		ai_chance = {
-			base = 5
-			modifier = {
-				add = 10
-				has_opinion = {
-					target = GER
-					value > 65
-				}
-			}
-			modifier = {
-				add = 500
-                is_subject_of = GER
-			}
-		}
-	}
-	option = {
-		#no
-		set_global_flag = LUX_delegation_to_germany_refused_flag
-		name = LUX_diplomacy.2.count.b
-		ai_chance = {
-			base = 1
-		}
-		LUX  = {
-			country_event = LUX_diplomacy.4
-		}
-	}
-	immediate = {
-	hidden_effect = {
-	}
-    }
-}
-#germany say yes
-country_event = {
-	id = LUX_diplomacy.3
-	title = LUX_diplomacy.3.t
-	picture = GFX_report_event_finnish_letter
-	desc = LUX_diplomacy.3.desc
-	is_triggered_only = yes
-	fire_only_once = yes 
-	option = {
-		name = LUX_diplomacy.3.count.a
-	}
-	immediate = {
-	hidden_effect = {
-		set_global_flag = LUX_delegation_to_germany_accepted_flag
-	}
-    }
-}
-#germany say no
-country_event = {
-	id = LUX_diplomacy.4
-	title = LUX_diplomacy.4.t
-	picture = GFX_report_event_generic_sign_treaty2
-	desc = LUX_diplomacy.4.desc
-	is_triggered_only = yes
-	fire_only_once = yes 
-	option = {
-		name = LUX_diplomacy.4.count.a
-	}
-	immediate = {
-	hidden_effect = {
-		set_global_flag = LUX_delegation_to_germany_refused_flag
-	}
-    }
-}
+
 #LUX credits
-#Cult of personaluity quastion
-country_event = {
-	id = LUX_communist.0
-	title = LUX_communist.0.t
-	picture = GFX_report_event_sanation_left_victory
-	desc = LUX_communist.0.desc
-	is_triggered_only = yes
-	fire_only_once = yes 
-	option = {
-		#People's Council
-		name = LUX_communist.0.count.a
-		create_country_leader = {
-			name = "Volleksrot"
-			desc = "POLITICS_PEAPLE_COUNCIL_DESC"
-			picture = GFX_leader_people_council
-			expire = "1965.1.1"
-			ideology = marxism
-			traits = {
-				peoples_council
-			}
-		}
-	}
-	option = {
-		#cult personality
-		name = LUX_communist.1.count.b
-		create_country_leader = {
-			name = "Normand Ferdinand"
-			desc = "POLITICS_NORMAND_FERDINAND_DESC"
-			picture = GFX_leader_normand_ferdinand
-			expire = "1965.1.1"
-			ideology = leninism
-			traits = {
-				leader_of_revolution
-			}
-		}
-	}
-	immediate = {
-	hidden_effect = {
-	}
-    }
-}
-#bombers buying 
-country_event = {
-	id = LUX_decisions.0
-	title = LUX_decisions.0.t
-	picture = GFX_report_event_generic_sign_treaty2
-	desc = LUX_decisions.0.desc
-	is_triggered_only = yes
-	fire_only_once = yes 
-	option = {
-		name = LUX_decisions.0.count.a
-		ai_chance = {
-			base = 5
-			modifier = {
 
-			}
-		}
-	}
-	option = {
-		name = LUX_decisions.0.count.b
-		ai_chance = {
-			base = 5
-			modifier = {
-				
-			}
-		}
-	}
-	immediate = {
-	hidden_effect = {
-	}
-    }
-}
-#stormtroopers buying
-country_event = {
-	id = LUX_decisions.1
-	title = LUX_decisions.1.t
-	picture = GFX_report_event_generic_sign_treaty2
-	desc = LUX_decisions.1.desc
-	is_triggered_only = yes
-	fire_only_once = yes 
-	option = {
-		name = LUX_decisions.1.count.a
-		ai_chance = {
-			base = 5
-			modifier = {
-
-			}
-		}
-	}
-	option = {
-		name = LUX_decisions.1.count.b
-		ai_chance = {
-			base = 5
-			modifier = {
-
-			}
-		}
-	}
-	immediate = {
-	hidden_effect = {
-	}
-    }
-}
 #luxembourg liberated
 news_event = {
 	id = lux_news.1
 	title = lux_news.1.t
 	desc = lux_news.1.desc
 	picture = GFX_news_liberation_luxembourg
-	is_triggered_only = yes
+	is_triggered_only = no
 	option = { 
 		name = lux_news.1.a
 		trigger = {
@@ -1066,96 +891,6 @@ country_event = {
         set_global_flag = luxembourg_libereted_country_event_flag
 	}
 }
-country_event = {
-	id = benelux_events.0
-	title = benelux_events.0.t
-	desc = benelux_events.0.desc
-	picture = GFX_report_event_picture_benelux_economic_union
-	is_triggered_only = yes
-	option = { 
-		name = benelux_events.0.a
-		add_opinion_modifier = {
-			target = LUX
-			modifier = benelux_union_economic_union_opinion
-		}
-		ai_chance = {
-			base = 10
-			modifier = {
-				add = 10
-				is_historical_focus_on = yes
-			}
-		}
-		add_ideas = shared_benelux_member_of_economic_union
-		set_country_flag = economic_agreetmant_sign_flag
-		if = {
-			limit = {
-				LUX = {
-					NOT = {
-						has_idea = benelux_leader_of_economic_union
-					}
-				}
-			}
-			add_ideas = benelux_leader_of_economic_union
-		}
-		#report about confirm to go union
-        LUX = {
-			country_event = benelux_events.1
-		}
-	}
-	option = { 
-		name = benelux_events.0.b
-		ai_chance = {
-			base = 10
-			modifier = {
-
-			}
-		}
-		LUX = {
-			country_event = benelux_events.2
-		}
-		set_country_flag = economic_union_agreetmant_refused_to_sign_flag
-	}
-	trigger = {
-       
-	}
-	immediate = {
-       
-	}
-}
-#agree to join economic union report event
-country_event = {
-	id = benelux_events.1
-	title = benelux_events.1.t
-	desc = benelux_events.1.desc
-	picture = GFX_report_event_picture_benelux_economic_union
-	is_triggered_only = yes
-	option = { 
-		name = benelux_events.1.a
-	}
-	trigger = {
-       
-	}
-	immediate = {
-       
-	}
-}
-#refuse to join economic union report event
-country_event = {
-	id = benelux_events.2
-	title = benelux_events.2.t
-	desc = benelux_events.2.desc
-	picture = GFX_report_event_picture_benelux_economic_union
-	is_triggered_only = yes
-	option = { 
-		name = benelux_events.2.a
-	}
-	trigger = {
-       
-	}
-	immediate = {
-       
-	}
-}
 #luxembourg get nuked
 news_event = {
 	id = lux_news.3
@@ -1202,69 +937,6 @@ country_event = {
        
 	}
 }
-#капитуляция Люксимбурга
-country_event = {
-	id = LUX_diplomacy.5
-	title = LUX_diplomacy.5.t
-	desc = LUX_diplomacy.5.desc
-	picture = GFX_report_event_generic_sign_treaty1
-	is_triggered_only = yes
-	option = { 
-		name = LUX_diplomacy.5.a
-		ai_chance = {
-			base = 100
-			modifier = {
-				is_historical_focus_on = yes
-				add = 500
-			}
-		}
-        set_global_flag = LUX_choose_indepence_flag
-		complete_national_focus = LUX_in_exile_fight
-	}
-	option = { 
-		name = LUX_diplomacy.5.b
-		ai_chance = {
-			base = 0
-			modifier = {
-				is_historical_focus_on = no
-				add = 50
-			}
-		}
-		set_global_flag = LUX_choose_collaboration_flag
-		complete_national_focus = LUX_in_exile_executive_council
-	}
-	trigger = {
-	}
-	immediate = {
-		hidden_effect = {
-			load_focus_tree = {
-				tree = luxemburg_in_exile
-				keep_completed = yes
-			}
-			mark_focus_tree_layout_dirty = yes
-		}
-	}
-}
-country_event = {
-	id = LUX_diplomacy.6
-	title = LUX_diplomacy.6.t
-	desc = LUX_diplomacy.6.desc
-	picture = GFX_report_event_generic_sign_treaty2
-	is_triggered_only = yes
-	option = { 
-		name = LUX_diplomacy.6.a
-        set_country_flag = FRA_luxembourg_over_dipomatic_relations_flag
-		add_opinion_modifier = {
-			target = LUX
-			modifier = diplomatic_relatation_is_over
-		}
-	}
-	trigger = {
-	}
-	immediate = {
-
-	}
-}
 
 #fascism
 #недовольство среди населенния
@@ -1307,12 +979,14 @@ country_event = {
 	option = { 
 		#война за независимость 
 		name = LUX_fascism.0.b
-		end_puppet = GER
-		GER = {
-			declare_war_on = {
-				target = ROOT
-				type = independence_wargoal
+		OVERLORD = {
+			ROOT = {
+				declare_war_on = {
+					target = PREV
+					type = independence_wargoal
+				}
 			}
+			end_puppet = PREV
 		}
 		leave_faction = yes
 		set_global_flag = LUX_start_war_indepence_flag
@@ -1323,7 +997,7 @@ country_event = {
 		}
 	}
 	trigger = {
-     
+       original_tag = LUX
 	}
 	mean_time_to_happen = {
 
@@ -1361,59 +1035,59 @@ country_event = {
         #лидер из числа левых
 		name = LUX_fascism.3.a
 		set_country_flag = LUX_left_leader_choose_flag
-		#add_country_leader_role = {
-		   # character = LUX_Christophe_Jessé_fascism
-			#country_leader = {
-				#expire = "1965.1.1"
-				#ideology = rexism
-				#traits = {
-					#LUX_idiology_balance
-				#}
-			#}
-			#promote_leader = yes
-		#}
-		create_country_leader = {
-			name = "Christophe Jessé"
-			desc = ""
-			picture = GFX_Christophe_Jessé
-			expire = "1965.1.1"
-			ideology = rexism
-			traits = {
-				LUX_idiology_balance
+		add_country_leader_role = {
+		   character = LUX_Christophe_Jessé_fascism
+			country_leader = {
+				expire = "1965.1.1"
+				ideology = rexism
+				traits = {
+					LUX_idiology_balance
+				}
 			}
+			promote_leader = yes
 		}
+		#create_country_leader = {
+			#name = "Christophe Jessé"
+			#desc = ""
+			#picture = GFX_Christophe_Jessé
+			#expire = "1965.1.1"
+			#ideology = rexism
+			#traits = {
+				#LUX_idiology_balance
+			#}
+		#}
 	}
 	option = {  
 		#лидер из числа правых
 		name = LUX_fascism.3.b
 		set_country_flag = LUX_right_leader_choose_flag
-		#add_country_leader_role = {
-		   # character = LUX_Gertrude_Gerda
-			#country_leader = {
-				#expire = "1965.1.1"
-				#ideology = fascism_ideology
-				#traits = {
-					#LUX_fascism_lover
-				#}
-			#}
-			#promote_leader = yes
-		#}
-		create_country_leader = {
-			name = "Gertrude Gerda"
-			desc = ""
-			picture = GFX_Gertrude_Gerda
-			expire = "1965.1.1"
-			ideology = fascism_ideology
-			traits = {
-				LUX_fascism_lover
+		add_country_leader_role = {
+		    character = LUX_Gertrude_Gerda
+			country_leader = {
+				expire = "1965.1.1"
+				ideology = fascism_ideology
+				traits = {
+					LUX_fascism_lover
+				}
 			}
+			promote_leader = yes
 		}
+		#create_country_leader = {
+			#name = "Gertrude Gerda"
+			#desc = ""
+			#picture = GFX_Gertrude_Gerda
+			#expire = "1965.1.1"
+			#ideology = fascism_ideology
+			#traits = {
+				#LUX_fascism_lover
+			#}
+		#}
 	}
-	option = { 
-		#колективный лидер
-		name = LUX_fascism.3.c
-		set_country_flag = LUX_collective_leader_choose_flag
-	}
+	#option = { 
+	#	#колективный лидер
+	#	name = LUX_fascism.3.c
+	#	set_country_flag = LUX_collective_leader_choose_flag
+	#}
 	trigger = {
      
 	}
@@ -1490,25 +1164,45 @@ country_event = {
 			days = 365
 		}
 		add_ideas = LUX_planned_democratic_coup
-		remove_idea = LUX_neatrality_guarantees
+		remove_ideas = LUX_neatrality_guarantees
+		if = {
+			limit = {
+				has_country_leader = {
+					character = LUX_provisional_government
+					ruling_only = yes
+				}
+			}
+			LUX_provisional_government = {
+				retire = yes 
+			}
+		}
+		LUX_joseph_bech = {
+			retire = yes
+		}
+		if = {
+			limit = {
+				has_country_flag = emile_speller_decline_flag
+			}
+			LUX_Emile_Speller = {
+				retire = yes
+			}
+		}
+		set_country_flag = LUX_fascism_coup_success_flag
+		if = {
+			#limit = {
+			#	has_country_flag = emile_speller_agreed_flag
+			#}
+			activate_mission = LUX_increase_emile_speller_to_field_marchel_mission
+		}
 	}
 	immediate = {
        hidden_effect = {
-		if  = {
-			limit = {
-				is_guaranteed_by = FRA
-			}
 			FRA = {
 				diplomatic_relation = {
 					country = ROOT
 					relation = guarantee
 					active = no
 				}
-			}
-		}
-		if  = {
-			limit = {
-				is_guaranteed_by = ENG
 			}
 			ENG = {
 				diplomatic_relation = {
@@ -1518,7 +1212,6 @@ country_event = {
 				}
 			}
 		}
-	   }
 	}
 }
 #monarch in exile
@@ -1530,10 +1223,29 @@ country_event = {
 	is_triggered_only = yes
 	option = { 
 		name = LUX_fascism.7.a
-		LUX = {
+		FROM = {
 			add_opinion_modifier = {
 				target = ROOT
 				modifier = LUX_accenped_monarch
+			}
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = { 
+		name = LUX_fascism.7.b
+        trigger = {
+			has_government = communism
+		}
+		ai_chance = {
+			base = 0
+		}
+		set_country_flag = LUX_monarch_is_dead_flag
+		hidden_effect = {
+			news_event = {
+				id = LUX_monarch_news.0
+				random_hours = 12
 			}
 		}
 	}
@@ -1545,6 +1257,11 @@ country_event = {
 	}
 	immediate = {
         set_country_flag = LUX_monarch_in_exile_flag
+		FROM = {
+			LUX_charlotte_grand_duchess = {
+				set_nationality = ROOT
+			}
+		}
 	}
 }
 #monarch is dead news event 
@@ -1553,8 +1270,8 @@ news_event = {
 	title = LUX_fascism.8.t
 	desc = LUX_fascism.8.desc
 	picture = GFX_news_event_001
-	is_triggered_only = no
-	fire_only_once = yes
+	is_triggered_only = yes
+	fire_only_once = no
 	option = { 
 		name = LUX_fascism.8.a
 		trigger = {
@@ -1590,4 +1307,2125 @@ news_event = {
 	immediate = {
         set_global_flag = LUX_global_monarch_is_dead_flag
 	}
+}
+#france ulitmatum
+country_event = {
+	id = LUX_fascism.9
+	title = LUX_fascism.9.t
+	desc = LUX_fascism.9.desc
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+	option = { 
+		name = LUX_fascism.9.a
+		every_possible_country = {
+			limit = {
+				is_owned_by = FRA
+			}
+			ROOT = {
+				release = PREV
+			}
+		}
+		every_possible_country = {
+			limit =  {
+				is_subject_of = ROOT
+			}
+			end_puppet = PREV
+		}
+	}
+	option = { 
+		name = LUX_fascism.9.b
+	}
+	trigger = {
+     
+	}
+	mean_time_to_happen = {
+
+	}
+	immediate = {
+ 
+	}
+}
+#демокроатическое правительство лишилось доверия
+country_event = {
+	id = LUX_fascism.10
+	title = LUX_fascism.10.t
+	desc = LUX_fascism.10.desc
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = no
+	fire_only_once = yes
+	option = {
+		name = LUX_fascism.10.b
+		add_country_leader_role = {
+			character = LUX_provisional_government
+			promote_leader = yes
+			country_leader = {
+				ideology = liberalism
+				expire = "1965.1.1.1"
+				traits = { LUX_rovisional_government_trait }
+			}
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.10
+		}
+		set_country_flag = provisional_government_formed_flag
+	}
+	option = { 
+		name = LUX_fascism.10.a
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+		}
+		if = {
+			limit = {
+                NOT = {
+					has_completed_focus = LUX_self_prepering_to_coup
+				}
+			}
+			unlock_national_focus = LUX_self_prepering_to_coup
+		}
+		if = {
+			limit = {
+                NOT = {
+					has_completed_focus = LUX_support_coup
+				}
+			}
+			unlock_national_focus = LUX_support_coup
+		}
+		if = {
+			limit = {
+                NOT = {
+					has_completed_focus = LUX_ally_with_communst
+				}
+			}
+			unlock_national_focus = LUX_ally_with_communst
+		}
+		if = {
+			limit = {
+                NOT = {
+					has_completed_focus = LUX_fascism_communist_coalision
+				}
+			}
+			unlock_national_focus = LUX_fascism_communist_coalision
+		}
+		if = {
+			limit = {
+                NOT = {
+					has_completed_focus = LUX_choose_coalisation_leader
+				}
+			}
+			unlock_national_focus = LUX_choose_coalisation_leader
+		}
+		if = {
+			limit = {
+                NOT = {
+					has_completed_focus = LUX_pressure_on_goverment
+				}
+			}
+			unlock_national_focus = LUX_pressure_on_goverment
+		}
+		if = {
+			limit = {
+                NOT = {
+					has_completed_focus = LUX_right_leader_coalision
+				}
+			}
+			complete_national_focus = LUX_right_leader_coalision
+		}
+	}
+	trigger = {
+       original_tag = LUX
+	   has_completed_focus = LUX_self_prepering_to_coup
+	   democratic < 0.10
+	   NOT = {
+		  has_government = fascism
+	   }
+	}
+	mean_time_to_happen = {
+        days = 4
+	}
+	immediate = {
+       set_country_flag = goverment_lost_trust_from_people_flag
+	}
+}
+#Правительство проводит рейды против партии фашизма
+country_event = {
+	id = LUX_fascism.11
+	title = LUX_fascism.11.t
+	desc = LUX_fascism.11.desc
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = no
+	option = { 
+		name = LUX_fascism.11.a
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.07
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.09
+		}
+		add_timed_idea = {
+			idea = LUX_goverment_acting_raids
+			days = 50
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = global.opposition_get_raid
+					value = 0
+				}
+			}
+			unlock_decision_tooltip = LUX_secure_opposstion
+		}
+		
+	}
+	trigger = {
+       original_tag = LUX
+	   has_completed_focus = LUX_self_prepering_to_coup
+	   NOT = {
+          has_government = fascism
+		  has_government = communism
+		  has_government = neutrality
+		  has_idea = LUX_goverment_acting_raids
+		  has_country_flag = opposition_secured_flag
+	   }
+	   has_country_leader = {
+		   character = LUX_provisional_government
+		   ruling_only = yes
+	   }
+	   OR  = {
+		  fascism > 0.30
+		  communism > 0.30
+		  neutrality > 0.30
+	   }
+	}
+	mean_time_to_happen = {
+        random_days = 7
+		random_hours = 10
+	}
+	immediate = {
+		add_to_variable = { var = global.opposition_get_raid value = 1 }
+	}
+}
+#add event for Liberia ultimatum
+country_event = {
+	id = LUX_ultimatus.7
+	title = LUX_ultimatus.7.t
+	picture = GFX_report_event_generic_sign_treaty2
+	desc = LUX_ultimatus.7.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	#Liberia accepted
+	option = {
+		name = LUX_ultimatus.7.count.a
+		set_country_flag = LIB_assepted_LUX_ultimatum
+		add_named_threat = {
+			threat = 2
+			name = LUX_accepted_ultimatum_Liberia
+		}
+		FROM  = {
+			country_event = {
+				id =  LUX_ultimatus.8
+				days = 2
+				random_hours = 6
+			}
+		}
+		ai_chance = {
+			base = 4
+			modifier = {
+				add = 50
+				is_subject_of = FROM
+			}
+			modifier = {
+				add = 1
+				FROM = {
+					is_ai = no
+				}
+			}
+		}
+	}
+	#Liberia refused
+	option = {
+		name = LUX_ultimatus.7.count.b
+		FROM  = {
+			country_event = {
+				id =  LUX_ultimatus.9
+				days = 2
+				random_hours = 8
+			}
+		}
+		ai_chance = {
+			base = 6
+			modifier = {
+				add = 5
+				is_in_faction = yes
+			}
+		}
+	}
+	immediate = {
+	hidden_effect = {
+	}
+    }
+}
+#Liberia accepted
+country_event = {
+	id = LUX_ultimatus.8
+	title = LUX_ultimatus.8.t
+	picture = GFX_report_event_generic_sign_treaty2
+	desc = LUX_ultimatus.8.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		name = LUX_ultimatus.8.count.a
+		set_country_flag = LUX_annexed_Liberia
+		annex_country = {
+			target = LIB
+			transfer_troops = yes
+		}
+	}
+	immediate = {
+	hidden_effect = {
+	}
+    }
+}
+#Liberia refused
+country_event = {
+	id = LUX_ultimatus.9
+	title = LUX_ultimatus.9.t
+	picture = GFX_report_event_generic_sign_treaty2
+	desc = LUX_ultimatus.9.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		name = LUX_ultimatus.9.count.a
+		set_country_flag = LUX_declare_war_Liberia
+		declare_war_on = {
+			target = LIB
+			type = puppet_wargoal_focus
+		}
+		#effect_tooltip = {
+		#	LIB = {
+		#		add_timed_idea = {
+		#			idea = LIB_war_of_independence
+		#			days = 650
+		#		}
+		#	}
+		#}
+	}
+	immediate = {
+	hidden_effect = {
+	}
+    }
+}
+#1945 elections
+country_event = {
+	id = LUX_electins.2
+	title = LUX_electins.2.t
+	picture = GFX_report_event_gathering_protest
+	desc = LUX_electins.2.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	#trigger = {
+	#	date > 1945.10.20
+	#	original_tag = LUX
+	#	has_elections = yes
+	#	has_government = democratic
+	#}
+	#mean_time_to_happen = {
+		#days = 5
+	#}
+	option = {
+		#ai_chance = {
+		#	base = 0
+		#	modifier = {
+		#		add = 5
+		#		is_historical_focus_on = no
+		#	}
+		#	modifier = {
+		#		add = 100
+		#		has_global_flag = LUX_ai_democratic_alt_flag
+		#	}
+		#}
+		#choose CSV
+		name = LUX_electins.2.count.a
+	}
+	option = {
+		#ai_chance = {
+		#	base = 0
+		#	modifier = {
+		#		add = 10
+		#		is_historical_focus_on = yes
+		#	}
+		#}
+		#choose LSAP
+		name = LUX_electins.2.count.b
+	}
+	#communist choose
+	option = {
+		#ai_chance = {
+		#	base = 0
+		#	modifier = {
+		#		add = 5
+		#		is_historical_focus_on = no
+		#	}
+		#}
+		#choose Communist
+		name = LUX_electins.2.count.c
+	}
+	immediate = {
+		set_country_flag = LUX_elections_1945_flag
+    }
+}
+#ask france about monarch exile
+country_event = {
+	id = LUX_monarch_in_exile_events.0
+	title = LUX_monarch_in_exile_events.0.t
+	desc = LUX_monarch_in_exile_events.0.d
+	picture = GFX_reportevent_liberation_luxembourg
+	is_triggered_only = yes
+	option = {
+	    name = LUX_monarch_in_exile_events.count.a
+		set_global_flag = FRA_accepted_monarch_in_exile_flag
+		hidden_effect = {
+			FROM = {
+				country_event = LUX_monarch_in_exile_events.3
+			}
+		}
+		add_stability = -0.05
+		ai_chance = {
+			base = 5 
+			modifier = {
+				add = 10
+				NOT = {
+					has_war_with = fROM
+				}
+			}
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	option = {
+		name = LUX_monarch_in_exile_events.count.b
+		set_global_flag = FRA_desegree_monarch_in_exile_flag
+		hidden_effect = {
+			FROM = {
+				country_event = LUX_monarch_in_exile_events.4
+			}
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				add = 5
+				is_historical_focus_on = no
+			}
+		}
+	}
+}
+#Шарлотта была убита
+country_event = {
+	id = LUX_monarch_in_exile_events.1
+	title = LUX_monarch_in_exile_events.1.t
+	desc = LUX_monarch_in_exile_events.1.d
+	picture = GFX_reportevent_liberation_luxembourg
+	is_triggered_only = no
+	fire_only_once = yes
+	trigger = {
+		original_tag = LUX
+		FRA = {
+			has_capitulated = yes
+			has_character = LUX_charlotte_grand_duchess
+		}
+		LUX  = {
+			NOT = {
+				has_country_flag = LUX_evacuatuion_from_france_charlotte_grand_duchess_flag
+			}
+		}
+	}
+	mean_time_to_happen = {
+		hours = 4
+	}
+	option = {
+	    name = LUX_monarch_in_exile_events.1.count.a
+		add_stability = -0.10
+		add_political_power = -100
+	}
+	immediate = {
+		hidden_effect = {
+			LUX_charlotte_grand_duchess = {
+				retire = yes
+			}
+			LUX = {
+				set_country_flag = charlotte_grand_duchess_killed_by_occupations_flag
+				remove_ideas = LUX_idea_charlotte_grand_duchess_in_exile
+			}
+		}
+	}
+}
+country_event = {
+    id = LUX_monarch_in_exile_events.2
+	hidden = yes
+	is_triggered_only = no
+	trigger = {
+       LUX = {
+		   is_government_in_exile = yes
+	   }
+	   has_global_flag = FRA_accepted_monarch_in_exile_flag
+	}
+	immediate = {
+		LUX_charlotte_grand_duchess = {
+			set_nationality = FRA
+		}
+		LUX = {
+			if = {
+				limit = {
+					has_idea = LUX_idea_charlotte_grand_duchess
+				}
+				swap_ideas = {
+					remove_idea = LUX_idea_charlotte_grand_duchess
+					add_idea = LUX_idea_charlotte_grand_duchess_in_exile
+				}
+			}
+			if  = {
+				limit = {
+					has_idea = LUX_idea_charlotte_grand_duchess2
+				}
+				swap_ideas = {
+					remove_idea = LUX_idea_charlotte_grand_duchess2
+					add_idea = LUX_idea_charlotte_grand_duchess_in_exile
+				}
+			}
+			if  = {
+				limit = {
+					has_idea = idea_charlotte_grand_duchess3
+				}
+				swap_ideas = {
+					remove_idea = idea_charlotte_grand_duchess3
+					add_idea = LUX_idea_charlotte_grand_duchess_in_exile
+				}
+			}
+		}
+	}
+}
+#franch agree to accept monarcth when we go to exile
+country_event = {
+	id = LUX_monarch_in_exile_events.3
+	title = LUX_monarch_in_exile_events.3.t
+	desc = LUX_monarch_in_exile_events.3.d
+	picture = GFX_report_event_picture_benelux_frined_pact_reply
+	is_triggered_only = yes
+	option = {
+		name = LUX_monarch_in_exile_events.3.count.a
+	}
+}
+#franch decline to accept monarcth when we go to exile
+country_event = {
+	id = LUX_monarch_in_exile_events.4
+	title = LUX_monarch_in_exile_events.4.t
+	desc = LUX_monarch_in_exile_events.4.d
+	picture = GFX_report_event_picture_benelux_frined_pact_reply
+	is_triggered_only = yes
+	option = {
+		name = LUX_monarch_in_exile_events.4.count.a
+	}
+}
+
+country_event = {
+	id = LUX_hidden.3
+	is_triggered_only = yes
+	hidden = yes 
+	trigger = {}
+	immediate = {
+		LUX = {
+			load_focus_tree = { 
+			   tree = luxemburg_in_exile 
+			   keep_completed = yes 
+			}
+		}
+    }
+}
+#event for Englang Luxembourg try remove on army lmits
+country_event = {
+	id = LUX_army_limits_events.0
+	title = LUX_army_limits_events.0.t
+	desc = LUX_army_limits_events.0.d
+	picture = GFX_report_event_journalists_speech
+	is_triggered_only = yes
+	option = {
+		#dont care aobut it
+		name = LUX_army_limits_events.0.count.a
+		ai_chance = {
+			base = 10
+			modifier = {
+
+			}
+		}
+	}
+	option = {
+		#need stop them
+		name = LUX_army_limits_events.0.count.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				
+			}
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = diplomatic_relatation_is_over
+		}
+		if = {
+			limit = {
+                has_guaranteed = FROM
+			}
+			diplomatic_relation = {
+				country = FROM
+				relation = guarantee
+				active = no
+			}
+		}
+	}
+}
+
+##### MONARCH NEWS EVENTS ######
+news_event = {
+	id = LUX_monarch_news.0
+	title = LUX_monarch_news.0.t
+	desc = LUX_monarch_news.0.desc
+	picture = GFX_news_death_charlotte_grand_duches
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = LUX_monarch_news.0.a
+		trigger = {
+           NOT  = {
+			   original_tag = LUX
+			   has_government = communism
+		   }
+		}
+	}
+	option = {
+		name = LUX_monarch_news.0.b
+		trigger = {
+           NOT  = {
+			   original_tag = LUX
+			   has_country_flag = LUX_monarch_is_dead_flag
+		   }
+		   has_government = communism
+		}
+	}
+	option = {
+		name = LUX_monarch_news.0.c
+		trigger = {
+			original_tag = LUX
+		}
+	}
+	option = {
+		name = LUX_monarch_news.0.d
+		trigger = {
+			NOT = {
+			    original_tag = LUX
+			}
+			has_country_flag = LUX_monarch_is_dead_flag
+		}
+	}
+	trigger = {
+	}
+	mean_time_to_happen = {
+	}
+	immediate = {
+       
+	}
+}
+
+country_event = {
+	id = liberian_independs_war_events.0
+	title = liberian_independs_war_events.0.t
+	desc =  liberian_independs_war_events.0.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		name = liberian_independs_war_events.0.a
+		white_peace = FROM
+		ai_chance = {
+			base = 10
+		}
+		hidden_effect = {
+			news_event = {
+				id = liberian_independs_war_events.1
+				days = 1
+				random_hours = 12
+			}
+		}
+		#also give equmpent 
+	}
+	option = {
+		name = liberian_independs_war_events.0.b
+	}
+	trigger = {
+	}
+	immediate = {
+
+	}
+}
+#Позорный мир / Люксимбурско-Либерийский мир
+news_event = {
+	id = liberian_independs_war_events.1
+	title = {
+		text = liberian_independs_war_events.1.t.a # Позорный мир
+	    trigger = {
+			original_tag = LUX
+		}
+	}
+	title = {
+		text = liberian_independs_war_events.1.t.b # Люксимбурско-Либерийский мир
+	    trigger = {
+			NOT = {
+			    original_tag = LUX
+			}
+		}
+	}
+	desc = liberian_independs_war_events.1.desc
+	picture = GFX_news_event_polish_army
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = liberian_independs_war_events.1.a
+		trigger = {
+			original_tag = LUX
+		}
+		hidden_effect = {
+			country_event = {
+				id = liberian_independs_war_events.2
+				days = 3
+                random_hours = 12
+			}
+		}
+	}
+	option = {
+		name = liberian_independs_war_events.1.b
+		trigger = {
+			original_tag = LIB
+		}
+	}
+	option = {
+		name = liberian_independs_war_events.1.c
+		trigger = {
+			NOT = {
+				original_tag = LUX
+				original_tag = LIB
+			}
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			add_threat = -5
+		}
+	}
+}
+# Поражение в Люксимбурско-Либерийской войне
+country_event = {
+	id = liberian_independs_war_events.2
+	title = liberian_independs_war_events.2.t
+	desc = liberian_independs_war_events.2.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		name = liberian_independs_war_events.2.a
+	    add_dynamic_modifier = {
+			modifier = LUX_lost_in_luxembourg_liberian_war
+			days = 365
+		}
+	}
+	trigger = {
+	}
+	immediate = {
+        if = {
+			limit = {
+				has_government = neutrality
+			}
+			set_variable = {
+				neutrality_drift_lost_in_luxembourg_liberian_war_modifier = -0.04
+			}
+		}
+		if = {
+			limit = {
+				has_government = fascism
+			}
+			set_variable = {
+				fascism_drift_lost_in_luxembourg_liberian_war_modifier = -0.04
+			}
+		}
+		if = {
+			limit = {
+				has_government = communism
+			}
+			set_variable = {
+				communism_drift_lost_in_luxembourg_liberian_war_modifier = -0.04
+			}
+		}
+		if = {
+			limit = {
+				has_government = democratic
+			}
+			set_variable = {
+				democratic_drift_lost_in_luxembourg_liberian_war_modifier = -0.04
+			}
+		}
+	}
+}
+news_event = {
+	id = LUX_leader_news.0
+	title = LUX_leader_news.t
+	picture = GFX_news_event_generic_sign_treaty3
+	desc = LUX_leader_news.d
+
+	major = yes
+
+	is_triggered_only = yes
+
+	#Together we will prevail.
+	option = {
+		name = news.289.a
+		trigger = {
+			OR = {
+				has_variable = global.alliance_inviter
+				has_variable = global.alliance_applicant
+			}
+		}
+		hidden_effect = {
+			clear_variable = global.alliance_inviter
+			clear_variable = global.alliance_applicant
+		}
+	}
+
+	#They prepare for what is coming.
+	option = {
+		name = news.289.b
+		trigger = {
+			NOT = { FROM = { has_war = yes } }
+			event_target:global.alliance_inviter = {
+				NOT = { has_war = yes }
+			}
+			NOT = {
+				any_allied_country = {
+					has_variable = global.alliance_applicant
+				}
+			}
+			AND = {
+				NOT = { has_variable = global.alliance_inviter }
+				NOT = { has_variable = global.alliance_applicant }
+			}
+		}
+		hidden_effect = {
+			clear_variable = global.alliance_inviter
+			clear_variable = global.alliance_applicant
+		}
+	}
+
+	#It will not avail them!
+	option = {
+		name = news.289.c
+		trigger = {
+			any_enemy_country = {
+				OR = {
+				    has_variable = global.alliance_inviter
+				    has_variable = global.alliance_applicant
+				}
+			}
+		}
+		hidden_effect = {
+			clear_variable = global.alliance_inviter
+			clear_variable = global.alliance_applicant
+		}
+	}
+
+	#The war escalates...
+	option = {
+		name = news.289.e
+		trigger = {
+			NOT = {
+				any_allied_country = {
+					OR = {
+				        has_variable = global.alliance_inviter
+				        has_variable = global.alliance_applicant
+					}
+				}
+				any_enemy_country = {
+					OR = {
+				        has_variable = global.alliance_inviter
+				        has_variable = global.alliance_applicant
+					}
+				}
+			}
+			AND = {
+				NOT = { has_variable = global.alliance_inviter }
+				NOT = { has_variable = global.alliance_applicant }
+			}
+		}
+		hidden_effect = {
+			clear_variable = global.alliance_inviter
+			clear_variable = global.alliance_applicant
+		}
+	}
+
+	#Our alliance grows stronger.
+	option = {
+		name = news.289.f
+		trigger = {
+			any_allied_country = {
+				OR = {
+					has_variable = global.alliance_inviter
+					has_variable = global.alliance_applicant
+				}
+			}
+			AND = {
+				NOT = { has_variable = global.alliance_inviter }
+				NOT = { has_variable = global.alliance_applicant}
+			}
+		}
+		hidden_effect = {
+			clear_variable = global.alliance_inviter
+			clear_variable = global.alliance_applicant
+		}
+	}
+}
+country_event = {
+	id = LUX_hystorial_in_exile_events.0
+	title = LUX_hystorial_in_exile_events.0.t
+	desc = LUX_hystorial_in_exile_events.0.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = LUX_hystorial_in_exile_events.0.a
+		random_owned_controlled_state =  {
+			set_variable = {
+				LUX.timeline_state_capital = THIS
+			}
+			set_state_flag = temporary_capital_for_LUX_state_falg
+		}
+		hidden_effect = {
+			FROM =  {
+				hidden_effect = {
+					country_event =  {
+						id = LUX_hystorial_in_exile_events.1
+						random_hours = 12
+						days = 1
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+		#	modifier = {
+		#		is_in_faction_with = FROM
+		#		add = 15
+		#	}
+		}
+	}
+	option = {
+		name = LUX_hystorial_in_exile_events.0.b
+		ai_chance = {
+			base = 100
+			modifier = {
+				add = 50
+				FROM =  {
+					is_ai = no
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = LUX_hystorial_in_exile_events.1
+	title = LUX_hystorial_in_exile_events.1.t
+	desc = LUX_hystorial_in_exile_events.1.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		#nice
+		name = LUX_hystorial_in_exile_events.1.a
+		var:LUX.timeline_state_capital = {
+			#remove all this this when back from exile
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_compliance = 15
+			custom_effect_tooltip = LUX_hystorial_in_exile_events.1_effect_tt
+		}
+		set_state_controller = var:LUX.timeline_state_capital
+	}
+}
+country_event = {
+	id = LUX_hystorial_in_exile_events.2
+	title = LUX_hystorial_in_exile_events.2.t
+	desc = LUX_hystorial_in_exile_events.2.desc
+	picture = GFX_report_event_picture_welcome_in_exile_luxembourg
+	is_triggered_only = no
+	trigger = {
+		is_exiled_in = ENG
+	}
+	mean_time_to_happen = {
+		days = 1
+		random_hours = 6
+	}
+	option = {
+		#nice
+		name = LUX_hystorial_in_exile_events.2.a
+	}
+}
+#Emile Spaller go to fascism
+unit_leader_event = {
+	id = LUX_fascism.12
+	title = LUX_fascism.12.t
+	desc = LUX_fascism.12.desc
+	is_triggered_only = yes
+	option = { 
+		name = LUX_fascism.12.a
+	}
+	immediate = {
+		set_country_flag = emile_speller_agreed_flag
+	}
+}
+#Emile Spaller not agree go to fascism
+unit_leader_event = {
+	id = LUX_fascism.13
+	title = LUX_fascism.13.t
+	desc = LUX_fascism.13.desc
+	is_triggered_only = yes
+	option = { 
+		name = LUX_fascism.13.a
+	}
+	immediate = {
+		set_country_flag = emile_speller_decline_flag
+	}
+}
+# Недовольство среди командывания
+country_event = {
+	id = LUX_fascism.14
+	title = LUX_fascism.14.t
+	desc = LUX_fascism.14.desc
+	picture = GFX_report_event_french_british_officers
+	is_triggered_only = yes
+	option = { 
+		name = LUX_fascism.14.a
+		LUX_Emile_Speller = {
+			add_trait = {
+				trait = trait_NOT_loaylty_to_fascism
+			}
+		}
+		add_dynamic_modifier = {
+			modifier = LUX_dissatisfaction_among_military_command
+		}
+	}
+	option = { 
+		name = LUX_fascism.14.b
+		LUX_Emile_Speller = {
+			add_trait = {
+				trait = trait_GRE_fascist_sympathizer
+			}
+			promote_leader = yes
+		}
+		add_command_power = -20
+	}
+	option = {
+		name = LUX_fascism.14.c
+		LUX_Emile_Speller = {
+			retire = yes
+		}
+		add_political_power = -100
+		add_command_power = -15
+	}
+	immediate = {
+		
+	}
+}
+country_event = {
+	id = LUX_electins.3
+	title = LUX_electins.3.t
+	picture = GFX_report_event_communist_leader
+	desc = LUX_electins.3.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		name = LUX_electins.3.a
+		custom_effect_tooltip = LUX_electins.3_effect_tt
+		LUX_pierre_dupong = {
+			retire = yes
+		}
+	}
+	immediate = {
+		
+    }
+}
+country_event = {
+	id = LUX_electins.4
+	title = LUX_electins.4.t
+	picture = GFX_report_event_picture_template_joseph_besh_generic
+	desc = LUX_electins.4.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		name = LUX_electins.4.a
+		complete_national_focus = LUX_joseph_bech_is_elected
+	}
+	immediate = {
+		hidden_effect  = {
+            complete_national_focus = LUX_election_1937
+		}
+		set_country_flag = LUX_elections_1937_flag
+    }
+}
+country_event = {
+	id = LUX_electins.5
+	title = LUX_electins.5.t
+	picture = GFX_report_event_picture_template_pierre_dupong_generic
+	desc = LUX_electins.5.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		name = LUX_electins.5.a
+		promote_character = LUX_pierre_dupong
+		set_can_be_fired_in_advisor_role = {
+			character = LUX_pierre_dupong
+			value = no
+		}
+		if = {
+			limit = {
+				LUX_pierre_dupong = {
+					is_hired_as_advisor = no
+				}
+			}
+			activate_advisor = LUX_pierre_dupong
+		}
+		complete_national_focus = LUX_pierre_dupong_elected
+	}
+	immediate = {
+		hidden_effect  = {
+            complete_national_focus = LUX_election_1937
+		}
+		set_country_flag = LUX_elections_1937_flag
+    }
+}
+#dissolve parliament event
+country_event = {
+	id = LUX_joseph_besh_events.0
+	title = LUX_joseph_besh_events.0.t
+	desc = LUX_joseph_besh_events.0.desc
+	picture = GFX_report_event_poland_rejects
+	is_triggered_only = yes
+	option = {
+		name = LUX_joseph_besh_events.0.a
+		add_stability = -0.10
+		add_political_power = 125
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.03
+		}
+	}
+}
+#aggresive or diplomacy expenasion
+country_event = {
+	id = LUX_joseph_besh_events.1
+	title = LUX_joseph_besh_events.1.t
+	desc = LUX_joseph_besh_events.1.desc
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		name = LUX_joseph_besh_events.1.a
+		complete_national_focus = LUX_diplomacy_pressure_expenesion
+	}
+	option = {
+		name = LUX_joseph_besh_events.1.b
+		complete_national_focus = LUX_aggresive_expansion
+		add_dynamic_modifier = {
+			modifier = LUX_aggressive_expansion_dynamic_modifier
+		}
+	}
+}
+#luxembourg demand frecnh state
+country_event = {
+	id = LUX_joseph_besh_events.2
+	title = LUX_joseph_besh_events.2.t
+	desc = LUX_joseph_besh_events.2.desc
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		#we agree
+		name = LUX_joseph_besh_events.2.a
+		FROM = {
+			country_event = {
+				id = LUX_joseph_besh_events.3
+				random_hours = 12
+				random_days = 2
+			}
+		}
+		add_to_variable = {
+			var = global.FRA_agreed_to_give_state_var
+			value = 1
+		}
+		ai_chance = {
+			base = 4
+			modifier = {
+				add = 5
+				is_ally_with = FROM
+			}
+		#	modifier = {
+		#		add = 2
+		#		check_variable = {
+		#			global.FRA_agreed_to_give_state_var > global.FRA_refused_to_give_state_var
+		#		}
+		#	}
+		}
+	}
+	option = {
+		name = LUX_joseph_besh_events.2.b
+		FROM = {
+			country_event = {
+				id = LUX_joseph_besh_events.4
+				random_hours = 12
+				random_days = 2
+			}
+		}
+		add_to_variable = {
+			var = global.FRA_refused_to_give_state_var
+			value = 1
+		}
+		ai_chance = {
+			base = 6
+		#	modifier = {
+		#		add = 2
+		#		check_variable = {
+		#			global.FRA_refused_to_give_state_var > global.FRA_agreed_to_give_state_var
+		#		}
+		#	}
+		}
+	}
+}
+country_event = {
+	id = LUX_joseph_besh_events.3
+	title = LUX_joseph_besh_events.3.t
+	desc = LUX_joseph_besh_events.3.desc
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		#nice
+		name = LUX_joseph_besh_events.3.a
+		clear_variable = LUX.is_demand_state
+		clr_country_flag = LUX_is_demanding_state_flag
+		add_threat = 1 
+		effect_tooltip = {
+			transfer_state = var:LUX.is_demand_state
+		}
+		
+	}
+	immediate = {
+		hidden_effect = {
+			transfer_state = var:LUX.is_demand_state
+		}
+	}
+}
+country_event = {
+	id = LUX_joseph_besh_events.4
+	title = LUX_joseph_besh_events.4.t
+	desc = LUX_joseph_besh_events.4.desc
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		#is not great
+		name = LUX_joseph_besh_events.4.a
+        add_state_claim = var:LUX.is_demand_state
+		clear_variable = LUX.is_demand_state
+		clr_country_flag = LUX_is_demanding_state_flag
+	}
+}
+#Luxembourg want attack us
+country_event = {
+	id = LUX_joseph_besh_events.5
+	title = LUX_joseph_besh_events.5.t
+	desc = LUX_joseph_besh_events.5.desc
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		#need doing some actins
+		name = LUX_joseph_besh_events.5.a
+		declare_war_on = {
+			target = FROM
+			type = puppet_wargoal_focus
+		}
+		add_timed_idea = {
+			idea = shared_first_strike_idea
+			days = 185
+		}
+		ai_chance = {
+			base = 3
+			modifier = {
+				threat > 0.20
+				add = 2
+			}
+		}
+		FROM = {
+			remove_wargoal = {
+				target = ROOT
+				type = all
+			}
+		}
+	}
+	option = {
+		#is not great
+		name = LUX_joseph_besh_events.5.b
+		ai_chance = {
+			base = 7
+		}
+	}
+}
+#pressure on our gov
+country_event = {
+	id = LUX_joseph_besh_events.6
+	title = LUX_joseph_besh_events.6.t
+	desc = LUX_joseph_besh_events.6.desc
+	picture = GFX_report_event_military_planning
+	is_triggered_only = yes
+	option = {
+		#need doing some actins
+		name = LUX_joseph_besh_events.6.a
+		FROM = {
+			puppet = ROOT
+		}
+		ai_chance = {
+			base = 4
+		}
+	}
+	option = {
+		#is not great
+		name = LUX_joseph_besh_events.6.b
+		ai_chance = {
+			base = 6
+		}
+		FROM = {
+			country_event = {
+				id = LUX_demand_events.3
+				days = 1
+				random_hours = 18
+			}
+		}
+	}
+}
+#Josepth Besh not in power
+country_event = {
+	id = LUX_joseph_besh_events.7
+	title = LUX_joseph_besh_events.7.t
+	desc = LUX_joseph_besh_events.7.desc
+	picture = GFX_report_event_military_planning
+	is_triggered_only = no
+	trigger = {
+		original_tag = LUX
+		NOT = {
+			has_idea = LUX_joseph_bech_not_leader
+			has_country_leader = {
+				character = LUX_joseph_bech
+				ruling_only = yes
+			}
+		}
+		has_completed_focus = LUX_cult_of_personality
+	}
+    mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		#need doing some actins
+		name = LUX_joseph_besh_events.7.a
+		add_ideas = LUX_joseph_bech_not_leader
+		set_country_flag = LUX_political_unstability_flag
+	}
+}
+#shared event Luxembourg ask for resources
+country_event = {
+	id = LUX_resources_events.0
+	title = LUX_resources_events.0.t
+	desc = LUX_resources_events.0.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		#we agree
+		name = LUX_resources_events.0.a
+		set_country_flag = allowed_give_resource_rights_flag
+		if = {
+			limit = {
+				original_tag = SAU
+			}
+			add_opinion_modifier = {
+				target = FROM
+				modifier = LUX_has_oil_from_SAU
+			}
+			give_resource_rights = { 
+				receiver = FROM
+				state = 292
+			}
+			give_resource_rights = { 
+				receiver = FROM
+				state = 858
+			}
+			give_resource_rights = { 
+				receiver = FROM
+				state = 678
+			}
+			hidden_effect = {
+				every_state = {
+					limit = {
+						OR = {
+							state = 678
+							state = 858
+							state = 292
+						}
+					}
+					set_state_flag = LUX_has_resources_rights_in_state_flag
+				}
+			}
+		}
+		if = {
+			limit = {
+				original_tag = SWE
+			}
+			add_offsite_building = {
+				type = industrial_complex
+				level = 2
+			}
+			give_resource_rights = {
+				receiver = FROM 
+				state = 918 #Västerbotten 
+			}
+			hidden_effect = {
+				every_state = {
+					limit = {
+						state = 918
+					}
+					set_state_flag = LUX_has_resources_rights_in_state_flag
+				}
+			}
+		}
+		FROM = {
+			country_event = {
+				id = LUX_resources_events.1
+				days = 1
+				random_hours = 12
+			}
+		}
+		ai_chance = {
+			base = 7
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value > 30
+				}
+				add = 3
+			}
+		}
+	}
+	option = {
+		#no that time
+		name = LUX_resources_events.0.b
+		ai_chance = {
+			base = 3
+		}
+		FROM = {
+			country_event = {
+				id = LUX_resources_events.2
+				days = 1
+				random_hours = 12
+			}
+		}
+	}
+}
+country_event = {
+	id = LUX_resources_events.1
+	title = LUX_resources_events.1.t
+	desc = LUX_resources_events.1.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		#nice
+		name = LUX_resources_events.1.a
+		if = {
+			limit = {
+				FROM = {
+				   original_tag = SAU
+				}
+			}
+			effect_tooltip = {
+				FROM = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = LUX_has_oil_from_SAU
+					}
+				}
+				give_resource_rights = { 
+					receiver = ROOT
+					state = 292
+				}
+				give_resource_rights = { 
+					receiver = ROOT
+					state = 858
+				}
+				give_resource_rights = { 
+					receiver = ROOT
+					state = 678
+				}
+			}
+			send_equipment = {
+				equipment = support_equipment
+				amount = 500
+				target = FROM
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+				   original_tag = SWE
+				}
+			}
+            effect_tooltip = {
+				give_resource_rights = {
+					receiver = ROOT 
+					state = 918 #Västerbotten 
+				}
+			}
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 1500
+				target = FROM
+			}
+		}
+	}
+	immediate = {
+	#	if = {
+	#		limit = {
+	#			FROM = {
+	#				original_tag = SAU
+	#			}
+	#		}
+	#		hidden_effect = {
+	#			add_resource = {
+	#				type = oil
+	#				amount = 20
+	#				state = 292
+	#			}
+	#			add_resource = {
+	#				type = oil
+	#				amount = 10
+	#				state = 678
+	#			}
+	#			add_resource = {
+	#				type = oil
+	#				amount = 10
+	#				state = 858
+	#			}
+	#			add_resource = {
+	#				type = oil
+	#				amount = 15
+	#				state = 856
+	#			}
+	#			add_resource = {
+	#				type = oil
+	#				amount = 15
+	#				state = 859
+	#			}	
+	#			add_resource = {
+	#				type = oil
+	#				amount = 5
+	#				state = 857
+	#			}
+	#			add_resource = {
+	#				type = oil
+	#				amount = 10
+	#				state = 854
+	#			}
+	#			add_resource = {
+	#				type = oil
+	#				amount = 10
+	#				state = 855
+	#			}
+	#		}
+	#	}
+	}
+}
+
+
+####### LUX_decisions ########
+##############################
+country_event = {
+	id = LUX_decisions.0
+	title = LUX_decisions.0.t
+	desc = LUX_decisions.0.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = LUX_decisions.0.a
+	    FROM = {
+			country_event = LUX_decisions.17
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		name = LUX_decisions.0.b
+		FROM = {
+			country_event = LUX_decisions.18
+		}
+		ai_chance = {
+			base = 5
+		}
+	}
+}
+country_event = {
+	id = LUX_decisions.1
+	title = LUX_decisions.1.t
+	desc = LUX_decisions.1.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = LUX_decisions.1.a
+		puppet = fROM
+		clr_country_flag = suggest_ptrotecting_to_allies_flag
+	}
+}
+country_event = {
+	id = LUX_decisions.2
+	title = LUX_decisions.2.t
+	desc = LUX_decisions.21.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = LUX_decisions.2.a
+		clr_country_flag = suggest_ptrotecting_to_allies_flag
+	}
+}
+#generic event for LUX_demands_great_luxembourg dicision
+country_event = {
+	id = LUX_decisions.3
+	title = LUX_decisions.3.t
+	desc = LUX_decisions.3.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = LUX_decisions.3.a
+		FROM = {
+			country_event = LUX_decisions.4
+		}
+		effect_tooltip = {
+			FROM = {
+				transfer_state = global.demand_state_target_var
+			}
+		}
+		ai_chance = {
+			base = 5
+			modifier = {
+				FROM = {
+                   has_country_flag = is_mediator_found_flag
+				}
+				add = 5
+			}
+		}
+	}
+	option = {
+		name = LUX_decisions.3.b
+		FROM = {
+			country_event = LUX_decisions.5
+		}
+		ai_chance = {
+			base = 4
+			modifier = {
+				strength_ratio = {
+					tag = FROM
+					ratio > 0.5
+				}
+				add = 3
+			}
+		}
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_decisions.4
+	title = LUX_decisions.4.t
+	desc = LUX_decisions.4.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = LUX_decisions.4.a
+		transfer_state = global.demand_state_target_var
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_decisions.5
+	title = LUX_decisions.5.t
+	desc = LUX_decisions.5.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = LUX_decisions.5.a
+	}
+	immediate = {
+
+	}
+}
+
+#event for LUX_turn_to_shared
+country_event = {
+	id = LUX_decisions.6
+	title = LUX_decisions.6.t
+	desc = LUX_decisions.6.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		#we agree to help them
+		name = LUX_decisions.6.a
+		set_country_flag = is_mediator_for_LUX_flag
+		ROOT = {
+		    save_global_event_target_as = mediator_of_LUX
+		}
+		FROM = {
+			set_country_flag = is_mediator_found_flag
+		}
+		country_event = LUX_decisions.7
+		ai_chance = {
+			base = 8
+		}
+	}
+	option = {
+		#no
+		name = LUX_decisions.6.b
+		country_event = LUX_decisions.8
+		ai_chance = {
+			base = 2
+		}
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_decisions.7
+	title = LUX_decisions.7.t
+	desc = LUX_decisions.7.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = LUX_decisions.7.a
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_decisions.8
+	title = LUX_decisions.8.t
+	desc = LUX_decisions.8.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = LUX_decisions.8.a
+	}
+	immediate = {
+
+	}
+}
+country_event = {
+	id = LUX_decisions.9
+	title = LUX_decisions.9.t
+	desc = LUX_decisions.9.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = LUX_decisions.9.a
+	}
+	immediate = {
+
+	}
+}
+################################
+################################
+
+########## LUX_communist #########
+#Cult of personaluity quastion
+country_event = {
+	id = LUX_communist.0
+	title = LUX_communist.0.t
+	picture = GFX_report_event_sanation_left_victory
+	desc = LUX_communist.0.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		#People's Council
+		name = LUX_communist.0.count.a
+		create_country_leader = {
+			name = "Volleksrot"
+			desc = "POLITICS_PEAPLE_COUNCIL_DESC"
+			picture = GFX_leader_people_council
+			expire = "1965.1.1"
+			ideology = marxism
+			traits = {
+				peoples_council
+			}
+		}
+	}
+	option = {
+		#cult personality
+		name = LUX_communist.1.count.b
+		create_country_leader = {
+			name = "Normand Ferdinand"
+			desc = "POLITICS_NORMAND_FERDINAND_DESC"
+			picture = GFX_leader_normand_ferdinand
+			expire = "1965.1.1"
+			ideology = leninism
+			traits = {
+				leader_of_revolution
+			}
+		}
+	}
+	immediate = {
+	hidden_effect = {
+	}
+    }
+}
+#ask for trotsky
+country_event = {
+	id = LUX_communist.1
+	title = LUX_communist.1.t
+	picture = GFX_report_event_sanation_left_victory
+	desc = LUX_communist.1.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		#yes
+		name = LUX_communist.1.count.a
+		if = {
+			limit = {
+				tag = NOR
+			}
+			NOR_lev_trotsky = {
+				set_nationality = FROM
+			}
+			clr_global_flag = NOR_trotsky_in_norway
+		    log = "NOR agree give trotsky"
+		}
+        if = {
+		   limit = {  
+			   tag = MEX
+		   }
+		   MEX_leon_trotsky = {
+			   set_nationality = FROM
+		   }
+		   clr_global_flag = AAT_trotsky_in_mexico
+		   log = "MEX agree give trotsky"
+		}
+		FROM = {
+			country_event = LUX_communist.2
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		#no
+		name = LUX_communist.1.count.b
+		
+	}
+	immediate = {
+	hidden_effect = {
+	}
+    }
+}
+#agreed give trorsky
+country_event = {
+	id = LUX_communist.2
+	title = LUX_communist.2.t
+	picture = GFX_report_event_picture_leon_trotsky_arrive
+	desc = LUX_communist.2.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		name = LUX_communist.2.a
+        if ={
+			limit = {
+				has_character = MEX_leon_trotsky
+			}
+			add_country_leader_role = {
+				character = MEX_leon_trotsky
+				promote_leader = yes
+				country_leader = {
+					ideology = marxism
+					expire = "1965.1.1.1"
+					traits = { LUX_lev_trotsky_world_revolutional }
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_character = NOR_lev_trotsky
+			}
+			add_country_leader_role = {
+				character = NOR_lev_trotsky
+				promote_leader = yes
+				country_leader = {
+					ideology = marxism
+					expire = "1965.1.1.1"
+					traits = { LUX_lev_trotsky_world_revolutional }
+				}
+			}
+		}
+		set_global_flag = leon_trotsky_in_LUX
+	}
+	immediate = {
+	hidden_effect = {
+	}
+    }
+}
+country_event = {
+	id = LUX_communist.3
+	title = LUX_communist.3.t
+	picture = GFX_report_event_picture_iosif_stalin_writing
+	desc = LUX_communist.3.desc
+	is_triggered_only = yes 
+	option = {
+		#demand trotsky
+		name = LUX_communist.3.a
+        LUX = {
+			country_event = {
+				id = LUX_communist.4
+				days = 1
+				hours = 12
+			}
+		}
+	}
+#	trigger = {
+#		original_tag = SOV
+#		has_country_leader = {
+#			character = SOV_iosif_stalin
+#			ruling_only = yes
+#		}
+#		has_global_flag = leon_trotsky_in_LUX
+#	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	fire_only_once = yes
+	immediate = {
+	hidden_effect = {
+	}
+    }
+}
+country_event = {
+	id = LUX_communist.4
+	title = LUX_communist.4.t
+	picture = GFX_report_event_picture_iosif_stalin_writing
+	desc = LUX_communist.4.desc
+	is_triggered_only = yes 
+	option = {
+		#no
+		name = LUX_communist.4.a
+	}
+	option = {
+		#yes
+		name = LUX_communist.4.b
+		if = {
+			limit = {
+				has_character = NOR_lev_trotsky
+			}
+			NOR_lev_trotsky = {
+				set_nationality = FROM
+			}
+		}
+        if = {
+		   limit = {  
+			has_character = MEX_leon_trotsky
+		   }
+		   MEX_leon_trotsky = {
+			   set_nationality = FROM
+		   }
+		}
+	}
+	immediate = {
+	hidden_effect = {
+	}
+    }
+}
+news_event = {
+	id = LUX_communist.5
+	title = LUX_communist.5.t
+	picture = GFX_news_event_worker_protests
+	desc = LUX_communist.5.desc
+	is_triggered_only = yes 
+	major = yes
+	option = {
+		trigger = {
+			has_government = communism
+		}
+		name = LUX_communist.5.option.a
+	}
+	option = {
+		trigger = {
+			NOT = {
+			    has_government = communism
+			}
+		}
+		name = LUX_communist.5.option.b
+	}
+	trigger = {
+		
+	}
+	immediate = {
+		
+	}
+}
+#communist pressure on goverment
+country_event = {
+	id = LUX_communist.6
+	title = LUX_communist.6.t
+	picture = GFX_report_event_generic_read_write
+	desc = LUX_communist.6.desc
+	is_triggered_only = yes 
+	option = {
+		name = LUX_communist.6.a
+		retire_country_leader = yes
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+		promote_character = {
+			character = LUX_retirement_government
+			ideology = liberalism
+		}
+		add_stability = -0.10
+	}
+	immediate = {
+	hidden_effect = {
+		recruit_character = LUX_retirement_government
+	}
+    }
+}
+####################################
+####################################
+
+#neatrality events
+country_event = {
+	id = LUX_neatrality.0
+	title = LUX_neatrality.0.t
+	desc = LUX_neatrality.0.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = no
+	option = {
+		#peace
+		name = LUX_neatrality.9.a
+		every_possible_country = {
+			limit = {
+				has_defensive_war_with = ROOT
+			}
+			white_peace = PREV
+		}
+	}
+	option = {
+		#continue war!
+		name = LUX_neatrality.9.b
+		remove_idea = LUX_neatrality_guarantees
+		FROM = {
+			country_event = LUX_diplomacy.17
+		}
+		effect_tooltip = {
+			FROM = {
+				diplomatic_relation = {
+					country = ROOT
+					relation = guarantee
+					active = no
+				}
+			}
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = FROM
+			value = -100
+		}
+		add_ai_strategy = {
+			type = antagonize
+			id = FROM
+			value = 100
+		}
+		add_ai_strategy = {
+			type = befriend
+			id = FROM
+			value = -100
+		}
+	}
+}
+
+#charles marx dies
+country_event = {
+	id = LUX_communist.7
+	title = LUX_communist.7.t
+	picture = GFX_report_event_generic_funeral
+	desc = LUX_communist.7.desc
+	is_triggered_only = yes 
+	option = {
+		name = LUX_communist.7.a
+		LUX_charles_marx = {
+			retire = yes
+		}
+	}
+	trigger = {
+		date > 1946.06.12
+		original_tag = LUX
+	}
+	immediate = {
+
+    }
+}
+#50/50 results
+country_event = {
+	id = LUX_electins.6
+	title = LUX_electins.6.t
+	picture = GFX_report_event_election_vote
+	desc = LUX_electins.5.desc
+	is_triggered_only = yes
+	fire_only_once = yes 
+	option = {
+		#welcome pierre
+		name = LUX_electins.6.a
+		promote_character = LUX_pierre_dupong
+		complete_national_focus = LUX_pierre_dupong_elected
+	}
+	option = {
+		#joseph besh stay
+		name = LUX_electins.6.b
+		complete_national_focus = LUX_joseph_bech_is_elected
+		LUX_joseph_bech = {
+			remove_country_leader_trait = {
+				trait = LUX_hostility_to_communist
+			}
+			add_country_leader_trait = {
+				trait = LUX_authoritarian_anticommunist
+			}
+		}
+	}
+	immediate = {
+		hidden_effect  = {
+            complete_national_focus = LUX_election_1937
+		}
+		set_country_flag = LUX_elections_1937_flag
+    }
 }
