@@ -19,16 +19,16 @@ LUX_historical_plan = {
 	   LUX_friendly_only
 	   LUX_continue_support
 	   LUX_ban_communisn_party_referendum
+	   LUX_new_democratic_leader
 	   LUX_trade_with_france
 	   LUX_peacment_communist
 	   LUX_constitution_reforms
 	   LUX_agreement_with_ENG_focus
 	   LUX_connections_in_benelux
-	   LUX_military_operation
-	   LUX_land_fort_building
-	   LUX_foreign_army_advisers
-	   LUX_army_reform
-	   
+	   LUX_negotiation_with_GER
+	   LUX_germany_attack
+	   LUX_in_exile
+	   LUX_manpower_in_exile
 	}
 
 	research = {
@@ -193,7 +193,7 @@ LUX_communism_plan2 = {
 		original_tag = LUX
 	}
 	enable = {
-        has_global_flag = LUX_ai_communst_workers_uprising_flag
+        has_global_flag = LUX_ai_workers_uprising_flag
 	}
 	abort = {
 	}
@@ -228,7 +228,7 @@ LUX_anarchist_revolutiuon = {
 		original_tag = LUX
 	}
 	enable = {
-        has_global_flag = LUX_ai_communst_anarchist_flag
+        has_global_flag = LUX_ai_anarchist_flag
 	}
 	abort = {
 	}
@@ -263,7 +263,7 @@ LUX_democratic_alt = {
 		original_tag = LUX
 	}
 	enable = {
-        has_global_flag = LUX_ai_communst_democratic_alt_flag
+        has_global_flag = LUX_ai_democratic_alt_flag
 	}
 	abort = {
 	}
@@ -298,7 +298,7 @@ LUX_monarchist = {
 		original_tag = LUX
 	}
 	enable = {
-        has_global_flag = LUX_ai_communst_democratic_alt_flag
+        has_global_flag = LUX_ai_democratic_alt_flag
 	}
 	abort = {
 	}

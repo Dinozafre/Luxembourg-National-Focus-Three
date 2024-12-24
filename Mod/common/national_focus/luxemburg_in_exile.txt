@@ -23,6 +23,7 @@ focus_tree = {
 		}
 		x = 9
 		y = 0
+			search_filters = { FOCUS_FILTER_POLITICAL  FOCUS_FILTER_HISTORICAL }
 			available = {
 					has_capitulated = yes
 				}
@@ -80,6 +81,7 @@ focus_tree = {
 		}
 		x = 13
 		y = 0
+			search_filters = { FOCUS_FILTER_POLITICAL }
 			completion_reward = {
 					add_stability = 0.1
 				}
@@ -124,7 +126,7 @@ focus_tree = {
 	focus = {
 		id = LUX_in_exile_working_with_goverments_in_exile
 		icon = GFX_goal_generic_major_alliance
-		cost = 10
+		cost = 5
 		x = 17
 		y = 0
 			available = {
@@ -134,6 +136,41 @@ focus_tree = {
 			completion_reward = {
 					add_political_power = 150
 				}
+			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_in_exile_fight_Copy
+		icon = GFX_goal_generic_demand_territory
+		cost = 10
+		mutually_exclusive = {
+			focus = LUX_in_exile_fight
+		}
+		x = 9
+		y = 0
+			search_filters = { FOCUS_FILTER_POLITICAL  FOCUS_FILTER_HISTORICAL }
+			available = {
+					has_capitulated = yes
+				}
+			completion_reward = {
+					add_legitimacy = 25
+					8 = {
+							add_resistance = 5
+						}
+					add_resistance_target = {
+							id = 8
+							amount = 10
+							occupied = LUX
+							occupier = GER
+							days = 365
+						}
+				}
+			bypass = {
+
+}
+			cancel = {
+
+}
 			available_if_capitulated = yes
 
 	}
@@ -296,6 +333,7 @@ focus_tree = {
 		}
 		x = 9
 		y = 1
+			search_filters = { FOCUS_FILTER_POLITICAL  FOCUS_FILTER_HISTORICAL }
 			completion_reward = {
 					create_intelligence_agency = {
 							name = "LuxembourgishPatriotLeague"
@@ -320,6 +358,7 @@ focus_tree = {
 		}
 		x = 9
 		y = 2
+			search_filters = { FOCUS_FILTER_POLITICAL  FOCUS_FILTER_HISTORICAL }
 			completion_reward = {
 					swap_ideas = {
 							remove_idea = LUX_idea_charlotte_grand_duchess
@@ -327,146 +366,109 @@ focus_tree = {
 						}
 				}
 			available_if_capitulated = yes
+			bypass = {
+					has_country_flag = charlotte_grand_duchess_killed_by_occupations_flag
+				}
 
 	}
 	focus = {
-		id = LUX_in_exile_unite_all_parties
+		id = LUX_crate_resistence
+		icon = GFX_focus_generic_manpower
+		cost = 10
+		prerequisite = {
+			focus = LUX_speak_to_nation
+		}
+		x = 9
+		y = 3
+			available_if_capitulated = yes
+			completion_reward = {
+
+}
+			available = {
+
+}
+
+	}
+	focus = {
+		id = LUX_form_LL
+		icon = GFX_focus_ITA_generic_fascist_workers
+		cost = 10
+		prerequisite = {
+			focus = LUX_crate_resistence
+		}
+		x = 8
+		y = 4
+			available_if_capitulated = yes
+			select_effect = {
+
+}
+			completion_reward = {
+
+}
+			available = {
+
+}
+
+	}
+	focus = {
+		id = LUX_lpl_more_powerful
+		icon = GFX_focus_generic_military_dictatorship
+		cost = 10
+		prerequisite = {
+			focus = LUX_crate_resistence
+		}
+		x = 10
+		y = 4
+			available_if_capitulated = yes
+			select_effect = {
+
+}
+			completion_reward = {
+
+}
+			available = {
+
+}
+
+	}
+	focus = {
+		id = LUX_form_lfk
 		icon = GFX_goal_generic_national_unity
 		cost = 10
 		prerequisite = {
-			focus = LUX_speak_to_nation
-		}
-		mutually_exclusive = {
-			focus = LUX_analise_our_fail
-		}
-		x = 8
-		y = 3
-			available = {
-					custom_trigger_tooltip = {
-							if = {
-									limit = {
-											has_government = democratic
-										}
-									NOT = {
-											has_decision = ban_fascist_party
-											has_decision = ban_communist_party
-											has_decision = ban_democratic_party
-										}
-								}
-							tooltip = no_any_ban_party_tt
-						}
-				}
-			completion_reward = {
-					add_war_support = 0.1
-					add_stability = 0.06
-				}
-			bypass = {
-
-}
-			available_if_capitulated = yes
-
-	}
-	focus = {
-		id = LUX_in_exile_partisan_movement
-		icon = GFX_goal_generic_territory_or_war
-		cost = 10
-		prerequisite = {
-			focus = LUX_in_exile_unite_all_parties
-		}
-		x = 8
-		y = 4
-			bypass = {
-					NOT_has_Lar = yes
-				}
-			available = {
-
-}
-			completion_reward = {
-					add_ideas = all_adults_serve
-					upgrade_intelligence_agency = upgrade_economy_civilian
-					upgrade_intelligence_agency = upgrade_army_department
-					upgrade_intelligence_agency = upgrade_naval_department
-					upgrade_intelligence_agency = upgrade_airforce_department
-				}
-			available_if_capitulated = yes
-
-	}
-	focus = {
-		id = LUX_analise_our_fail
-		icon = GFX_goal_generic_army_doctrines
-		cost = 10
-		prerequisite = {
-			focus = LUX_speak_to_nation
-		}
-		mutually_exclusive = {
-			focus = LUX_in_exile_unite_all_parties
+			focus = LUX_lpl_more_powerful
 		}
 		x = 10
-		y = 3
-			completion_reward = {
-					add_doctrine_cost_reduction = {
-							cost_reduction = 0.4
-							uses = 5
-							category = land_doctrine
-						}
-				}
-			available = {
-
-}
-			available_if_capitulated = yes
-
-	}
-	focus = {
-		id = LUX_in_exile_build_cover
-		icon = GFX_goal_generic_fortify_city
-		cost = 10
-		prerequisite = {
-			focus = LUX_analise_our_fail
-		}
-		x = 10
-		y = 4
-			completion_reward = {
-					8 = {
-							add_extra_state_shared_building_slots = 1
-							add_building_construction = {
-									type = bunker
-									level = 4
-									instant_build = yes
-								}
-						}
-				}
-			available = {
-
-}
-			available_if_capitulated = yes
-
-	}
-	focus = {
-		id = LUX_in_exile_rise
-		icon = GFX_goal_generic_small_arms
-		cost = 10
-		prerequisite = {
-			focus = LUX_in_exile_partisan_movement
-			focus = LUX_in_exile_build_cover
-		}
-		x = 9
 		y = 5
 			completion_reward = {
-					8 = {
-							add_resistance = 40
-							add_resistance_target = 30
-						}
-					hidden_effect = {
-							load_focus_tree = luxemburg
-						}
-				}
+
+}
 			available = {
-					8 = {
-							resistance > 65
-							compliance < 10
-							is_core_of = ROOT
-						}
-				}
+
+}
+			bypass = {
+
+}
+
+	}
+	focus = {
+		id = LUX_form_lfv
+		icon = GFX_focus_generic_military_academy
+		cost = 10
+		prerequisite = {
+			focus = LUX_form_lfk
+		}
+		x = 10
+		y = 6
+			select_effect = {
+
+}
+			available = {
+
+}
+			completion_reward = {
+
+}
 			available_if_capitulated = yes
 
 	}
@@ -479,6 +481,7 @@ focus_tree = {
 		}
 		x = 13
 		y = 1
+			search_filters = { FOCUS_FILTER_POLITICAL  FOCUS_FILTER_TFV_AUTONOMY }
 			completion_reward = {
 					add_ideas = hitler_puppet
 					hidden_effect = {
@@ -539,6 +542,7 @@ focus_tree = {
 		}
 		x = 14
 		y = 2
+			search_filters = { FOCUS_FILTER_POLITICAL }
 			completion_reward = {
 
 }
@@ -607,9 +611,21 @@ focus_tree = {
 
 	}
 	focus = {
+		id = LUX_ready_to_coup_himmpler
+		icon = GFX_goal_generic_position_armies
+		cost = 10
+		prerequisite = {
+			focus = LUX_himmler_coup
+		}
+		x = 15
+		y = 6
+			available_if_capitulated = yes
+
+	}
+	focus = {
 		id = LUX_in_exile_working_with_HOL
 		icon = GFX_goal_generic_improve_relations
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = LUX_in_exile_working_with_goverments_in_exile
 		}
@@ -631,7 +647,7 @@ focus_tree = {
 	focus = {
 		id = LUX_in_exile_work_with_BEL
 		icon = GFX_goal_generic_improve_relations
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = LUX_in_exile_working_with_goverments_in_exile
 		}
@@ -683,6 +699,12 @@ focus_tree = {
 		x = 17
 		y = 3
 			available_if_capitulated = yes
+			completion_reward = {
+					unlock_decision_category_tooltip = LUX_luxemburg_resistence_category
+				}
+			available = {
+
+}
 
 	}
 	focus = {
@@ -695,18 +717,71 @@ focus_tree = {
 		x = 17
 		y = 4
 			available_if_capitulated = yes
+			completion_reward = {
+
+}
+			available = {
+
+}
 
 	}
 	focus = {
-		id = LUX_ready_to_coup_himmpler
-		icon = GFX_goal_generic_position_armies
+		id = LUX_form_lrl
+		icon = GFX_focus_generic_strike_at_democracy1
 		cost = 10
 		prerequisite = {
-			focus = LUX_himmler_coup
+			focus = LUX_form_LL
 		}
-		x = 15
-		y = 6
+		x = 8
+		y = 5
+			select_effect = {
+
+}
+			completion_reward = {
+
+}
+			available = {
+
+}
 			available_if_capitulated = yes
+
+	}
+	focus = {
+		id = LUX_form_lfb
+		icon = GFX_focus_POL_ban_nazi_party
+		cost = 10
+		prerequisite = {
+			focus = LUX_form_lrl
+		}
+		prerequisite = {
+			focus = LUX_form_lrl
+		}
+		x = 8
+		y = 6
+			completion_reward = {
+
+}
+			available_if_capitulated = yes
+			select_effect = {
+
+}
+			available = {
+
+}
+
+	}
+	focus = {
+		id = LUX_form_uvdlf
+		icon = GFX_focus_generic_full_social_mobilization
+		cost = 10
+		prerequisite = {
+			focus = LUX_form_lfb
+		}
+		prerequisite = {
+			focus = LUX_form_lfv
+		}
+		x = 9
+		y = 7
 
 	}
 }

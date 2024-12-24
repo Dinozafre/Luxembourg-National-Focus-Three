@@ -1,0 +1,34 @@
+LPG = {
+	original_tag = LUX
+	is_subject_of = GER
+}
+#Luxembourg Goverment In Exile
+LGE = {
+   original_tag = LUX
+   has_focus_tree = luxemburg_in_exile
+}
+#LUX fascism
+LUF = {
+	original_tag = LUX
+	has_government = fascism
+}
+#LUX communism
+LUC = {
+	original_tag = LUX
+	has_government = communism
+}
+#LUX democratic
+LUD = {
+	original_tag = LUX
+	has_government = democratic
+}
+#anarchist luxemborg
+LAC = {
+	original_tag = LUX
+	has_anarchist_government = yes
+}
+#spain republic state
+SRS = {
+   original_tag = SPR
+   has_government = democratic
+}

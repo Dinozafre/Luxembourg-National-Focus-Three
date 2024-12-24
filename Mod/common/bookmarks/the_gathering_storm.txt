@@ -761,19 +761,83 @@ bookmarks = {
 				ARG_south_american_unity
 			}
 		}
+		AUS = {
+			minor = yes
+			history = AUS_GATHERING_STORM_DESC #might need an edit because it is not very good at the moment.
+			ideology = neutrality
+			available = { has_dlc = "Gotterdammerung" }
+			ideas = {
+				AUS_treaty_of_saint_germain_en_laye
+				AUS_austrofascism_fake_ns
+				AUS_widespread_unemployment
+			}
+			focuses = {
+				AUS_legacy_of_the_empire
+				AUS_repeal_the_may_constitution
+				AUS_second_brothers_war
+			}
+		}
+		HUN = {
+			minor = yes
+			history = "HUN_GATHERING_STORM_DESC"
+			ideology = neutrality
+			available = { has_dlc = "Gotterdammerung" }
+			ideas = {
+				HUN_treaty_of_triannon_wuw
+				HUN_gombos_trade_treaty
+				HUN_hungarian_national_defense_association
+			}
+			focuses = {
+				wuw_HUN_renovato_imperii
+				wuw_HUN_strengthen_horthys_reign
+				wuw_HUN_reviving_the_spirit_of_1848
+			}
+		}
+		BEL = {
+			minor = yes
+			history = BEL_GATHERING_STORM_DESC
+			ideology = democratic
+			available = { has_dlc = "Gotterdammerung" } 
+			ideas = {
+				BEL_chasseurs_ardennais_ns
+				BEL_scars_of_ww1_ns_fake
+				BEL_corruption_ns_fake
+			}
+			focuses = {
+				BEL_v_for_victory
+				BEL_belgica
+				BEL_legacy_of_the_great_war
+			}
+		}
+		COG = {
+			minor = yes
+			history = COG_GATHERING_STORM_DESC
+			ideology = neutrality
+			available = { has_dlc = "Gotterdammerung" }
+			ideas = {
+				COG_the_invisible_roof
+				COG_vast_decentralized_state_idea
+				COG_force_publique_fake_idea
+			}
+			focuses = {
+				COG_governor_general_pierre_ryckmans
+				COG_national_committee_for_liberation
+				COG_the_kingdom_of_kongo_focus
+			}
+		}
 		"LUX"={
 			minor = yes
 			history = LUX_GATHERING_STORM_DESC
 			ideology = democratic
 			ideas = {
-				LUX_useless_army
-				LUX_idea_charlotte_grand_duchess
-				lux_great_depression
+				LUX_army_limits_fake
+				LUX_charlotte_wilhelmine_dummy
+				LUX_the_great_depression_dummy
 			}
 			focuses = {			
-				LUX_create_benilux_faction
-				LUX_national_law
-				LUX_anarchist_uprising_2
+				LUX_Benilux_quastion
+				LUX_confirm_neutrality
+				LUX_fascism_coup_prepere
 			}
 		}
 		effect = {

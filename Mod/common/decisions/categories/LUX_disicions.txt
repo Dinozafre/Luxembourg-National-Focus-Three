@@ -1,6 +1,6 @@
 LUX_general_election_1937_category = {
-	priority = 10
-	icon = generic_crisis
+	priority = 100
+	icon = LUX_elections_1937
 
 	picture = GFX_decision_cat_picture_concessions_to_the_trade_unions
 
@@ -59,7 +59,7 @@ LUX_luximburg_communism_uprising_category = {
 		tag = LUX
 	}
 }
-LUX_send_ultimatum_to_country = {
+LUX_foreign_policy = {
 	priority = 50
 	icon = generic_foreign_policy
 	allowed = {
@@ -92,5 +92,77 @@ LUX_liberation_war_category = {
 	icon = NOR_fascist_deploy_prep
 	allowed = {
 		tag = LUX
+	}
+}
+LUX_debug_category = {
+	priority = 150
+	#icon = NOR_fascist_deploy_prep
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_anarchist_general_category = {
+	priority = 100
+	icon = NOR_fascist_deploy_prep
+	allowed = {
+		tag = LUX
+	}
+}
+shared_benelux_economic_union_category = {
+	priority = 100
+	icon = gre_paying_ifc_debt
+	allowed = {
+       always = yes
+	}
+}
+generic_research_category =  {
+	icon = generic_industry
+	priority = 80
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_army_dicisions_category = {
+    icon = military_operation
+	priority = 100
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_workers_revolution_category = {
+	icon = saf_anti_colonialist_crusade
+	picture = GFX_decision_cat_picture_chi_political_support
+	priority = 70
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_revolution_goverment_category = {
+	icon = generic_communism
+	priority = 100
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_integration_into_commune_category = {
+	icon = generic_political_actions
+	priority = 70
+	allowed = {
+		always = yes
+	}
+}
+form_great_luxembourg_category = {
+	icon = generic_political_actions
+	priority = 70
+	allowed = {
+		always = yes
+	}
+}
+european_union_cat = {
+	icon = european_union
+#	picture = GFX_decision_cat_generic_european_union
+	priority = 100
+	allowed = {
+		always = yes
 	}
 }

@@ -1,0 +1,27 @@
+defined_text = {
+	name = GetGreatLuxembourgName
+    text = {
+		trigger = {
+			has_government = neutrality
+		}
+		localization_key = LUX_great_luxembourg_neutrality
+	}
+	text = {
+		trigger = {
+			has_government = democratic
+		}
+		localization_key = LUX_great_luxembourg_democratic
+	}
+	text = {
+		trigger = {
+			has_government = fascism
+		}
+		localization_key = LUX_great_luxembourg_fascism
+	}
+	text = {
+		trigger = {
+			has_government = communism
+		}
+		localization_key = LUX_great_luxembourg_communism
+	}
+}

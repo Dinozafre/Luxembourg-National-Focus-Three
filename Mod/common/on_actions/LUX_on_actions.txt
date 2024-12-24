@@ -1,34 +1,17 @@
 on_actions = {
-	#}on_capitulation = { 
-	  #}effect = { 
-		#}if = {
-			#}imit = {
-			#}ROOT = {
-				#}original_tag = LUX
-				#}has_completed_focus = LUX_agreement_with_ENG_focus
-			#}
-			#}
-            #}country_event = LUX_hidden.2
-			#}add_ideas = LUX_defeat_GER
-			#}set_global_flag = LUX_capitulated_flag
-		#}
-	#}}
-    #}
-
 	on_startup = {
 		effect = { 
-			LUX  = {
             if = {
 				limit = {
 					OR = {
-				    AND = {
-					has_game_rule = {
-						rule = LUX_ai_behavior
-						option = RANDOM
-					}
-					is_historical_focus_on = no
+				       AND = {
+					     has_game_rule = {
+						    rule = LUX_ai_behavior
+						    option = RANDOM
+					     }
+					     is_historical_focus_on = no
+				        }
 				    }
-				}
 				}
 				random_list = {
                   1 = {
@@ -44,13 +27,13 @@ on_actions = {
 					set_global_flag = LUX_ai_communst_workers_uprising_flag
 				  }
 				  1 =  {
-					set_global_flag = LUX_ai_communst_anarchist_flag
+					set_global_flag = LUX_ai_anarchist_flag
 				  }
 				  1 = {
-                    set_global_flag = LUX_ai_communst_democratic_flag
+                    set_global_flag = LUX_ai_democratic_flag
 				  }
 				  1 = {
-					set_global_flag = LUX_ai_communst_democratic_alt_flag
+					set_global_flag = LUX_ai_democratic_alt_flag
 				  }
 				}
 			}
@@ -72,15 +55,15 @@ on_actions = {
 				}
 				set_global_flag = LUX_ai_historical_flag
 			}
-			#if = {
-				#limit = {
-					#has_game_rule = {
-						#rule = LUX_ai_behavior
-						#option = FASCISM
-					#}
-				#}
-				#set_global_flag = LUX_ai_fascism_flag
-			#}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = LUX_ai_behavior
+						option = FASCISM
+					}
+				}
+				set_global_flag = LUX_ai_fascism_flag
+			}
 			#if = {
 				#limit = {
 					#has_game_rule = {
@@ -106,49 +89,41 @@ on_actions = {
 						#option = ANARCHIST
 					#}
 				#}
-				#set_global_flag = LUX_ai_communst_anarchist_flag
+				#set_global_flag = LUX_ai_anarchist_flag
 			#}
-			#if = {
-				#limit = {
-					#has_game_rule = {
-						#rule = LUX_ai_behavior
-						#option = DEMOCRATIC
-					#}
-				#}
-				#set_global_flag = LUX_ai_communst_democratic_flag
-			#}
-			#if = {
-				#limit = {
-					#has_game_rule = {
-						#rule = LUX_ai_behavior
-						#option = DEMOCRATIC_ALT
-					#}
-				#}
-               # set_global_flag = LUX_ai_communst_democratic_alt_flag
-			#}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = LUX_ai_behavior
+						option = DEMOCRATIC
+					}
+				}
+				set_global_flag = LUX_ai_democratic_flag
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = LUX_ai_behavior
+						option = DEMOCRATIC_ALT
+					}
+				}
+                set_global_flag = LUX_ai_democratic_alt_flag
 			}
 		}
     }
-	#Treaty of London guarantees
 	on_startup = {
 		effect = { 
-			if  = {
-			FRA = {
-               give_guarantee = LUX
-			   give_guarantee = BEL
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "Gotterdammerung"
+					}
+				}
+				BEL = {
+					add_ideas = BEL_neatrality_guarantees
+					add_ideas = neutrality_idea
+				}
 			}
-			ENG = {
-               give_guarantee = LUX
-			   give_guarantee = BEL
-			}
-			LUX = {
-				add_ideas = LUX_neatrality_guarantees
-			}
-			BEL = {
-				add_ideas = BEL_neatrality_guarantees
-				add_ideas = neutrality_idea
-			}
-		}
 	    }
 	}
 	on_exile_government_reinstated = {
@@ -161,24 +136,51 @@ on_actions = {
 			}
 			ROOT = {
 				clr_global_flag = LUX_capitulated_flag
+				clr_country_flag = LUX_in_exile_flag
 				set_country_flag = LUX_goverment_back_from_exile_flag
 				country_event = lux_news.2
 			}
 			FROM = {
 				set_country_flag = LUX_goverment_bacck_from_exile_FROM_flag
 			}
-			news_event = lux_news.1
 		}
 	}
 	}
-	on_declare_war = {
+	on_government_exiled = {
 		effect = {
 			if = {
 				limit = {
-					LUX_has_peace_with_trigger = yes
-					FROM = {
-                        original_tag = LUX
+					ROOT = {
+						original_tag = LUX
 					}
+				}
+				ROOT  = {
+					country_lock_all_division_template = no
+					set_country_flag = LUX_in_exile_flag
+					set_variable = {
+						LUX.goverment_in_exile_var = ROOT
+					}
+					country_event = LUX_hystorial_in_exile_events.2
+				}
+				FROM = {
+					set_variable = {
+						LUX.host_of_luxembourg_goverment_in_exile_var = FROM
+					}
+				}
+				log = "[FROM.GetName] is host of [ROOT.GetName]"
+			}
+		}
+	}
+	on_host_changed_from_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT  = {
+						original_tag = LUX
+					}
+				}
+				LUX = {
+
 				}
 			}
 		}
@@ -189,23 +191,11 @@ on_actions = {
 			if  = {
 			limit = {
 				FROM = {
-                    original_tag = LUX
-				}
-			}
-			set_global_flag = country_generate_wargoal_on_benelux_flag
-		}
-		if  = {
-			limit = {
-				FROM = {
-                   original_tag = BEL
-				}
-			}
-			set_global_flag = country_generate_wargoal_on_benelux_flag
-		}
-		if  = {
-			limit = {
-				FROM = {
-					original_tag = HOL
+					OR  = {
+                        original_tag = LUX
+						original_tag = BEL
+						original_tag = HOL
+					}
 				}
 			}
 			set_global_flag = country_generate_wargoal_on_benelux_flag
@@ -214,120 +204,28 @@ on_actions = {
 	}
 	on_justifying_wargoal_pulse = {
 		effect = {
-		  if  = {
+		if  = {
 			limit = {
 				FROM = {
-                   tag = LUX
+					OR  = {
+					   tag = BEL
+                       tag = LUX
+				       tag = HOL
+					}
 				}
 			}
 			clr_global_flag = country_generate_wargoal_on_benelux_flag
-		 }
-		 if  = {
-			limit = {
-				FROM = {
-					tag = BEL
-				}
-			}
-			clr_global_flag = country_generate_wargoal_on_benelux_flag
-		 }
-		 if  = {
-			limit = {
-				FROM = {
-					tag = HOL
-				}
-			}
-			clr_global_flag = country_generate_wargoal_on_benelux_flag
-		 }
+		}
 	}
 	}
-	on_declare_war = {
-		effect = {
-          if = {
-            limit = {
-               FROM = {
-				 tag = LUX
-			   }
-			}
-			set_global_flag = country_generate_wargoal_on_benelux_flag
-	      }
-		  if = {
-            limit = {
-               FROM = {
-				 tag = BEL
-			   }
-			}
-			set_global_flag = country_generate_wargoal_on_benelux_flag
-	      }
-		  if = {
-            limit = {
-               FROM = {
-				 tag = HOL
-			   }
-			}
-			set_global_flag = country_generate_wargoal_on_benelux_flag
-	      }
-	}
-   }
-   #on_daily_BEL = {
-      # effect = {
-		  #if = {
-			#limit = {
-				#BEL  ={
-					#has_country_flag = economic_agreetmant_sign_flag
-				#}
-			#}
-			#LUX = {
-				#add_ideas = benelux_leader_of_economic_union
-			#}
-		  #}
-	   #}
-   #}
-   #on_daily_HOL = {
-	#effect = {
-		#if = {
-		  #limit = {
-			#HOL = {
-			  #has_country_flag = economic_agreetmant_sign_flag
-			#}
-			  #}
-		  #}
-		  #LUX = {
-			 #add_ideas = benelux_leader_of_economic_union
-		  #}
-		#}
-	#}
 	on_nuke_drop = {
 		effect = {
             if = {
 				limit = {
 					FROM = 8
 				}
-				set_global_flag = luxembourg_get_nuked_flag
-				news_event = lux_news.3
-			}
-		}
-	}
-	on_subject_free = {
-		effect = {
-			if = {
-				limit = {
-					ROOT = {
-						tag = LUX
-						has_goverment = fasism
-					}
-				}
-				remove_country_leader_trait = LUX_fascism_puppet
-			}
-			if = {
-				limit = {
-					ROOT = {
-						tag = LUX
-					}
-					has_global_flag = LUX_start_war_indepence_flag
-				}
-				declare_war_on = {
-					target = FROM
-					type = independence_wargoal
+				FROM  = {
+					set_state_flag = state_get_anked_falg
 				}
 			}
 		}
@@ -337,17 +235,153 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					FROM  = {
-						original_tag = LUX 
-					}
 					ROOT = {
-						has_government = fascism
 						capital_scope = {
-							is_on_continent = europe
+							NOT = {
+								region = 5
+							}
+						}
+					}
+					FROM = {
+						capital_scope = {
+							region = 5
 						}
 					}
 				}
-                set_global_flag = LUX_fascism_invasion_flag
+				set_global_flag = invastion_in_benelux_start_flag
+				FROM = {
+					set_country_flag = we_get_invastion_from_not_benelux_country_flag
+				}
+                ROOT  = {
+					set_country_flag = start_invastion_in_benelux_flag
+				}
+				log = "Invasion in Benelux start"
+				set_variable = {
+					global.defencer_benelux = FROM
+				}
+				set_variable = {
+					global.attacker_benelux = ROOT
+				}
+			}
+			if = {
+				limit = {
+				   FROM = {
+						original_tag = BEL
+				   }
+				}
+				set_global_flag = country_generate_wargoal_on_benelux_flag
+			}
+			if = {
+				limit = {
+				   FROM = {
+						original_tag = LUX
+				   }
+				}
+				set_global_flag = country_generate_wargoal_on_benelux_flag
+			}
+			if = {
+				limit = {
+				   FROM = {
+					   original_tag = HOL
+				   }
+				}
+				set_global_flag = country_generate_wargoal_on_benelux_flag
+			}
+			if = {
+				limit = {
+					ROOT = {
+						is_guaranteed_by = FRA
+						tag = LUX
+						has_idea = LUX_neatrality_guarantees
+					}
+				}
+				FRA = {
+					country_event = LUX_diplomacy.16
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = LUX
+						is_guaranteed_by = ENG
+						has_idea = LUX_neatrality_guarantees
+					}
+				}
+				ENG = {
+					country_event = LUX_diplomacy.16
+				}
+			}
+		}
+		if = {
+			limit = {
+				ROOT = {
+					has_completed_focus = LUX_declare_liberation_of_people
+				}
+			}
+			FROM = {
+				set_country_flag = anarchist_target_flag
+			}
+            every_possible_country = {
+				limit = {
+				    tag = FROM
+				}
+				country_event = LUX_anarchist_events.9
+			}
+		}
+	}
+	on_peace  = {
+		effect = {
+			#clear flags about benelux invasion if in peace
+			if = {
+				limit = {
+                   THIS  = {
+					  has_country_flag = start_invastion_in_benelux_flag
+				   }
+				}
+				THIS = {
+					clr_country_flag = start_invastion_in_benelux_flag
+				}
+				log = "Clear flag start_invastion_in_benelux_flag for [THIS.GetName] country"
+			}
+			if = {
+				limit = {
+                   THIS  = {
+					  has_country_flag = we_get_invastion_from_not_benelux_country_flag
+				   }
+				}
+				THIS = {
+					clr_country_flag = we_get_invastion_from_not_benelux_country_flag
+				}
+				log = "Clear flag we_get_invastion_from_not_benelux_country_flag for [THIS.GetName] country"
+			}
+			if = {
+				limit = {
+					has_global_flag = luxembopurg_liberian_war_flag
+					original_tag = LIB 
+					NOT = { has_war_with = LUX } 
+				}
+				clr_global_flag = luxembopurg_liberian_war_flag
+				THIS  = {
+					clr_country_flag = LIB_independs_war_flag 
+				}
+				log = "Peace between [LIB.GetName] and [LUX.GetName]"
+			}
+			if = {
+				limit = {
+					original_tag = global.var_friend_pact_aggresser
+					NOT = {
+						has_war_with = global.var_friend_pact_defender
+					}
+				}
+				every_country = {
+					limit = {
+						has_country_flag = stop_spam_benelux_friend_pact_events_event_flag
+					}
+					clr_country_flag = stop_spam_benelux_friend_pact_events_event_flag
+				}
+				clear_variable = global.var_friend_pact_aggresser
+				clear_variable = global.var_friend_pact_defender
+				log = "variables var_friend_pact_aggresser and var_friend_pact_defender was cleared"
 			}
 		}
 	}
@@ -357,7 +391,9 @@ on_actions = {
 				limit = {
                    ROOT = {
 					  original_tag = LUX 
-					  has_completed_focus = LUX_agreement_with_ENG_focus
+					  ENG = {
+						  has_country_flag = eng_agreed_agreeedmant_flag
+					  }
 				   }
 				   FROM = {
 					  has_government = fascism
@@ -368,7 +404,6 @@ on_actions = {
 				}
 				set_global_flag = LUX_get_capituleted_from_fascism_county_flag
 				LUX  = {
-					country_event = LUX_diplomacy.5
 					become_exiled_in = { 
 						target = ENG 
 						legitimacy = 5
@@ -378,34 +413,171 @@ on_actions = {
 					add_to_faction = ROOT
 				}
 			}
+			if = {
+				limit = {
+					ROOT = {
+					   tag = LUX
+					}
+					FROM  = {
+						tag = GER
+					}
+					has_global_flag = LUX_start_war_indepence_flag
+				}
+				clr_global_flag = LUX_start_war_indepence_flag
+				set_global_flag = LUX_libaration_war_failed_flag
+				LUX  = {
+                    LKUX_rename_fascism_aprty_into_NSDP = yes
+				}
+			    ROOT = {
+                    white_peace = FROM
+				}
+				FROM = {
+					set_autonomy = {
+						target = ROOT
+						autonomy_state = autonomy_reichskommissariat
+					}
+				}
+				log = "Luxembourg defeat independence war"
+			}
+			if = {
+				limit = {
+					ROOT = {
+						capital_scope = {
+							region = 5
+						}
+					}
+					FROM = {
+						capital_scope = {
+							NOT = {
+								region = 5
+							}
+						}
+					}
+				}
+				set_global_flag = any_benelux_country_capituleted_flag
+			}
+			if = {
+				limit = {
+				   ROOT = {
+					   original_tag = LUX
+				   }
+				   SOV  = {
+					  has_country_flag = ready_to_host_LUX_flag
+				   }
+				}
+				ROOT = {
+					become_exiled_in = { 
+						target = SOV 
+						legitimacy = 5 
+					}
+
+				}
+			}
+			#give belgum cores to luxembourg when Belgum get capitulated
+			if = {
+				limit  = {
+                    ROOT = {
+						original_Tag = BEL
+					}
+					FROM = {
+						original_tag = GER
+						has_subject = LUX
+					}
+					LUX = {
+						has_war_with = BEL
+					}
+				}
+				LUX = {
+					overlord = {
+						set_country_flag = LUX_get_belgum_cores_flag
+					}
+					set_state_owner = 34
+					set_state_owner = 6
+				}
+			}
+			#give Niderlands cores to luxembourg when Niderlands get capitulated
+			if = {
+				limit  = {
+                    ROOT = {
+						original_Tag = HOL
+					}
+					FROM = {
+						original_tag = GER
+						has_subject = LUX
+					}
+					LUX = {
+						has_war_with = HOL
+					}
+				}
+				LUX = {
+					overlord = {
+						set_country_flag = LUX_get_nidrlands_cores_flag
+					}
+					set_state_owner = 35
+					set_state_owner = 36
+					set_state_owner = 7
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = SPC
+					}
+					LUX = {
+						is_faction_leader = yes
+						is_in_faction_with = SPC
+					}
+				}
+				ROOT = {
+					become_exiled_in = { 
+						target = LUX 
+						legitimacy = 0 
+					}
+					set_country_flag = SPC_in_exile_flag
+					set_variable = {
+						SPC_in_exile_var = ROOT
+					}
+				}
+				LUX  = {
+					set_variable = {
+						host_for_SPC_exile_var = LUX
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+                       civilwar_target = FROM
+					}
+					FROM = {
+                        has_country_flag = workers_revolution_in_action_flag
+						has_civil_war = yes
+						civilwar_target = ROOT
+					}
+				}
+				FROM = {
+                    save_event_target_as = cw_workers_uprising_winner
+				}
+				news_event = {
+					id = LUX_communist.5
+					days = 1
+					random_hours = 6
+				}
+			}
 		}
 	}
 	on_new_term_election = {
 		
 	}
-	#on_startup = {
-		#effect = {
-		#if = {
-			#limit = {
-				#date > 1937.06.05
-				#LUX = {
-					#has_government = democratic
-					#has_elections = yes
-				#}
-			#}
-			#country_event =  LUX_electins.1
-		#}
-	#}
-	#}
 	on_leave_faction = {
 		effect = {
 		if = {
 			limit = {
                  ROOT = {
-					tag = LUX
+					original_tag = LUX
 				 }
 				 FROM  = {
-                     tag = GER
+					original_tag = GER
 				 }
 				 has_global_flag = LUX_start_war_indepence_flag
 			}
@@ -422,18 +594,28 @@ on_actions = {
 			if = {
 			limit = {
                 ROOT = {
-				   tag = LUX
+					original_tag = LUX
 				}
 				FROM  = {
-                    tag = GER
+                    original_tag = GER
 				}
 				has_global_flag = LUX_start_war_indepence_flag
 			}
 			clr_global_flag = LUX_start_war_indepence_flag
 			set_global_flag = LUX_libaration_war_failed_flag
-			LUX  = {
+			ROOT  = {
 				LKUX_rename_fascism_aprty_into_NSDP = yes
 			}
+			ROOT = {
+				white_peace = FROM
+			}
+			FROM = {
+				set_autonomy = {
+					target = ROOT
+					autonomy_state = autonomy_reichskommissariat
+				}
+			}
+			log = "Luxembourg defeat independence war"
 		}
 	  }
     }
@@ -451,30 +633,12 @@ on_actions = {
 				}
                 set_global_flag = LUX_winner_in_indepence_war_flag
 				clr_global_flag = LUX_start_war_indepence_flag
+				log = "Luxembourg win independence war"
 			}
 		 }
 	}
-	on_capitulation = {
-		effect = {
-             if = {
-				limit = {
-					ROOT = {
-					   tag = LUX
-					}
-					FROM  = {
-						tag = GER
-					}
-					has_global_flag = LUX_start_war_indepence_flag
-				}
-				clr_global_flag = LUX_start_war_indepence_flag
-				set_global_flag = LUX_libaration_war_failed_flag
-				LUX  = {
-                    LKUX_rename_fascism_aprty_into_NSDP = yes
-				}
-			 }
-		}
-	}
 	#remove gurentess if Belgum change goverment
+	#maybe made like event for it
 	on_daily_BEL = {
 		effect = {
 			if  = {
@@ -486,6 +650,9 @@ on_actions = {
 				if  = {
 					limit = {
 						is_guaranteed_by = FRA
+						FRA = {
+							is_ai = yes
+						}
 					}
 					FRA = {
 						diplomatic_relation = {
@@ -498,6 +665,9 @@ on_actions = {
 				if  = {
 					limit = {
 						is_guaranteed_by = ENG
+						ENG = {
+							is_ai = yes
+						}
 					}
 					ENG = {
 						diplomatic_relation = {
@@ -510,17 +680,670 @@ on_actions = {
 			}
 		}
 	}
-	on_daily_LUX = {
+	on_government_change = {
 		effect = {
 			if  = {
 				limit = {
-                   NOT = {
-					   has_government = democratic
+                   OR  = {
+				        has_government = communism
+				   		has_government = fascism
+						has_government = neutrality
 				   }
+				   tag = LUX
 				}
-                remove_idea = LUX_neatrality_guarantees
+                LUX = {
+                    remove_ideas = LUX_neatrality_guarantees
+				}
+				if  = {
+					limit = {
+						is_guaranteed_by = FRA
+						FRA = {
+							is_ai = yes
+						}
+					}
+					FRA = {
+						diplomatic_relation = {
+							country = LUX
+							relation = guarantee
+							active = no
+						}
+					}
+				}
+				if  = {
+					limit = {
+						is_guaranteed_by = ENG
+						ENG = {
+							is_ai = yes
+						}
+					}
+					ENG = {
+						diplomatic_relation = {
+							country = LUX
+							relation = guarantee
+							active = no
+						}
+					}
+				}
+			}
+			if = {
+				limit  = {
+					tag = LUX
+					LUX_anarchist_ruling = yes
+				}
+				LUX = {
+                    remove_ideas = LUX_neatrality_guarantees
+				}
+				if  = {
+					limit = {
+						is_guaranteed_by = FRA
+						FRA = {
+							is_ai = yes
+						}
+					}
+					FRA = {
+						diplomatic_relation = {
+							country = LUX
+							relation = guarantee
+							active = no
+						}
+					}
+				}
+				if  = {
+					limit = {
+						is_guaranteed_by = ENG
+						ENG = {
+							is_ai = yes
+						}
+					}
+					ENG = {
+						diplomatic_relation = {
+							country = LUX
+							relation = guarantee
+							active = no
+						}
+					}
+				}
 			}
 		}
 	}
+	on_war = {
+		effect = {
+			if  ={
+				limit = {
+					THIS = {
+						original_tag = LUX
+						has_country_flag = LUX_declare_war_Liberia
+						has_war_with = LIB
+					}
+				}
+				LIB = {
+					add_timed_idea = {
+						idea = LIB_war_of_independence
+						days = 1225
+					}
+					set_country_flag = LIB_independs_war_flag
+				}
+				set_global_flag = luxembopurg_liberian_war_flag
+			}
+			if = {
+				limit = {
+					THIS = {
+						original_tag = LUX
+						has_civil_war = yes
+					}
+				}
+                country_lock_all_division_template = no
+                clr_country_flag = LUX_has_army_limits_flag
+				remove_dynamic_modifier = { modifier = LUX_army_limits }
+				log = "Luxembourg Army limits was removed"
+			
+			}
+			if = {
+                limit = {
+					original_tag = SAU
+					has_war_with = LUX
+					has_country_flag = allowed_give_resource_rights_flag
+				}
+				LUX = {
+					remove_resource_rights = 292
+					remove_resource_rights = 858
+					remove_resource_rights = 678
+				}
+				clr_country_flag = allowed_give_resource_rights_flag
+			}
+			if = {
+				limit = {
+					original_tag = SWE
+					has_war_with = LUX
+					has_country_flag = allowed_give_resource_rights_flag
+				}
+				LUX = {
+					remove_resource_rights = 918
+				}
+				clr_country_flag = allowed_give_resource_rights_flag
+			}
+			if = {
+               limit = {
+				  tag = LUX
 
+			   }
+			}
+		}
+	}
+	on_create_faction = {
+		effect = {
+			if = {
+				limit=  {
+					FROM = {
+						original_tag = LUX
+					}
+				}
+			    set_global_flag = LUX_form_faction_flag
+			}
+		}
+	}
+	on_join_faction = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						original_tag = LUX
+					}
+					ROOT = {
+	                    original_tag = HOL
+					}
+				}
+		        set_global_flag = niderlands_join_benelux_faction_flag
+			}
+			if = {
+				limit = {
+					FROM = {
+						original_tag = LUX
+					}
+					ROOT = {
+	                    original_tag = BEL
+					}
+				}
+		        set_global_flag = belgum_join_benelux_faction_flag
+			}
+		}
+	}
+	#FROM = creater faction
+	#THIS = couuntry join in faction
+	on_faction_formed = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						original_tag = LUX
+					}
+					THIS = {
+						OR = {
+
+						}
+					}
+				}
+			}
+		}
+	}
+	on_lend_lease = {
+		effect = {
+			if  = {
+				limit = {
+					ROOT  ={
+						original_tag = LUX
+						has_idea = LUX_neatrality_in_spain_cw
+					}
+					FROM = {
+						OR  = {
+							original_tag = SPA
+							original_tag = SPB
+							original_tag = SPC
+							original_tag = SPD
+						}
+					}
+					NOT = {
+						has_global_flag = scw_over
+					}
+				}
+				ROOT = {
+					add_stability = -0.20
+					set_country_flag = intervension_in_spain_cw_is_made_flag
+					add_political_power = -75
+				}
+				log = "Luxembourg made intervantion in Spain Civil War"
+			}
+		}
+	}
+	on_incoming_lend_lease = {
+		effect = {
+			if  = {
+				limit = {
+					ROOT  ={
+						original_tag = LUX
+						has_idea = LUX_neatrality_in_spain_cw
+					}
+					FROM = {
+						OR  = {
+							original_tag = SPA
+							original_tag = SPB
+							original_tag = SPC
+							original_tag = SPD
+						}
+					}
+					NOT = {
+						has_global_flag = scw_over
+					}
+				}
+				ROOT = {
+					add_stability = -0.15
+					add_political_power = -50
+					set_country_flag = intervension_in_spain_cw_is_made_flag
+				}
+				log = "Luxembourg made intervantion in Spain Civil War"
+			}
+		}
+	}
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					FROM.FROM = {
+						state = 7
+					}
+					ROOT  = {
+                       has_war_with = FROM
+					   NOT_benelux_county_trigger = yes
+					   #ROOT get control on Amsterdam 
+					   #controls_province = 391
+					}
+				}
+				set_variable = { global.new_controller_state_7 = ROOT }
+				set_variable = { global.old_controller_state_7 = FROM }
+				log = "Amsterdam get new controller"
+			}
+			if = {
+				limit = {
+					FROM.FROM = {
+						state = 6
+					}
+					ROOT  = {
+                       has_war_with = FROM
+					   NOT_benelux_county_trigger = yes
+					   #ROOT get control on Brussel 
+					   #controls_province = 516
+					}
+				}
+				set_variable = { global.new_controller_state_6 = ROOT }
+				set_variable = { global.old_controller_state_6 = FROM }
+				log = "Brussel get new controller"
+			}
+			if = {
+				limit =  {
+					ROOT  = {
+                        original_tag = LUX
+						LUX_anarchist_ruling = yes
+					}
+					FROM.FROM  = {
+						has_resistance = yes
+					}
+				}
+				ROOT  = {
+					add_to_variable = { 
+						consumer_goods_factor_intergration_in_commune_modifier = 0.01
+					}
+				}
+				FROM.FROM  = {
+					set_state_flag = anarshist_luxemburg_controller_flag
+				}
+			}
+			if = {
+				limit =  {
+					FROM  = {
+                        original_tag = LUX
+					}
+					FROM.FROM  = {
+						has_state_flag = anarshist_luxemburg_controller_flag
+					}
+				}
+				FROM  = {
+					add_to_variable = { 
+						consumer_goods_factor_intergration_in_commune_modifier = -0.01
+					}
+				}
+				FROM.FROM  = {
+					clr_state_flag = anarshist_luxemburg_controller_flag
+				}
+			}
+			if  = {
+				limit = {
+					FROM.FROM = {
+						OR =  {
+							state = 8
+							state = 34
+							state = 6
+							state = 35
+							state = 7
+							state = 36
+						}
+					}
+					FROM = {
+		                benelux_countries_trigger = yes
+					}
+				}
+				log = "Any benelux county lost state in benelux"
+	            set_variable = {
+					FROM.FROM.benelux_state_get_new_controller = FROM.FROM
+				}
+			}
+			if = {
+				limit = {
+					ROOT  = {
+                        original_tag = LUX
+						LUX_anarchist_ruling = yes
+						has_completed_focus = LUX_cancel_national_state
+					}
+				}
+				FROM.FROM = {
+				    add_dynamic_modifier = {
+						modifier = LUX_anarchist_commune
+					}
+					set_state_flag = anarchist_commune_flag
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						original_tag = LUX
+						LUX_anarchist_ruling = yes
+						has_completed_focus = LUX_cancel_national_state
+					}
+				}
+				FROM.FROM = {
+				    remove_dynamic_modifier = {
+						modifier = LUX_anarchist_commune
+					}
+					clr_state_flag = anarchist_commune_flag
+				}
+			}
+		}
+	}
+	on_release_as_free = {
+		effect  = {
+			if = {
+				limit  = {
+                    ROOT = {
+						original_tag = LUX
+						has_focus_tree = luxemburg_in_exile
+					}
+				}
+				ROOT = {
+                  
+				}
+			}
+		}
+	}
+	on_release_as_puppet = {
+		effect = {
+			if = {
+				limit  = {
+                    ROOT = {
+						original_tag = LUX
+						has_focus_tree = luxemburg_in_exile
+					}
+				}
+				ROOT = {
+
+				}
+			}
+		}
+	}
+	on_civil_war_end = {
+		effect = {
+			#anarchist win civil war
+			if  = {
+               limit = {
+                   ROOT = {
+					   original_tag = LUX
+					   LUX_anarchist_ruling = yes
+				   }
+				   FROM = {
+					   original_tag = LUX
+					   NOT = {
+						    LUX_anarchist_ruling = yes
+					   }
+				   }
+			   }
+			   ROOT = {
+				  add_war_support = 0.15
+				  block_benelux_brench_effect = yes
+			   }
+			   news_event = {
+				    id = LUX_anarchist_news_events.1
+				    random_hours = 12
+					days = 1
+			    }
+			   add_named_threat = {
+				   threat = 4
+				   name = LUX_anarchist_win_cw
+			   }
+			   set_global_flag = LUX_civil_war_end
+			   set_global_flag = LUX_anarchist_win_cw_flag
+			   log = "Luxembourg anarchists win civil war"
+			}
+			#democrats win civil war
+			if = {
+               limit = {
+				   ROOT = {
+					  original_tag = LUX
+					  NOT = {
+						   LUX_anarchist_ruling = yes
+					   }
+				   }
+				   FROM = {
+					   original_tag = LUX
+					   LUX_anarchist_ruling = yes
+				   }
+			   }
+			   ROOT = {
+				   if = {
+					limit = {
+						 has_focus_tree = generic_focus
+					}
+					load_focus_tree = { 
+						tree = luxemburg 
+					#	keep_completed = yes 
+					}
+					unlock_national_focus = LUX_confirm_neutrality
+					unlock_national_focus = LUX_friendly_only
+					unlock_national_focus = LUX_ban_communisn_party_referendum
+					unlock_national_focus = LUX_continue_support
+				   }
+			   }
+			   news_event = {
+				   id = LUX_anarchist_news_events.2
+				   days = 1
+				   random_hours = 12
+			    }
+				add_threat = -0.5
+			   set_global_flag = LUX_civil_war_end
+			   set_global_flag = LUX_democrats_win_cw_flag
+			   log = "Luxembourg democrats win civil war"
+			}
+			if = {
+				limit = {
+                    ROOT  = {
+                        original_tag = INS
+						has_country_flag = communist_uprising_in_dutch_east_indies_flag
+					}
+					FROM = {
+						original_tag = INS
+						NOT = {
+							has_government = ROOT
+						}
+						has_country_flag = communist_uprising_in_dutch_east_indies_flag
+					}
+				}
+				    LUX = {
+						set_autonomy = {
+					       target = ROOT
+					       autonomous_state = autonomy_puppet
+					       end_wars = no
+			               end_civil_wars = no
+			            }
+				    }
+					ROOT  = {
+						unlock_national_focus = political_effort
+						unlock_national_focus = collectivist_ethos
+						complete_national_focus = internationalism_focus
+						unlock_national_focus = industrial_effort
+						clr_country_flag = communist_uprising_in_dutch_east_indies_flag
+					}
+			}
+		}
+	}
+	on_peaceconference_ended = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = LUX
+						has_idea = LUX_fight_with_FRA
+					}
+					FROM = {
+						original_tag = FRA
+						has_government = communism
+					}
+				}
+                ROOT = {
+					set_country_flag = LUX_change_idiology_to_communist_FRA
+				}
+				FROM = {
+					give_military_access = ROOT
+					diplomatic_relation = {
+						country = ROOT
+						relation = non_aggression_pact
+						active = yes
+					}
+					diplomatic_relation = {
+						country = ROOT
+						relation = docking_rights
+						active = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = LUX
+						has_idea = LUX_fight_with_GER
+					}
+					FROM = {
+						original_tag = GER
+						has_government = communism
+					}
+				}
+                ROOT = {
+					set_country_flag = LUX_change_idiology_to_communist_GER
+				}
+				FROM = {
+					give_military_access = ROOT
+					diplomatic_relation = {
+						country = ROOT
+						relation = non_aggression_pact
+						active = yes
+					}
+					diplomatic_relation = {
+						country = ROOT
+						relation = docking_rights
+						active = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						original_tag = LUX
+						pc_is_loser = yes
+					}
+				}
+				ROOT = {
+					set_country_flag = ROOT_is_winner_under_ROOT_flag
+				}
+			}
+		}
+	}
+	on_subject_free = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						original_tag = LUX
+					}
+				}
+				FROM = {
+					set_country_flag = lost_control_on_any_benelux_puppet_flag
+				}
+			}
+		}
+	}
+	on_war_relation_added = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+                        has_country_flag = agree_to_sign_friend_pact_flag
+					}
+					ROOT = {
+						NOT = {
+                           has_country_flag = in_friend_pact_flag
+						}
+					}
+				}
+				every_possible_country = {
+					limit = {
+						has_country_flag = in_friend_pact_flag
+					}
+					country_event = {
+						id = benelux_friend_pact_events.3
+						random_hours = 6
+						days = 1
+					}
+				}
+				ROOT = {
+					set_variable = {
+						global.var_friend_pact_aggresser = ROOT
+					}
+					save_event_target_as = friend_pact_aggresser
+					country_event = LUX_diplomacy.18
+				}
+				FROM = {
+					set_variable = {
+						global.var_friend_pact_defender = FROM
+					}
+					save_event_target_as = friend_pact_defender
+					country_event = LUX_diplomacy.19
+				}
+				ROOT = {
+					set_country_flag = aggresser_in_friend_pact_flag
+				}
+				FROM = {
+                    set_country_flag = defender_in_friend_pact_flag
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						has_government = fascism
+					}
+					FROM = {
+                       tag = LUX
+					}
+				}
+				FROM = {
+					set_country_flag = fascist_invasion_flag
+				}
+			}
+		}
+	}
 }

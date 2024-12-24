@@ -1,0 +1,179 @@
+political_actions = {
+	LUX_ask_govermnet_in_exile_host_in_SOV = {
+		icon = hol_exchange_intelligence_data
+
+		visible = {
+			original_tag = LUX
+            has_government = communism 
+			is_in_faction_with = SOV
+		}
+	
+		available = {
+            is_in_faction_with = SOV
+			NOT = {
+				has_war_with = SOV
+			}
+		}
+		days_remove = 2
+		cost = 0
+	    fire_only_once = yes 
+		complete_effect = {
+            SOV = {
+				country_event = {
+					id = LUX_communist_goverment_in_exile.0
+					days = 2
+					random_hours = 12
+				}
+			}
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+}
+governments_in_exile = {
+	LUX_training_army = {
+        visible = {
+			original_tag = LUX
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			army_experience = 15
+		}
+		target_trigger = {
+			FROM = {
+				is_hosting_exile = ROOT
+			}
+		}
+		modifier = {
+			experience_gain_army = 0.005
+		}
+		days_remove = 90
+		cost = 30
+	}
+	LUX_crate_militia_unite = {
+		icon = generic_army_support
+       visible = {
+		   original_tag = LUX
+		   has_completed_focus = LUX_militia_in_exile
+	   }
+	   available = {
+		 has_capitulated = yes
+	   }
+	   complete_effect = {
+		division_template = {
+			name = "Miliz am Exil"
+			is_locked = no
+		#	division_cap = 30
+			division_names_group = LUX_INF_01
+			priority = 1
+			regiments = {
+					militia = {
+							x = 0
+							y = 0
+						}
+					militia = {
+							x = 0
+							y = 1
+						}
+					militia = {
+							x = 0
+							y = 2
+						}
+				}
+			support = {
+					engineer = {
+							x = 0
+							y = 0
+						}
+				}
+		}
+	   }
+	   remove_effect = {
+		   var:host = {
+			 random_core_state = {
+				limit = {
+					is_owned_by = PREV
+				}
+				create_unit = {
+					division = "name = \"Miliz am Exil\" division_template = \"Miliz am Exil\" start_experience_factor = 0.2"
+					owner = ROOT
+					count = 2
+				}
+			 }
+		   }
+	   }
+	   cost = 40
+	   modifier = {
+		  political_power_cost = 0.15
+		  exiled_government_weekly_manpower = -5
+	   }
+	   days_remove = 60
+	}
+	LUX_finance_resistence = {
+		icon = eng_blackshirt_march
+		visible = {
+			original_tag = LUX
+			has_completed_focus = LUX_finance_resistence
+		}
+		available = {
+			any_core_state = {
+				general_state_controling_by_enemy_trigger = yes
+			}
+			has_equipment = {
+				infantry_equipment > 49
+			}
+		}
+        complete_effect = {
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -50
+				}
+			}
+		}
+		remove_effect = {
+			every_core_state = {
+				limit = {
+					NOT  = {
+						is_controlled_by = ROOT
+					}
+				}
+				add_resistance = 3
+			}
+		}
+	#	cost = 75
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment > 49
+			}
+		}
+		custom_cost_text = custom_cost_trigger_50_infantry_equipment
+		days_remove = 180
+		modifier = {
+			resistance_target_on_our_occupied_states = 0.25
+			resistance_growth_on_our_occupied_states = 0.15
+			political_power_cost = 0.10
+		}
+	}
+	LUX_call_volunteers_in_militia = {
+		icon = generic_military
+		visible = {
+			original_tag = LUX
+			has_completed_focus = LUX_volunteers_from_host
+		}
+		available = {
+			has_capitulated = yes
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			add_manpower = 500
+		}
+		cost = 50
+		days_remove = 65
+	}
+}

@@ -1,0 +1,159 @@
+LUX_debug_category = {
+   friend_pact_bEL = {
+	#icon = generic_break_treaty
+
+	visible = {
+		original_tag = LUX
+        is_debug = yes
+	}
+
+	available = {
+
+	}
+	days_remove = 1
+	cost = 0
+	fire_only_once = no 
+	days_re_enable = 1
+	complete_effect = {
+       BEL = {
+           country_event = benelux_friend_pact_events.0
+	   }	
+	}
+   }
+   friend_pact_HOL = {
+		#icon = generic_break_treaty
+	
+		visible = {
+			original_tag = LUX
+			is_debug = yes
+		}
+	
+		available = {
+	
+		}
+		days_remove = 1
+		cost = 0
+		fire_only_once = no 
+		days_re_enable = 1
+		complete_effect = {
+			ROOT = {
+				HOL = {
+					country_event = benelux_friend_pact_events.0
+				}
+			}
+		}
+	}
+	LUX_add_var_election_support_for_joseph_besh = {
+		complete_effect = {
+			add_to_variable = {
+				value = 999
+				var = global.joseph_besh_support
+			}
+		}
+		visible = {
+			is_debug = yes
+			original_tag = LUX
+		}
+	}
+	LUX_add_var_election_support_for_pierre_dugong = {
+		complete_effect = {
+			add_to_variable = {
+				value = 999
+				var = global.pierre_dugong_support
+			}
+		}
+		visible = {
+			is_debug = yes
+			original_tag = LUX
+		}
+	}
+    LUX_set_trotsky_as_leader_NOR = {
+       complete_effect = {
+		  add_country_leader_role = {
+			character = NOR_lev_trotsky
+			promote_leader = yes
+			country_leader = {
+				ideology = marxism
+				expire = "1965.1.1.1"
+				traits = {  }
+			}
+		}
+	   }
+	   available = {
+		   has_character = NOR_lev_trotsky
+	   }
+	   visible = {
+		is_debug = yes
+		original_tag = LUX
+	}
+	}
+	LUX_set_trotsky_as_leader_MEX = {
+		complete_effect = {
+			add_country_leader_role = {
+				character = MEX_leon_trotsky
+				promote_leader = yes
+				country_leader = {
+					ideology = marxism
+					expire = "1965.1.1.1"
+					traits = {  }
+				}
+			}
+		}
+		available = {
+		   has_character = MEX_leon_trotsky
+		}
+		visible = {
+			is_debug = yes
+			original_tag = LUX
+		}
+	 }
+     LUX_set_anarchist_as_leader = {
+		visible = {
+			is_debug = yes
+			original_tag = LUX
+		}
+		complete_effect = {
+			create_country_leader = {
+				name = "Anarchist Commune"
+				picture = GFX_portrait_SPR_anarchist_commune
+				ideology = anarchism
+				traits = {
+					LUX_divided_society
+				}
+			}
+			set_party_name = {
+				ideology = neutrality
+				long_name = LUX_anarchist_commune_party_desc
+				name = LUX_anarchist_commune_party
+			}
+		}
+	 }
+	 LUX_hire_anarchist_advisers = {
+		visible = {
+			original_tag = LUX
+		}
+		complete_effect = {
+			recruit_character = LUX_anarchist_council_industrial
+			recruit_character = LUX_anarchist_council_propaganda
+			recruit_character = LUX_anarchist_council_integration
+		}
+	 }
+	 LUX_remove_all_non_anarchist_advisors = {
+		  visible = {
+			original_tag = LUX
+		  }
+		  complete_effect = {
+			every_character = {
+				limit = {
+					NOT = {
+						is_character = LUX_anarchist_council_industrial
+						is_character = LUX_anarchist_council_propaganda
+					}
+				}
+				remove_advisor_role = {
+					slot = political_advisor
+				}
+			}
+		  }
+	 }
+}

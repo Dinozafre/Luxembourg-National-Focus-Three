@@ -1,0 +1,33 @@
+european_union_cat = {
+	LUX_invite_in_EU = {
+		icon = hol_exchange_intelligence_data
+         target_trigger = {
+			FROM = {
+				capital_scope = {
+					is_on_continent = europe
+				}
+			}
+		 }
+		 available = {
+			FROM = {
+				any_controlled_state = {
+					is_on_continent = europe
+					is_core_of = FROM
+				}
+			}
+		 }
+		 target_root_trigger = {
+			original_tag = LUX
+		 }
+		 visible = {
+			original_tag = LUX
+		 }
+		 complete_effect = {
+			
+		 }
+		 remove_effect = {
+			
+		 }
+		 days_remove = 14
+	}
+}

@@ -1,0 +1,4 @@
+autonomy_state = {
+	id = autonomy_under_protection
+	
+}

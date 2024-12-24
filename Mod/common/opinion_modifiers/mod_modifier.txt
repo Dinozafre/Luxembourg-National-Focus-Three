@@ -1,0 +1,124 @@
+opinion_modifiers = {
+  LUX_independ_from_germany = {
+    value = -20
+  }
+  LUX_libarate_france = {
+    value = -30
+  }
+  LUX_libarate_england = {
+    value = -30
+  }
+  LUX_benilux = {
+    value = -50
+  }
+  LUX_restore_monarchy = {
+    value = 20
+  }
+  LUX_in_exile_independ_policy = {
+    value = -40
+  }
+  LUX_in_exile_intergration_to_germany = {
+    value = 30
+  }
+  LUX_deplomocy_neatrality = {
+    value = -10
+    decay = -0.05
+  }
+  LUX_full_intergrate = {
+    value = 20
+  }
+  LUX_people_revolution = {
+    value = 40
+  }
+  line_maginot_continue = {
+    value = 30
+  }
+  LUX_germany_angry_lux_violate_neatrality = {
+    value = -20
+  }
+  LUX_france_credit_opinion = {
+    value = 25
+  }
+  LUX_pick_credit_opinion = {
+    value = 30
+  }
+  LUX_belgum_credit_opinion = {
+    value = 30
+  }
+  LUX_benelux_shared_future_ally = {
+    value = 50
+  }
+  LUX_ocupation_in_ww1 = {
+    value = -15
+  }
+  LUX_has_oil_from_SAU = {
+   value = 30
+  }
+  LUX_trade_wtih = {
+    value = 20
+   }
+   LUX_agreement_with_ENG = {
+    value = 75
+   }
+   LUX_arrest_communism_mumbers = {
+    value = -45
+   }
+   general_goverment_has_ultimatum = {
+    value = -125
+   }
+   #товарищ революции
+   comrade_revolution = {
+    value = 40
+   }
+   benelux_work_together_in_exile_opinion = {
+    value = 30
+   }
+   benelux_economic_union_opinion = {
+    value = 50
+   }
+   LUX_accenped_monarch = {
+    value = 20
+   }
+   diplomatic_relatation_is_over = {
+     value = -200
+   }
+   cancel_go_to_peace_opinion = {
+    value = -40
+   }
+   LUX_trade_with_allies = {
+      value = 35
+      trade = yes
+   }
+   LUX_sign_friend_pact = {
+      value = 40
+   }
+   in_friend_pact = {
+    value = 35
+ }
+ LUX_unligimitive_goverment = {
+  value = -75
+ }
+ LUX_negoations_success = {
+  value = 15
+ }
+ LUX_negoations_failed = {
+  value = -25
+ }
+ LUX_cancel_london_agreetmant = {
+    value = -75
+ }
+ LUX_cancel_london_agreetmant_trade = {
+  trade = yes
+  value = -100
+}
+shared_join_benelux_conference_opinion = {
+  value = 30
+}
+generic_trade_agreetments = {
+  trade = yes
+  value = 35
+}
+general_opinion_ban_idiology_our_goverment = {
+  value = -15
+}
+}

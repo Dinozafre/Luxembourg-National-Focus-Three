@@ -56,14 +56,18 @@ ideas = {
 			}
             removal_cost = -1
         }
-        idea_speed_building_lux = {
+        LUX_idea_innvesment_in_industry = {
             allowed = {
                 original_tag = LUX
  				always = yes
  			}
             picture = generic_foreign_capital
             modifier = {
-                production_speed_buildings_factor = 0.5
+                production_speed_buildings_factor = 0.10
+                political_power_cost = 0.10
+                consumer_goods_factor = 0.05
+                min_export = 0.15
+                army_defence_factor = 0.05
 			}
             removal_cost = -1
         }
@@ -234,7 +238,7 @@ ideas = {
             modifier = {
                 stability_weekly = 0.01
                 neutrality_drift = 0.01
-                political_power_gain = 0.25
+                political_power_factor = 0.15
 			}
             removal_cost = -1
         }
@@ -247,44 +251,43 @@ ideas = {
                 research_speed_factor = 0.8
                 army_org_factor = 0.03
             }
-            picture = 
         }
         lux_great_depression = {
             modifier = {
-                defensive_war_stability_factor = -0.10
-                economy_cost_factor = 0.50
-                research_speed_factor = -0.20
-                stability_factor = -0.25
-                political_power_gain = -0.75
-                political_power_cost = 0.35
+                communism_drift = 0.02
+                consumer_goods_factor = 0.15
+                military_industrial_organization_policy_cost = 10
+                political_power_cost = 0.05
+                economy_cost_factor = 0.20
+                trade_laws_cost_factor =  0.50
             }
             rule = {
                
             }
+            allowed = {
+                always = no
+            }
             picture = great_depression
         }
-        lux_national_law = {
-            modifier = {
-                mobilization_speed = 0.25
-                weekly_manpower = 150
-                non_core_manpower = 0.05
-                stability_factor = 0.10
-                political_power_gain = 0.25
-                neutrality_drift = 0.05
-                political_advisor_cost_factor = 0.10
-                min_export = 0.15
-                research_speed_factor = -0.15
-                political_power_cost = 0.05
-                conscription = 0.05
-            }
-            allowed = {
-                always = yes
-            }
-            do_effect = {
-                has_completed_focus = LUX_national_law
-            }
-            picture = national_law
-        }
+        #lux_national_law = {
+        #   modifier = {
+        #       mobilization_speed = 0.25
+        #       weekly_manpower = 150
+        #       stability_factor = 0.10
+        #        political_power_gain = 0.25
+        #        neutrality_drift = 0.05
+        #       political_power_cost = 0.05
+        #       conscription = 0.15
+        #       experience_gain_army = 0.05
+        #    }
+        #    allowed = {
+        #        always = yes
+        #    }
+        #    do_effect = {
+        #       
+        #    }
+        #    picture = national_law
+        #}
         lux_great_depression2 = {
             modifier = {
                 defensive_war_stability_factor = -0.05
@@ -392,13 +395,13 @@ ideas = {
             }
 			removal_cost = -1
         }
+        #probably need to remove
        LUX_laws_is_avaible_only_with_referendums = {
              picture = scw_intervention_republicans_focus
              modifier = {
-                democratic_drift = 0.02
-                political_power_gain = -0.15
-                mobilization_laws_cost_factor = 0.75
-                economy_cost_factor = 0.95
+                democratic_drift = 0.05
+                political_power_gain = 0.05
+                drift_defence_factor = 0.10
             }
             allowed = {
 				always = no
@@ -442,10 +445,10 @@ ideas = {
         }
         LUX_communism_resistence = {
             modifier = {
-                communism_drift = 0.05
-                political_power_cost = 0.10
+                communism_drift = 0.03
+                political_power_factor = -0.05
                 stability_factor = -0.05
-                democratic_drift = -0.10
+                democratic_drift = -0.04
             }
             allowed = {
                 tag = LUX
@@ -469,9 +472,8 @@ ideas = {
  			}
             picture = charlotte_grand_duchess_3k2_idea
             modifier = {
-                stability_factor = 0.05
-                political_power_cost = 0.05
-                political_power_gain = -0.10
+                stability_factor = 0.10
+                political_power_factor = -0.10
 			}
             removal_cost = -1
         }
@@ -482,8 +484,7 @@ ideas = {
             picture = charlotte_grand_duchess_3k2_idea
             modifier = {
                 stability_factor = 0.10
-                political_power_cost = 0.10
-                political_power_gain = -0.15
+                political_power_factor = -1
                 army_leader_cost_factor = -0.25
                 army_infantry_defence_factor = 0.10
                 army_org = 0.5
@@ -502,18 +503,20 @@ ideas = {
             }
            picture = generic_neutrality_drift_bonus
            modifier = {
-            join_faction_tension = 1.00
-            send_volunteers_tension = 0.20
-            guarantee_tension = 1.0
-            embargo_threshold_factor = 2.5
-            improve_relations_maintain_cost_factor = -0.05
-            enemy_declare_war_tension = 5.0
-            enemy_justify_war_goal_time = 2.0
-            generate_wargoal_tension = 1.5
+            join_faction_tension = 1
+            send_volunteers_tension = 1
+            improve_relations_maintain_cost_factor = -0.10
+            civil_war_involvement_tension = 1
+            lend_lease_tension = 1
+            request_lease_tension = 1
+            generate_wargoal_tension_against = 0.15
+            democratic_drift = 0.01
            }
-           removal_cost = -1
            cancel = {
-           
+               OR = {
+                   has_war = yes
+                   is_in_faction = yes
+               }
            }
         }
         LUX_build_land_for_build_speed = {
@@ -688,8 +691,8 @@ ideas = {
                 always = yes
              }
             modifier =  {
-                improve_relations_maintain_cost_factor = -0.50
-                opinion_gain_monthly = 25
+                improve_relations_maintain_cost_factor = -0.25
+                opinion_gain_monthly = 3
             }
         }
         LUX_youth_organization = {
@@ -701,7 +704,10 @@ ideas = {
                 political_power_gain = 0.15
                 fascism_drift = 0.05
                 drift_defence_factor = -0.10
-                stability_factor = -0.15
+                stability_factor = -0.05
+            }
+            cancel = {
+                has_completed_focus = LUX_militorisation_organisation
             }
         }
         LUX_youth_organization2 = {
@@ -714,6 +720,9 @@ ideas = {
                 political_power_gain = 0.25
                 fascism_drift = 0.10
                 war_support_weekly = 0.05
+            }
+            cancel = {
+                has_completed_focus = LUX_militorisation_organisation
             }
         }
         LUX_army_youth_organisation_forces = {
@@ -737,31 +746,40 @@ ideas = {
                 drift_defence_factor = 0.10
             }
         }
-        LUX_army_limits = {
-            allowed = {
-                always = yes
-            }
-            modifier = {
-                war_stability_factor = -0.15
-                mobilization_speed = -0.20
-                equipment_upgrade_xp_cost = 0.15
-                land_equipment_upgrade_xp_cost = 0.10
-                naval_equipment_upgrade_xp_cost = 0.10
-                air_equipment_upgrade_xp_cost = 0.10
-            }
-            picture = generic_army_problems
-        }
         LUX_neatrality_guarantees = {
             allowed = {
                 always = yes
             }
-            picture = generic_pp_unity_bonus
+            picture = lux_neatrality_guarantees
             modifier = {
                 ai_focus_peaceful_factor = 0.25
-                drift_defence_factor = 0.15
+                #drift_defence_factor = 0.15
+            #    custom_modifier_tooltip = LUX_neatrality_guarantees_modifier_tt
+            #    request_lease_tension = 0.50
+           #     lend_lease_tension = 0.25
+            #    enemy_justify_war_goal_time = 0.15
             }
             cancel = {
-                LUX_has_war_with_trigger = yes
+                OR = {
+                    AND = {
+                        has_war_with = FRA
+                        has_war_with = ENG
+                    }
+                    AND = {
+                        NOT = {
+                            is_guaranteed_by = ENG
+                        }
+                        NOT = {
+                            is_guaranteed_by = FRA
+                        }
+                    }
+                }
+            }
+            on_add = {
+                set_country_flag = LUX_neatrality_guarantees_is_active_flag
+            }
+            on_remove = {
+                clr_country_flag = LUX_neatrality_guarantees_is_active_flag
             }
         }
         shared_benelux_member_of_economic_union = {
@@ -890,14 +908,14 @@ ideas = {
             allowed = {
                 always = yes
             }
-            picture = secret_rearmament
+            picture = generic_fascism_banned
         }
         LUX_nation_restoration = {
             modifier = {
                 stability_weekly = 0.005
                 war_support_factor = 0.15
                 political_power_gain = 0.50
-                command_power_gain = 0.05
+                command_power_gain = 0.25
             }
             allowed = {
                 always = yes
@@ -922,7 +940,1007 @@ ideas = {
             }
             picture = generic_communism_drift_bonus
         }
+        LUX_communist_prussure_benelux = {
+            modifier = {
+                communism_drift = 0.30
+                drift_defence_factor = -0.10
+                custom_modifier_tooltip = idea_communist_prussure_can_happen_coup_tt
+                communism_acceptance = 30
+            }
+            allowed = {
+                always = yes
+            }
+            picture = generic_communism_drift_bonus
+        }
+        LUX_marx_in_school = {
+            modifier = {
+                communism_drift = 0.05
+                party_popularity_stability_factor = 0.50
+            }
+            allowed = {
+                always = yes
+            }
+            picture = carl_marx_in_education
+        }
+        LUX_benelux_public_threat1 = {
+            modifier = {
+                enemy_declare_war_tension = 0.05
+                enemy_justify_war_goal_time = 0.10
+            }
+            targeted_modifier = {
+                tag = BEL
+                enemy_declare_war_tension = 0.05
+                enemy_justify_war_goal_time = 0.10
+            }
+            targeted_modifier = {
+                tag = HOL
+                enemy_declare_war_tension = 0.05
+                enemy_justify_war_goal_time = 0.10
+            }
+            allowed = {
+                always = yes
+            }
+            cancel = {
+               #OR = {
+                    NOT = {
+                        country_exists = BEL
+                        country_exists = HOL
+                    }
+                    #NOT = {
+                        #country_exists = BEL
+                        #country_exists = HOL
+                        #country_exists = LUX
+                    #}
+                #}
+            }
+            picture = generic_deal_with_the_devil
+        }
+        LUX_benelux_public_threat2 = {
+            modifier = {
+                enemy_declare_war_tension = 0.10
+                enemy_justify_war_goal_time = 0.20
+            }
+            targeted_modifier = {
+                tag = BEL
+                enemy_declare_war_tension = 0.10
+                enemy_justify_war_goal_time = 0.20
+            }
+            targeted_modifier = {
+                tag = HOL
+                enemy_declare_war_tension = 0.10
+                enemy_justify_war_goal_time = 0.20
+            }
+            allowed = {
+                always = yes
+            }
+            cancel = {
+                NOT = {
+                    country_exists = BEL
+                    country_exists = HOL
+                }
+            }
+            picture = generic_deal_with_the_devil
+        }
+        LUX_benelux_public_threat3 = {
+            modifier = {
+                enemy_declare_war_tension = 0.20
+                enemy_justify_war_goal_time = 0.25
+                ai_join_ally_desire_factor = 50
+                ai_get_ally_desire_factor = 100
+            }
+            targeted_modifier = {
+                tag = BEL
+                enemy_declare_war_tension = 0.20
+                enemy_justify_war_goal_time = 0.25
+                ai_join_ally_desire_factor = 50
+                ai_get_ally_desire_factor = 100
+            }
+            targeted_modifier = {
+                tag = HOL
+                enemy_declare_war_tension = 0.20
+                enemy_justify_war_goal_time = 0.25
+                ai_join_ally_desire_factor = 50
+                ai_get_ally_desire_factor = 100
+            }
+            allowed = {
+                always = yes
+            }
+            cancel = {
+                NOT = {
+                    country_exists = BEL
+                    country_exists = HOL
+                }
+            }
+            picture = generic_deal_with_the_devil
+        }
+        LUX_trade_with_allies = {
+            modifier = {
+                trade_opinion_factor = 0.15
+                faction_trade_opinion_factor = 0.20
+                extra_trade_to_target_factor = 0.10
+                trade_cost_for_target_factor = -0.10
+                min_export = 0.05
+                political_power_gain = 0.05
+                democratic_drift = 0.03
+            }
+            allowed = {
+                always = yes
+            }
+            picture = free_trade
+        }
+        LUX_trade_with_axis = {
+            modifier = {
+                trade_opinion_factor = 0.15
+                faction_trade_opinion_factor = 0.20
+                extra_trade_to_target_factor = 0.15
+                trade_cost_for_target_factor = -0.10
+                min_export = 0.07
+                political_power_gain = 0.05
+                fascism_drift = 0.04
+            }
+            allowed = {
+                always = yes
+            }
+            picture = free_trade
+        }
+        LUX_trade_neutrality = {
+            modifier = {
+                trade_opinion_factor = 0.05
+                extra_trade_to_target_factor = -0.20
+                trade_cost_for_target_factor = 0.25
+                min_export = -0.15
+                political_power_cost = 0.05
+                party_popularity_stability_factor = 0.10
+                drift_defence_factor = 0.05
+            }
+            allowed = {
+                always = yes
+            }
+            picture = neutrality_idea
+        }
+        LUX_people_militia = {
+            modifier = {
+                command_power_gain = 0.02
+                max_command_power = 50
+                communism_drift = 0.05
+                air_defence = 0.10
+                army_core_attack_factor = 0.10
+                army_core_defence_factor = 0.15
+                planning_speed = 0.15
+                mobilization_speed = 0.10
+                political_power_gain = -0.35
+                offensive_war_stability_factor = -0.50
+            }
+            allowed = {
+                always = yes
+            }
+            picture = generic_infantry_bonus
+        }
+        LIB_war_of_independence = {
+            modifier = {
+                army_core_defence_factor = 0.10
+                army_core_attack_factor = 0.05
+                army_speed_factor = 0.15
+            }
+            allowed = {
+                always = yes
+            }
+            cancel = { has_war = no }
+            picture = chi_war_of_resistance3
+        }
+        LUX_four_days_working = {
+            modifier = {
+                consumer_goods_factor = 0.10
+                stability_weekly = 0.005
+                political_power_gain = 0.05
+            }
+            allowed = {
+                always = yes
+            }
+            picture = generic_goods_red_bonus
+        }
+        LUX_workers_autonomy = {
+            modifier = {
+                equipment_conversion_speed = 0.15
+                mobilization_speed = 0.10
+                resistance_damage_to_garrison = -0.25
+                conversion_cost_civ_to_mil_factor = -0.20
+                conversion_cost_mil_to_civ_factor = -0.55
+                industry_repair_factor = 0.10
+                state_production_speed_buildings_factor = 0.05
+                political_power_cost = 0.25
+                political_power_gain = -0.40
+                stability_factor = -0.20
+            }
+            allowed = {
+                always = yes
+            }
+            picture = generic_production_bonus
+        }
+        LUX_idea_charlotte_grand_duchess_in_exile = {
+            picture = charlotte_grand_duchess_3k2_idea
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                
+            }
+        }
+        LUX_education_reforms = {
+            picture = generic_research_bonus
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                research_speed_factor = 0.15
+                local_resources_factor = 0.05
+            }
+        }
+        LUX_live_or_death = {
+            picture = generic_manpower_bonus
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                resistance_target_on_our_occupied_states = 0.05
+                defence = 0.15
+                army_core_defence_factor = 0.10
+                army_core_attack_factor = 0.20
+            }
+        }
+        LUX_live_or_death_ai = {
+            picture = generic_manpower_bonus
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                #resistance_target_on_our_occupied_states = 0.05
+                army_core_defence_factor = 0.03
+                army_core_attack_factor = 0.05
+            }
+        }
+        LUX_preaparing_to_facsism_coup  = {
+            picture = generic_fascism_drift_bonus
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                political_power_gain = 0.50
+                stability_weekly = -0.001
+                fascism_drift = 0.10
+                democratic_drift = -0.10
+            }
+            cancel = {
+                has_government = fascism
+            }
+        }
+        LUX_left_gov = {
+            picture = generic_communism_drift_bonus
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                political_power_gain = 0.15
+                communism_drift = 0.05
+            }
+        }
+        LUX_right_gov = {
+            picture = generic_fascism_drift_bonus
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                political_power_gain = 0.55
+                fascism_drift = 0.10
+            }
+        }
+        LUX_collectivisation_idea = {
+            picture = generic_central_management
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                political_power_gain = 0.10
+                communism_drift = 0.08
+                conscription = 0.05
+                monthly_population = 0.15
+            }
+        }
+        LUX_goverment_acting_raids = {
+            picture = generic_volunteer_expedition_bonus
+            allowed = {
+                always = yes
+            }
+            cancel = {
+                OR = {
+                    has_government = fascism
+                    has_government = communism
+                    has_government = neutrality
+                }
+            }
+            modifier = {
+                communism_drift = -0.04
+                fascism_drift = -0.04
+                neutrality_drift = -0.05
+                democratic_drift = 0.05
+                stability_weekly = 0.0025
+            }
+        }
+        LUX_free_education_idea = {
+            picture = generic_research_bonus
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                research_speed_factor = 0.25
+                equipment_capture = 0.50
+            }
+        }
+        LUX_army_limits_fake = {
+            allowed = {
+                always = no
+            }
+            modifier = {
+                mobilization_speed = -0.25
+                max_command_power = -75
+                #special_forces_min = 0
+               army_defence_factor = -0.10
+                army_attack_factor = -0.15
+               custom_modifier_tooltip = LUX_army_lmits_tt
+            }
+            on_remove = {
+                #country_lock_all_division_template = no
+                #clr_country_flag = LUX_has_army_limits_flag
+            }
+          on_add = {
+               set_country_flag = LUX_has_army_limits_flag
+               #country_lock_all_division_template = yes
+            }
+            cancel = {
+                is_government_in_exile = yes
+            }
+            picture = army_limits
+        }
+        LUX_army_limits2 = {
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                mobilization_speed = -0.10
+                #max_command_power = -75
+                army_defence_factor = -0.05
+                army_attack_factor = -0.05
+                custom_modifier_tooltip = LUX_army_lmits_tt
+            }
+            on_remove = {
+                country_lock_all_division_template = no
+                clr_country_flag = LUX_has_army_limits_flag
+            }
+            on_add = {
+                set_country_flag = LUX_has_army_limits_flag
+                #country_lock_all_division_template = yes
+            }
+            cancel = {
+                is_government_in_exile = yes
+            }
+            picture = tfv_can_conscription_crisis
+        }
+        LUX_pacifict_policy = {
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                consumer_goods_factor = 0.05
+                production_speed_buildings_factor = 0.10
+                political_power_gain = 0.15
+                stability_weekly = 0.0015
+                war_support_factor = -0.15
+                custom_modifier_tooltip = LUX_army_lmits_tt
+            }
+            on_remove = {
+                country_lock_all_division_template = no
+                clr_country_flag = LUX_has_army_limits_flag
+            }
+            on_add = {
+                #set_country_flag = LUX_has_army_limits_flag
+                #country_lock_all_division_template = yes
+            }
+            cancel = {
+                is_government_in_exile = yes
+            }
+            picture = generic_constitutional_guarantees
+        }
+        LUX_support_imigration = {
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                recruitable_population = 0.01
+                stability_factor = -0.05
+                monthly_population = 0.10
+                conscription = 0.05
+            }
+            picture = support_imigration
+        }
+        LUX_neatrality_in_spain_cw = {
+            allowed = {
+                always = yes
+            }
+            cancel  = {
+                has_global_flag = scw_over
+            }
+            modifier = {
+                lend_lease_tension = 0.5
+                send_volunteers_tension = 0.50
+                democratic_drift = 0.05
+                stability_weekly = 0.0010
+            }
+            on_add = {
+                if = {
+                    limit = {
+                        has_dlc = "La Resistance"
+                    }
+                    add_relation_rule_override = {
+                        target = SPA
+                        can_send_volunteers = no
+                    }
+                    add_relation_rule_override = {
+                        target = SPB
+                        can_send_volunteers = no
+                    }
+                    add_relation_rule_override = {
+                        target = SPC
+                        can_send_volunteers = no
+                    }
+                    add_relation_rule_override = {
+                        target = SPD
+                        can_send_volunteers = no
+                    }
+                }
+                else = {
+                    add_relation_rule_override = {
+                        target = SPA
+                        can_send_volunteers = no
+                    }
+                    add_relation_rule_override = {
+                        target = SPD
+                        can_send_volunteers = no
+                    }
+                }
+            }
+            on_remove = {
+                if = {
+                    limit = {
+                        has_dlc = "La Resistance"
+                    }
+                    add_relation_rule_override = {
+                        target = SPA
+                        can_send_volunteers = yes
+                    }
+                    add_relation_rule_override = {
+                        target = SPB
+                        can_send_volunteers = yes
+                    }
+                    add_relation_rule_override = {
+                        target = SPC
+                        can_send_volunteers = yes
+                    }
+                    add_relation_rule_override = {
+                        target = SPD
+                        can_send_volunteers = yes
+                    }
+                }
+                else = {
+                    add_relation_rule_override = {
+                        target = SPA
+                        can_send_volunteers = yes
+                    }
+                    add_relation_rule_override = {
+                        target = SPD
+                        can_send_volunteers = yes
+                    }
+                }
+            }
+            picture = neutrality_in_spain_cw
+        }
+        LUX_youth_organization3 = {
+            picture = chi_army_corruption3
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                #drift_defence_factor = 0.15
+                political_power_factor = 0.10
+                fascism_drift = 0.30
+                war_support_weekly = 0.005
+                experience_gain_army = 0.1
+                monthly_population = 0.05
+                army_core_defence_factor = 0.10
+            }
+        }
+        LUX_workers_from_all_world_idea = {
+            picture = workers_from_all_world
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                monthly_population = 0.75
+                weekly_manpower = 1500
+                local_manpower = 0.5
+                recruitable_population = 0.25
+                stability_weekly = -0.0015
+                political_power_cost = 0.25
+            }
+        }
+        LUX_youth_organization_communist_idea = {
+            picture = chi_army_corruption3
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                #drift_defence_factor = 0.15
+                political_power_factor = 0.10
+                fascism_drift = 0.30
+                war_support_weekly = 0.005
+                experience_gain_army = 0.1
+                monthly_population = 0.05
+                army_core_defence_factor = 0.10
+            }
+        }
+        LUX_youth_organization4_idea = {
+            picture = chi_army_corruption3
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                #drift_defence_factor = 0.15
+                political_power_gain = 0.25
+                fascism_drift = 0.35
+                war_support_weekly = 0.010
+                experience_gain_army = 0.3
+                offence = 0.10
+                army_core_defence_factor = 0.15
+            }
+        }
+        LUX_brothers_of_deal_idea =  {
+            picture = por_iberian_workers_united
+            allowed = {
+                always = yes
+            }
+            modifier = {
+                army_speed_factor_for_controller = 0.10
+                neutrality_drift = 0.15
+                political_power_cost = 0.05
+                stability_weekly = -0.001
+            }
+        }
+        LUX_fight_with_FRA = {
+            picture = FRA_scw_intervention_nationalists_focus
+            targeted_modifier = {
+                tag = FRA
+                attack_bonus_against = 0.25
+                attack_bonus_against_cores = 0.10
+                defense_bonus_against = 0.15
+            }
+            cancel = {
+                OR  = {
+                    AND = {
+                        NOT = {
+                            country_exists = FRA
+                        }
+                    }
+                    has_country_flag = LUX_change_idiology_to_communist_FRA
+                }
+            }
+        }
+        LUX_fight_with_GER = {
+            picture = FRA_scw_intervention_nationalists_focus
+            targeted_modifier = {
+                tag = GER
+                attack_bonus_against = 0.25
+                attack_bonus_against_cores = 0.10
+                defense_bonus_against = 0.15
+            }
+            cancel = {
+                OR  = {
+                    AND = {
+                        NOT = {
+                            country_exists = GER
+                        }
+                    }
+                    has_country_flag = LUX_change_idiology_to_communist_GER
+                }
+            }
+        }
+        shared_first_strike_idea = {
+            picture = MEX_politicised_army
+            cancel = {
+                has_country_flag = ROOT_is_winner_under_ROOT_flag
+            }
+            modifier = {
+                army_attack_factor = 0.10
+                army_core_attack_factor = 0.15
+                army_defence_factor = 0.05
+            }
+            on_remove = {
+                clr_country_flag = ROOT_is_winner_under_ROOT_flag
+            }
+        }
+        LUX_joseph_bech_not_leader = {
+            picture = generic_disjointed_gov
+            modifier = {
+                stability_factor = -0.15
+                stability_weekly_factor = -0.05
+                political_power_factor = -0.15
+                political_power_cost = 0.20
+            }
+            cancel = {
+                LUX_ruling_paarty_leader_joseph_bech = yes
+            }
+            on_remove = {
+                clr_country_flag = LUX_political_unstability_flag
+            }
+        }
+        LUX_getting_resources_idea = {
+            picture = generic_supply_depot
+            modifier = {
+                local_resources = 0.2
+            }
+        }
+        LUX_army_planning_coup_idea = {
+           picture = general_staff
+           modifier = {
+               neutrality_drift = 0.15
+               stability_weekly = -0.005
+               democratic_drift = -0.03
+               experience_gain_army = -0.01
+               party_popularity_stability_factor = -0.20
+               stability_factor = -0.15
+           }
+        }
+        LUX_people_resistence = {
+            picture = FRA_scw_intervention_republicans_focus
+            modifier = {
+                resistance_target_on_our_occupied_states = 0.05
+                resistance_decay_on_our_occupied_states = 0.02
+                compliance_growth_on_our_occupied_states = -0.01
+            }
+            cancel = {
+                is_government_in_exile = no
+            }
+        }
+        shared_fire_of_revolution = {
+            modifier = {
+                army_core_attack_factor = 0.1
+                army_attack_speed_factor = 0.05
+                army_core_defence_factor = 0.1
+                surrender_limit = 0.15
+            }
+            allowed = {
+                alwways = yes
+            }
+            cancel = {
+                has_civil_war = no
+            }
+            picture = FRA_scw_intervention_republicans_focus
+        }
+        shared_benelux_mobilisation = {
+            allowed = {
+                alwways = yes
+            }
+            picture = generic_infantry_bonus
+            modifier = {
+                weekly_casualties_war_support = 0.005
+                mobilization_speed = 0.15
+                conscription = 0.10
+            }
+        }
+        LUX_charlotte_wilhelmine_dummy = {
+            allowed = {
+                alwways = yes
+            }
+            picture = LUX_charlotte_wilhelmine_small_mod
+            modifier = {
+                political_power_factor = -0.10
+                stability_factor = 0.05
+                neutrality_drift = 0.01
+            }
+        }
+        LUX_the_great_depression_dummy = {
+            allowed = {
+                alwways = yes
+            }
+            modifier = {
+                communism_drift = 0.02
+                consumer_goods_factor = 0.15
+                political_power_factor = -0.05
+                economy_cost_factor = 0.20
+                trade_laws_cost_factor = 0.20
+                production_speed_buildings_factor = -0.30
+            }
+            picture = usa_great_depression
+        }
+        LUX_national_law = {
+            allowed = {
+                alwways = yes
+            }
+            modifier = {
+                conscription = 0.10
+                political_power_factor = 0.15
+                mobilization_laws_cost_factor = -0.25
+                war_support_weekly = 0.001
+            }
+            picture = writing_paper
+        }
+    LUX_support_imigration2 = {
+        allowed = {
+            always = yes
+        }
+        modifier = {
+            recruitable_population = 0.01
+            stability_factor = -0.05
+            monthly_population = 0.10
+            conscription = 0.10
+            mobilization_speed = 0.25
+        }
+        picture = support_imigration
+    }
+    LUX_intervention_in_belgum = {
+       picture = generic_attack_belgum
+       targeted_modifier = {
+          tag = BEL
+          attack_bonus_against = 0.10
+          defense_bonus_against = 0.05
+       }
+       cancel = {
+          OR = {
+            NOT = {
+                country_exists = BEL
+            }
+            has_subject = BEL
+          }
+       }
+    }
+    LUX_intervention_in_niderlands = {
+        picture = generic_attack_niderlands
+        targeted_modifier = {
+            tag = HOL
+            attack_bonus_against = 0.10
+            defense_bonus_against = 0.05
+        }
+        cancel = {
+            OR = {
+              NOT = {
+                  country_exists = HOL
+              }
+              has_subject = HOL
+            }
+         }
+    }
+    LUX_prepare_for_invasion_ns = {
+        picture = generic_preperatioion_for_war
+        modifier = {
+            army_core_defence_factor = 0.1
+            army_defence_factor = 0.15
+            army_core_attack_factor = 0.05
+            war_support_weekly = 0.001
+        }
+        on_remove = {
+            
+        }
+    }
+    LUX_democratic_protection_ns = {
+        modifier = {
+            democratic_drift = 0.15
+            drift_defence_factor = 0.10
+        }
+        picture = generic_democratic_drift_bonus
+    }
+    LUX_economy_restoration_ns = {
+        modifier = {
+            consumer_goods_factor = 0.1
+            production_speed_industrial_complex_factor = 0.15
+            production_speed_arms_factory_factor = 0.10
+            political_power_cost = 0.05
+        }
+        picture = chi_hyper_inflation2
+    }
+    LUX_partisan_war_ns = {
+       modifier = {
+          equipment_capture = 0.10
+          resistance_growth_on_our_occupied_states = 0.05
+          resistance_target_on_our_occupied_states = 0.10
+          army_core_defence_factor = 0.05
+       }
+       picture = generic_partisan_war
+    }
+    LUX_intervention_in_spain_cw_ns = {
+      picture = intervention_in_spain_cw
+      modifier = {
+        lend_lease_tension = -0.75
+        send_volunteers_tension = -0.5
+        send_volunteer_size = 5
+        send_volunteer_divisions_required = -0.75
+      }
+      targeted_modifier = {
+        tag = SRS
+        weekly_manpower = 100
+      }
+      cancel = {
+        has_global_flag = scw_over
+      }
+    }
+    LUX_trade_agreetments_ns = {
+        picture = generic_trade_agreetments
+        modifier = {
+            trade_opinion_factor = 0.25
+            faction_trade_opinion_factor = 0.10
+        }
+    }
+    LUX_trade_with_axis_ns =  {
+        picture = can_wartime_prices_and_trade_board
+        cancel = {
+            OR = {
+                has_war_with = GER 
+                NOT = {
+                    country_exists = GER
+                }
+            }
+        }
+        targeted_modifier = {
+            tag = GER 
+            extra_trade_to_target_factor = 0.25
+            trade_cost_for_target_factor = -0.10
+        }
+        modifier = {
+            fascism_drift = 0.02
+            consumer_goods_factor = -0.1
+            production_speed_buildings_factor = 0.05
+            trade_opinion_factor = 0.15
+        }
+    }
+    LUX_trade_with_allies_ns =  {
+        cancel = {
+            OR = {
+               NOT = {
+                  country_exists = ENG
+               }
+               has_war_with = ENG
+            }
+        }
+        picture = can_wartime_prices_and_trade_board
+        targeted_modifier = {
+            tag = ENG
+            extra_trade_to_target_factor = 0.25
+            trade_cost_for_target_factor = -0.10
+        }
+        modifier = {
+            democratic_drift = 0.02
+            consumer_goods_factor = -0.1
+            production_speed_buildings_factor = 0.05
+            trade_opinion_factor = 0.15
+        }
+    }
+    LUX_resources_ns = {
+        modifier = {
+            local_resources_factor = 0.05
+            local_resources = 0.10
+            production_speed_industrial_complex_factor = 0.05
+        }
+    }
+    LUX_volunteers_in_exile_ns = {
+        modifier = {
+            weekly_manpower = 50
+            exiled_government_weekly_manpower = 100
+        }
+        picture = generic_manpower_bonus
+    }
+    LUX_democratic_protection2_ns = {
+        modifier = {
+            democratic_drift = 0.25
+            drift_defence_factor = 0.25
+            communism_drift = -0.05
+            fascism_drift = -0.05
+        }
+        picture = generic_democratic_drift_bonus
+    }
+    LUX_anarchist_people_libaration = {
+        modifier = {
+            weekly_manpower = 750
+            political_power_cost = 0.05
+        }
+        picture = anarchist_lebaration
+    }
+    LUX_amry_without_hierarchical_ns = {
+        modifier = {
+            experience_loss_factor = 0.05
+            navy_leader_cost_factor = 5
+            military_leader_cost_factor = 5
+            assign_army_leader_cp_cost = 5
+            max_command_power = -75
+            experience_gain_army_factor = -0.01
+            command_power_gain = -0.05
+        }
+        picture = tfv_can_conscription_crisis
+    }
+    LUX_public_transport_ns = {
+        modifier = {
+            army_speed_factor = 0.10
+	        production_speed_infrastructure_factor = 0.05
+            army_org = 5
+        }
+        picture = SPR_anarchist_public_transport
+    }
+    LUX_ban_fascism_ns = {
+        modifier = {
+            fascism_drift = -0.1
+            fascism_acceptance = -50
+        }
+        on_add = {
+            every_other_country = {
+                    limit = {
+                        has_government = fascism 
+                    }
+                    add_opinion_modifier = {
+                        target = ROOT 
+                        modifier = general_opinion_ban_idiology_our_goverment					
+                    }
+            }
+            set_country_flag = banned_fascism_flag
+        }
+        on_remove = {
+            every_other_country = {
+                limit = {
+                    has_government = fascism 
+                }
+                remove_opinion_modifier = {
+                    target = ROOT 
+                    modifier = general_opinion_ban_idiology_our_goverment					
+                }
+            }
+            clr_country_flag = banned_fascism_flag
 
+        }
+        cancel = {
+            has_government = fascism
+        }
+        picture = generic_fascism_banned
+    }
+    LUX_ban_communism_ns = {
+        picture = generic_communism_banned
+        modifier = {
+            communism_drift = -0.1
+            fascism_acceptance = -50
+        }
+        cancel = {
+            has_government = communism
+        }
+        on_add = {
+            every_other_country = {
+                    limit = {
+                        has_government = communism 
+                    }
+                    add_opinion_modifier = {
+                        target = ROOT 
+                        modifier = general_opinion_ban_idiology_our_goverment					
+                    }
+            }
+            set_country_flag = banned_communism_flag
+        }
+        on_remove = {
+            every_other_country = {
+                    limit = {
+                        has_government = communism 
+                    }
+                    remove_opinion_modifier = {
+                        target = ROOT 
+                        modifier = general_opinion_ban_idiology_our_goverment					
+                    }
+            }
+            clr_country_flag = banned_communism_flag
+        }
+    }
+}
     #hidden ideas
     hidden_ideas = {
         lux_tarde_wtih_france = {
@@ -990,6 +2008,20 @@ ideas = {
                 tag = LUX
             }
         }
+        LUX_army_limits_hidden = {
+            on_add = {
+                country_lock_all_division_template = yes
+            }
+            on_remove = {
+                country_lock_all_division_template = no
+            }
+            cancel = {
+                NOT = {
+                    has_dynamic_modifier = {
+                        modifier = LUX_army_limits
+                    }
+                }
+            }
+        }
     }
-}
 }

@@ -1,0 +1,147 @@
+LUX_luxemburg_resistence_category = {
+	LUX_support_resistence_in_benelux = {
+        visible = {
+			original_tag = LUX
+			is_ai = no
+			has_completed_focus = LUX_benelux_resistence
+		}
+		complete_effect = {
+            set_country_flag = connecting_with_resistnece_flag
+		}
+		remove_effect = {
+			FROM = {
+				add_resistance_target = 10 # 10
+				add_resistance = 5
+			}
+			set_country_flag = connected_with_niderland_resistence_flag
+			clr_country_flag = connecting_with_resistnece_flag
+			add_to_variable = {
+				value = 2
+				var = resistence_for_belelux_core_var
+			}
+		}
+		target_trigger = {
+			FROM = {
+				OR =  {
+					state = 8
+					state = 34
+					state = 6
+					state = 35
+					state = 7
+					state = 36
+				}
+				controller = {
+					OR = {
+						has_war_with = LUX
+						has_war_with = HOL
+						has_war_with = BEL
+					}
+				}
+				has_resistance = yes
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 8
+				state = 34
+				state = 6
+				state = 35
+				state = 7
+				state = 36
+			}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		cost = 75
+		custom_cost_trigger = {
+			# has_political_power > 74
+			has_equipment = {
+				infantry_equipment > 100
+			}
+		}
+		custom_cost_text = decision_cost_IE_100
+		fire_only_once = no
+		icon = generic_civil_support
+	}
+	LUX_connect_with_resistance_in_BEL = {
+		visible = {
+			original_tag = LUX
+			is_ai = no
+			always = no
+		}
+		modifier = {
+
+		}
+		complete_effect = {
+			set_country_flag = connecting_with_resistnece_flag
+            set_variable = {
+				resistence_for_belgum_core_var = 0
+			}
+		}
+		remove_effect = {
+			FROM = {
+				add_resistance_target = 10
+			}
+			set_country_flag = connected_with_niderland_resistence_flag
+			clr_country_flag = connecting_with_resistnece_flag
+		}
+		target_trigger = {
+			FROM = {
+				is_core_of = BEL
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = { 
+				state = 34
+				state = 6
+			}
+		}
+		state_target = yes
+		on_map_mode = map_only
+		days = 35
+		cost = 50
+		fire_only_once = no
+        icon = eng_propaganda_campaigns
+	}
+	LUX_connect_with_resistance_in_HOL = {
+		visible = {
+			original_tag = LUX
+			is_ai = no
+			always = no
+		}
+		modifier = {
+
+		}
+		complete_effect = {
+            set_country_flag = connecting_with_resistnece_flag
+			set_variable = {
+				resistence_for_niderlands_core_var = 0
+			}
+		}
+		remove_effect = {
+			FROM = {
+				add_resistance_target = 10
+			}
+			set_country_flag = connected_with_niderland_resistence_flag
+			clr_country_flag = connecting_with_resistnece_flag
+		}
+		target_trigger = {
+			FROM = {
+				is_core_of = HOL
+			}
+		}
+		on_map_mode = map_only
+		highlight_states = {
+			highlight_state_targets = {
+                state = 35
+				state = 7
+				state = 36
+			}
+		}
+		state_target = yes
+		days = 35
+		cost = 50
+		fire_only_once = no
+        icon = eng_propaganda_campaigns
+	}
+}

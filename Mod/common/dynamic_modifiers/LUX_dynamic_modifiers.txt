@@ -13,16 +13,464 @@ LUX_idea_charlotte_grand_duchess = {
 LUX_modifier_lefts_go_1 = {
     icon = GFX_idea_generic_volunteer_expedition_bonus
     enable = { always = yes }
-	communism_drift = 0.05
-	neutrality_drift = 0.05
+	communism_drift = LUX_communism_drift_modifier
+	neutrality_drift = LUX_neutrality_drift_modifier
+	stability_weekly = lests_stability_weekly_modifier
 }
 LUX_modifier_lefts_go_2 = {
     icon = GFX_idea_generic_volunteer_expedition_bonus
     enable = { always = yes }
-	communism_drift = 0.05
+	communism_drift = LUX_communism_drift_modifier_2
 }
-LUX_modifier_lefts_go_3 = {
+LUX_modifier_lefts_go_3 = { #that anarchist dynamic modifier
     icon = GFX_idea_generic_volunteer_expedition_bonus
     enable = { always = yes }
-	neutrality_drift = 0.05
+	neutrality_drift = LUX_neutrality_drift_modifier_2
+	resistance_activity = anarchist_resistance_activity_modifier
+	war_support_factor = anarchist_war_support_factor_modifier
+	compliance_gain = anarchist_compliance_gain_modifier
+#   surrender_limit = anarchist_surrender_limit_modifier # surrender_limit in trait
+#	political_power_cost = anarchist_political_power_cost_modifier
+#	political_power_factor = anarchist_political_power_factor_modifier # modifier in trait
+#	political_power_gain = anarchist_political_power_gain_modifier
+	resistance_growth_on_our_occupied_states = LUX_modifier_lefts_go_3_resistance_growth_on_our_occupied_states # 0.20
+	resistance_target_on_our_occupied_states = LUX_modifier_lefts_go_3_resistance_target_on_our_occupied_states # 0.35
+	resistance_damage_to_garrison_on_our_occupied_states = LUX_modifier_lefts_go_3_resistance_damage_to_garrison_on_our_occupied_states # 0.45
+}
+LUX_support_resistnece_modifier = {
+	enable = { always = yes }
+	icon = GFX_idea_chi_war_of_resistance
+	resistance_activity = 0.15
+}
+LUX_army_limits = {
+	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			NOT = {
+				original_tag = LUX
+			}
+			has_war = yes
+		}
+	}
+	custom_modifier_tooltip = LUX_army_lmits_tt
+	mobilization_speed = mobilization_speed_army_limits_modifier # -0.25
+	max_command_power = max_command_power_army_limits_modifier # -75
+	army_defence_factor = army_defence_factor_army_limits_modifier # -0.10
+	army_attack_factor = army_attack_factor_army_limits_modifier # -0.15
+	production_speed_bunker_factor = production_speed_bunker_factor_army_limits_modifier # -0.25
+	production_speed_anti_air_building_factor = production_speed_anti_air_building_factor_army_limits_modifier # -0.10
+	production_speed_nuclear_reactor_factor = production_speed_nuclear_reactor_factor_army_limits_modifier # -1
+	conscription = conscription_army_limit_var # -0.05
+	icon = GFX_idea_army_limits
+}
+LUX_pacifism_policy = {
+	enable = { always = yes }
+	remove_trigger = {
+        has_war = yes
+	}
+	ai_focus_peaceful_factor = 1
+	ai_join_ally_desire_factor = -1.0
+	stability_weekly = stability_weekly_pacifism
+	offensive_war_stability_factor = offensive_war_stability_factor_pacifism # -0.75
+	defensive_war_stability_factor = defensive_war_stability_factor_pacifism # -0.25
+	production_speed_industrial_complex_factor = production_speed_industrial_complex_factor_pacifism # 0.35
+	war_support_weekly = war_support_weekly_pacifism # -0.005
+	icon = GFX_idea_luxembourg_pacifism_policy
+}
+LUX_communist_youth_org = {
+
+}
+LUX_fascism_youth_org = {
+	
+}
+LUX_public_transport_dm = {
+	enable = { always = yes }
+	icon = GFX_idea_SPR_anarchist_public_transport
+	army_speed_factor = army_speed_factor_pt_modifier # 0.25
+	production_speed_infrastructure_factor = production_speed_infrastructure_factor_pt_modifier # 0.10
+}
+LUX_intergration_in_commune = {
+	enable = { always = yes }
+	icon = GFX_idea_FRA_scw_intervention_republicans_focus
+	local_non_core_manpower = local_non_core_manpower_intergration_in_commune_modifier # 0.05
+    compliance_growth = compliance_growth_intergration_in_commune_modifier # 0.15
+	consumer_goods_factor = consumer_goods_factor_intergration_in_commune_modifier # 0.25
+	custom_modifier_tooltip = consumer_goods_factor_intergration_in_commune_modifier_tt
+}
+LUX_brothers_of_deal_dm  = {
+	enable = { always = yes }
+}
+LUX_exile_manpower_dm  = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_reserve_divisions
+	exiled_government_weekly_manpower = exiled_government_weekly_manpower_exile_manpower_modifier # 50
+	weekly_manpower = weekly_manpower_exile_manpower_modifier # 100
+}
+LUX_germany_attack_dm = {
+	enable = { always = yes }
+	icon = GFX_idea_germany_attack
+	command_power_gain = command_power_gain_germany_attack_modfier # 0.15
+    fascism_drift = fascism_drift_germany_attack_modfier # -0.15
+	defense_bonus_against = defense_bonus_against_germany_attack_modfier # 0.10
+}
+LUX_ban_fascism_dm =  {
+	enable = { always = yes }
+	icon = GFX_idea_generic_fascism_banned
+	fascism_drift = fascism_banned_modifier_1 # -0.15
+	political_power_cost = fascism_banned_modifier_2 # -0.10
+}
+LUX_goverment_in_exile_dm =  {
+	enable = { always = yes }
+	icon = GFX_idea_received_attache
+	remove_trigger = {
+		ROOT  = {
+			is_government_in_exile = no
+		}
+	}
+	exiled_divisions_defense_factor = LUX_goe_modfier_1 # 0.15
+	exiled_divisions_attack_factor = LUX_goe_modfier_2 # 0.10
+	own_exiled_divisions_defense_factor = LUX_goe_modfier_3 # 0.10
+	own_exiled_divisions_attack_factor = LUX_goe_modfier_4 # 0.07
+	legitimacy_daily = LUX_goe_modfier_5 # 0.2
+}
+shared_member_benelux_economic_union_dynamic_modifier = {
+	enable = { always = yes }
+	remove_trigger = {
+		ROOT  = {
+			has_war_with = var:ROOT.memeber_benelux_economic_union
+		}
+		all_other_country = {
+			var:ROOT.memeber_benelux_economic_union = {
+                exists = no
+			}
+		}
+	}
+	icon = GFX_member_benelux_economic_union
+	political_power_factor = political_power_factor_member_economic_union_modifier # 0.10
+	production_speed_buildings_factor = production_speed_buildings_factor_member_economic_union_modifier # 0.15
+	consumer_goods_factor = consumer_goods_factor_member_economic_union_modifier # -0.10 for future events and dicisons
+}
+LUX_leader_benelux_economic_union_dynamic_modifier = {
+	enable = { always = yes }
+	remove_trigger = {
+		ROOT  = {
+			has_war_with = var:ROOT.memeber_benelux_economic_union
+		}
+		all_other_country = {
+			var:ROOT.memeber_benelux_economic_union = {
+                exists = no
+			}
+		}
+	}
+	icon = GFX_member_benelux_economic_union
+	political_power_factor = political_power_factor_leader_economic_union_modifier # 0.20
+	production_speed_buildings_factor = production_speed_buildings_factor_leader_economic_union_modifier # 0.25
+	consumer_goods_factor = consumer_goods_factor_leader_economic_union_modifier # -0.15
+}
+LUX_dissatisfaction_among_military_command = {
+	enable = { always = yes }
+	icon = GFX_idea_general_staff
+	command_power_gain = -0.10
+	max_command_power = -20
+	max_planning = -0.10
+	planning_speed = -0.25
+	fascism_drift = -0.04
+}
+LUX_OVERLORD_get_more_speed_production  = {
+	enable = { always = yes }
+	remove_trigger = {
+		ROOT = {
+			is_subject = no
+		}
+	}
+	icon  = GFX_idea_man_five_year_plan_industry
+	
+}
+LUX_ban_communism = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_communism_banned
+	communism_drift = -0.15
+	communism_acceptance = -15
+	political_power_cost = -0.10
+	stability_factor = 0.10
+}
+LUX_charlotte_grand_duchess_remove_from_power_idea = {
+	icon = GFX_idea_charlotte_grand_duchess_remove_from_power
+	political_power_cost = -0.15
+	political_power_factor = 0.20
+	stability_factor = -0.05
+}
+LUX_dissolve_parliament_idea = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_democratic_opposition
+	political_power_factor = 0.15
+	neutrality_drift = 0.04
+	party_popularity_stability_factor = 0.10
+	mobilization_laws_cost_factor = -0.10
+	political_advisor_cost_factor = -0.25
+	trade_laws_cost_factor = -0.05
+	economy_cost_factor = -0.10
+}
+LUX_militorisation_socity = {
+	enable = { always = yes }
+	icon = GFX_idea_eng_imperial_conscription
+	military_industrial_organization_research_bonus = military_industrial_organization_research_bonus_var_militorisation_socity
+	military_industrial_organization_funds_gain = military_industrial_organization_funds_gain_var_militorisation_socity
+	weekly_manpower = 150
+	experience_gain_army = experience_gain_army_var_militorisation_socity # 0.04
+	training_time_factor = training_time_factor_var_militorisation_socity # -0.10
+	conscription = conscription_var_militorisation_socity # 0.15
+	production_speed_arms_factory_factor = production_speed_arms_factory_factor_var_militorisation_socity  # 0.25
+	production_speed_dockyard_factor = production_speed_dockyard_factor_var_militorisation_socity # 0.10
+}
+LUX_aggressive_expansion_dynamic_modifier = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_license_production
+	justify_war_goal_time = -0.35
+	generate_wargoal_tension = -0.10
+	lend_lease_tension = -0.5
+}
+LUX_ban_democratic_modifier = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_democracy_banned
+	democratic_drift = -0.15
+	# political_power_cost = 0.15
+}
+LUX_lost_in_luxembourg_liberian_war = {
+	enable = { always = yes }
+	icon = GFX_idea_lost_in_luxembourg_liberian_war
+	stability_factor = -0.10
+	war_support_weekly = -0.001
+	democratic_drift = democratic_drift_lost_in_luxembourg_liberian_war_modifier
+	fascism_drift = fascism_drift_lost_in_luxembourg_liberian_war_modifier
+	neutrality_drift = neutrality_drift_lost_in_luxembourg_liberian_war_modifier
+	communism_drift = communism_drift_lost_in_luxembourg_liberian_war_modifier
+}
+LUX_creating_of_great_luxembourg = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_luxembourg_flag
+	generate_wargoal_tension = -0.75
+	enemy_declare_war_tension = 0.15
+	justify_war_goal_time = -0.25
+}
+LUX_coup_prepering = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_ast_volunteer_defence_corps
+	political_power_gain = political_power_gain_cp_var # -0.10
+	stability_weekly = stability_weekly_cp_var # -0.001
+	fascism_drift = fascism_drift_cp_var # 0.10
+	democratic_drift = democratic_drift_cp_var # -0.10 change this on -0.03 when coplpete focus LUX_incite_army
+	neutrality_drift = neutrality_drift_cp_var # 0.15
+	experience_gain_army = experience_gain_army_cp_var # -0.01
+	party_popularity_stability_factor = party_popularity_stability_factor_cp_var # -0.20
+	stability_factor = stability_factor_cp_var # -0.15
+}
+LUX_martional_law = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_bul_zveno
+	political_power_cost = LUX_martional_law_poliitical_power_var # 0.15
+	war_support_weekly = LUX_martional_law_war_support_weekly_var # 0.02
+	stability_factor = LUX_martional_law_stability_factor_var # 0.10
+	consumer_goods_factor = LUX_martional_law_consumer_goods_factor_var # -0.15
+	production_speed_arms_factory_factor = LUX_martional_law_production_speed_arms_factory_factor_var # 0.05
+	production_factory_efficiency_gain_factor = LUX_martional_law_production_factory_efficiency_gain_factor_var #0.05
+}
+LUX_ban_oppositions = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_generic_oppression
+	democratic_drift = LUX_ban_oppositions_democratic_drift_var # -0.15
+	communism_drift = LUX_ban_oppositions_communism_drift_var # -0.10
+	fascism_drift = LUX_ban_oppositions_fascism_drift_var # -0.10
+	neutrality_drift = LUX_ban_oppositions_neutrality_drift_var # 0.05
+	political_power_cost = LUX_ban_oppositions_political_power_cost_var # 0.15
+}
+LUX_explore_mobilsation_dynamic = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_generic_manpower_bonus
+	conscription = LUX_explore_mobilsation_conscription # 0.10
+	mobilization_speed = LUX_explore_mobilsation_mobilization_speed # 0.15
+}
+LUX_the_great_depression =  {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_usa_great_depression
+	communism_drift = LUX_the_great_depression_communism_drift_var # 0.02
+	consumer_goods_factor = LUX_the_great_depression_consumer_goods_factor_var # 0.15
+#	military_industrial_organization_policy_cost = LUX_the_great_depression_military_industrial_organization_policy_cost_var # 10
+	political_power_factor = LUX_the_great_depression_political_power_cost_var # -0.05
+	economy_cost_factor = LUX_the_great_depression_economy_cost_factor_var # 0.20
+	trade_laws_cost_factor = LUX_the_great_depression_trade_laws_cost_factor_var # 0.50
+	production_speed_buildings_factor = LUX_the_great_depression_production_speed_buildings_factor # -0.30
+}
+shared_credit_dynamic  = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_generic_economic_increase
+	consumer_goods_factor = global.shared_credit_dynamic_consumer_goods_factor_var # 0.15
+	production_speed_infrastructure_factor = global.shared_credit_dynamic_production_speed_infrastructure_factor_var # 0.25
+	production_speed_arms_factory_factor = global.shared_credit_dynamicproduction_speed_arms_factory_factor_var # 0.10
+	targeted_modifier = {
+		tag = LUX
+		consumer_goods_factor = -0.05
+	}
+}
+LUX_national_stability = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_generic_constitutional_guarantees
+	stability_factor = 0.10
+	consumer_goods_factor = -0.1
+	industrial_capacity_factory = 0.15
+}
+LUX_invesments_in_factories = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_generic_production_bonus
+	production_speed_buildings_factor = 0.25
+	production_speed_infrastructure_factor = 0.20
+	production_speed_arms_factory_factor = 0.15
+}
+LUX_war_economy = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_generic_production_bonus
+	production_speed_industrial_complex_factor = LUX_war_economy_production_speed_industrial_complex_factor_var # -0.20
+	production_speed_arms_factory_factor = LUX_war_economy_production_speed_arms_factory_factor_var # 0.30
+	mobilization_laws_cost_factor = LUX_war_economy_mobilization_laws_cost_factor_var # -0.25
+	army_chief_cost_factor = LUX_war_economy_army_chief_cost_factor_var # -0.05
+	high_command_cost_factor = LUX_war_economy_high_command_cost_factor_var # -0.05
+	cic_construction_boost = LUX_war_economy_cic_construction_boost # -0.30
+}
+LUX_workers_army_operations = {
+
+}
+LUX_trotskyism = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_LUX_trotskyism
+	communism_drift = LUX_trotskyism_communism_drift_var 
+	party_popularity_stability_factor = LUX_trotskyism_party_popularity_stability_factor_var
+	political_power_factor = LUX_trotskyism_political_power_factor_var
+}
+LUX_proleterian_shield_dm = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_LUX_proleterian_shield_dm
+	army_attack_factor = LUX_proleterian_shield_army_attack_factor # 0.10
+	army_defence_factor = LUX_proleterian_shield_army_defence_factor # 0.15
+	army_core_defence_factor = LUX_proleterian_shield_army_core_defence_factor # 0.10
+	party_popularity_stability_factor = LUX_proleterian_shield_party_popularity_stability_factor # 0
+}
+LUX_equlity_in_production_idea = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_generic_production_bonus
+	production_speed_buildings_factor = 0.15
+	production_speed_arms_factory_factor = 0.10
+	production_speed_industrial_complex_factor = 0.10
+	production_factory_efficiency_gain_factor = 0.05 
+}
+LUX_revolution_agency = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_generic_spy_intel
+	operation_risk = -0.1
+	intelligence_agency_defense = 0.45
+	operative_slot = 3
+	boost_ideology_mission_factor = 0.35
+}
+LUX_revolution_internetional = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_ger_the_great_red_menace
+	lend_lease_tension = LUX_revolution_internetional_lend_lease_tension # -0.50
+	send_volunteer_divisions_required = LUX_revolution_internetional_send_volunteer_divisions_required # -0.10
+	send_volunteer_size = LUX_revolution_internetional_send_volunteer_size # 10
+	send_volunteers_tension = LUX_revolution_internetional_send_volunteers_tension # -0.30
+}
+LUX_charlotte_wilhelmine = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_portrait_LUX_charlotte_wilhelmine_small_mod
+	political_power_factor = LUX_charlotte_wilhelmine_political_power_factor # -0.1
+	stability_factor = LUX_charlotte_wilhelmin_stability_factor # 0.05
+	weekly_casualties_war_support = LUX_charlotte_wilhelmine_weekly_casualties_war_support # 0.005
+	political_power_gain = LUX_charlotte_wilhelmine_political_power_gain
+	army_core_attack_factor = LUX_charlotte_wilhelmine_army_core_attack_factor
+	army_core_defence_factor = LUX_charlotte_wilhelmine_army_core_defence_factor
+	resistance_growth_on_our_occupied_states = LUX_charlotte_wilhelmine_resistance_growth_on_our_occupied_states
+	resistance_target_on_our_occupied_states = LUX_charlotte_wilhelmine_resistance_target_on_our_occupied_states
+	neutrality_drift = LUX_charlotte_wilhelmine_neutrality_drift
+	communism_drift = LUX_charlotte_wilhelmine_communism_drift
+}
+state_resources_get_modifier = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_modifier_state_resources_get
+	local_resources_factor = 0.15
+	local_resources = 0.05
+	state_resources_factor = 0.02
+}
+state_faction_modifier = {
+	icon = GFX_modifier_faction_state
+	enable = {
+		FROM = {
+			controller = {
+				is_in_faction_with = LUX
+			}
+		}
+	}
+	remove_trigger = {
+		FROM = {
+			controller = {
+				has_war_with = FROM.owner
+			}
+		}
+	}
+	enemy_army_speed_factor = -0.10
+	equipment_capture_for_controller = 0.05
+	mobilization_speed = 0.25
+	army_core_attack_factor = 0.1
+	army_core_defence_factor = 0.15
+}
+LUX_revolution_army_anarchist = {
+	icon = GFX_idea_generic_reserve_divisions
+	army_core_attack_factor = LUX_revolution_army_army_core_attack_factor # 0.10 
+	army_core_defence_factor = LUX_revolution_army_army_core_defence_factor # 0.10
+	army_attack_factor = LUX_revolution_army_army_attack_factor # 0.10
+	army_defence_factor = LUX_revolution_army_army_defence_factor # 0.15
+	army_org_factor = LUX_revolution_army_army_org_factor # 0.05
+	breakthrough_factor = LUX_revolution_army_breakthrough_factor # 0.05
+	max_planning = LUX_revolution_army_max_planning # 15
+	planning_speed = LUX_revolution_army_planning_speed # 0.3
+	experience_gain_army = LUX_revolution_army_experience_gain_army # 0.08
+}
+#state modifier
+LUX_anarchist_commune = {
+	icon = GFX_anarchist_commune_modifier
+	local_factories = 0.05
+	mobilization_speed = 0.25
+	non_core_manpower = 0.10
 }

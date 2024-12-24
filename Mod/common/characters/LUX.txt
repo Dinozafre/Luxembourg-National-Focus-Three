@@ -1,61 +1,127 @@
 characters={
 	LUX_joseph_bech={
-		name="Joseph Bech"
+		name = LUX_joseph_bech
 		portraits={
 			civilian={
-				large="GFX_portrait_luxembourg_joseph_bech"
+				large=GFX_portrait_luxembourg_joseph_bech
+			}
+			army = {
+				large = GFX_portrait_luxembourg_joseph_bech
 			}
 		}
 		country_leader={
 			ideology=conservatism
 			expire="1965.1.1.1"
 			id = 041
+			traits = {
+				LUX_hostility_to_communist
+			}
 		}
 	}
-	LUX_pierre_dupong={
-		advisor={
+	LUX_pierre_dupong = {
+		advisor = {
 			slot = political_advisor
 			idea_token = LUX_pierre_dupong
 			allowed  = {
-					original_tag  = LUX
-				}
-				traits  = {
-				}
+				original_tag = LUX
+			}
+			cost = 150
+			traits = { LUX_democratic_reformer }
 		}
-		name= LUX_pierre_dupong
+		country_leader = {
+			ideology = socialism
+			traits = {
+				cornered_fox
+			}
+		}
+		name = LUX_pierre_dupong
 		portraits={
 			civilian={
-				large= GFX_pierre_dupong_leader
+				large = GFX_portrait_LUX_pierre_dupong_mod
+				small = GFX_portrait_LUX_pierre_dupong_small_mod
 			}
 		}
 	}
-	LUX_gustave_lebeau={
-		name="Gustave Lebeau"
-		portraits={
-			civilian={
-				large=GFX_portrait_Gustave_Lebeau
+	LUX_charles_marx = {
+		name = LUX_charles_marx
+		portraits = {
+			civilian = {
+				large = GFX_portrait_LUX_charles_marx
+				small = GFX_portrait_LUX_charles_marx_small
 			}
 		}
-		country_leader={
-			ideology=stalinism
-			traits={ reluctant_interventionist }
-			expire="1951.1.1.12"
-			id = 03
+		country_leader = {
+			ideology = marxism
+			traits = { marxist_academic }
+			expire = "1951.1.1.12"
+			id = -1
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = LUX_charles_marx
+			available = {
+				NOT = {
+					has_country_leader = {
+						ruling_only = yes
+						character = LUX_charles_marx
+					}
+					has_country_flag = banned_communism_flag
+				}
+			}
+			allowed = {
+				original_tag = LUX
+			}
+			traits = { LUX_marxist_revolutioner }
 		}
 	}
-	LUX_frédéric_nagelmackers={
-		name="Frédéric Nagelmackers"
-		portraits={
-			civilian={
-				large=GFX_portrait_Frederic_Nagelmackers
+
+	LUX_damian_kratzenberg = {
+		name = LUX_damian_kratzenberg
+		portraits = {
+			civilian = {
+				large = GFX_portrait_LUX_damian_kratzenberg
+				small = GFX_portrait_LUX_damian_kratzenberg_small
 			}
 		}
-		country_leader={
-			ideology=fascism_ideology
-			traits={ editor }
-			expire="1954.1.1.12"
-			id = 02
+		country_leader = {
+			ideology = nazism
+			traits = { LUX_vocal_pan_germanist }
+			expire = "1954.1.1.12"
+			id = -1
 		}
+		advisor = {
+			slot = political_advisor
+			idea_token = LUX_damian_kratzenberg
+			available = {
+				NOT = {
+					has_country_leader = {
+						ruling_only = yes
+						character = LUX_damian_kratzenberg
+					}
+					has_country_flag = banned_fascism_flag
+				}
+			}
+			allowed = {
+				original_tag = LUX
+			}
+			traits = { LUX_fascism_collaborator }
+		}
+	}
+
+	LUX_charlotte = {
+		name = LUX_charlotte
+		portraits = {
+			civilian = {
+				large = GFX_portrait_LUX_charlotte_wilhelmine
+				small = GFX_portrait_LUX_charlotte_wilhelmine_small
+			}
+		}
+		#country_leader = { #get rework with monarshist branch
+		#	ideology = despotism
+		#	traits = { LUX_grand_duchess_of_luxembourg }
+		#	expire = "1964.1.1.12"
+		#	id = -1
+		#}
 	}
 	LUX_jean_pirson={
 		name="Jean Pirson"
@@ -66,77 +132,8 @@ characters={
 		}
 		country_leader={
 			ideology=oligarchism
-			traits={ quartermaster_general }
-			expire="1942.1.1.12"
-			id = 01
-		
+			traits= { quartermaster_general }
 		}
-	}
-	LUX_charlotte_grand_duchess={
-		name="charlotte_grand_duchess"
-		portraits={
-			civilian={
-				large=GFX_portrait_luxembourg_charlotte_grand_duchess
-			}
-		}
-		country_leader={
-			ideology=despotism
-			traits={ constitutional_monarch }
-			id=-2
-			
-		}
-	}
-	LUX_anarchist_commune_party={
-		name = "Anarchist Commune"
-		desc = "POLITICS_ANARCHIST_COMMUNE_DESC"
-		portraits={
-			civilian={
-				large=GFX_portrait_SPR_anarchist_commune
-			}
-		}
-		country_leader={
-			ideology = anarchism
-			traits={ decentrelisation }
-			id = 13
-			
-		}
-	}
-	LUX_Parliament={
-		name = "LUX_Parliament"
-		portraits={
-			civilian={
-				large=GFX_portrait_POL_the_sejm
-			}
-		}
-		country_leader={
-			ideology = liberalism
-			traits = { likes_allies }
-			id = 14
-			
-		}
-	}
-	LUX_Maximin_Céline_general = {
-		name = "LUX_Maximin_Céline_general"
-		portraits = {
-            army = {
-                large = "GFX_portrait_fra_infante_jaime"
-            }
-        }
-		corps_commander = {
-            traits = { 
-				armor_officer 
-				war_hero 
-			}
-            skill = 3
-            attack_skill = 2
-            defense_skill = 1
-            planning_skill = 5
-            logistics_skill = 2
-            legacy_id = 100
-            visible = {
-				tag = LUX
-			 }
-        }
 	}
 	LUX_damien_roeser={
 		advisor={
@@ -168,6 +165,7 @@ characters={
 		advisor={
 			cost = 100
 			
+
 			slot = theorist
 			idea_token = LUX_florent_destriveaux
 			ledger = navy
@@ -187,13 +185,42 @@ characters={
 			}
 		}
 	}
-	LUX_alexander_von_falkenhausen={
-		advisor={
-			
-			
-			slot = army_chief
-			idea_token = LUX_alexander_von_falkenhausen
-			allowed = {
+	LUX_felix_of_luxembourg = {
+
+		name = LUX_felix_of_luxembourg
+		portraits = {
+			army = {
+				large = GFX_portrait_LUX_felix_bourbon_parma_mod
+				small = GFX_portrait_LUX_felix_bourbon_parma_small_mod
+			}
+		}
+
+		field_marshal = {
+			traits = { organizer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+			visible = {
+			 #	has_government = neutrality #unlock when go into monarchy branch
+			 always = yes
+			}
+		}
+		
+	}
+	LUX_guillaume_konsbruck = {
+			name = LUX_guillaume_konsbruck
+			portraits = {
+				army = {
+					large = GFX_portrait_LUX_guillaume_konsbruck_mod
+					small = GFX_portrait_LUX_guillaume_konsbruck_small_mod
+				}
+			}
+			advisor = {
+				slot = army_chief
+				idea_token = LUX_guillaume_konsbruck
+				allowed = {
 					original_tag = LUX
 				}
 				traits = {
@@ -203,14 +230,19 @@ characters={
 				ai_will_do = {
 					factor = 1.000
 				}
-		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
-		name="LUX_alexander_von_falkenhausen"
-		portraits={
-			army={
-				small="GFX_idea_generic_army_europe_2"
+
 			}
-		}
+			corps_commander = {
+				traits = { cavalry_officer }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 2
+				visible = {
+					always = yes
+				}
+			}
 	}
 	LUX_pierre_fischbach={
 		advisor={
@@ -281,7 +313,7 @@ characters={
 # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Alex Federspiel"
 		portraits={
-			army={
+			civilian = {
 				small="GFX_idea_generic_army_europe_1"
 			}
 		}
@@ -303,36 +335,10 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Henri Ahnen"
 		portraits={
-			army={
-				small="GFX_idea_generic_navy_europe_1"
-			}
-		}
-	}
-	LUX_emile_speller={
-		advisor={
-			
-			
-			slot = army_chief
-			idea_token = LUX_emile_speller
-			allowed = {
-					original_tag = LUX
-				}
-				traits = {
-					army_chief_defensive_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
-		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
-		name="Emile Speller"
-		portraits={
-			army={
-				small="GFX_idea_generic_army_europe_4"
+			civilian = {
+				small = "GFX_idea_generic_navy_europe_1"
 			}
 		}
 	}
@@ -354,18 +360,15 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Francois Schammel"
 		portraits={
-			army={
-				small="GFX_idea_generic_army_europe_1"
+			civilian = {
+				small = "GFX_idea_generic_army_europe_1"
 			}
 		}
 	}
 	LUX_aloyse_glodt={
 		advisor={
-			
-			
 			slot = high_command
 			idea_token = LUX_aloyse_glodt
 			ledger = army
@@ -380,18 +383,16 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Aloyse Glodt"
 		portraits={
-			army={
-				small="GFX_idea_generic_army_europe_3"
+			civilian = {
+				small = "GFX_idea_generic_army_europe_3"
 			}
 		}
 	}
 	LUX_nicolas_de_dixmude={
 		advisor={
 			cost = 100
-			
 			slot = theorist
 			idea_token = LUX_nicolas_de_dixmude
 			ledger = air
@@ -403,18 +404,15 @@ characters={
 					air_warfare_theorist
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Nicolas de Dixmude"
 		portraits={
-			army={
+			civilian = {
 				small="GFX_idea_generic_air_europe_1"
 			}
 		}
 	}
 	LUX_paul_medinger={
 		advisor={
-			
-			
 			slot = navy_chief
 			idea_token = LUX_paul_medinger
 			allowed = {
@@ -428,18 +426,15 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Paul Medinger"
 		portraits={
-			army={
-				small="GFX_idea_generic_navy_europe_3"
+			civilian = {
+				small = "GFX_idea_generic_navy_europe_3"
 			}
 		}
 	}
 	LUX_nicholas_diedrich={
 		advisor={
-			
-			
 			slot = air_chief
 			idea_token = LUX_nicholas_diedrich
 			allowed = {
@@ -453,11 +448,10 @@ characters={
 					factor = 1.000
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Nicholas Diedrich"
 		portraits={
-			army={
-				small="GFX_idea_generic_air_europe_1"
+			civilian= {
+				small= "GFX_idea_generic_air_europe_1"
 			}
 		}
 	}
@@ -472,18 +466,17 @@ characters={
 					captain_of_industry 
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
 		name="Pierre Krier"
 		portraits={
-			army={
+			civilian ={
 				small="GFX_idea_generic_political_advisor_europe_3"
 			}
 		}
 	}
-	LUX_martin_karp={
+	LUX_robin_fulbert= {
 		advisor={
 			slot = political_advisor
-			idea_token = LUX_martin_karp
+			idea_token = LUX_robin_fulbert
 			allowed  = {
 					original_tag  = LUX
 				}
@@ -491,11 +484,10 @@ characters={
 					war_industrialist 
 				}
 		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
-		name="Martin Karp"
+		name= "Robin Fulbert"
 		portraits={
-			army={
-				small="GFX_idea_generic_political_advisor_europe_2"
+			civilian = {
+				small = "GFX_LUX_robin_fulbert_advisor"
 			}
 		}
 	}
@@ -518,46 +510,63 @@ characters={
 			}
 		}
 	}
-      #generals
-	LUX_Emile_Speller = {
-		allowed  = {
-			original_tag  = LUX
-		}
-		portraits={
-			army={
-				small="GFX_general_Emile_Speller"
+    #generals
+	LUX_emile_speller = {
+			name = LUX_emile_speller
+			portraits = {
+				army = {
+					large = GFX_portrait_LUX_emile_speller_mod
+					small = GFX_portrait_LUX_emile_speller_small_mod
+				}
 			}
-		}
-		name="LUX_Emile_Speller"
-		corps_commander={
-			traits={ }
-			skill=1
-			attack_skill=1
-			defense_skill=4
-			planning_skill=1
-			logistics_skill=2
-			legacy_id=-001
-		}
+
+			advisor = {
+				
+				slot = army_chief
+				idea_token = LUX_emile_speller
+				allowed = {
+					original_tag = LUX
+				}
+				traits = {
+					army_chief_defensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+
+			}
+
+			corps_commander = {
+				traits = { infantry_officer }
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 2
+				visible = {
+				}
+			}
 	}
     #fascism leaders
     LUX_Christophe_Jessé_communist = {
-		name = LUX_christophe_jessé
+		name = LUX_christophe_jesse_character
 		portraits = {
 			civilian = {
 				large = GFX_Christophe_Jessé
 			}
 		}
-		country_leader = {
-			ideology = marxism
-			traits = {
-				LUX_socialist
-			}
-			id = 001
-			expire = "1965.1.1"
-		}
+		#country_leader = {
+			#ideology = marxism
+			#traits = {
+				#LUX_socialist
+			#}
+			#id = 001
+			#expire = "1965.1.1"
+		#}
 	}
 	LUX_Christophe_Jessé_fascism = {
-		name = LUX_christophe_jessé
+		name = LUX_christophe_jesse_character
 		portraits = {
 			civilian = {
 				large = GFX_Christophe_Jessé
@@ -588,4 +597,311 @@ characters={
 			#expire = "1965.1.1"
 		#}
 	}
+	LUX_no_leader = {
+		name = LUX_no_leader
+		portraits = {
+			civilian = {
+				large = GFX_portrait_unknown
+			}
+		}
+		country_leader = {
+			ideology = anti_revisionism
+			traits = {
+				LUX_no_power
+			}
+			expire = "1965.1.1"
+		}
+	}
+	LUX_collective_govermnet_commnunist = {
+		name = LUX_collective_govermnet_commnunist
+		portraits = {
+			civilian = {
+				large = GFX_Collective_Goverment
+			}
+		}
+	}
+	#Pierre Fonck
+	LUX_pierre_fonck = {
+		name = LUX_pierre_fonck
+		portraits = {
+			civilian = {
+				small = GFX_LUX_pierre_fonck_advisor
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = LUX_pierre_fonck
+			allowed = {
+				original_tag = LUX
+			}
+			available = {
+                NOT = {
+					has_country_flag = LUX_referendum_accepted_communism_party
+				}
+			}
+			on_add = {
+
+			}
+			on_remove = {
+				
+			}
+			cost = 175
+			traits = {
+				LUX_communist_belivier
+			}
+			ai_will_do = {
+				base = 0
+			#	modifier = {
+			#		factor = 0.5
+			#		FIN_is_democratic_ai = yes
+			#	}
+			}
+		}
+	}
+	#monarchy supporter advisor (will using when rework monarch tree)
+	LUX_Narcisse_Vivien = {
+
+	}
+	#fascism supporter advisor
+    LUX_Humbert_Dan = {
+		name = LUX_Humbert_Dan
+		portraits = {
+			civilian = {
+				small = GFX_LUX_humbert_dan_advisor
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = LUX_Humbert_Dan
+			allowed = {
+				original_tag = LUX
+			}
+			available = {
+               NOT = {
+				  has_government  = democratic
+			   }
+			}
+			on_add = {
+                set_country_flag = is_humbert_den_as_advisor_activated
+			}
+			on_remove = {
+				clr_country_flag = is_humbert_den_as_advisor_activated
+			}
+			cost = 125
+			traits = {
+				LUX_fascism_sympathizes
+			}
+			ai_will_do = {
+				base = 0
+			#	modifier = {
+			#		factor = 0.5
+			#		FIN_is_democratic_ai = yes
+			#	}
+			}
+		}
+	}
+	LUX_provisional_government = {
+		name = LUX_provisional_government_name
+		portraits = {
+			civilian = {
+				large = GFX_Collective_Goverment
+			}
+		}
+	}
+	#economist advisor
+	LUX_adolphe_théo = {
+		name = LUX_adolphe_theo_name
+		portraits = {
+			civilian = {
+				small = GFX_LUX_adolphe_théo_advisor
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = LUX_adolphe_théo
+			allowed = {
+				original_tag = LUX
+			}
+			available = {
+			   
+			}
+			on_add = {
+	
+			}
+			on_remove = {
+		
+			}
+			cost = 250
+			traits = {
+				LUX_economist_trait
+			}
+			ai_will_do = {
+				base = 0
+			}
+		}
+	}
+	#add agent advisor
+	LUX_david_ferdinand = {
+		name = LUX_david_ferdinand
+		portraits = {
+		civilian = {
+			small = GFX_LUX_david_ferdinand_advisor
+		}}
+	advisor = {
+		slot = political_advisor
+		idea_token = LUX_david_ferdinand
+		allowed = {
+			original_tag = LUX
+			has_dlc = "La Resistance"
+		}
+		available = {
+		   has_intelligence_agency = yes
+		}
+		on_add = {
+
+		}
+		on_remove = {
+	
+		}
+		cost = 150
+		traits = {
+			head_of_intelligence
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	}
+	LUX_workers_leader = {
+		name = LUX_workers_leader
+		portraits = {
+			civilian = {
+				large = GFX_portrait_unknown
+			}
+		}
+		country_leader={
+			ideology = marxism
+			traits = { 
+				LUX_workers_ruling 
+		    }
+		}
+	}
+	LUX_army_junta = {
+		name = LUX_army_junta
+		portraits = {
+			civilian = {
+				large = GFX_LUX_army_junta
+			}
+		}
+	}
+	LUX_retirement_government = {
+		name = LUX_retirement_government
+		portraits = {
+			civilian = {
+				large = GFX_portrait_LUX_retirement_government
+			}
+		}
+		country_leader = {
+			ideology = liberalism
+			traits = { 
+				LUX_retirement_government_trait 
+		    }
+
+		}
+	}
+	### scientists #####
+	#Théodora Lina
+	LUX_theodora_lina = {
+		name = LUX_theodora_lina
+		scientist = {
+			visible = {
+				has_sompleted_focus = LUX_development_scince
+			}
+			traits = {
+				
+			}
+		}
+	}
+	#anarchist counciles
+	LUX_anarchist_council_propaganda = {
+        name = LUX_council_anarchist_propaganda_trait
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = LUX_anarchist_council_propaganda
+			traits = { LUX_council_anarchist_propaganda_trait }
+			cost = 50
+			allowed = {
+				original_tag = LUX
+			}
+			visible = {
+				has_anarchist_government = yes
+			}
+		}
+	}
+	LUX_anarchist_council_industrial = {
+        name = LUX_council_anarchist_industrial_trait
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = LUX_anarchist_council_industrial
+			traits = { LUX_council_anarchist_industrial_trait }
+			cost = 50
+			allowed = {
+				original_tag = LUX
+			}
+			visible = {
+				has_anarchist_government = yes
+			}
+		}
+	}
+	LUX_anarchist_council_integration = {
+		name = LUX_anarchist_council_integration_trait
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = LUX_anarchist_council_integration
+			traits = { LUX_anarchist_council_integration_trait }
+			cost = 50
+			allowed = {
+				original_tag = LUX
+			}
+			visible = {
+				has_anarchist_government = yes
+			}
+		}
+	}
+	LUX_anarchist_council_defence = {
+		name = LUX_anarchist_councill_defence_trait
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = LUX_anarchist_council_defence
+			traits = { LUX_anarchist_councill_defence_trait }
+			cost = 50
+			allowed = {
+				original_tag = LUX
+			}
+			visible = {
+				has_anarchist_government = yes
+			}
+		}
+	}
+	
 }

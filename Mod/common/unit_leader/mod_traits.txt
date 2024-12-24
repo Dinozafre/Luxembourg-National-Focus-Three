@@ -1,0 +1,42 @@
+leader_traits = {
+	trait_LUX_fascist_sympathizer = {
+
+		type = all
+		trait_type = personality_trait
+
+		allowed = {
+			FROM = { original_tag = LUX }
+		}
+
+		new_commander_weight = {
+			factor = 0
+		}
+		modifier = {
+			fascism_drift = 0.02
+			planning_speed = 0.10
+		}
+	}
+	trait_NOT_loaylty_to_fascism = {
+		type = all
+		trait_type = personality_trait
+
+		allowed = {
+			FROM = { original_tag = LUX }
+		}
+
+		new_commander_weight = {
+			factor = 0
+		}
+		modifier = {
+			army_morale = -5
+			max_planning = -0.50
+			planning_speed = -0.2
+			army_attack_against_major_factor = -0.10
+			army_attack_against_minor_factor = -0.15
+			fascism_drift = -0.01
+		}
+		field_marshal_modifier = {
+			
+		}
+	}
+}

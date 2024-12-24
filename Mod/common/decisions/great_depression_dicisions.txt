@@ -1,0 +1,130 @@
+economy_decisions = {
+	LUX_sell_resources_mission = {
+		activation = {
+			always = no
+		}
+		allowed = { original_tag = LUX }  
+		#cancel_trigger = {
+			#custom_trigger_tooltip = {
+			#	tooltip = send_steel_trigger_tt		
+			#	check_variable = {
+			#		var = global.LUX_sell_resources
+			#		value = 6
+			#	}
+			#}
+		#}
+		fire_only_once = yes
+		available = {
+		#	hidden_trigger = { always = no }
+			custom_trigger_tooltip = {
+				tooltip = send_steel_trigger_tt		
+				check_variable = {
+					var = global.LUX_sell_resources
+					value = 6
+				}
+			}
+		}
+		cancel_trigger = {
+
+		}
+		cancel_if_not_visible = yes
+		visible = {
+			hidden_trigger = {
+            original_tag = LUX
+			}
+		}
+		icon = generic_industry
+		is_good = no
+		days_mission_timeout = 650
+		selectable_mission = no 
+		complete_effect = {
+           set_country_flag = end_great_depression_flag
+		   remove_ideas = lux_great_depression2
+		}
+		timeout_effect = {
+
+		}
+	}
+	LUX_sell_resources = {
+		icon = generic_welfare
+		visible = { 
+			original_tag = LUX
+			has_active_mission = LUX_sell_resources_mission
+		}
+		available = {
+			FROM  = {
+				NOT  = {
+					has_civil_war = yes
+				}
+			}
+			steel > 19
+	    }
+		modifier = {
+			
+		}
+		target_trigger = {
+			FROM = {
+				exists = yes 
+                capital_scope  = {
+					is_on_continent = europe
+				}
+				NOT = {
+					has_war_with = ROOT
+					has_civil_war = yes
+				}
+			}
+		}
+		days_remove = 30
+		fire_only_once = no
+		cost = 25
+		ai_will_do = {
+			base = 10
+		}
+		remove_effect = {
+			add_to_variable = { var = global.LUX_sell_resources value = 1 }
+	    }
+		complete_effect = {
+			FROM = {
+				create_import = {
+					resource = steel
+					amount = 3
+					exporter = LUX
+				}
+				set_country_flag = LUX_send_steel_flag
+			}
+		}
+	}
+	LUX_produce_steel = {
+		icon = generic_construction
+		days_remove = 50
+		fire_only_once = no
+		visible = { 
+			original_tag = LUX
+			always = no
+		}
+		available = {
+
+	    }
+		remove_effect = {
+			8 = {
+				set_state_flag = from_state_getting_steel_flag
+			}
+	    }
+		complete_effect = {
+            random_list = {
+				25 = {
+
+				}
+				25 = {
+
+				}
+				50 = {
+
+				}
+			}
+			8 = {
+				clr_state_flag = from_state_getting_steel_flag
+			}
+		}
+	}
+}

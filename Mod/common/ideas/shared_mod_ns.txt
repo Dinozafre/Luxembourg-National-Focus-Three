@@ -1,5 +1,6 @@
 ideas = {
     country = {
+		### benelux_ideas ###
         BEL_neatrality_guarantees = {
 			allowed = {
 				always = yes
@@ -115,10 +116,6 @@ ideas = {
 					   give_guarantee = PREV
 					}
 				}
-				add_to_array = {
-					array = global.friend_pact_member
-					value = ROOT
-				}
 			}
 			on_remove = {
 				clr_country_flag = in_friend_pact_flag
@@ -139,7 +136,6 @@ ideas = {
 						}
 					}
 				}
-				clear_array = global.friend_pact_member
 			}
 			picture = generic_deal_with_the_devil2
 		}
@@ -152,25 +148,39 @@ ideas = {
 			}
 			picture = generic_research_bonus
 		}
-	}
-	hidden_ideas = {
-		member_economic_union_hidden = {
+		### anarchist ###
+		shared_anarsihst_revolution_ns = {
+			allowed = {
+				always = yes
+			}
+			modifier = {
+				consumer_goods_factor = 0.15
+				production_speed_buildings_factor = 0.05
+				resistance_damage_to_garrison_on_our_occupied_states = 0.15
+				equipment_capture = 0.05
+				neutrality_drift = 0.25
+				fascism_acceptance = -100
+				democratic_acceptance = -100
+				communism_acceptance = -100
+				neutrality_acceptance = -100
+				political_power_factor = -0.2
+				drift_defence_factor = 0.25
+				custom_modifier_tooltip = PRU_no_factions_tt
+			}
 			on_add = {
-				add_to_array = {
-					array = global.memeber_benelux_economic_union
-					value = ROOT
-				}
-				set_country_flag = member_of_economic_union_flag
-				log = "[ROOT.GetName] welcome in economic union"
+				set_rule = { can_join_factions = no }
 			}
-			on_remove = {
-				clear_array = global.memeber_benelux_economic_union
-				clr_country_flag = member_of_economic_union_flag
-				remove_dynamic_modifier = {
-					modifier = shared_member_benelux_economic_union_dynamic_modifier
-				}
-				log = "[THIS.GetName] bye from economic union"
+			picture = generic_anarchist_conflict
+		}
+		shared_anarshist_propaganda = {
+			allowed = {
+				always = yes
 			}
+			modifier = {
+				neutrality_drift = 0.10
+				neutrality_acceptance = 50
+			}
+			picture = scw_intervention_republicans_focus
 		}
 	}
 }

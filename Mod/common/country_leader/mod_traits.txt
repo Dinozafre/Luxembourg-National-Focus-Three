@@ -40,7 +40,6 @@ leader_traits = {
 		party_popularity_stability_factor = 0.30
 		resistance_damage_to_garrison_on_our_occupied_states = 0.10
 		subjects_autonomy_gain = 2
-		communism_acceptance = 0.04
 	}
 	leader_of_revolution = {
 		drift_defence_factor = 0.50
@@ -76,5 +75,206 @@ leader_traits = {
 		fascism_drift = 0.05
 		communism_drift = 0.05
 		political_power_cost = 0.15
+	}
+	LUX_unpopular_leader  = {
+		political_power_cost = 0.15
+		stability_factor = -0.05
+	}
+	LUX_no_power = {
+		political_power_gain = -0.75
+		stability_factor = -0.10
+		party_popularity_stability_factor = -0.15
+		surrender_limit = 0.05
+		army_org = 5
+	}
+	LUX_collective_goverment_communist = {
+		communism_drift = 0.10
+		stability_factor = 0.15
+	}
+	LUX_hostility_to_communist = {
+		communism_drift = -0.01
+		#communism_drift = communism_drift_modifier_trait
+		communism_acceptance = -25
+	}
+	LUX_communist_belivier = {
+		sprite = 13
+		communism_drift = 0.25
+		political_power_factor = -0.50
+		political_power_cost = 0.25
+		consumer_goods_factor = -0.15
+	}
+	LUX_rovisional_government_trait = {
+		political_power_factor = -0.25
+		democratic_drift = 0.15
+		drift_defence_factor = 0.15
+		fascism_drift = -0.02
+		party_popularity_stability_factor = 0.25
+	}
+	LUX_fascism_sympathizes  = {
+		sprite = 13
+		fascism_drift = 0.10
+		command_power_gain = 0.02
+		political_power_factor = -0.15
+		fascism_acceptance = 25
+	}
+	LUX_grand_duchess_luxembourg_trait = {
+		political_power_gain = 0.50
+		stability_factor = 0.15
+		#request_lease_tension = -0.50
+		political_power_factor = 0.20
+		political_advisor_cost_factor = -0.15
+		neutrality_drift = 0.30
+	}
+	LUX_democratic_reformer = {
+		sprite = 13
+		#stability_weekly = 0.005
+		democratic_drift = 0.15
+		opinion_gain_monthly = 0.15
+		improve_relations_maintain_cost_factor = -0.25
+	}
+	LUX_monarch_of_luxembourg = {
+		sprite = 13
+		stability_factor = 0.10
+		political_power_factor = 0.10
+		neutrality_drift = 0.10
+	}
+	LUX_economist_trait = {
+		sprite = 13
+		economy_cost_factor = -0.45
+		trade_laws_cost_factor = -0.65
+		industry_repair_factor = 0.15
+		#min_export = 0.05
+		party_popularity_stability_factor = 0.15
+		political_power_cost = 0.25
+		consumer_goods_factor = 0.10
+		stability_factor = 0.15
+	}
+	LUX_workers_ruling = {
+		surrender_limit = 0.25
+		monthly_population = 0.25
+		stability_weekly_factor = -0.001
+		communism_drift = 0.15
+		consumer_goods_factor = -0.10
+		resistance_growth_on_our_occupied_states = 0.15
+		assign_army_leader_cp_cost = -25
+	}
+	LUX_life_prime_minister = {
+		political_power_gain = 0.25
+		political_power_factor = 0.10
+		democratic_drift = -0.05
+		stability_factor = 0.10
+	}
+	LUX_life_president = {
+		political_power_factor = 0.15
+		neutrality_drift = 0.10
+		stability_factor = 0.15
+		democratic_drift = -0.03
+	}
+	LUX_joseph_bech_field_marchel_trait = {
+		planning_speed = 0.15
+		army_core_defence_factor = 0.15
+		army_core_attack_factor = 0.10
+	}
+	LUX_hostility_to_communist2 = {
+		communism_drift = -0.07
+		communism_acceptance = -50
+		drift_defence_factor = 0.20
+	}
+	LUX_cult_personality = {
+		party_popularity_stability_factor = 0.15
+		political_power_gain = 0.15
+		army_org = 5
+	}
+	LUX_army_power = {
+        neutrality_drift = 0.05
+		political_power_factor = 0.25
+		war_support_weekly = 0.001
+		stability_factor = -0.10
+	}
+	LUX_lev_trotsky_world_revolutional = {
+		political_power_factor = 0.10
+		communism_drift = 0.10
+		fascism_acceptance = -50
+		drift_defence_factor = 0.25
+		war_support_factor = 0.10
+	}
+	LUX_global_defense_counci = {
+        army_attack_factor = 0.10
+		army_core_attack_factor = 0.05
+		army_defence_factor = 0.10
+		army_core_defence_factor = 0.15
+		political_power_cost = 0.25
+		justify_war_goal_time = -0.5
+	}
+	LUX_divided_society = {
+		stability_weekly = -0.001
+		political_power_factor = -0.15
+		surrender_limit = 0.25
+		mobilization_laws_cost_factor = 0.25
+		political_advisor_cost_factor = 0.10
+	}
+	#LUX_charles_marx trait
+	LUX_workers_revolution_leader = {
+
+	}
+	LUX_retirement_government_trait = {
+		political_power_factor = -0.15
+		political_power_cost = 0.05
+		stability_weekly = -0.001
+	}
+	LUX_fascism_collaborator = {
+		sprite = 13
+		fascism_acceptance = 25
+		autonomy_gain = -0.1
+		fascism_drift = 0.15
+		war_support_weekly = 0.0010
+		drift_defence_factor = 0.15
+	}
+	LUX_marxist_revolutioner = {
+		sprite = 13
+		communism_drift = 0.15
+		production_factory_max_efficiency_factor = 0.05
+		production_factory_efficiency_gain_factor = 0.10
+		party_popularity_stability_factor = 0.10
+	}
+	LUX_authoritarian_anticommunist = {
+		communism_drift = -0.04
+		neutrality_drift = 0.02
+		political_power_factor = 0.05
+	}
+	LUX_shared_anarshist_trait = {
+		stability_weekly = -0.02
+		political_power_factor = -0.15
+		surrender_limit = 0.10
+		resistance_target_on_our_occupied_states = 0.10
+		resistance_growth_on_our_occupied_states = 0.05
+		required_garrison_factor = 0.15
+	}
+	LUX_council_anarchist_propaganda_trait = {
+	   sprite = 13
+       neutrality_drift = 0.15
+	   political_power_factor = 0.15
+	   justify_war_goal_time = -0.20
+	}
+	LUX_council_anarchist_industrial_trait = {
+		sprite = 10
+		production_speed_infrastructure_factor = 0.1
+		production_speed_arms_factory_factor = 0.1
+		production_speed_industrial_complex_factor = 0.15
+		industry_repair_factor = 0.2
+		consumer_goods_factor = -0.05
+	 }
+	 LUX_anarchist_council_integration_trait = {
+		sprite = 13
+		compliance_growth = 0.10
+		compliance_gain = 0.05
+		local_factories = 0.1
+	 }
+	 LUX_anarchist_councill_defence_trait = {
+		sprite = 10
+        defence = 0.05
+		army_defence_factor = 0.15
+		army_core_defence_factor = 0.10
+		army_artillery_defence_factor = 0.05	 
 	}
 }
