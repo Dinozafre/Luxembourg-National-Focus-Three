@@ -1,0 +1,5 @@
+﻿l_russian:
+ banned_fascism_flag: "Партия §Y[ROOT.GetFascistParty]§! запрещена"
+ banned_democratic_flag: "Партия §Y[ROOT.GetDemocraticParty]§! запрещена"
+ banned_communism_flag: "Партия §Y[ROOT.GetCommunistParty]§! запрещена"
+ banned_neutrality_flag: "Партия §Y[ROOT.GetNeutralParty]§! запрещена"

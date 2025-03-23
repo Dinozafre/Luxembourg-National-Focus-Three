@@ -2,33 +2,37 @@
 
 oob = "LUX_1936"
 
+add_manpower = 10000
 add_ideas = {
-	volunteer_only
-	LUX_useless_army
 	neutrality_idea
-	lux_great_depression
-	lux_sell_forest
-	LUX_idea_charlotte_grand_duchess
+	LUX_neatrality_guarantees
+	LUX_economy_ns
 }
+add_ideas = LUX_army_limits_ns
+set_elections_vars_effect = yes
 set_party_name = {
 	ideology = fascism 
 	name = LUX_independ_national_party
-	long_name = LUX_independ_national_party
+	long_name = LUX_independ_national_party_desc
 }
-every_possible_country = {
-	limit = {
-		is_on_continent = north_america 
-		is_on_continent = south_america
-		is_on_continent = australia
-		is_on_continent = africa
-		is_on_continent = asia
-		is_on_continent = middle_east
-	}
-add_relation_rule_override = {
-    target = LUX
-    can_access_market = no
+set_party_name = {
+	ideology = neutrality 
+	name = LUX_radical_liberal_party
+	long_name = LUX_radical_liberal_party_desc
 }
-	}
+add_dynamic_modifier = {
+	modifier = LUX_the_great_depression
+}
+add_dynamic_modifier = {
+	modifier = LUX_charlotte_wilhelmine
+}
+#Treaty of London guarantees
+ENG = {
+	give_guarantee = ROOT
+}
+FRA = {
+	give_guarantee = ROOT
+}
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
@@ -38,8 +42,10 @@ set_technology = {
 	tech_support = 1		
 	tech_engineers = 1
 	basic_train = 1
+	tech_engineers = 1
+	electronic_mechanical_engineering = 1
+	radio = 1 # luxembourg radio
 }
-
 if = {
 	limit = {
 		NOT = { has_dlc = "By Blood Alone" }
@@ -48,22 +54,92 @@ if = {
 		early_fighter = 1
 	}
 }
-
-set_rule = {
-	can_create_factions = no
-	can_send_volunteers = no
-}
 #party popularyties
+#based on 1934 elections
+#neutrality not like in real life
 set_popularities = {
-	democratic = 70
-	communism = 25
-	neutrality = 5
+	democratic = 37
+	communism = 36
+	neutrality = 27
 	fascism = 0
 }
 #variables
-set_variable = { idea_political_power_gain_factor = 0.15 }
-set_variable = { idea_stability_factor = 0.10 }
-set_variable = { idea_neutrality_drift_factor = 0.02 }
+set_variable = { LUX_communism_drift_modifier = 0.04 }
+set_variable = { LUX_neutrality_drift_modifier = 0.04 }
+set_variable = { LUX_communism_drift_modifier_2 = 0.07 }
+set_variable = { LUX_neutrality_drift_modifier_2 = 0.10 }
+set_variable = { communism_drift_modifier_trait = 0 }
+set_variable = { mobilization_speed_army_limits_modifier = -0.35 }
+set_variable = { max_command_power_army_limits_modifier = -75 }
+set_variable = { army_defence_factor_army_limits_modifier = -0.05 }
+set_variable = { army_attack_factor_army_limits_modifier = -0.15 }
+set_variable = { production_speed_bunker_factor_army_limits_modifier = 0 }
+set_variable = { production_speed_nuclear_reactor_factor_army_limits_modifier = 0 }
+set_variable = { communism_drift_modifier_trait = 0 }
+set_variable = { var_supports_trade_unions_value = 0 }
+set_variable = { var_anarchist_uprising_counting = 0 }
+set_variable = { stability_weekly_pacifism = 0 }
+set_variable = { offensive_war_stability_factor_pacifism = -0.75 }
+set_variable = { defensive_war_stability_factor_pacifism = -0.25 }
+set_variable = { production_speed_industrial_complex_factor_pacifism = 0.35 }
+set_variable = { var_manipulation_of_elections = 0 }
+set_variable = { war_support_weekly_pacifism = -0.005 }
+set_variable = { lests_stability_weekly_modifier = -0.002 }
+set_variable = { army_speed_factor_pt_modifier = 0.25 }
+set_variable = { production_speed_infrastructure_factor_pt_modifier = 0.10 }
+set_variable = { local_non_core_manpower_intergration_in_commune_modifier = 0.05 }
+set_variable = { compliance_growth_intergration_in_commune_modifier = 0.15 }
+set_variable = { consumer_goods_factor_intergration_in_commune_modifier = 0.05 }
+set_variable = { exiled_government_weekly_manpower_exile_manpower_modifier = 50 }
+set_variable = { weekly_manpower_exile_manpower_modifier = 100 }
+set_variable = { command_power_gain_germany_attack_modfier = 0.15 }
+set_variable = { fascism_drift_germany_attack_modfier = -0.15 }
+set_variable = { fascism_banned_modifier_1 = -0.15 }
+set_variable = { fascism_banned_modifier_2 = -0.10 }
+set_variable = { LUX_goe_modfier_5 = 0.2 }
+set_variable = { consumer_goods_factor_leader_economic_union_modifier = -0.15 }
+set_variable = { political_power_factor_leader_economic_union_modifier = 0.20 }
+set_variable = { production_speed_buildings_factor_leader_economic_union_modifier = 0.25 }
+#LUX_the_great_depression
+set_LUX_the_great_depression_vars_effect = yes
+#LUX_trotskyism
+#TODO - remade LUX_trotskyism into idea
+set_variable = {
+	LUX_trotskyism_communism_drift_var = 0.05
+}
+set_variable = {
+	LUX_trotskyism_party_popularity_stability_factor_var = 0
+}
+set_variable = {
+	LUX_trotskyism_political_power_factor_var = 0
+}
+set_variable = {
+	LUX_proleterian_shield_army_attack_factor = 0.10
+}
+set_variable = {
+	LUX_proleterian_shield_army_defence_factor = 0.15
+}
+set_variable = {
+	LUX_proleterian_shield_army_core_defence_factor = 0
+}
+set_variable = {
+	LUX_proleterian_shield_party_popularity_stability_factor = 0
+}
+#LUX_revolution_internetional
+set_variable = {
+	LUX_revolution_internetional_lend_lease_tension = -0.50
+}
+set_variable = {
+	LUX_revolution_internetional_send_volunteers_tension = -0.30
+}
+set_variable = {
+	LUX_revolution_internetional_send_volunteer_divisions_required = 0
+}
+set_variable = {
+	LUX_revolution_internetional_send_volunteer_size = 0
+}
+#LUX_charlotte_wilhelmine
+set_LUX_charlotte_wilhelmine_vars_effect = yes
 #elections set
 set_politics = {
     ruling_party = democratic
@@ -73,20 +149,16 @@ set_politics = {
 }
 set_war_support = 0.00
 set_stability = 0.65
-set_global_flag = start_1936
 
 recruit_character = LUX_joseph_bech
-recruit_character = LUX_gustave_lebeau
-recruit_character = LUX_frédéric_nagelmackers
-recruit_character = LUX_jean_pirson
-recruit_character = LUX_damien_roeser
+recruit_character = LUX_charles_marx
+recruit_character = LUX_damian_kratzenberg
+recruit_character = LUX_charlotte
 recruit_character = LUX_florent_destriveaux
-recruit_character = LUX_alexander_von_falkenhausen
 recruit_character = LUX_pierre_fischbach
 recruit_character = LUX_guillaume_soisson
 recruit_character = LUX_alex_federspiel
 recruit_character = LUX_henri_ahnen
-recruit_character = LUX_emile_speller
 recruit_character = LUX_francois_schammel
 recruit_character = LUX_aloyse_glodt
 recruit_character = LUX_nicolas_de_dixmude
@@ -94,20 +166,103 @@ recruit_character = LUX_paul_medinger
 recruit_character = LUX_nicholas_diedrich
 recruit_character = LUX_pierre_dupong
 recruit_character = LUX_pierre_krier
-recruit_character = LUX_martin_karp
-recruit_character = LUX_charlotte_grand_duchess
-recruit_character = LUX_anarchist_commune_party
-recruit_character = LUX_Parliament
-recruit_character = LUX_Maximin_Céline_general
+recruit_character = LUX_Gertrude_Gerda
+recruit_character = LUX_Christophe_Jessé_fascism
+recruit_character = LUX_Christophe_Jessé_communist
+recruit_character = LUX_Emile_Speller
+recruit_character = LUX_Manuel_Daniel
+recruit_character = LUX_no_leader
+recruit_character = LUX_collective_govermnet_commnunist
+recruit_character = LUX_pierre_fonck
+recruit_character = LUX_provisional_government
+recruit_character = LUX_Humbert_Dan
+recruit_character = LUX_robin_fulbert
+recruit_character = LUX_adolphe_théo
+recruit_character = LUX_david_ferdinand
+recruit_character = LUX_workers_leader
+recruit_character = LUX_fascist_provisional_government
+recruit_character = LUX_guillaume_konsbruck
+recruit_character = LUX_felix_of_luxembourg
+recruit_character = LUX_régi_maël
+recruit_character = LUX_celia_jeanine
+#anarchist advisers
+recruit_character = LUX_anarchist_council_propaganda
+recruit_character = LUX_anarchist_council_industrial
+recruit_character = LUX_anarchist_council_integration
+recruit_character = LUX_anarchist_council_defence
+recruit_character = LUX_retirement_government
 
+#anarchist
 1939.1.1 = {
-
+	ENG = {
+		set_country_flag = eng_agreed_agreeedmant_flag
+		set_variable = {
+			LUX.host_of_luxembourg_goverment_in_exile_var = ENG
+		}
+		add_opinion_modifier = {
+			target = ROOT
+			modifier = LUX_agreement_with_ENG
+		}
+	}
+	##### trade with allies effects
+	add_ideas = LUX_trade_with_allies_ns
+	if = {
+		limit = {
+			LUX_has_dlc_AAT = yes
+		}
+		give_market_access = ENG
+		add_equipment_subsidy = {
+			cic = 2150
+			equipment_type = infantry_equipment
+			seller_tags = { ENG }
+		}
+	}
+	#LUX_connections_in_benelux effects
+#	add_ideas = LUX_idea_better_diplomatic_relations
+#	every_other_country = {
+#		limit = {
+#			capital_scope = {
+#				region = 5
+#			}
+#			NOT = {
+#				has_war_with = ROOT
+#			}
+#		}
+#		add_opinion_modifier = {
+#			target = ROOT
+#			modifier = offered_support
+#		}
+#		give_military_access = ROOT
+#		ROOT = {
+#			give_military_access = PREV
+#		}
+#	}
+    hold_election = ROOT
 	add_political_power = 1000
 	add_command_power = 50
-	
-	LUX_complete_focuses_1939 = yes
+        complete_national_focus = LUX_constitutional_monarchy
+		complete_national_focus = LUX_confirm_neutrality
+		complete_national_focus = LUX_civil_factory1
+		complete_national_focus = lUX_civil_factory2
+		complete_national_focus = lUX_education_reform
+		complete_national_focus = LUX_arm_factory1
+		complete_national_focus = LUX_Benilux_quastion
+		complete_national_focus = LUX_continue_support
+		unlock_national_focus = LUX_rights_for_workers
+		complete_national_focus = LUX_great_depression
+		complete_national_focus = LUX_ban_communisn_party_referendum
+		complete_national_focus = LUX_new_democratic_leader
+		complete_national_focus = LUX_election_1937
+		complete_national_focus = LUX_pierre_dupong_elected
+		complete_national_focus = LUX_peacment_communist
+		unlock_national_focus = LUX_agreement_with_ENG_focus
+		complete_national_focus = LUX_industry_investment_focus_2
+		complete_national_focus = LUX_focus_on_education
+		complete_national_focus = LUX_focus_on_idustrial
+		unlock_national_focus = LUX_great_deppresion_removing_focus
+		unlock_national_focus = LUX_trade_with_allies_focus
+
 	oob = "LUX_1939"
-	set_global_flag = start_1939
 	set_technology = {
 		tech_recon = 1
 		interwar_artillery = 1
@@ -135,6 +290,8 @@ recruit_character = LUX_Maximin_Céline_general
 		construction2 = 1
 		concentrated_industry = 1
 		concentrated_industry2 = 1
+		radio = 1
+		improved_radio = 1
 	}
 	if = {
 		limit = {
@@ -144,12 +301,14 @@ recruit_character = LUX_Maximin_Céline_general
 			fighter1 = 1
 		}
 	}
+	#based on 1937 elections
+	#somme idioilgies  popularitiy not like in RL
 	set_popularities = {
-		democratic = 65
-		communism = 30
-		neutrality = 10
+		democratic = 44
+		communism = 36
+		neutrality = 20
 		fascism = 0
 	}
-	LUX_pierre_dupong_add_1939 = yes
+	promote_character = LUX_pierre_dupong
 	hold_election = ROOT
 }

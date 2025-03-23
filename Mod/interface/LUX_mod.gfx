@@ -1,0 +1,1063 @@
+spriteTypes = {
+	### LUXEMBURG ###
+	spriteType = {
+		name = "GFX_idea_charlotte_grand_duchess"
+		texturefile = "gfx/interface/ideas/idea_charlotte_grand_duchess.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_protect_benilux"
+		texturefile = "gfx/interface/goals/protect_benilux.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_chile_elections"
+		texturefile = "gfx/interface/goals/chile_elections.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_charlotte_grand_duchess_3k2_main"
+		texturefile = "gfx/interface/ideas/idea_charlotte_grand_duchess_3k2_main.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_charlotte_grand_duchess_3k2_idea"
+		texturefile = "gfx/interface/ideas/idea_charlotte_grand_duchess_3k2_idea.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_prime_ministe_dictature"
+		texturefile = "gfx/interface/goals/focus_prime_ministre_dictature.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_coup_fascism"
+		texturefile = "gfx/interface/goals/focus_coup_fascism.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_fascism_coup_2"
+		texturefile = "gfx/interface/goals/focus_fascism_coup.dds"
+	}
+	spriteType = {
+		name = "GFX_agency_logo_lux"
+		texturefile = "gfx/interface/operatives/agency_logo_lux.dds"
+	}
+	spriteType = {
+		name = "GFX_event_luxemburg_events.0"
+		texturefile = "gfx/events/news_sign_white_peace_lux.dds"
+	}
+    spriteType = {
+		name = "GFX_portrait_luxembourg_charlotte_grand_duchess"
+		texturefile = "gfx/leaders/LUX/Portrait_Luxemburg_Charlotte.png"
+	}
+	spriteType = {
+		name = "GFX_idea_lux_five_year_plan"
+		texturefile = "gfx/interface/ideas/idea_lux_five_year_plan.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_lux_new_ambitions"
+		texturefile = "gfx/interface/ideas/idea_lux_new_ambitions.png"
+	}
+	spriteType = {
+		name = "GFX_idea_lux_monarchy_support"
+		texturefile = "gfx/interface/ideas/idea_lux_monarchy_support.png"
+	}
+	spriteType = {
+		name = "GFX_idea_lux_lux_investment"
+		texturefile = "gfx/interface/ideas/lux_investment.png"
+	}
+	spriteType = {
+		name = "GFX_focus_lux_tank_upgrade"
+		texturefile = "gfx/interface/goals/focus_lux_tank_upgrade.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_lux_commune_act"
+		texturefile = "gfx/interface/goals/focus_lux_commune_act.png"
+	}	
+	spriteType = {
+		name = "GFX_idea_lux_no_parliment"
+		texturefile = "gfx/interface/ideas/lux_no_parliment.png"
+	}	
+	spriteType = {
+		name = "GFX_idea_france_credit"
+		texturefile = "gfx/interface/ideas/idea_france_credit.png"
+	}
+	spriteType = {
+		name = "GFX_focus_lux_benelux_join_eng_dominion"
+		texturefile = "gfx/interface/goals/focus_lux_benelux_join_eng_dominion.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_lux_benelux_creating"
+		texturefile = "gfx/interface/goals/focus_lux_benelux_creating.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_lux_benelux_unite"
+		texturefile = "gfx/interface/goals/focus_lux_benelux_unite.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_constitution_rewrite"
+		texturefile = "gfx/interface/ideas/idea_constitution_rewrite.png"
+	}
+	spriteType = {
+		name = "GFX_idea_anti_monarchist"
+		texturefile = "gfx/interface/ideas/idea_anti_monarchist.png"
+	}
+	spriteType = {
+		name = "GFX_idea_great_attack"
+		texturefile = "gfx/interface/ideas/idea_great_attack.png"
+	}
+	spriteType = {
+		name = "GFX_idea_lux_democracy_opossition"
+		texturefile = "gfx/interface/ideas/lux_democracy_opossition.png"
+	}
+	spriteType = {
+		name = "GFX_idea_national_law"
+		texturefile = "gfx/interface/ideas/idea_national_law.png"
+	}
+	spriteType = {
+		name = "GFX_focus_lux_himmler_leader"
+		texturefile = "gfx/interface/goals/focus_lux_himmler_leader.dds"
+	}
+	spriteType = {
+		name = "GFX_pierre_dupong_leader"
+		texturefile = "gfx/leaders/LUX/Pierre_Dupong.png"
+	}
+	spriteType = {
+		name = "GFX_focus_joseph_bech_is_elected"
+		texturefile = "gfx/interface/goals/focus_joseph_bech_is_elected.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_pierre_dupong_is_elected"
+		texturefile = "gfx/interface/goals/focus_pierre_dupong_is_elected.png"
+	}
+	spriteType = {
+		name = "GFX_county_event_LUX_white_peace"
+		texturefile = "gfx/events/county_event_LUX_white_peace.png"
+	}
+	spriteType = {
+		name = "GFX_idea_germany_hitler_dead"
+		texturefile = "gfx/interface/ideas/idea_germany_hitler_dead.png"
+	}
+	spriteType = {
+		name = "GFX_decision_luxemburg_resistence"
+		texturefile = "gfx/interface/decisions/decision_luxemburg_resistence.png"
+	}
+	spriteType = {
+		name = "GFX_decision_luxemburg_credit"
+		texturefile = "gfx/interface/decisions/decision_luxemburg_credit.png"
+	}
+	spriteType = {
+		name = "GFX_general_emile_speller"
+		texturefile = "gfx/leaders/LUX/general_emile_speller.dds"
+	}
+	spriteType = {
+        name = "GFX_autonomy_republic_icon"
+        textureFile = "gfx/interface/autonomy/autonomy_republic_icon.dds"
+    }
+	spriteType = {
+        name = "GFX_autonomy_anarchist_commune_icon"
+        textureFile = "gfx/interface/autonomy/autonomy_anarchist_commune_icon.dds"
+    }
+	spriteType = {
+		name = "GFX_focus_leader_war_coup_fascism"
+		texturefile = "gfx/interface/goals/focus_leader_war_coup_fascism.png"
+	}
+	spriteType = {
+		name = "GFX_news_peace_sign_with_germany"
+		texturefile = "gfx/events/news_peace_sign_with_germany.dds"
+	}
+	spriteType = {
+		name = "GFX_news_liberation_luxembourg"
+		texturefile = "gfx/events/news_liberation_luxembourg.dds"
+	}
+	spriteType = {
+		name = "GFX_news_liberation_luxembourg2"
+		texturefile = "gfx/events/news_liberation_luxembourg2.dds"
+	}
+	spriteType = {
+		name = "GFX_reportevent_liberation_luxembourg"
+		texturefile = "gfx/events/reportevent_liberation_luxembourg.dds"
+	}
+	spriteType = {
+		name = "GFX_news_liberation_luxembourg2"
+		texturefile = "gfx/events/news_liberation_luxembourg2.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_benelux_economic_union"
+		texturefile = "gfx/events/report_event_picture_benelux_economic_union.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_better_diplomatic_relations"
+		texturefile = "gfx/interface/ideas/idea_better_diplomatic_relations.png"
+	}
+	spriteType = {
+		name = "GFX_focus_ultimatum_to_benelux"
+		texturefile = "gfx/interface/goals/focus_ultimatum_to_benelux.dds"
+	}
+	#spriteType = {
+	#	name = "GFX_focus_benelux_economic_union"
+	#	texturefile = "gfx/interface/goals/focus_benelux_economic_union.dds"
+	#}
+	spriteType = {
+		name = "GFX_Christophe_Jessé"
+		texturefile = "gfx/leaders/LUX/Christophe_Jessé.png"
+	}
+	spriteType = {
+		name = "GFX_idea_carl_marx_in_education"
+		texturefile = "gfx/interface/ideas/idea_carl_marx_in_education.png"
+	}
+	spriteType = {
+		name = "GFX_news_fall_amsterdram"
+		texturefile = "gfx/events/news_fall_amsterdram.dds"
+	}
+	spriteType = {
+		name = "GFX_news_fall_brussel"
+		texturefile = "gfx/events/news_fall_brussel.dds"
+	}
+	#focus image from mod: Germany Rework: Blitzkrieg
+	spriteType = {
+		name = "GFX_focus_benelux_friend_pact"
+		texturefile = "gfx/interface/goals/focus_benelux_friend_pact.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_ask_to_join_friend_pact"
+		texturefile = "gfx/events/report_event_picture_ask_to_join_friend_pact.dds"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_benelux_frined_pact_reply"
+		texturefile = "gfx/events/report_event_picture_benelux_frined_pact_reply.dds"
+	}
+	spriteType = {
+		name = "GFX_LUX_alexander_von_falkenhausen"
+		texturefile = "gfx/leaders/LUX/alexander_von_falkenhausen2.png"
+	}
+	spriteType = {
+		name = "GFX_focus_workers_dictaturship_in_luxembourg"
+		texturefile = "gfx/interface/goals/focus_workers_dictaturship_in_luxembourg.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_workers_country_luxemborg"
+		texturefile = "gfx/interface/goals/focus_workers_country_luxemborg.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_charlotte_in_exile"
+		texturefile = "gfx/interface/goals/focus_charlotte_in_exile.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_arrest_coup_plotters"
+		texturefile = "gfx/interface/goals/focus_arrest_coup_plotters.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_workers_from_all_world"
+		texturefile = "gfx/interface/ideas/idea_workers_from_all_world.png"
+	}
+	spriteType = {
+		name = "GFX_focus_right_go_youth_org"
+		texturefile = "gfx/interface/goals/focus_right_go_youth_org.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_left_go_youth_org"
+		texturefile = "gfx/interface/goals/focus_left_go_youth_org.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_invasion_in_benelux"
+		texturefile = "gfx/interface/goals/focus_invasion_in_benelux.dds"
+	}
+	spriteType = {
+		name = "GFX_news_death_charlotte_grand_duches"
+		texturefile = "gfx/events/news_death_charlotte_grand_duches.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_luxembourg_pacifist_policy"
+		texturefile = "gfx/interface/goals/focus_luxembourg_pacifist_policy.png"
+	}
+	spriteType = {
+		name = "GFX_news_anarchist_civil_war_in_luxembourg"
+		texturefile = "gfx/events/news_anarchist_civil_war_in_luxembourg.png"
+	}
+	spriteType = {
+		name = "GFX_news_democrats_win_civil_war_in_luxembourg"
+		texturefile = "gfx/events/news_democrats_win_civil_war_in_luxembourg.png"
+	}
+	spriteType = {
+		name = "GFX_news_anarchist_win_civil_war_in_luxembourg"
+		texturefile = "gfx/events/news_anarchist_win_civil_war_in_luxembourg.png"
+	}
+	spriteType = {
+		name = "GFX_idea_luxembourg_pacifism_policy"
+		texturefile = "gfx/interface/ideas/idea_luxembourg_pacifism_policy.png"
+	}
+	spriteType = {
+		name = "GFX_idea_germany_attack"
+		texturefile = "gfx/interface/ideas/idea_general_germany_attack.png"
+	}
+	spriteType = {
+		name = "GFX_arsène_tancrède"
+		texturefile = "gfx/leaders/LUX/arsène_tancrède.jpg"
+	}
+	spriteType = {
+		name = "GFX_member_benelux_economic_union"
+		texturefile = "gfx/interface/ideas/dynamic_modifier_shared_member_benelux_economic_union.png"
+	}
+	spriteType = {
+		name = "GFX_focus_fascism_support_from_army"
+		texturefile = "gfx/interface/goals/focus_fascism_support_from_army.dds"
+	}
+	spriteType = {
+		name = "GFX_Gertrude_Gerda"
+		texturefile = "gfx/leaders/LUX/Gertrude_Gerda.jpg"
+	}
+	spriteType = {
+		name = "GFX_Christophe_Jessé"
+		texturefile = "gfx/leaders/LUX/Christophe_Jessé.png"
+	}
+	spriteType = {
+		name = "GFX_trait_lux_fascist_sympathizer"
+		texturefile = "gfx/interface/traits/lux_fascist_sympathizer.dds"
+	}
+	spriteType = {
+		name = "GFX_trait_NOT_loaylty_to_fascism"
+		texturefile = "gfx/interface/traits/not_loaylty_to_fascism.dds"
+	}
+	spriteType = {
+		name = "GFX_Collective_Goverment"
+		texturefile = "gfx/leaders/LUX/Collective_Goverment.jpg"
+	}
+	spriteType = {
+		name = "GFX_idea_charlotte_grand_duchess_remove_from_power"
+		texturefile = "gfx/interface/ideas/idea_charlotte_grand_duchess_remove_from_power_idea.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_template_joseph_besh_generic"
+		texturefile = "gfx/events/report_event_picture_template_joseph_besh_generic.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_template_pierre_dupong_generic"
+		texturefile = "gfx/events/report_event_picture_template_pierre_dupong_generic.png"
+	}
+	spriteType = {
+		name = "GFX_focus_befriend_belgum"
+		texturefile = "gfx/interface/goals/focus_befriend_belgum.png"
+	}
+	spriteType = {
+		name = "focus_befriend_niderland"
+		texturefile = "gfx/interface/goals/focus_befriend_niderlands.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_attack_belgum"
+		texturefile = "gfx/interface/goals/focus_attack_belgum.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_attack_niderlands"
+		texturefile = "gfx/interface/goals/focus_attack_niderlands.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_attack_liberia"
+		texturefile = "gfx/interface/goals/focus_attack_liberia.png"
+	}
+	spriteType = {
+		name = "focus_generic_attack_luxembourg"
+		texturefile = "gfx/interface/goals/focus_attack_luxembourg.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_belgum_flag"
+		texturefile = "gfx/interface/goals/focus_generic_belgum_flag.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_luxembourg_flag"
+		texturefile = "gfx/interface/goals/focus_generic_luxembourg_flag.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_niderland_flag"
+		texturefile = "gfx/interface/goals/focus_generic_niderland_flag.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_befriend_belgum"
+		texturefile = "gfx/interface/goals/focus_befriend_belgum.png"
+	}
+	spriteType = {
+		name = "GFX_focus_befriend_niderlands"
+		texturefile = "gfx/interface/goals/focus_befriend_niderlands.png"
+	}
+	spriteType = {
+		name = "GFX_focus_cult_personality_joseph_bech"
+		texturefile = "gfx/interface/goals/focus_cult_personality_joseph_bech.png"
+	}
+	spriteType = {
+		name = "GFX_idea_lost_in_luxembourg_liberian_war"
+		texturefile = "gfx/interface/ideas/idea_LUX_lost_in_luxembourg_liberian_war.png"
+	}
+	spriteType = {
+		name = "GFX_focus_attack_iceland"
+		texturefile = "gfx/interface/goals/focus_attack_iceland.png"
+	}
+	spriteType = {
+		name = "GFX_LUX_army_junta"
+		texturefile = "gfx/leaders/LUX/LUX_army_junta.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_welcome_in_exile_luxembourg"
+		texturefile = "gfx/events/report_event_picture_welcome_in_exile_luxembourg.png"
+	}
+	spriteType = {
+		name = "GFX_LUX_pierre_dupong"
+		texturefile = "gfx/leaders/LUX/LUX_pierre_dupong.dds"
+	}
+	spriteType = {
+		name = "GFX_attack_spain_anarchist"
+		texturefile = "gfx/interface/goals/focus_attack_spain_anarchist.png"
+	}
+	spriteType = {
+		name = "GFX_focus_army_junta_coup_luxembourg"
+		texturefile = "gfx/interface/goals/focus_army_junta_coup_luxembourg.png"
+	}
+	spriteType = {
+		name = "GFX_focus_incite_army"
+		texturefile = "gfx/interface/goals/focus_incite_army.png"
+	}
+	spriteType = {
+		name = "GFX_idea_luxembourg_flag"
+		texturefile = "gfx/interface/ideas/ideas_luxembourg_flag.png"
+	}
+	spriteType = {
+		name = "GFX_focus_benelux_economic_union"
+		texturefile = "gfx/interface/goals/focus_benelux_economic_union.png"
+	}
+	spriteType = {
+		name = "GFX_news_benelux_invasion"
+		texturefile = "gfx/events/news_benelux_invasion.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_generic_hitler"
+		texturefile = "gfx/events/report_event_picture_generic_hitler.png"
+	}
+	spriteType = {
+		name = "GFX_news_fall_amsterdram"
+		texturefile = "gfx/events/news_fall_amsterdram.png"
+	}
+	spriteType = {
+		name = "GFX_decision_gold_bars"
+		texturefile = "gfx/interface/decisions/decision_gold_bars.png"
+	}
+	spriteType = {
+		name = "GFX_focus_benelux_quastion"
+		texturefile = "gfx/interface/goals/focus_benelux_quastion.png"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FITLER_BUNKER"
+		texturefile = "gfx/interface/focusview/filter/bunker_icon.png"
+	}
+	spriteType = {
+		name = "GFX_bunker_icon"
+		texturefile = "gfx/interface/texticons/bunker_icon.png"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FITLER_FOREIGN_POLICY"
+		texturefile = "gfx/interface/focusview/filter/foreign_policy_icon.png"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FITLER_ARMY"
+		texturefile = "gfx/interface/focusview/filter/army_icon.png"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FITLER_ECONOMY"
+		texturefile = "gfx/interface/focusview/filter/economy_icon.png"
+	}
+	spriteType = {
+		name = "GFX_idea_army_limits"
+		texturefile = "gfx/interface/ideas/dynamic_modifier_army_limits.png"
+	}
+	spriteType = {
+		name = "GFX_decision_category_LUX_elections_1937"
+		texturefile = "gfx/interface/decisions/decision_category_elections_1937.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_investment_to_industry"
+		texturefile = "gfx/interface/goals/focus_LUX_investment_to_industry.png"
+	}
+	spriteType = {
+		name = "GFX_focus_luxembourg_army"
+		texturefile = "gfx/interface/goals/focus_luxembourg_army.png"
+	}
+	spriteType = {
+		name = "GFX_decision_motorized_equipment"
+		texturefile = "gfx/interface/decisions/decision_motorized_equipment.png"
+	}
+	spriteType = {
+		name = "GFX_decision_support_equipment"
+		texturefile = "gfx/interface/decisions/decision_support_equipment.png"
+	}
+	spriteType = {
+		name = "GFX_focus_trotsky_luxembourg"
+		texturefile = "gfx/interface/goals/focus_trotsky_luxembourg.png"
+	}
+	spriteType = {
+		name = "GFX_idea_LUX_trotskyism"
+		texturefile = "gfx/interface/ideas/idea_LUX_trotskyism.png"
+	}
+	spriteType = {
+		name = "GFX_idea_LUX_proleterian_shield_dm"
+		texturefile = "gfx/interface/ideas/idea_LUX_proleterian_shield_dm.png"
+	}
+	spriteType = {
+		name = "GFX_idea_writing_paper"
+		texturefile = "gfx/interface/ideas/idea_writing_paper.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_leon_trotsky_arrive"
+		texturefile = "gfx/events/report_event_picture_leon_trotsky_arrive.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_iosif_stalin_writing"
+		texturefile = "gfx/events/report_event_picture_iosif_stalin_writing.png"
+	}
+	spriteType = {
+		name = "GFX_focus_communist_revolution_intellegent"
+		texturefile = "gfx/interface/goals/focus_communist_revolution_intellegent.png"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FITLER_AGENCY"
+		texturefile = "gfx/interface/focusview/filter/agency.png"
+	}
+	spriteType = {
+		name = "GFX_focus_workers_revolution"
+		texturefile = "gfx/interface/goals/focus_workers_revolution.png"
+	}
+	spriteType = {
+		name = "GFX_focus_luxembourg_revolution_march"
+		texturefile = "gfx/interface/goals/focus_luxembourg_revolution_march.png"
+	}
+	spriteType = {
+		name = "GFX_focus_build_bunkers_belgum"
+		texturefile = "gfx/interface/goals/focus_build_bunkers_belgum.png"
+	}
+	spriteType = {
+		name = "GFX_focus_build_bunkers_niderlands"
+		texturefile = "gfx/interface/goals/focus_build_bunkers_niderlands.png"
+	}
+	spriteType = {
+		name = "GFX_idea_lux_neatrality_guarantees"
+		texturefile = "gfx/interface/ideas/idea_lux_neatrality_guarantees.png"
+	}
+	spriteType = {
+		name = "GFX_idea_generic_attack_belgum"
+		texturefile = "gfx/interface/ideas/idea_generic_attack_belgum.png"
+	}
+	spriteType = {
+		name = "GFX_idea_generic_attack_niderlands"
+		texturefile = "gfx/interface/ideas/idea_generic_attack_niderlands.png"
+	}
+	spriteType = {
+		name = "GFX_idea_support_imigration"
+		texturefile = "gfx/interface/ideas/idea_support_imigration.png"
+	}
+	spriteType = {
+		name = "GFX_idea_generic_preperatioion_for_war"
+		texturefile = "gfx/interface/ideas/idea_generic_preperatioion_for_war.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_devolope_luxembourg_state"
+		texturefile = "gfx/interface/goals/focus_generic_devolope_luxembourg_state.png"
+	}
+	spriteType = {
+		name = "GFX_idea_generic_partisan_war"
+		texturefile = "gfx/interface/ideas/idea_generic_partisan_war.png"
+	}
+	spriteType = {
+		name = "GFX_focus_build_bunkers_belgum2"
+		texturefile = "gfx/interface/goals/focus_build_bunkers_belgum2.png"
+	}
+	spriteType = {
+		name = "GFX_focus_build_bunkers_niderlands2"
+		texturefile = "gfx/interface/goals/focus_build_bunkers_niderlands2.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_devolope_belgum_state"
+		texturefile = "gfx/interface/goals/focus_generic_devolope_belgum_state.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_devolope_luxembourg_state2"
+		texturefile = "gfx/interface/goals/focus_generic_devolope_luxembourg_state2.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_devolope_niderlands_state"
+		texturefile = "gfx/interface/goals/focus_generic_devolope_niderlands_state.png"
+	}
+	spriteType = {
+		name = "GFX_decision_generic_oppression"
+		texturefile = "gfx/interface/decisions/decision_generic_oppression.png"
+	}
+	spriteType = {
+		name = "GFX_focus_neutrality_in_spain_cw"
+		texturefile = "gfx/interface/goals/focus_neutrality_in_spain_cw.png"
+	}
+	spriteType = {
+		name = "GFX_focus_intervantion_in_spain_cw"
+		texturefile = "gfx/interface/goals/focus_intervantion_in_spain_cw.png"
+	}
+	spriteType = {
+		name = "GFX_idea_intervention_in_spain_cw"
+		texturefile = "gfx/interface/ideas/idea_intervention_in_spain_cw.png"
+	}
+	spriteType = {
+		name = "GFX_idea_neutrality_in_spain_cw"
+		texturefile = "gfx/interface/ideas/idea_neutrality_in_spain_cw.png"
+	}
+	spriteType = {
+		name = "GFX_idea_generic_anarchist_conflict"
+		texturefile = "gfx/interface/ideas/generic_anarchist_conflict_idea.png"
+	}
+	spriteType = {
+		name = "GFX_modifier_state_resources_get"
+		texturefile = "gfx/interface/ideas/modifier_state_resources_get.png"
+	}
+	spriteType = {
+		name = "GFX_idea_generic_trade_agreetments"
+		texturefile = "gfx/interface/ideas/idea_generic_trade_agreetments.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_neutrality"
+		texturefile = "gfx/interface/goals/focus_LUX_neutrality.png"
+	}
+	spriteType = {
+		name = "GFX_focus_world_anarchist_commune"
+		texturefile = "gfx/interface/goals/focus_world_anarchist_commune.png"
+	}
+	spriteType = {
+		name = "GFX_focus_anarshist_europe_libaration"
+		texturefile = "gfx/interface/goals/focus_anarshist_europe_libaration.png"
+	}
+	spriteType = {
+		name = "GFX_focus_anarshist_asia_libaration"
+		texturefile = "gfx/interface/goals/focus_anarshist_asia_libaration.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_attack_indonesia"
+		texturefile = "gfx/interface/goals/focus_generic_attack_indonesia.png"
+	}
+	spriteType = {
+		name = "GFX_modifier_faction_state"
+		texturefile = "gfx/interface/ideas/modifier_faction_state.png"
+	}
+	spriteType = {
+		name = "GFX_focus_befriend_spain_anarchist"
+		texturefile = "gfx/interface/goals/focus_befriend_spain_anarchist.png"
+	}
+	spriteType = {
+		name = "GFX_idea_SPR_anarchist_council"
+		texturefile = "gfx/interface/ideas/idea_spr_anarchist_council.dds"
+	}
+	spriteType = {
+		name = "GFX_anarchist_commune_modifier"
+		texturefile = "gfx/interface/ideas/LUX_anarchist_commune_modifier.png"
+	}
+	spriteType = {
+		name = "GFX_idea_anarchist_lebaration"
+		texturefile = "gfx/interface/ideas/idea_anarchist_lebaration.png"
+	}
+	spriteType = {
+        name = "GFX_autonomy_eu_member_icon"
+        textureFile = "gfx/interface/autonomy/autonomy_eu_member.dds"
+    }
+	spriteType = {
+		name = "GFX_decision_category_european_union"
+		texturefile = "gfx/interface/decisions/decision_category_european_union.png"
+	}
+	spriteType = {
+		name = "GFX_focus_benelux_faction_formation"
+		texturefile = "gfx/interface/goals/focus_benelux_faction_formation.png"
+	}
+	spriteType = {
+		name = "GFX_focus_damian_kratzenberg_coup"
+		texturefile = "gfx/interface/goals/focus_damian_kratzenberg_coup.png"
+	}
+	spriteType = {
+		name = "GFX_idea_LUX_fascist_army"
+		texturefile = "gfx/interface/ideas/idea_LUX_fascist_army.png"
+	}
+	spriteType = {
+		name = "GFX_focus_assassin_charlotte_wilhelmine"
+		texturefile = "gfx/interface/goals/focus_assassin_charlotte_wilhelmine.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_generic_charlotte_wilhelmine"
+		texturefile = "gfx/events/report_event_picture_generic_charlotte_wilhelmine.png"
+	}
+	spriteType = {
+		name = "GFX_focus_attack_niderlands2"
+		texturefile = "gfx/interface/goals/focus_attack_niderlands2.png"
+	}
+	spriteType = {
+		name = "GFX_focus_attack_belgum2"
+		texturefile = "gfx/interface/goals/focus_attack_belgum2.png"
+	}
+	spriteType = {
+		name = "GFX_decision_joseph_bech_icon"
+		texturefile = "gfx/interface/decisions/decision_joseph_bech_icon.png"
+	}
+	spriteType = {
+		name = "GFX_decision_pierre_dugong_icon"
+		texturefile = "gfx/interface/decisions/decision_pierre_dugong_icon.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_immigrants"
+		texturefile = "gfx/interface/goals/focus_generic_immigrants.png"
+	}
+	spriteType = {
+		name = "GFX_focus_speed_up_process_obtaining_citizenship"
+		texturefile = "gfx/interface/goals/focus_speed_up_process_obtaining_citizenship.png"
+	}
+	spriteType = {
+		name = "GFX_state_generic_resistence_modifier"
+		texturefile = "gfx/interface/ideas/generic_resistence_modifier.png"
+	}
+	spriteType = {
+		name = "GFX_idea_trade_neutrality"
+		texturefile = "gfx/interface/ideas/idea_trade_neutrality.png"
+	}
+	spriteType = {
+		name = "GFX_idea_lux_land_forces"
+		texturefile = "gfx/interface/ideas/LUX_land_forces.png"
+	}
+	spriteType = {
+		name = "GFX_focus_pressure_on_benelux_contries"
+		texturefile = "gfx/interface/goals/focus_pressure_on_benelux_contries.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_trade_italy"
+		texturefile = "gfx/interface/goals/focus_generic_trade_italy.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_algeria"
+		texturefile = "gfx/interface/goals/focus_generic_algeria.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_tunnis"
+		texturefile = "gfx/interface/goals/focus_generic_tunnis.png"
+	}
+	spriteType = {
+		name = "GFX_idea_LUX_economy"
+		texturefile = "gfx/interface/ideas/idea_LUX_economy.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_tech_cooperation_with_england"
+		texturefile = "gfx/interface/goals/focus_LUX_tech_cooperation_with_england.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_people_revolution"
+		texturefile = "gfx/interface/goals/focus_LUX_people_revolution.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_military_delegation"
+		texturefile = "gfx/interface/goals/focus_LUX_military_delegation.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_promote_admirals"
+		texturefile = "gfx/interface/goals/focus_LUX_promote_admirals.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_attack_stategy"
+		texturefile = "gfx/interface/goals/focus_LUX_attack_stategy.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_defence_stretegy"
+		texturefile = "gfx/interface/goals/focus_LUX_defence_stretegy.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_berlin_luxembourg_pact"
+		texturefile = "gfx/interface/goals/focus_LUX_berlin_luxembourg_pact.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_join_axis_neutrality"
+		texturefile = "gfx/interface/goals/focus_LUX_join_axis_neutrality.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_join_anti_commintern_pact"
+		texturefile = "gfx/interface/goals/focus_LUX_join_anti_commintern_pact.png"
+	}
+	#Götterdämmerung portraits (finally)
+    spriteType = {
+		name = "GFX_portrait_LUX_charles_marx_mod" #communist leader
+		texturefile = "gfx/leaders/LUX/portrait_LUX_charles_marx.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_damian_kratzenberg_mod" #fascism leader
+		texturefile = "gfx/leaders/LUX/portrait_LUX_damian_kratzenberg.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_felix_bourbon_parma_mod" #field marchal
+		texturefile = "gfx/leaders/LUX/portrait_LUX_felix_bourbon_parma.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_guillaume_konsbruck_mod" #general
+		texturefile = "gfx/leaders/LUX/portrait_LUX_guillaume_konsbruck.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_pierre_dupong_mod" #democratic leader after 1937 elections
+		texturefile = "gfx/leaders/LUX/portrait_LUX_pierre_dupong.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_charlotte_wilhelmine_mod" #monarch
+		texturefile = "gfx/leaders/LUX/portrait_LUX_charlotte_wilhelmine.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_emile_speller_mod" #Emile speller general
+		texturefile = "gfx/leaders/LUX/portrait_LUX_emile_speller.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_retirement_government"
+		texturefile = "gfx/leaders/LUX/LUX_retirement_government.jpg"
+	}
+	spriteType = {
+		name = "GFX_decision_category_picture_form_great_luxembourg"
+		texturefile = "gfx/interface/decisions/decision_category_form_great_luxembourg.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_great_depression"
+		texturefile = "gfx/interface/goals/focus_generic_great_depression.png"
+	}
+	spriteType = {
+		name = "GFX_decision_category_general_anarchist"
+		texturefile = "gfx/interface/decisions/decision_category_anarchist_general.png"
+	}
+	spriteType = {
+		name = "GFX_focus_global_anarchist_commune_united"
+		texturefile = "gfx/interface/goals/focus_global_anarchist_commune_united.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_germany_investment"
+		texturefile = "gfx/interface/goals/focus_generic_germany_investment.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_pact_with_england"
+		texturefile = "gfx/interface/goals/focus_LUX_pact_with_england.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_anarchist_immigrants"
+		texturefile = "gfx/interface/goals/focus_LUX_anarchist_immigrants.png"
+	}
+	spriteType = {
+		name = "GFX_focus_general_attack_europe"
+		texturefile = "gfx/interface/goals/focus_general_attack_europe.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_workers_democracy"
+		texturefile = "gfx/interface/goals/focus_LUX_workers_democracy.png"
+	}
+	spriteType = {
+		name = "GFX_focus_burninig_europe"
+		texturefile = "gfx/interface/goals/focus_burninig_europe.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_fight_against_tyranny"
+		texturefile = "gfx/interface/goals/focus_LUX_fight_against_tyranny.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_join_to_commintern"
+		texturefile = "gfx/interface/goals/focus_LUX_join_to_commintern.png"
+	}
+	spriteType = {
+		name = "GFX_idea_LUX_workers_state"
+		texturefile = "gfx/interface/ideas/LUX_workers_state.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_nationalisation_of_infrastructure"
+		texturefile = "gfx/interface/goals/focus_LUX_nationalisation_of_infrastructure.png"
+	}
+	spriteType = {
+		name = "GFX_focus_fra_decolonization"
+		texturefile = "gfx/interface/goals/focus_fra_decolonization.png"
+	}
+	spriteType = {
+		name = "GFX_focus_por_decolonization"
+		texturefile = "gfx/interface/goals/focus_por_decolonization.png"
+	}
+	spriteType = {
+		name = "GFX_focus_spr_decolonization"
+		texturefile = "gfx/interface/goals/focus_spr_decolonization.png"
+	}
+	spriteType = {
+		name = "GFX_focus_usa_decolonization"
+		texturefile = "gfx/interface/goals/focus_usa_decolonization.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_desperate_measures"
+		texturefile = "gfx/interface/goals/focus_LUX_desperate_measures.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_joseph_bech_is_elected"
+		texturefile = "gfx/interface/goals/focus_LUX_joseph_bech_is_elected.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_pierre_dupong_elected"
+		texturefile = "gfx/interface/goals/focus_LUX_pierre_dupong_elected.png"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FITLER_RESISTANCE"
+		texturefile = "gfx/interface/focusview/filter/resistance_icon.png"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FITLER_RESOURCES"
+		texturefile = "gfx/interface/focusview/filter/resources_icon.png"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FITLER_COMPLIANCE"
+		texturefile = "gfx/interface/focusview/filter/compliance_icon.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_benilux"
+		texturefile = "gfx/interface/goals/focus_generic_benilux.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_attack_rhenish"
+		texturefile = "gfx/interface/goals/focus_generic_attack_rhenish.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_rhenish_nationalism"
+		texturefile = "gfx/interface/goals/focus_LUX_rhenish_nationalism.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_great_luxembourg_restore"
+		texturefile = "gfx/interface/goals/focus_LUX_great_luxembourg_restore.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_befriend_rhein"
+		texturefile = "gfx/interface/goals/focus_generic_befriend_rhein.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_rhinish_uprising"
+		texturefile = "gfx/interface/goals/focus_LUX_rhinish_uprising.png"
+	}
+	spriteType = {
+		name = "GFX_modifier_reinish_separatism"
+		texturefile = "gfx/interface/ideas/modifier_reinish_separatism.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_reestablish_united_rhenish_movement"
+		texturefile = "gfx/interface/goals/focus_LUX_reestablish_united_rhenish_movement.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_industrials"
+		texturefile = "gfx/leaders/LUX/portrait_LUX_industrials.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_our_furer"
+		texturefile = "gfx/interface/goals/focus_LUX_our_furer.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_netrulize_industriliesr"
+		texturefile = "gfx/interface/goals/focus_LUX_netrulize_industrilies.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_cancel_treaty_of_london"
+		texturefile = "gfx/interface/goals/focus_LUX_cancel_treaty_of_london.png"
+	}
+	spriteType = {
+		name = "GFX_focus_generic_attack_europe_continent"
+		texturefile = "gfx/interface/goals/focus_generic_attack_europe_continent.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_protect_congo"
+		texturefile = "gfx/interface/goals/focus_LUX_protect_congo.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_protect_indonesia"
+		texturefile = "gfx/interface/goals/focus_LUX_protect_indonesia.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_communist_party"
+		texturefile = "gfx/interface/goals/focus_LUX_communist_party.png"
+	}
+	#advisors
+	spriteType = {
+		name = "GFX_LUX_humbert_dan_advisor"
+		texturefile = "gfx/leaders/LUX/advisors/LUX_humbert_dan_advisor.dds"
+	}
+	spriteType = {
+		name = "GFX_LUX_pierre_fonck_advisor"
+		texturefile = "gfx/leaders/LUX/advisors/LUX_pierre_fonck_advisor.dds"
+	}
+	spriteType = {
+		name = "GFX_LUX_charlotte_grand_duchess_advisor"
+		texturefile = "gfx/leaders/LUX/advisors/LUX_charlotte_grand_duchess_advisor.dds"
+	}
+	spriteType = {
+		name = "GFX_LUX_robin_fulbert_advisor"
+		texturefile = "gfx/leaders/LUX/advisors/LUX_robin_fulbert_advisor.dds"
+	}
+	spriteType = {
+		name = "GFX_LUX_emile_speller_advisor"
+		texturefile = "gfx/leaders/LUX/advisors/LUX_emile_speller_advisor.dds"
+	}
+	spriteType = {
+		name = "GFX_LUX_pierre_dupong_advisor"
+		texturefile = "gfx/leaders/LUX/advisors/LUX_pierre_dupong_advisor.dds"
+	}
+	spriteType = {
+		name = "GFX_LUX_david_ferdinand_advisor"
+		texturefile = "gfx/leaders/LUX/advisors/LUX_david_ferdinand_advisor.dds"
+	}
+	spriteType = {
+		name = "GFX_LUX_adolphe_théo_advisor"
+		texturefile = "gfx/leaders/LUX/advisors/LUX_adolphe_théo_advisor.dds"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_charles_marx_small_mod"
+		texturefile = "gfx/leaders/LUX/advisors/portrait_LUX_charles_marx_small.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_charlotte_wilhelmine_small_mod"
+		texturefile = "gfx/leaders/LUX/advisors/portrait_LUX_charlotte_wilhelmine_small.png"
+	}
+	spriteType = {
+		name = "GFX_idea_LUX_charlotte_wilhelmine_small_mod" #just for dummy idea
+		texturefile = "gfx/leaders/LUX/advisors/portrait_LUX_charlotte_wilhelmine_small.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_damian_kratzenberg_small_mod"
+		texturefile = "gfx/leaders/LUX/advisors/portrait_LUX_damian_kratzenberg_small.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_emile_speller_small_mod"
+		texturefile = "gfx/leaders/LUX/advisors/portrait_LUX_emile_speller_small.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_felix_bourbon_parma_small_mod"
+		texturefile = "gfx/leaders/LUX/advisors/portrait_LUX_felix_bourbon_parma_small.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_guillaume_konsbruck_small_mod"
+		texturefile = "gfx/leaders/LUX/advisors/portrait_LUX_guillaume_konsbruck_small.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_pierre_dupong_small_mod"
+		texturefile = "gfx/leaders/LUX/advisors/portrait_LUX_pierre_dupong_small.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_regis_mael_small_mod"
+		texturefile = "gfx/leaders/LUX/advisors/portrait_LUX_régis_maël_small.png"
+	}
+	spriteType = {
+		name = "GFX_portrait_LUX_celia_jeanin_small"
+		texturefile = "gfx/leaders/LUX/advisors/portrait_LUX_celia_jeanin_small.png"
+	}
+    #events
+	spriteType = {
+		name = "GFX_report_event_picture_generic_meeting_with_hitler"
+		texturefile = "gfx/events/report_event_picture_generic_meeting_with_hitler.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_generic_protest"
+		texturefile = "gfx/events/report_event_picture_generic_protest.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_generic_protest2"
+		texturefile = "gfx/events/report_event_picture_generic_protest2.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_generic_sniper"
+		texturefile = "gfx/events/report_event_picture_generic_sniper.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_generic_soldiers_in_trench"
+		texturefile = "gfx/events/report_event_picture_generic_soldiers_in_trench.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_germany_troops_attack"
+		texturefile = "gfx/events/report_event_picture_germany_troops_attack.png"
+	}
+}

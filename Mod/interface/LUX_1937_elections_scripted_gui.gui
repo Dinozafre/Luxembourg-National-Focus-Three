@@ -1,0 +1,110 @@
+@HEADERS_Y = 0
+@ASCENDED_ADVISOR_CONTAINER_WIDTH = 150
+@ASCENDED_ADVISOR_CONTAINER_HEIGHT = 120
+guiTypes = {
+	containerWindowType = {
+		name = "lux_1937_election_ui_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height= 285 }
+		iconType = {
+			name ="election_1937_icon1"
+			spriteType = "GFX_decision_joseph_bech_icon"
+			position = { x = 100 y = @HEADERS_Y}
+			pdx_tooltip = joseph_bech_tt
+		}
+#		instantTextBoxType = {
+#			name ="joseph_bech_text"
+#			position = { x = 125 y = @HEADERS_Y }
+#			font = "hoi_18mbs"
+#			text = "joseph_bech_text"
+#			format = center
+#			maxHeight = 35
+#		}
+		iconType = {
+			name ="election_1937_icon2"
+			spriteType = "GFX_decision_pierre_dugong_icon"
+			position = { x = 150 y = @HEADERS_Y }
+			pdx_tooltip = pierre_dugong_tt
+		}
+#		instantTextBoxType = {
+#			name ="pierre_dugong_text"
+#			position = { x = 175 y = @HEADERS_Y }
+#			font = "hoi_18mbs"
+#			text = "pierre_dugong_text"
+#			format = center
+#			maxHeight = 35
+#		}
+	}
+	containerWindowType = {
+		name = "ascended_advisor_1_portrait_container"
+		orientation = center_up
+		position = { x = -46 y = 0}
+		size = { width = 91 height = 119 }
+		clipping = no
+		
+		#FRAME
+		iconType = {
+			name ="ascended_advisor_1_frame"
+			spriteType = "GFX_ascended_advisors_unappointed_frame"
+			orientation = center
+			position = { x=0	 y= 0 }
+			centerPosition = yes
+			context_aware_tooltip = joseph_bech_tt
+		}
+
+		#PORTRAIT
+		iconType = {
+			name ="ascended_advisor_1_portrait"
+			spriteType = ""
+			orientation = upper_left
+			position = { x=7	 y=6 }
+			scale = 0.5
+			alwaystransparent = yes
+		}
+	}
+
+	#ASCENDED ADVISOR NAME BOX
+	iconType = {
+		name ="ascended_advisor_1_name_box"
+		spriteType = "GFX_ascended_advisor_name_box"
+		orientation = center
+		position = { x=0	 y=71 }
+		centerposition = yes
+		context_aware_tooltip = joseph_bech_tt
+	} 
+
+	#ASCENDED ADVISOR NAME
+	instantTextBoxType = {
+		name ="ascended_advisor_1_name"
+		orientation = center_down
+		position = { x = 5 y = 0 }
+		font = "hoi_20b"
+		context_aware_text = "GER_ascended_advisor_1_name_text"
+		format = center
+		maxWidth = 150
+		alwaystransparent = yes
+	}
+
+	#ASCENDED ADVISOR TRAIT BOX
+	iconType = {
+		name ="ascended_advisor_1_trait_box"
+		spriteType = "GFX_ascended_advisor_trait_box"
+		orientation = center
+		position = { x=0	 y=102 }
+		centerposition = yes
+		context_aware_tooltip = [GetAscendedAdvisorTrait1]
+	}
+
+	#TRAIT
+	instantTextBoxType = {
+		name ="ascended_advisor_1_trait"
+		orientation = center_down
+		position = { x = @ASCENDED_ADVISOR_TEXT_POS_X y = @ASCENDED_ADVISOR_TEXT_POS_Y }
+		font = "hoi_18mbs"
+		context_aware_text = [GetAscendedAdvisorTraitName1]
+		format = center
+		maxWidth = 150
+		fixedsize = yes
+		alwaystransparent = yes
+	}
+}

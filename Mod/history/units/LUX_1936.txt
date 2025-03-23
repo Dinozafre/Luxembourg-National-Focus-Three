@@ -1,0 +1,57 @@
+﻿division_template = {
+	name = "Public Force"		
+	division_names_group = LUX_INF_01
+	# Luxembourg had a token garrison force of ~600 men
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+}
+#unlock when focus is completed
+division_template = {
+	name = "Motorization Force"		
+	division_names_group = LUX_INF_01
+	# Luxembourg had a token garrison force of ~600 men
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+}
+units = { 
+    division = { 
+	   name = "National Miliz"
+	   location = 6583 
+	   division_template = "Public Force" 
+	   start_experience_factor = 0.5
+	   start_equipment_factor = 1
+    }
+	division = { 
+		name = "National Miliz 2"
+		location = 13345 
+		division_template = "Public Force" 
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.8
+	}
+}
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "LUX"
+		}
+		requested_factories = 1
+		progress = 1
+		efficiency = 100
+	}
+}
