@@ -1,0 +1,29 @@
+﻿people_militia_law = { 
+    icon = 7
+    sound_effect = "Martial_Law_Interface_Military_Governor_Occupation"
+    default_law = no
+    starting_law = no
+    visible = {
+        original_tag = LUX
+        has_completed_focus = LUX_integrate_communes_focus
+    }
+    available = {
+        has_completed_focus = LUX_integrate_communes_focus
+    }
+    state_modifier = {
+        resistance_target = -0.2
+        starting_compliance = 0.2
+        non_core_manpower = 0.15
+        mobilization_speed = 0.05
+        compliance_gain = 0.08
+        compliance_growth = 0.15
+        required_garrison_factor = 0.05
+    }
+    ai_will_do = {
+        base = 1
+        modifier = {
+            has_anarchist_government = yes
+            add = 100
+        }
+    }
+}

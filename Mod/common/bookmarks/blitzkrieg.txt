@@ -56,16 +56,15 @@ bookmarks = {
 		GER = {
 			history = GER_BLITZKRIEG_DESC
 			ideology = fascism
-			ideas = {
-				sour_loser
-				general_staff
-				GER_mefo_bills_15
-				GER_autarky_idea
+			ideas = { #TODO_Danne Make sure these spirits display the proper numbers!
+				GER_mefo_bills_1939_fake_ns
+				GER_army_1939_fake_ns
+				GER_wehrwirtschaft_fake_ns
 			}
 			focuses = {
-				GER_weserubung
-				GER_plan_z
-				GER_ussr_war_goal
+				GER_shatter_usas_hegemony
+				GER_war_with_the_ussr
+				GER_mittelafrika
 			}
 		}
 		ITA = {
@@ -184,10 +183,12 @@ bookmarks = {
 				RAJ_the_smiling_buddha
 			}
 		}
-		"HUN"={
+
+		HUN = {
 			minor = yes
 			history = "HUN_BLITZKRIEG_DESC"
 			ideology = neutrality
+			available = {  NOT = { has_dlc = "Gotterdammerung" } }
 			ideas = {
 				HUN_treaty_of_triannon_3
 				HUN_interventionism
@@ -539,8 +540,8 @@ bookmarks = {
 			available = { has_dlc = "Arms Against Tyranny" } 
 			ideas = {
 				SWE_radiotjanst_democratic
-				SWE_with_finland_for_sweden
-				SWE_en_svensk_tiger_aat_lar
+				SWE_saltsjobaden_agreement
+				SWE_paid_holidays_idea
 			}
 			focuses = {
 				SWE_as_the_barometer_falls
@@ -548,25 +549,43 @@ bookmarks = {
 				SWE_coalition_war_cabinet
 			}
 		}
-		"NOR"={
+		NOR={
 			minor = yes
 			history = "NOR_BLITZKRIEG_DESC"
 			ideology = democratic
+			available = { has_dlc = "Arms Against Tyranny" } 
 			ideas = {
 				NOR_defensive_rearmament_ns
 				NOR_crumbling_fortifications_ns
 				NOR_fake_independent_norway_ns
 			}
 			focuses = {
-				NOR_quislings_coup
-				NOR_norwegian_reichsprotectorate
+				NOR_preparing_the_return_to_norway
+				NOR_nortraship
 				NOR_the_kings_no
 			}
 		}
-		"DEN"={
+		DEN={
 			minor = yes
 			history = DEN_BLITZKRIEG_DESC
 			ideology = democratic
+			available = { NOT = { has_dlc = "By Blood Alone" } }
+			ideas = {
+				DEN_fake_industrial_capability_2_ns
+				DEN_declaration_of_neutrality_no_BBA
+				DEN_danish_produce_improved 
+			}
+			focuses = {
+				DEN_full_employment
+				DEN_declare_independence
+				DEN_create_danforce
+			}
+		}
+		DEN={
+			minor = yes
+			history = DEN_BLITZKRIEG_DESC
+			ideology = democratic
+			available = { has_dlc = "By Blood Alone" }
 			ideas = {
 				DEN_fake_industrial_capability_2_ns
 				DEN_declaration_of_neutrality
@@ -578,7 +597,23 @@ bookmarks = {
 				DEN_create_danforce
 			}
 		}
-		"BRA"={
+		ICE = {
+			minor = yes
+			history = ICE_BLITZKRIEG_DESC
+			ideology = democratic
+			available = { has_dlc = "Arms Against Tyranny" } 
+			ideas = {
+				ICE_christian_x
+				ICE_fishing_industry
+				neutrality_idea
+			}
+			focuses = {
+				ICE_american_protection
+				ICE_iceland_defense_force
+				ICE_modernizing_the_coast_guard
+			}
+		}
+		BRA = {
 			minor = yes
 			history = BRA_BLITZKRIEG_DESC
 			ideology = neutrality
@@ -594,7 +629,7 @@ bookmarks = {
 				BRA_senta_a_pua
 			}
 		}
-		"CHL"={
+		CHL = {
 			minor = yes
 			history = CHL_BLITZKRIEG_DESC
 			ideology = democratic
@@ -602,7 +637,7 @@ bookmarks = {
 			ideas = {
 				idea_CHL_the_Hacienda_inquilinaje_system
 				CHL_the_mapuche_conflict
-				SMB_MTG_naval_arms_race_legacy
+				CHL_national_falange
 			}
 			focuses = {
 				CHL_development_inwards
@@ -610,7 +645,7 @@ bookmarks = {
 				CHL_protect_the_easter_island
 			}
 		}
-		"ARG"={
+		ARG = {
 			minor = yes
 			history = ARG_BLITZKRIEG_DESC
 			ideology = neutrality
@@ -674,7 +709,40 @@ bookmarks = {
 				CONGO_chefs_coutumiers
 			}
 		}
-		"LUX"={
+		IRQ = {
+			minor = yes
+			history = "IRQ_BLITZKRIEG_DESC"
+			ideology = neutrality
+			available = { has_dlc = "Graveyard of Empires" }
+			ideas = {
+				IRQ_anglo_iraqi_treaty
+				IRQ_al_muthanna_club_idea
+				IRQ_agrarian_society
+			}
+			focuses = {
+				IRQ_eliminate_the_golden_square
+				IRQ_strengthen_the_golden_square
+				IRQ_refuge_for_the_grand_mufti
+			}
+		}
+		PER = {
+		#TODO_EILIDH: change the ideas and focuses for these
+			minor = yes
+			history = PER_BLITZKRIEG_DESC
+			ideology = neutrality
+			available = { has_dlc = "Graveyard of Empires" }
+			ideas = {
+				PER_white_revolution_idea
+				PER_homeland_not_fall_idea
+				PER_future_of_war_idea
+			}
+			focuses = {
+				PER_wether_the_storm
+				PER_we_will_survive
+				PER_fight_for_iran
+			}
+		}
+		LUX = {
 			minor = yes
 			history = LUX_BLITZKRIEG_DESC
 			ideology = democratic

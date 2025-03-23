@@ -25,3 +25,30 @@ defined_text = {
 		localization_key = LUX_great_luxembourg_communism
 	}
 }
+defined_text = {
+	name = GETEURUNIFIEDNAME
+	text = {
+		trigger = {
+			has_government = democratic
+		}
+		localization_key = EUR_UNIFIED_democratic
+	}
+	text = {
+		trigger = {
+			has_government = fascism
+		}
+		localization_key = EUR_UNIFIED_fascism
+	}
+	text = {
+		trigger = {
+			has_government = communism
+		}
+		localization_key = EUR_UNIFIED_communism
+	}
+	text = {
+		trigger = {
+			has_government = neutrality
+		}
+		localization_key = EUR_UNIFIED_neutrality
+	}
+}

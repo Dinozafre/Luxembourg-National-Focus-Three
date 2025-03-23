@@ -1,48 +1,4 @@
 LUX_debug_category = {
-   friend_pact_bEL = {
-	#icon = generic_break_treaty
-
-	visible = {
-		original_tag = LUX
-        is_debug = yes
-	}
-
-	available = {
-
-	}
-	days_remove = 1
-	cost = 0
-	fire_only_once = no 
-	days_re_enable = 1
-	complete_effect = {
-       BEL = {
-           country_event = benelux_friend_pact_events.0
-	   }	
-	}
-   }
-   friend_pact_HOL = {
-		#icon = generic_break_treaty
-	
-		visible = {
-			original_tag = LUX
-			is_debug = yes
-		}
-	
-		available = {
-	
-		}
-		days_remove = 1
-		cost = 0
-		fire_only_once = no 
-		days_re_enable = 1
-		complete_effect = {
-			ROOT = {
-				HOL = {
-					country_event = benelux_friend_pact_events.0
-				}
-			}
-		}
-	}
 	LUX_add_var_election_support_for_joseph_besh = {
 		complete_effect = {
 			add_to_variable = {
@@ -128,20 +84,7 @@ LUX_debug_category = {
 			}
 		}
 	 }
-	 LUX_hire_anarchist_advisers = {
-		visible = {
-			original_tag = LUX
-		}
-		complete_effect = {
-			recruit_character = LUX_anarchist_council_industrial
-			recruit_character = LUX_anarchist_council_propaganda
-			recruit_character = LUX_anarchist_council_integration
-		}
-	 }
 	 LUX_remove_all_non_anarchist_advisors = {
-		  visible = {
-			original_tag = LUX
-		  }
 		  complete_effect = {
 			every_character = {
 				limit = {
@@ -155,5 +98,31 @@ LUX_debug_category = {
 				}
 			}
 		  }
+	}
+    debug_LUX_enable_exile_branch = {
+		complete_effect = {
+			set_country_flag = in_exile_flag
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+}
+debug_decisions = {
+	LUX_decolonisation = {
+		allowed = {
+			always = no
+		}
+		visible = {
+			is_debug = yes
+			any_controlled_state = {                     
+				has_resistance = yes
+			}
+		}
+		fire_only_once = no
+		available = {
+			
+		}
+		complete_effect = {
+			LUX_demand_decolonisation_effect = yes
+		}
 	 }
 }

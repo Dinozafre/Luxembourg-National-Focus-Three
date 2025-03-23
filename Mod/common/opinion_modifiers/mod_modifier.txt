@@ -121,4 +121,7 @@ generic_trade_agreetments = {
 general_opinion_ban_idiology_our_goverment = {
   value = -15
 }
+shared_cooperation_with = {
+  value = 30
+}
 }

@@ -1,4 +1,7 @@
 autonomy_state = {
 	id = autonomy_under_protection
-	
+	default = no
+	allowed = {
+		always = no
+	}
 }

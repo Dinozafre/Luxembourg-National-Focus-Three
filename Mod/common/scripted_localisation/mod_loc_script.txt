@@ -1,3 +1,81 @@
 defined_text = {
-	
+	name = GetLUXFactionPrepereForInvasion_name
+	text = {
+		trigger = {
+			is_in_faction = yes
+		}
+		localization_key = LUX_faction_prepere_for_invasion_a_name
+	}
+	text = {
+		trigger = {
+			is_in_faction = no
+		}
+		localization_key = LUX_faction_prepere_for_invasion_b_nane
+	}
+}
+defined_text = {
+	name = GetLUXFactionPrepereForInvasion_desc
+	text = {
+		trigger = {
+			is_in_faction = yes
+		}
+		localization_key = LUX_faction_prepere_for_invasion_a_desc
+	}
+	text = {
+		trigger = {
+			is_in_faction = no
+		}
+		localization_key = LUX_faction_prepere_for_invasion_b_desc
+	}
+}
+defined_text = {
+	name = GFXDeconolisationEvent
+	text = {
+		trigger = {
+			has_country_leader = {
+				character = FRA_pierre_laval
+				ruling_only = yes
+			}
+		}
+		localization_key = GFX_report_event_pierre_laval 
+	}
+	text = {
+		trigger = {
+			NOT = {
+				has_country_leader = {
+					character = FRA_pierre_laval
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = GFX_report_event_soldiers_marching
+	}
+}
+defined_text = {
+	name = GetElection1937_Conditate_1
+	text = {
+		trigger = {
+            has_character = LUX_joseph_bech
+		}
+		localization_key = joseph_bech_score_text
+	}
+}
+defined_text = {
+	name = GetElection1937_Conditate_2
+	text = {
+		trigger = {
+            has_character = LUX_pierre_dupong
+		}
+		localization_key = pierre_dupong_score_text
+	}
+}
+defined_text = {
+	name = GetElection1937_Conditate_3
+	text = {
+		trigger = {
+            has_character = LUX_damian_kratzenberg
+			has_completed_focus = LUX_fascists_goining_to_elections
+		}
+		localization_key = damian_kratzenberg_score_text
+	}
 }

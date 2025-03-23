@@ -171,9 +171,9 @@ leader_traits = {
 		democratic_drift = -0.03
 	}
 	LUX_joseph_bech_field_marchel_trait = {
-		planning_speed = 0.15
-		army_core_defence_factor = 0.15
-		army_core_attack_factor = 0.10
+		planning_speed = 0.1
+		army_core_defence_factor = 0.05
+		army_core_attack_factor = 0.03
 	}
 	LUX_hostility_to_communist2 = {
 		communism_drift = -0.07
@@ -276,5 +276,34 @@ leader_traits = {
 		army_defence_factor = 0.15
 		army_core_defence_factor = 0.10
 		army_artillery_defence_factor = 0.05	 
+	}
+	LUX_furer_trait = {
+		name = GER_der_fuhrer
+		political_power_factor = 0.1
+		fascism_drift = 0.02
+		party_popularity_stability_factor = 0.10
+	}
+	LUX_furer_trait2 = {
+		name = GER_der_fuhrer
+		political_power_factor = 0.15
+		fascism_drift = 0.05
+		party_popularity_stability_factor = 0.15
+		drift_defence_factor = 0.3
+	}
+	LUX_war_propagandist = {
+		sprite = 13
+		war_support_weekly = 0.001
+		war_support_factor = 0.1
+		weekly_manpower = 250
+		weekly_casualties_war_support = 0.0025
+		weekly_bombing_war_support = 0.005
+		conscription = 0.05
+	}
+	LUX_minister_of_education_trait = {
+		name = mussolini_minister_of_education
+		sprite = 13
+		political_power_factor = 0.15
+		party_popularity_stability_factor = 0.05
+		research_speed_factor = 0.2
 	}
 }

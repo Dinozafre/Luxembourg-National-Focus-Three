@@ -81,36 +81,39 @@ bookmarks = {
 				ENG_war_with_italy
 			}
 		}
-		"GER"={
+
+		GER = {
 			history = "GER_GATHERING_STORM_DESC"
 			ideology = fascism
-			available = { has_dlc = "Waking the Tiger" }
+			available = { has_dlc = "Gotterdammerung" }
 			ideas = {
-				sour_loser
-				general_staff
-				GER_mefo_bills_1
+				GER_mefo_bills_1936_fake_ns
+				GER_army_1936_fake_ns
+				GER_airforce_fake_ns
 			}
 			focuses = {
-				GER_anschluss
-				GER_danzig_or_war
+				GER_fuhrerprinzip
+				GER_the_peoples_victory
+				GER_glory_to_the_imperial_army
+			}
+		}
+
+		GER = {
+			history = "GER_GATHERING_STORM_DESC"
+			ideology = fascism
+			available = { NOT = { has_dlc = "Gotterdammerung" } }
+			ideas = {
+				GER_mefo_bills_1936_fake_ns
+				GER_army_1936_fake_ns
+				GER_airforce_fake_ns
+			}
+			focuses = {
+				GER_fuhrerprinzip
 				GER_revive_the_kaiserreich
+				GER_reestablish_free_elections
 			}
 		}
-		"GER"={
-			history = "GER_GATHERING_STORM_DESC"
-			ideology = fascism
-			available = { NOT = { has_dlc = "Waking the Tiger" } }
-			ideas = {
-				sour_loser
-				general_staff
-				GER_mefo_bills_1
-			}
-			focuses = {
-				GER_anschluss
-				GER_danzig_or_war
-				GER_ussr_war_goal
-			}
-		}
+
 		"ITA"={
 			history = "ITA_GATHERING_STORM_DESC"
 			ideology = fascism
@@ -269,18 +272,20 @@ bookmarks = {
 				CZE_divided_nation
 			}
 			focuses = {
-				CZE_sudeten_1
+				CZE_an_entente_of_our_own
 				CZE_industrial_legacy
-				CZE_military_research_institute
+				CZE_czechoslovak_legion
 			}
 		}
 
-		"HUN"={
+		HUN = {
 			minor = yes
 			history = "HUN_GATHERING_STORM_DESC"
 			ideology = neutrality
+			available = {  NOT = { has_dlc = "Gotterdammerung" } }
 			ideas = {
 				HUN_treaty_of_triannon
+				HUN_gombos_trade_treaty
 			}
 			focuses = {
 				HUN_proclaim_the_restoration_of_austria_hungary
@@ -622,7 +627,7 @@ bookmarks = {
 				ETH_military_communism
 			}
 		}
-		"SWI"={
+		SWI = {
 			minor = yes
 			history = "SWI_GATHERING_STORM_DESC"
 			ideology = democratic
@@ -636,7 +641,7 @@ bookmarks = {
 				SWI_the_new_eidgenossenschaft
 			}
 		}
-		FIN={
+		FIN = {
 			minor = yes
 			history = FIN_GATHERING_STORM_DESC
 			ideology = neutrality
@@ -650,7 +655,7 @@ bookmarks = {
 				FIN_oy_alkoholiliike
 			}
 		}
-		FIN={
+		FIN = {
 			minor = yes
 			history = FIN_GATHERING_STORM_DESC
 			ideology = neutrality
@@ -664,9 +669,9 @@ bookmarks = {
 				FIN_greater_finland
 			}
 		}
-		SWE={
+		SWE = {
 			minor = yes
-			history = "SWE_GATHERING_STORM_DESC"
+			history = SWE_GATHERING_STORM_DESC
 			ideology = democratic
 			available = { has_dlc = "Arms Against Tyranny" } 
 			ideas = {
@@ -680,9 +685,9 @@ bookmarks = {
 				SWE_king_in_council
 			}
 		}
-		"NOR"={
+		NOR = {
 			minor = yes
-			history = "NOR_GATHERING_STORM_DESC"
+			history = NOR_GATHERING_STORM_DESC
 			ideology = democratic
 			ideas = {
 				NOR_complacent_cabinet_ns
@@ -692,10 +697,10 @@ bookmarks = {
 			focuses = {
 				NOR_continue_nygaardsvold_government
 				NOR_the_stumbling_storting
-				NOR_arrest_quisling			
+				NOR_drobak_coastal_fort		
 			}
 		}
-		"DEN"={
+		DEN = {
 			minor = yes
 			history = DEN_GATHERING_STORM_DESC
 			ideology = democratic
@@ -710,7 +715,22 @@ bookmarks = {
 				DEN_pan_scandinavianism
 			}
 		}
-		"BRA"={
+		ICE = {
+			minor = yes
+			history = ICE_GATHERING_STORM_DESC
+			ideology = democratic
+			available = { has_dlc = "Arms Against Tyranny" } 
+			ideas = {
+				ICE_christian_x
+				ICE_the_icelandic_economy_modifier_fake_idea
+			}
+			focuses = {
+				ICE_the_kingdom_of_iceland
+				ICE_the_viking_spirit
+				ICE_republicanism
+			}
+		}
+		BRA = {
 			minor = yes
 			history = BRA_GATHERING_STORM_DESC
 			ideology = democratic
@@ -729,7 +749,7 @@ bookmarks = {
 				BRA_end_the_state_of_emergency
 			}
 		}
-		"CHL"={
+		CHL = {
 			minor = yes
 			history = CHL_GATHERING_STORM_DESC
 			ideology = democratic
@@ -745,7 +765,7 @@ bookmarks = {
 				CHL_avenge_the_pacification_of_araucania
 			}
 		}
-		"ARG"={
+		ARG = {
 			minor = yes
 			history = ARG_GATHERING_STORM_DESC
 			ideology = neutrality
@@ -825,19 +845,68 @@ bookmarks = {
 				COG_the_kingdom_of_kongo_focus
 			}
 		}
-		"LUX"={
+		PER = {
+			minor = yes
+			history = PER_GATHERING_STORM_DESC
+			ideology = neutrality
+			available = { has_dlc = "Graveyard of Empires" }
+			ideas = {
+				PER_anglo_iranian_oil_ns
+				PER_homeland_not_fall_idea
+				PER_imperial_expansionism_idea
+			}
+			focuses = {
+				PER_fight_for_iran
+				PER_glory_of_cyrus
+				PER_strengthen_iranian_parliament
+			}
+		}
+		AFG = {
+			minor = yes
+			history = "AFG_GATHERING_STORM_DESC" #might need an edit because it is not very good at the moment.
+			ideology = neutrality
+			available = { has_dlc = "Graveyard of Empires" }
+			ideas = {
+				AFG_mohammad_zahir_shah_ns
+				AFG_turkish_military_mission
+				AFG_pashtunwali
+			}
+			focuses = {
+				AFG_biding_our_time
+				AFG_expand_the_kings_powerbase
+				AFG_contact_amanullah_loyalists
+			}
+		}
+		IRQ = {
+			minor = yes
+			history = "IRQ_GATHERING_STORM_DESC"
+			ideology = neutrality
+			available = { has_dlc = "Graveyard of Empires" }
+			ideas = {
+				IRQ_golden_square
+				IRQ_anglo_iraqi_treaty
+				IRQ_agrarian_society
+			}
+			focuses = {
+				IRQ_rally_behind_the_hashemite_dynasty
+				IRQ_bakr_sidqi_coup
+				#Replace this with KUR focus
+				IRQ_decouple_from_the_pound
+			}
+		}
+		LUX ={
 			minor = yes
 			history = LUX_GATHERING_STORM_DESC
 			ideology = democratic
 			ideas = {
-				LUX_army_limits_fake
+				LUX_army_limits_ns
 				LUX_charlotte_wilhelmine_dummy
 				LUX_the_great_depression_dummy
 			}
 			focuses = {			
 				LUX_Benilux_quastion
 				LUX_confirm_neutrality
-				LUX_fascism_coup_prepere
+				LUX_damian_kratzenberg_coup
 			}
 		}
 		effect = {

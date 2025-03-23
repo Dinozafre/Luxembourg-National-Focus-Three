@@ -8,3 +8,13 @@ technology_sharing_group = {
 		has_government = fascism	
 	}
 }
+technology_sharing_group = {
+	id = LUX_benelux_tech_sharing_group
+	name = technology_sharing
+	desc = technology_sharing_desc
+	picture = GFX_technology_sharing_default
+	research_sharing_per_country_bonus = 0.25
+	available = {
+		is_in_faction = yes	
+	}
+}

@@ -52,10 +52,18 @@ ideas = {
 					ROOT = {
 					    give_guarantee = PREV
 					}
+					add_ai_strategy = {
+						type = befriend
+						id = ROOT
+						value = 50
+					}
 				}
 				add_to_array = {
-					array = gloval.friend_pact_member
+					array = friend_pact_member
 					value = ROOT
+				}
+				set_variable = {
+					fp_member = ROOT
 				}
 			}
 			on_remove = {
@@ -70,7 +78,8 @@ ideas = {
 						hours = 3
 					}
 				}
-				clear_array = gloval.friend_pact_member
+				clear_array = friend_pact_member
+				clear_variable = fp_member
 			}
 			picture = generic_deal_with_the_devil2
 		}

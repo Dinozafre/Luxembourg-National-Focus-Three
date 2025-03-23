@@ -6,6 +6,9 @@ european_union_cat = {
 				capital_scope = {
 					is_on_continent = europe
 				}
+				NOT = {
+					is_in_faction_with = ROOT
+				}
 			}
 		 }
 		 available = {
@@ -15,19 +18,60 @@ european_union_cat = {
 					is_core_of = FROM
 				}
 			}
+			is_faction_leader = yes
 		 }
 		 target_root_trigger = {
-			original_tag = LUX
+			
 		 }
 		 visible = {
 			original_tag = LUX
+			is_faction_leader = yes
 		 }
 		 complete_effect = {
 			
 		 }
-		 remove_effect = {
-			
+		 cancel_trigger = {
+			OR = {
+			    has_war_with = FROM
+				NOT = {
+					country_exists = FROM
+				}
+				has_subject = FROM
+				is_in_faction_with = FROM
+			}
 		 }
-		 days_remove = 14
+		 remove_effect = {
+			FROM = {
+				country_event = {
+					id = generic.5
+					random_hours = 24
+					days = 1
+				}
+			}
+		 }
+		 cost = 30
+		 days_remove = 30
 	}
+LUX_integration_as_puppet_member_eu = {
+   visible = {
+	original_tag = LUX
+   }
+   target_trigger = {
+	  FROM = {
+		is_in_faction_with = ROOT
+	  }
+   }
+   available = {
+	
+   }
+   remove_effect = {
+	 FROM = {
+		country_event = {
+			id = NSB_soviet_foreign_politics_events.1
+			random_hours = 6
+			days = 1
+		}
+	 }
+   }
+}
 }

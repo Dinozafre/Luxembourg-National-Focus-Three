@@ -1,15 +1,13 @@
 LUX_general_election_1937_category = {
-	priority = 100
+	priority = 150
 	icon = LUX_elections_1937
 
 	picture = GFX_decision_cat_picture_concessions_to_the_trade_unions
 
 	allowed = {
 		tag = LUX
-		NOT = {
-			has_country_flag = LUX_elections_1937_flag
-		}
 	}
+#	scripted_gui = lux_1937_election_decision_ui
 }
 LUx_oposition_democratic_category = {
 	priority = 10
@@ -21,16 +19,14 @@ LUx_oposition_democratic_category = {
 		tag = LUX
 	}
 }
-LUX_communist_uprising_earupe = {
-	
-}
 LUX_shut_down_communist_category = {
 	priority = 40
 	icon = generic_communism
 
 	picture = GFX_decision_cat_picture_fatherland_front
-
+    #cut it
 	allowed = {
+		always = no
 		tag = LUX
 	}
 }
@@ -58,12 +54,8 @@ LUX_luximburg_communism_uprising_category = {
 	allowed = {
 		tag = LUX
 	}
-}
-LUX_foreign_policy = {
-	priority = 50
-	icon = generic_foreign_policy
-	allowed = {
-		tag = LUX
+	visible = {
+		always = no
 	}
 }
 LUX_anarchist_uprisng_category = {
@@ -77,6 +69,7 @@ LUX_buy_air_category = {
 	priority = 40
 	icon = generic_trade
 	allowed = {
+		always = no
 		tag = LUX
 	}
 }
@@ -95,15 +88,16 @@ LUX_liberation_war_category = {
 	}
 }
 LUX_debug_category = {
-	priority = 150
+	priority = 200
 	#icon = NOR_fascist_deploy_prep
 	allowed = {
 		tag = LUX
+		is_debug = yes
 	}
 }
 LUX_anarchist_general_category = {
 	priority = 100
-	icon = NOR_fascist_deploy_prep
+	icon = general_anarchist
 	allowed = {
 		tag = LUX
 	}
@@ -126,7 +120,7 @@ LUX_army_dicisions_category = {
     icon = military_operation
 	priority = 100
 	allowed = {
-		tag = LUX
+		always = no
 	}
 }
 LUX_workers_revolution_category = {
@@ -136,11 +130,15 @@ LUX_workers_revolution_category = {
 	allowed = {
 		tag = LUX
 	}
+	visible = {
+		always = no
+	}
 }
 LUX_revolution_goverment_category = {
 	icon = generic_communism
 	priority = 100
 	allowed = {
+		always = no
 		tag = LUX
 	}
 }
@@ -153,6 +151,9 @@ LUX_integration_into_commune_category = {
 }
 form_great_luxembourg_category = {
 	icon = generic_political_actions
+
+	picture = GFX_decision_category_picture_form_great_luxembourg
+
 	priority = 70
 	allowed = {
 		always = yes
@@ -165,4 +166,30 @@ european_union_cat = {
 	allowed = {
 		always = yes
 	}
+}
+border_conflict_category = {
+	icon = GFX_decision_category_usa_intervention_mandate
+	priority = 140
+	allowed = {
+		always = yes
+	}
+}
+generic_trade_cat = {
+	icon = GFX_decision_category_generic_trade
+	allowed = {
+		always = yes
+	}
+	priority = 65
+}
+LUX_revolutionary_general_staff_cat = { #for communists uprising etc dicisions
+	icon = GFX_decision_category_GER_war_planning
+	picture = GFX_decision_cat_picture_operational_planning
+	allowed = {
+		original_tag = LUX
+	}
+	visible = {
+		has_government = communism
+		has_completed_focus = LUX_people_victory
+	}
+	priority = 75
 }

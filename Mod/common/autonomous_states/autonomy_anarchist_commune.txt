@@ -1,6 +1,6 @@
 autonomy_state = {
 	id = autonomy_anarchist_commune
-	default = no
+	default = yes
 	use_overlord_color = yes
 	
 	min_freedom_level = 0.0			#Puts it as 0.2 on the autonomy level scale, which is the same as an integrated puppet.
@@ -9,7 +9,7 @@ autonomy_state = {
 	manpower_influence = 0.9
 	
 	rule = {
-		can_not_declare_war = yes
+		can_not_declare_war = no
 		can_decline_call_to_war = yes
 		units_deployed_to_overlord = no
 		can_be_spymaster = no
@@ -48,6 +48,7 @@ autonomy_state = {
 		OVERLORD = {
 			original_tag = LUX
 			LUX_anarchist_ruling = yes
+			has_completed_focus = LUX_commune_theory
 		}
 	}
 
@@ -55,6 +56,7 @@ autonomy_state = {
 		autonomy_anarchist_commune
 	}
 	can_take_level = {
+		always = no
 	}
 
 	can_lose_level = {

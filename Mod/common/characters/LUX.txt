@@ -31,7 +31,7 @@ characters={
 		country_leader = {
 			ideology = socialism
 			traits = {
-				cornered_fox
+				headstrong
 			}
 		}
 		name = LUX_pierre_dupong
@@ -46,8 +46,8 @@ characters={
 		name = LUX_charles_marx
 		portraits = {
 			civilian = {
-				large = GFX_portrait_LUX_charles_marx
-				small = GFX_portrait_LUX_charles_marx_small
+				large = GFX_portrait_LUX_charles_marx_mod
+				small = GFX_portrait_LUX_charles_marx_small_mod
 			}
 		}
 		country_leader = {
@@ -79,8 +79,8 @@ characters={
 		name = LUX_damian_kratzenberg
 		portraits = {
 			civilian = {
-				large = GFX_portrait_LUX_damian_kratzenberg
-				small = GFX_portrait_LUX_damian_kratzenberg_small
+				large = GFX_portrait_LUX_damian_kratzenberg_mod
+				small = GFX_portrait_LUX_damian_kratzenberg_small_mod
 			}
 		}
 		country_leader = {
@@ -497,7 +497,6 @@ characters={
 			idea_token = LUX_Manuel_Daniel
 			allowed  = {
 					original_tag  = LUX
-					has_completed_focus = LUX_centrist_goverment
 				}
 				traits  = {
 					marxsism_revolutioner 
@@ -681,12 +680,6 @@ characters={
 				  has_government  = democratic
 			   }
 			}
-			on_add = {
-                set_country_flag = is_humbert_den_as_advisor_activated
-			}
-			on_remove = {
-				clr_country_flag = is_humbert_den_as_advisor_activated
-			}
 			cost = 125
 			traits = {
 				LUX_fascism_sympathizes
@@ -809,19 +802,6 @@ characters={
 
 		}
 	}
-	### scientists #####
-	#Théodora Lina
-	LUX_theodora_lina = {
-		name = LUX_theodora_lina
-		scientist = {
-			visible = {
-				has_sompleted_focus = LUX_development_scince
-			}
-			traits = {
-				
-			}
-		}
-	}
 	#anarchist counciles
 	LUX_anarchist_council_propaganda = {
         name = LUX_council_anarchist_propaganda_trait
@@ -837,6 +817,9 @@ characters={
 			cost = 50
 			allowed = {
 				original_tag = LUX
+			}
+			available = {
+				has_completed_focus = LUX_cancel_national_state
 			}
 			visible = {
 				has_anarchist_government = yes
@@ -858,6 +841,9 @@ characters={
 			allowed = {
 				original_tag = LUX
 			}
+			available = {
+				has_completed_focus = LUX_cancel_national_state
+			}
 			visible = {
 				has_anarchist_government = yes
 			}
@@ -877,6 +863,9 @@ characters={
 			cost = 50
 			allowed = {
 				original_tag = LUX
+			}
+			available = {
+				has_completed_focus = LUX_commune_proctise
 			}
 			visible = {
 				has_anarchist_government = yes
@@ -898,10 +887,87 @@ characters={
 			allowed = {
 				original_tag = LUX
 			}
+			available = {
+				has_completed_focus = LUX_cancel_national_state
+			}
 			visible = {
 				has_anarchist_government = yes
 			}
 		}
 	}
-	
+	#war propagandist
+	LUX_régi_maël  ={
+		name = "Régis Maël"
+		portraits = {
+			civilian = {
+				small = "GFX_portrait_LUX_regis_mael_small_mod"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = LUX_régi_maël
+			traits = { LUX_war_propagandist }
+			cost = 175
+			allowed = {
+				original_tag = LUX
+			}
+			visible = {
+				always = yes
+			}
+            available = {
+				OR = {
+					threat > 0.3
+					has_war_support > 0.1
+				}
+			}
+		}
+	}
+	LUX_celia_jeanine = {
+		name = "Célia Jeanine"
+		portraits = {
+			civilian = {
+				small = "GFX_portrait_LUX_celia_jeanin_small"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = LUX_celia_jeanine
+			traits = { LUX_minister_of_education_trait }
+			cost = 125
+			allowed = {
+				original_tag = LUX
+			}
+			visible = {
+				always = yes
+			}
+            available = {
+				NOT = {
+				    has_country_leader_ideology = anarchist_communism 
+					has_country_leader_ideology = anarchism 
+				}
+				has_completed_focus = LUX_focus_on_education
+			}
+		}
+	}
+	LUX_fascist_provisional_government = {
+		name = "Provisoresch fascistesch Regierung"
+		portraits = {
+			civilian = {
+				large = "GFX_LUX_army_junta"
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			traits = { military_government }
+			id = -1
+		}
+	}
+	LUX_industrials = { #neutality, unlocks if fails capital missions
+		name = LUX_industrials
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_LUX_industrials"
+			}
+		}
+	}
 }

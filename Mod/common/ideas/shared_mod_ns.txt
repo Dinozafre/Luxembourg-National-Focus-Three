@@ -1,153 +1,5 @@
 ideas = {
     country = {
-		### benelux_ideas ###
-        BEL_neatrality_guarantees = {
-			allowed = {
-				always = yes
-			}
-			modifier = {
-				ai_focus_peaceful_factor = 0.25
-				drift_defence_factor = 0.15
-			}
-			picture = generic_pp_unity_bonus
-		}
-		benelux_shared_friend_pact = {
-            allowed = {
-				always = yes
-			}
-			modifier = {
-			#	license_purchase_cost = -0.80
-			#	license_production_speed = 0.25
-			#	surrender_limit = 0.10
-			#	max_command_power = 25
-			#	defensive_war_stability_factor = 0.10
-				guarantee_tension = -0.50
-				join_faction_tension = -0.75
-				ai_focus_defense_factor = 0.25
-				ai_desired_divisions_factor = 0.10
-				army_core_defence_factor = 0.05
-				custom_modifier_tooltip = benelux_friend_pact_tt
-			}
-			cancel = {
-				OR =  {
-					any_enemy_country = {
-						has_country_flag = in_friend_pact_flag
-					}
-					#no members of pact
-					all_other_country = {
-						NOT = {
-							has_idea = benelux_shared_friend_pact
-						}
-						NOT = {
-							has_idea = benelux_shared_friend_pact_member
-						}
-					}
-				}
-			}
-			on_add = {
-				set_country_flag = in_friend_pact_flag
-				every_country = {
-					limit = {
-						has_country_flag = in_friend_pact_flag
-					}
-					ROOT = {
-					    give_guarantee = PREV
-					}
-				}
-				add_to_array = {
-					array = gloval.friend_pact_member
-					value = ROOT
-				}
-			}
-			on_remove = {
-				clr_country_flag = in_friend_pact_flag
-				every_possible_country = {
-					limit = {
-						has_country_flag = in_friend_pact_flag
-					}
-					country_event = {
-						id = benelux_friend_pact_events.4
-						days = 1
-						hours = 3
-					}
-				}
-				clear_array = gloval.friend_pact_member
-			}
-			picture = generic_deal_with_the_devil2
-		}
-		benelux_shared_friend_pact_member = {
-            allowed = {
-				always = yes
-			}
-			modifier = {
-			#	license_purchase_cost = -0.75
-			#	license_production_speed = 0.20
-			#	surrender_limit = 0.25
-			#	max_command_power = 25
-			#	defensive_war_stability_factor = 0.10
-				guarantee_tension = -0.50
-				join_faction_tension = -0.75
-				ai_focus_defense_factor = 0.25
-				ai_desired_divisions_factor = 0.10
-				army_core_defence_factor = 0.05
-				custom_modifier_tooltip = benelux_friend_pact_tt
-			}
-			cancel = {
-				any_enemy_country = {
-					has_country_flag = in_friend_pact_flag
-				}
-				#no members of pact
-				all_other_country = {
-					NOT = {
-						has_idea = benelux_shared_friend_pact
-					}
-					NOT = {
-						has_idea = benelux_shared_friend_pact_member
-					}
-				}
-			}
-			on_add = {
-				set_country_flag = in_friend_pact_flag
-				every_country = {
-					limit = {
-						has_country_flag = in_friend_pact_flag
-					}
-					ROOT = {
-					   give_guarantee = PREV
-					}
-				}
-			}
-			on_remove = {
-				clr_country_flag = in_friend_pact_flag
-				every_possible_country = {
-					limit = {
-						has_country_flag = in_friend_pact_flag
-					}
-					country_event = {
-						id = benelux_friend_pact_events.4
-						days = 1
-						hours = 3
-					}
-					ROOT = { 
-						diplomatic_relation = {
-							country = PREV
-							relation = guarantee
-							active = no
-						}
-					}
-				}
-			}
-			picture = generic_deal_with_the_devil2
-		}
-		benelux_shared_reseaches = {
-			allowed = {
-				always = yes
-			}
-            modifier = {
-				
-			}
-			picture = generic_research_bonus
-		}
 		### anarchist ###
 		shared_anarsihst_revolution_ns = {
 			allowed = {
@@ -181,6 +33,43 @@ ideas = {
 				neutrality_acceptance = 50
 			}
 			picture = scw_intervention_republicans_focus
+		}
+		shared_anarchist_help_in_liberation_ns = {
+			modifier = {
+				autonomy_gain = 0.8
+				stability_weekly = -0.010
+				neutrality_drift = 0.03
+				resistance_activity = 0.05
+				resistance_target = 0.10
+				political_power_factor = 0.05
+				custom_modifier_tooltip = shared_anarchist_help_in_liberation_ns_when_remove_tt
+			}
+			picture = chi_war_of_resistance2
+			cancel = {
+				is_subject = no
+			}
+			on_add = {
+				set_country_flag = anarchist_influance_flag
+			}
+			on_remove = {
+				leave_faction = yes
+				clr_country_flag = anarchist_influance_flag
+		    }
+		}
+		shared_anarchist_support ={
+
+		}
+		RHI_separatist_rising = {
+			picture = MEX_politicised_army_2
+			modifier = {
+				army_core_defence_factor = 0.15
+				army_defence_factor = 0.05
+				army_core_attack_factor = 0.1
+				surrender_limit = 0.75
+			}
+			cancel = {
+				has_war = no
+			}
 		}
 	}
 }
