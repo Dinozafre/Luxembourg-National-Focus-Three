@@ -128,9 +128,7 @@ country_event = {
 	option = {
 		#why not
 		name = LUX_economy.5.a
-		set_variable = {
-			allies_leader_var = THIS
-		}
+		set_country_flag = has_trade_agreetment_with_LUX
 		FROM = {
 			country_event = {
 				id = LUX_economy.6
@@ -167,9 +165,7 @@ country_event = {
 	option = {
 		#why not
 		name = LUX_economy.5.a
-		set_variable = {
-			axis_leader_var = THIS
-		}
+		set_country_flag = has_trade_agreetment_with_LUX
 		FROM = {
 			country_event = {
 				id = LUX_economy.7

@@ -13,8 +13,7 @@ country_event = {
 	option = {
 		name = LUX_anarchist_events.0.a
 		set_country_flag = anarchist_win_refenrum_flag
-		set_cosmetic_tag = LUX_anarchist_neatrality
-		add_stability = -0.1
+		complete_national_focus = LUX_no_gods_no_masters
 	}
 	trigger = {
 	}
@@ -83,7 +82,7 @@ country_event = {
 			base = 5
 			modifier = {
 			   add = 5 
-			   has_goverment = FROM
+			   has_government = FROM
 			}
 			modifier = {
 				add = 5
@@ -159,7 +158,6 @@ country_event = {
         FROM = {
 			add_ideas = communist_influence
 		}
-		unlock_decision_tooltip = LUX_anarchist_uprisng_in_INS
 	}
 	trigger = {
 	}
@@ -328,8 +326,6 @@ country_event = {
 					}
 					add_ideas = shared_anarsihst_revolution_ns
 					set_cosmetic_tag = LUX_shared_anarshist
-					keep_political_leader = yes
-					keep_political_party_members = yes
 				}
 				keep_political_leader = yes
 				keep_political_party_members = yes
@@ -529,6 +525,26 @@ country_event = {
         add_timed_idea = {
 			idea = shared_anarshist_propaganda
 			days = 180
+		}
+	}
+}
+#anarchist influence - subject declariation of independence
+country_event = {
+	id = LUX_anarchist_events.15
+	title = LUX_anarchist_events.15.t
+	desc = LUX_anarchist_events.15.desc
+	picture = GFX_report_event_picture_generic_protest
+	is_triggered_only = no
+	trigger = {
+		has_idea = shared_anarchist_help_in_liberation_ns
+		compare_autonomy_progress_ratio > 0.7
+		is_subject = yes
+	}
+    option = {
+		#time to declare independence !
+		name = LUX_anarchist_events.15.a
+		OVERLORD = {
+			end_puppet = PREV
 		}
 	}
 }
