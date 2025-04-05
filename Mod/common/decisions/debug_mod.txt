@@ -6,10 +6,6 @@ LUX_debug_category = {
 				var = global.joseph_besh_support
 			}
 		}
-		visible = {
-			is_debug = yes
-			original_tag = LUX
-		}
 	}
 	LUX_add_var_election_support_for_pierre_dugong = {
 		complete_effect = {
@@ -17,10 +13,6 @@ LUX_debug_category = {
 				value = 999
 				var = global.pierre_dugong_support
 			}
-		}
-		visible = {
-			is_debug = yes
-			original_tag = LUX
 		}
 	}
     LUX_set_trotsky_as_leader_NOR = {
@@ -38,10 +30,6 @@ LUX_debug_category = {
 	   available = {
 		   has_character = NOR_lev_trotsky
 	   }
-	   visible = {
-		is_debug = yes
-		original_tag = LUX
-	}
 	}
 	LUX_set_trotsky_as_leader_MEX = {
 		complete_effect = {
@@ -57,10 +45,6 @@ LUX_debug_category = {
 		}
 		available = {
 		   has_character = MEX_leon_trotsky
-		}
-		visible = {
-			is_debug = yes
-			original_tag = LUX
 		}
 	 }
      LUX_set_anarchist_as_leader = {
@@ -99,10 +83,75 @@ LUX_debug_category = {
 			}
 		  }
 	}
-    debug_LUX_enable_exile_branch = {
+    LUX_enable_exile_branch = {
 		complete_effect = {
 			set_country_flag = in_exile_flag
 			mark_focus_tree_layout_dirty = yes
+		}
+	}
+	LUX_send_51_owner_ulitimatum = {
+		visible = {
+			51 = {
+                NOT = {
+					is_owned_and_controlled_by = root
+				}
+			}
+		}
+		complete_effect = {
+			every_other_country = {
+			    limit = {
+					owns_state = 51
+					controls_state = 51
+				}
+				country_event = {
+					id = LUX_diplomacy.57
+					hours = 6
+				}
+				set_country_flag = demand_51_flag
+		   }
+		}
+	}
+	LUX_send_42_owner_ulitimatum = {
+		visible = {
+			42 = {
+                NOT = {
+					is_owned_and_controlled_by = root
+				}
+			}
+		}
+		complete_effect = {
+			every_other_country = {
+			    limit = {
+				    owns_state = 42
+				    controls_state = 42
+			    }
+			    country_event = {
+				    id = LUX_diplomacy.57
+				    hours = 6
+			    }
+			    set_country_flag = demand_42_flag
+		    }
+		}
+	}
+	LUX_send_19_owner_ultimatum = {
+		visible = {
+			29 = {
+                NOT = {
+					is_owned_and_controlled_by = root
+				}
+			}
+		}
+		complete_effect = {
+			every_other_country = {
+				limit = {
+					controls_state = 29
+					owns_state = 29
+				}
+				country_event = {
+					id = LUX_political_events.10
+					hours = 6
+				}
+			}
 		}
 	}
 }

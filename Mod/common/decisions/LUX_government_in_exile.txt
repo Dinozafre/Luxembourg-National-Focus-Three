@@ -97,67 +97,74 @@ governments_in_exile = {
 	   }
 	   on_map_mode = map_only
 	   complete_effect = {
-		division_template = {
-			name = "Miliz am Exil"
-			is_locked = no
-			division_names_group = LUX_INF_01
-			priority = 1
-			regiments = {
-					militia = {
-							x = 0
-							y = 0
-						}
-					militia = {
-							x = 0
-							y = 1
-						}
-					militia = {
-							x = 0
-							y = 2
-						}
-						militia = {
-							x = 0
-							y = 3
-						}
-						militia = {
-							x = 1
-							y = 0
-						}
-					militia = {
-							x = 1
-							y = 1
-						}
-					militia = {
-							x = 1
-							y = 2
-						}
-						militia = {
-							x = 1
-							y = 3
-						}
-						militia = {
-							x = 2
-							y = 0
-						}
-					militia = {
-							x = 2
-							y = 1
-						}
-					militia = {
-							x = 2
-							y = 2
-						}
-						militia = {
-							x = 2
-							y = 3
-						}
+		if = {
+			limit = {
+				NOT = {
+                   has_template = "Miliz am Exil"
 				}
-			support = {
+			}
+			division_template = {
+				name = "Miliz am Exil"
+				is_locked = no
+				division_names_group = LUX_INF_01
+				priority = 1
+				regiments = {
+					militia = {
+						x = 0
+						y = 0
+					}
+					militia = {
+						x = 0
+						y = 1
+					}
+					militia = {
+						x = 0
+						y = 2
+					}
+					militia = {
+						x = 0
+						y = 3
+					}
+					militia = {
+						x = 1
+						y = 0
+					}
+					militia = {
+						x = 1
+						y = 1
+					}
+				    militia = {
+						x = 1
+						y = 2
+					}
+					militia = {
+						x = 1
+						y = 3
+					}
+					militia = {
+						x = 2
+						y = 0
+					}
+					militia = {
+						x = 2
+						y = 1
+					}
+				    militia = {
+						x = 2
+						y = 2
+					}
+					militia = {
+						x = 2
+						y = 3
+					}
+				}
+				support = {
 					engineer = {
-							x = 0
-							y = 0
-						}
+						x = 0
+						y = 0
+					}
 				}
+			}
 		}
 	   }
 	   remove_effect = {
@@ -233,7 +240,7 @@ governments_in_exile = {
 			has_completed_focus = LUX_volunteers_from_host
 		}
 		modifier = {
-			exiled_government_weekly_manpower = 100
+	#		exiled_government_weekly_manpower = 100
 		}
 		available = {
 			has_capitulated = yes
@@ -242,9 +249,9 @@ governments_in_exile = {
 			
 		}
 		remove_effect = {
-			add_manpower = 750
+			add_manpower = 500
 		}
-		cost = 50
+		cost = 125
 		days_remove = 30
 	}
 	LUX_prepare_uprising_in_cores = {

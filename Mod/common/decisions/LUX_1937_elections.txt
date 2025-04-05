@@ -131,6 +131,13 @@ LUX_general_election_1937_category = {
 		   }  
 		   has_active_mission = LUX_elections_1937_mission
 	   }
+	   ai_will_do = {
+		base = 2
+		modifier = {
+			LUX_is_autocracy_ai = yes
+			add = 30
+		}
+	 }
 	   available = {
 		 NOT = {
 			has_country_flag = LUX_elections_1937_flag
@@ -142,6 +149,7 @@ LUX_general_election_1937_category = {
 	   complete_effect = {
 
 	   }
+	   ai_hint_pp_cost = 15
 	   days_remove = 35
 	   days_re_enable = 7
 	   cost = 25
@@ -156,18 +164,27 @@ LUX_general_election_1937_category = {
 		   }  
 		   has_active_mission = LUX_elections_1937_mission
 	   }
+	   ai_will_do = {
+		  base = 2
+		  modifier = {
+			  LUX_is_autocracy_ai = yes
+			  add = 30
+		  }
+	   }
 	   available = {
 		 NOT = {
 			has_country_flag = LUX_elections_1937_flag
 		 }
 		 has_active_mission = LUX_elections_1937_mission
 	   }
+
 	   remove_effect = {
 		   add_support_for_condidate_1 = yes
 	   }
 	   complete_effect = {
 
 	   }
+	   ai_hint_pp_cost = 15
 	   days_remove = 30
 	   days_re_enable = 7
 	   cost = 30
@@ -185,7 +202,6 @@ LUX_general_election_1937_category = {
 			hidden_trigger = {
 				always = no
 			}
-
 		}
 		fire_only_once = yes
 		activation = {
@@ -246,11 +262,22 @@ LUX_general_election_1937_category = {
 		visible = {
 			original_tag = LUX
 			has_completed_focus = LUX_new_democratic_leader
-			 has_active_mission = LUX_elections_1937_mission
+			has_active_mission = LUX_elections_1937_mission
+			always = no
 		}
 		available = {
 		    NOT = {
 				has_country_flag = LUX_elections_1937_flag
+			}
+		}
+		ai_will_do = {
+			base = 2
+			modifier = {
+				OR = {
+					LUX_democratic_alt_ai = yes
+					LUX_historical_ai = yes
+				}
+				add = 100
 			}
 		}
 		remove_effect = {
@@ -259,6 +286,7 @@ LUX_general_election_1937_category = {
 		complete_effect = {
 
 		}
+		ai_hint_pp_cost = 10
 		days_remove = 35
 		cost = 35
 		icon = generic_political_address
@@ -267,7 +295,17 @@ LUX_general_election_1937_category = {
 		visible = {
 			original_tag = LUX
 			has_completed_focus = LUX_new_democratic_leader
-			 has_active_mission = LUX_elections_1937_mission
+			has_active_mission = LUX_elections_1937_mission
+		}
+		ai_will_do = {
+			base = 2
+			modifier = {
+				OR = {
+					LUX_democratic_alt_ai = yes
+					LUX_historical_ai = yes
+				}
+				add = 100
+			}
 		}
 		available = {
 		    NOT = {
@@ -280,6 +318,7 @@ LUX_general_election_1937_category = {
 		complete_effect = {
 
 		}
+		ai_hint_pp_cost = 15
 		days_remove = 30
 		cost = 30
 		icon = generic_political_address
@@ -289,6 +328,16 @@ LUX_general_election_1937_category = {
 			original_tag = LUX
 			has_completed_focus = LUX_new_democratic_leader
 			 has_active_mission = LUX_elections_1937_mission
+		}
+		ai_will_do = {
+			base = 2
+			modifier = {
+				OR = {
+					LUX_democratic_alt_ai = yes
+					LUX_historical_ai = yes
+				}
+				add = 5
+			}
 		}
 		available = {
 		    NOT = {
@@ -301,6 +350,7 @@ LUX_general_election_1937_category = {
 		complete_effect = {
 			set_country_flag = is_acting_prapaganda_in_elections_1937_flag
 		}
+		ai_hint_pp_cost = 10
 		days_remove = 30
 		cost = 20
 		icon = generic_political_address
@@ -361,46 +411,20 @@ LUX_general_election_1937_category = {
 		}
 		ai_will_do = {
 			base = 0
+			modifier = {
+				check_variable = {
+					global.pierre_dugong_support > global.joseph_besh_support
+				}
+				add = 10
+			}
+			modifier = {
+				LUX_is_autocracy_ai = yes
+				add = 2
+			}
 		}
-		cost = 200
+		ai_hint_pp_cost = 50
+		cost = 150
 		days_remove = 30
         fire_only_once = yes
 	 }
-	 LUX_ai_special_dicision_give_votes_for_pierre_dupong = {
-		visible = {
-			original_tag = LUX
-			is_ai = yes
-			has_active_mission = LUX_elections_1937_mission
-		}
-		available = {
-			always = yes
-		}
-		complete_effect = {
-			add_to_variable = {
-				value = 999
-				var = global.pierre_dugong_support
-			}
-		}
-		ai_will_do = {
-			base = 0
-			modifier = {
-				add = 10
-				OR = {
-					is_historical_focus_on = yes
-					has_game_rule = {
-						rule = LUX_AI_BEHAVIOR
-						option = DEFAULT
-					}
-					has_game_rule = {
-						rule = LUX_AI_BEHAVIOR
-						option = HISTORICAL
-					}
-					has_game_rule = {
-						rule = LUX_AI_BEHAVIOR
-						option = DEMOCRATIC
-					}
-				}
-			}
-		}
-	}
 }

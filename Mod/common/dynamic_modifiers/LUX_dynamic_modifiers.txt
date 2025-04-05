@@ -321,4 +321,31 @@ LUX_reinish_separatism = {
    }
    resistance_target = global.resistance_target_reinish_separatism_modifier #0.1
    resistance_activity = global.resistance_activity_reinish_separatism_modifier #0.05
+   resistance_growth = global.resistance_growth_reinish_separatism_modifier # 0.1
+   compliance_growth = global.compliance_growth_reinish_separatism_modifier # -0.05
+   resistance_damage_to_garrison = 0.3
+}
+LUX_goverment_in_exile_dm = {
+	icon = GFX_idea_LUX_goverment_in_exile
+	dockyard_donations = dockyard_donations_LUX_goverment_in_exile_var # 0
+	exile_manpower_factor = exile_manpower_LUX_goverment_in_exile_factor_var # 0
+	industrial_factory_donations = industrial_factory_donations_LUX_goverment_in_exile_var # 0
+	legitimacy_daily = legitimacy_daily_LUX_goverment_in_exile_var # 0
+	legitimacy_gain_factor = legitimacy_gain_factor_LUX_goverment_in_exile_var # 0
+	military_factory_donations = military_factory_donations_LUX_goverment_in_exile_var # 0
+	attack_bonus_against = attack_bonus_against_LUX_goverment_in_exile_var # 0
+	attack_bonus_against_cores = attack_bonus_against_cores_LUX_goverment_in_exile_var # 0
+	army_strength_factor = army_strength_factor_LUX_goverment_in_exile_var # 0
+	army_core_defence_factor = army_core_defence_factor_LUX_goverment_in_exile_var # 0.02
+	army_core_attack_factor = army_core_attack_factor_LUX_goverment_in_exile_var # 0.05
+	resistance_damage_to_garrison_on_our_occupied_states = resistance_damage_to_garrison_on_our_occupied_states_LUX_goverment_in_exile_var # 0
+	resistance_decay_on_our_occupied_states = resistance_decay_on_our_occupied_states_LUX_goverment_in_exile_var # 0
+	resistance_growth_on_our_occupied_states = resistance_growth_on_our_occupied_states_LUX_goverment_in_exile_var # 0
+	resistance_target_on_our_occupied_states = resistance_target_on_our_occupied_states_LUX_goverment_in_exile_var # 0
+	compliance_growth_on_our_occupied_states = compliance_growth_on_our_occupied_states_LUX_goverment_in_exile_var # 0
+	modifier_army_sub_unit_militia_attack_factor = modifier_army_sub_unit_militia_attack_factor_LUX_goverment_in_exile_var # 0
+	modifier_army_sub_unit_militia_defence_factor = modifier_army_sub_unit_militia_defence_factor_LUX_goverment_in_exile_var # 0
+	modifier_army_sub_unit_militia_org_recovery_cap_factor = modifier_army_sub_unit_militia_org_recovery_cap_factor_LUX_goverment_in_exile_var # 0
+	modifier_army_sub_unit_militia_speed_factor = modifier_army_sub_unit_militia_speed_factor_LUX_goverment_in_exile_var # 0
+	exiled_government_weekly_manpower = exiled_government_weekly_manpower_LUX_goverment_in_exile_var # 0
 }

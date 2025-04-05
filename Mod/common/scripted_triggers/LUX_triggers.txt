@@ -1,64 +1,4 @@
 
-LUX_controlled_belgum = {
-	custom_trigger_tooltip = {
-		tooltip = form_eu_belgium_required_states_tt
-		controls_state = 6
-		controls_state = 34
-		controls_state = 977
-		controls_state = 980
-	}
-}
-LUX_controlled_niderlands = {
-	custom_trigger_tooltip = {
-		tooltip = form_eu_netherlands_required_states_tt
-		controls_state = 7
-		controls_state = 35
-		controls_state = 36
-	}
-}
-LUX_has_oppossition = {
-	custom_trigger_tooltip = {
-		tooltip = lux_opossittion_tt
-        has_idea = lux_democracy_opossition
-	}
-}
-LUX_belgum_controlled_core_state = {
-	custom_trigger_tooltip = {
-		tooltip = belgum_controlled_core_state_tt
-	BEL = {
-		controls_state = 6
-		controls_state = 34
-	}
-    }
-}
-LUX_niderlands_controlled_core_state = {
-	custom_trigger_tooltip = {
-		tooltip = niderlands_controlled_core_state_tt
-	HOL = {
-		controls_state = 7
-		controls_state = 35
-		controls_state = 36
-	}
-    }
-}
-LUX_unite_benelux_flag = {
-  custom_trigger_tooltip = {
-		tooltip = form_united_netherlands_flag
-	has_global_flag = form_united_netherlands_flag
-  }
-}
-LUX_luxemburg_contrlled_benelux = {
-	custom_trigger_tooltip = {
-		tooltip = controlled_benelux_states_tt
-		controls_state = 7
-		controls_state = 35
-		controls_state = 36
-		controls_state = 977
-		controls_state = 980
-		controls_state = 6
-		controls_state = 34
-	}
-}
 #triggers for exile focuses
 LUX_has_dlc_AAT = {
 	has_dlc = "Arms Against Tyranny"
@@ -164,44 +104,10 @@ LUX_trigger_NOT_leader_of_economic_union  = {
 		}
 	}
 }
-LUX_fascism_leader_ruling = {
-	has_country_leader = {
-		character = "Arsène Tancrède"
-		ruling_only = yes
-	}
-}
-LUX_ruling_paarty_leader_christophe_jessé_trigger = {
-	custom_trigger_tooltip = {
-		tooltip = christophe_jesse_in_power_tt
-		OR = {
-			has_country_leader = {
-				character = LUX_Christophe_Jessé_fascism
-				ruling_only = yes
-			}
-			has_country_leader = {
-				character = LUX_Christophe_Jessé_communist
-				ruling_only = yes
-			}
-		}
-	}
-}
 LUX_ruling_paarty_leader_gertrude_gerda_trigger = {
 	has_country_leader = {
 		character = LUX_gertrude_gerda
 		ruling_only = yes
-	}
-}
-LUX_benelux_any_has_war = {
-	custom_trigger_tooltip = {
-		tooltip = LUX_benelux_any_has_war_tt
-		if  = {
-			any_country = {
-				capital_scope = {
-					region = 5
-				}
-				has_war = yes
-			}
-		}
 	}
 }
 LUX_any_aounty_NOT_in_Benelux_justifying_wargoal_against = {
@@ -234,15 +140,6 @@ LUX_any_county_crate_tension_checking = {
 		has_added_tension_amount > 10
 	}
 }
-LUX_complete_focus_remove_army_limits_trigger = {
-	custom_trigger_tooltip = {
-		tooltip = LUX_complete_focus_remove_army_limits_tt
-		has_country_flag = {
-			flag = LUX_completed_focus_remove_limits_flag
-			days > 145
-		}
-	}
-}
 LUX_fascism_org_created_trigger = {
 	custom_trigger_tooltip = {
 		tooltip = LUX_fascism_org_created_tt
@@ -260,9 +157,6 @@ LUX_workers_ruling_trigger = {
 			ruling_only = yes
 		}
 	}
-}
-spian_cw_is_over_trigger = {
-	
 }
 NOT_benelux_county_trigger = {
    NOT  = {
@@ -389,14 +283,6 @@ has_war_with_any_benelux_county_trigger =  {
 		has_war_with = LUX
 		has_war_with = BEL
 		has_war_with = HOL
-	}
-}
-army_has_1000_num_equipment_in_armies_trigger = {
-	custom_trigger_tooltip = {
-		tooltip = army_has_1000_num_equipment_in_armies_trigger_tt
-		check_variable = {
-			num_equipment_in_armies@infantry_equipment > 500
-		}
 	}
 }
 army_has_1500_num_equipment_in_armies_trigger = {
@@ -899,6 +785,61 @@ synthetic_refinery_not_has_slots_on_all_owned_states = {
 				size < 0
 				include_locked = yes
 			}
+		}
+	}
+}
+#ai plan triggers
+LUX_is_autocracy_ai = {
+	OR = {
+		has_country_flag = LUX_AUTOCRACY_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = AUTOCRACY
+		}
+	  }
+}
+LUX_democratic_alt_ai  = {
+	OR = {
+		has_country_flag = LUX_DEMOCRATIC_ALT_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = DEMOCRATIC_ALT
+		}
+	}
+}
+LUX_historical_ai = {
+	OR = {
+		has_country_flag = LUX_HISTORICAL_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = HISTORICAL
+		 }
+	 }
+}
+LUX_anarchist_ai = {
+	OR = {
+		has_country_flag = LUX_ANARCHIST_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = ANARCHIST
+		}
+	}
+}
+LUX_communism_trotsky_ai = {
+	OR = {
+		has_country_flag = LUX_COMMUNISM_TROTSKY_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = COMMUNISM_TROTSKY
+		}
+	}
+}
+LUX_communism_marxist_ai = {
+	OR = {
+		has_country_flag = LUX_COMMUNISM_MARXIST_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = COMMUNISM_MARXIST
 		}
 	}
 }

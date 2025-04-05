@@ -753,7 +753,7 @@ bookmarks = {
 			focuses = {
 				LUX_in_exile
 				LUX_legitimacy_govermnet
-				LUX_germany_attack
+				LUX_fascist_major_attack_us
 			}
 		}	
 		effect = {

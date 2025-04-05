@@ -907,18 +907,18 @@ characters={
 			slot = political_advisor
 			idea_token = LUX_régi_maël
 			traits = { LUX_war_propagandist }
-			cost = 175
+			cost = 125
 			allowed = {
 				original_tag = LUX
 			}
 			visible = {
-				always = yes
+				OR = {
+					has_completed_focus = LUX_reject_army_limits
+					has_country_flag = unlock_LUX_régi_maël
+				}
 			}
             available = {
-				OR = {
-					threat > 0.3
-					has_war_support > 0.1
-				}
+
 			}
 		}
 	}
@@ -963,7 +963,7 @@ characters={
 		}
 	}
 	LUX_industrials = { #neutality, unlocks if fails capital missions
-		name = LUX_industrials
+		name = "Industriellen"
 		portraits = {
 			civilian = {
 				large = "GFX_portrait_LUX_industrials"

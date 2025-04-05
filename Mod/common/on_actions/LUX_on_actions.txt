@@ -1,120 +1,101 @@
 on_actions = {
 	on_startup = {
 		effect = { 
-            if = {
-				limit = {
-					OR = {
-				       AND = {
-					     has_game_rule = {
-						    rule = LUX_ai_behavior
-						    option = RANDOM
-					     }
-					     is_historical_focus_on = no
-				        }
-				    }
-				}
-				random_list = {
-                  1 = {
-					set_global_flag = LUX_ai_historical_flag
-				  }
-				  1 = {
-					set_global_flag = LUX_ai_fascism_flag
-				  }
-				  1 = {
-					set_global_flag = LUX_ai_communst_puppet_flag
-				  }
-				  1 = {
-					set_global_flag = LUX_ai_communst_workers_uprising_flag
-				  }
-				  1 =  {
-					set_global_flag = LUX_ai_anarchist_flag
-				  }
-				  1 = {
-                    set_global_flag = LUX_ai_democratic_flag
-				  }
-				  1 = {
-					set_global_flag = LUX_ai_democratic_alt_flag
-				  }
-				}
-			}
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = LUX_ai_behavior
-						option = DEFAULT
-					}
-				}
-				 set_global_flag = LUX_ai_historical_flag
-			}
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = LUX_ai_behavior
-						option = HISTORICAL
-					}
-				}
-				set_global_flag = LUX_ai_historical_flag
-			}
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = LUX_ai_behavior
-						option = FASCISM
-					}
-				}
-				set_global_flag = LUX_ai_fascism_flag
-			}
-			#if = {
-				#limit = {
-					#has_game_rule = {
-						#rule = LUX_ai_behavior
-						#option = COMMUNIST_PUPPET
-					#}
-				#}
-				 #set_global_flag = LUX_ai_communst_puppet_flag
-			#}
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = LUX_ai_behavior
-						option = COMMUNIST_WORKERS_UPRISING
-					}
-				}
-				set_global_flag = LUX_ai_communst_workers_uprising_flag
-			}
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = LUX_ai_behavior
-						option = ANARCHIST
-					}
-				}
-				set_global_flag = LUX_ai_anarchist_flag
-			}
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = LUX_ai_behavior
-						option = DEMOCRATIC
-					}
-				}
-				set_global_flag = LUX_ai_democratic_flag
-			}
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = LUX_ai_behavior
-						option = DEMOCRATIC_ALT
-					}
-				}
-                set_global_flag = LUX_ai_democratic_alt_flag
-			}
 			if = {
 				limit = {
 					always = yes
 				}
 				LUX = {
 					country_lock_all_division_template = yes
+				}
+			}
+			if = { #set rhenish resistence
+				limit = { 
+					always = yes
+				}
+				set_variable = {
+					global.resistance_target_reinish_separatism_modifier = 0.25
+				}
+				set_variable = {
+					global.resistance_activity_reinish_separatism_modifier = 0.15
+				}
+				set_variable = {
+					global.resistance_growth_reinish_separatism_modifier = 0
+				}
+				set_variable = {
+					global.compliance_growth_reinish_separatism_modifier = 0
+				}
+				set_variable = {
+					global.resistance_damage_to_garrison_reinish_separatism_modifier = 0
+				}
+			}
+			#set random ai stretegy 
+			if = {
+				limit = { 
+					OR = {
+						is_historical_focus_on = no
+						AND = {
+							is_historical_focus_on = no
+							has_game_rule = {
+								rule = LUX_ai_behavior
+								option = DEFAULT
+							}
+						}
+						has_game_rule = {
+							rule = LUX_ai_behavior
+							option = RANDOM
+						}
+					}
+				}
+				random_list = {
+					25 = {
+                       LUX = {
+						   set_country_flag = LUX_HISTORICAL_AI_PLAN
+					   }
+					   log = "[LUX.GetName] choose hist ai"
+					}
+					25 = {
+						LUX = {
+							set_country_flag = LUX_DEMOCRATIC_ALT_AI_PLAN
+						}
+						log = "[LUX.GetName] choose democrat alt ai"
+					}
+					25 = {
+						LUX = {
+							set_country_flag = LUX_AUTOCRACY_AI_PLAN
+						}
+						log = "[LUX.GetName] choose autocracy ai"
+					}
+					25 = {
+						LUX = {
+							set_country_flag = LUX_ANARCHIST_AI_PLAN
+						}
+						log = "[LUX.GetName] choose anarchist ai"
+					}
+					25 = {
+						LUX = {
+							set_country_flag = LUX_COMMUNISM_TROTSKY_AI_PLAN
+						}
+						log = "[LUX.GetName] choose trotsky ai"
+					}
+					25 = {
+						LUX = {
+							set_country_flag = LUX_COMMUNISM_MARXIST_AI_PLAN
+						}
+						log = "[LUX.GetName] choose marxist ai"
+					}
+					25 = {
+						LUX = {
+							set_country_flag = LUX_FASCISM_AI_PLAN
+						}
+						log = "[LUX.GetName] choose fascism ai"
+					}
+					25 = {
+						LUX = {
+							set_country_flag = LUX_ALT_FASCISM_AI_PLAN
+						}
+						log = "[LUX.GetName] choose alt fascism ai"
+					}
 				}
 			}
 		}
@@ -128,10 +109,7 @@ on_actions = {
 				}
 			}
 			ROOT = {
-				clr_global_flag = LUX_capitulated_flag
-				clr_country_flag = LUX_in_exile_flag
 				set_country_flag = LUX_goverment_back_from_exile_flag
-				country_event = lux_news.2
 			}
 			FROM = {
 				set_country_flag = LUX_goverment_bacck_from_exile_FROM_flag
@@ -141,27 +119,6 @@ on_actions = {
 	}
 	on_government_exiled = {
 		effect = {
-			if = {
-				limit = {
-					ROOT = {
-						original_tag = LUX
-					}
-				}
-				ROOT  = {
-					country_lock_all_division_template = no
-					set_country_flag = LUX_in_exile_flag
-					set_variable = {
-						LUX.goverment_in_exile_var = ROOT
-					}
-					country_event = LUX_hystorial_in_exile_events.2
-				}
-				FROM = {
-					set_variable = {
-						LUX.host_of_luxembourg_goverment_in_exile_var = FROM
-					}
-				}
-				log = "[FROM.GetName] is host of [ROOT.GetName]"
-			}
 			if = {
 				limit = { 
 					ROOT = {
@@ -390,94 +347,6 @@ on_actions = {
 				set_global_flag = any_benelux_country_capituleted_flag
 			}
 			if = {
-				limit = {
-				   ROOT = {
-					   original_tag = LUX
-				   }
-				   SOV  = {
-					  has_country_flag = ready_to_host_LUX_flag
-				   }
-				}
-				ROOT = {
-					become_exiled_in = { 
-						target = SOV 
-						legitimacy = 5 
-					}
-
-				}
-			}
-			#give belgum cores to luxembourg when Belgum get capitulated
-			if = {
-				limit  = {
-                    ROOT = {
-						original_Tag = BEL
-					}
-					FROM = {
-						original_tag = GER
-						has_subject = LUX
-					}
-					LUX = {
-						has_war_with = BEL
-					}
-				}
-				LUX = {
-					overlord = {
-						set_country_flag = LUX_get_belgum_cores_flag
-					}
-					set_state_owner = 34
-					set_state_owner = 6
-				}
-			}
-			#give Niderlands cores to luxembourg when Niderlands get capitulated
-			if = {
-				limit  = {
-                    ROOT = {
-						original_Tag = HOL
-					}
-					FROM = {
-						original_tag = GER
-						has_subject = LUX
-					}
-					LUX = {
-						has_war_with = HOL
-					}
-				}
-				LUX = {
-					overlord = {
-						set_country_flag = LUX_get_nidrlands_cores_flag
-					}
-					set_state_owner = 35
-					set_state_owner = 36
-					set_state_owner = 7
-				}
-			}
-			if = {
-				limit = {
-					ROOT = {
-						original_tag = SPC
-					}
-					LUX = {
-						is_faction_leader = yes
-						is_in_faction_with = SPC
-					}
-				}
-				ROOT = {
-					become_exiled_in = { 
-						target = LUX 
-						legitimacy = 0 
-					}
-					set_country_flag = SPC_in_exile_flag
-					set_variable = {
-						SPC_in_exile_var = ROOT
-					}
-				}
-				LUX  = {
-					set_variable = {
-						host_for_SPC_exile_var = LUX
-					}
-				}
-			}
-			if = {
 				limit = { 
 					ROOT = {
 						tag = SPC
@@ -499,26 +368,6 @@ on_actions = {
 
 				}
 				log = "Anarchist immigrants go to [LUX.GetName]"
-			}
-			if = {
-				limit = {
-					ROOT = {
-                       civilwar_target = FROM
-					}
-					FROM = {
-                        has_country_flag = workers_revolution_in_action_flag
-						has_civil_war = yes
-						civilwar_target = ROOT
-					}
-				}
-				FROM = {
-                    save_event_target_as = cw_workers_uprising_winner
-				}
-				news_event = {
-					id = LUX_communist.5
-					days = 1
-					random_hours = 6
-				}
 			}
 			if = {
 				limit = {

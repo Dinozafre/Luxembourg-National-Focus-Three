@@ -45,6 +45,7 @@ LUX_luximburg_credits_category = {
 	priority = 30
 	icon = ITA_reggianes_exports
 	allowed = {
+		always = no
 		tag = LUX
 	}
 }
@@ -77,6 +78,7 @@ LUX_prepere_to_coup_category = {
 	priority = 100
 	icon = generic_fascism
 	allowed = {
+		always = no
 		tag = LUX
 	}
 }
@@ -91,7 +93,7 @@ LUX_debug_category = {
 	priority = 200
 	#icon = NOR_fascist_deploy_prep
 	allowed = {
-		tag = LUX
+		original_tag = LUX
 		is_debug = yes
 	}
 }
@@ -156,7 +158,7 @@ form_great_luxembourg_category = {
 
 	priority = 70
 	allowed = {
-		always = yes
+		always = no
 	}
 }
 european_union_cat = {

@@ -371,28 +371,11 @@ LUX_revolutionary_general_staff_cat = {
 		icon = eng_trade_unions_demand
 		days_remove = 40
 		cost = 50
+		target_array = global.colonial_powers
 		target_root_trigger = {
 			has_completed_focus = LUX_demand_librate_colonies
 		}
         target_trigger = {
-			NOT = {
-				has_wargoal_against = FROM
-				has_war_with = FROM
-			}
-			FROM = {
-				NOT = { # has in focus tree
-				    or = {
-						original_tag = FRA
-						original_tag = SPR
-						original_tag = ENG
-						original_tag = USA
-						original_tag = POR
-					}
-				}
-				any_controlled_state = {
-					has_resistance = yes
-				}
-			}
 		}
 		remove_effect = {
 			FROM = {

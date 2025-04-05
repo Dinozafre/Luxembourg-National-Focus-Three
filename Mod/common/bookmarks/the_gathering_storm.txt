@@ -877,23 +877,23 @@ bookmarks = {
 				AFG_contact_amanullah_loyalists
 			}
 		}
-		IRQ = {
-			minor = yes
-			history = "IRQ_GATHERING_STORM_DESC"
-			ideology = neutrality
-			available = { has_dlc = "Graveyard of Empires" }
-			ideas = {
-				IRQ_golden_square
-				IRQ_anglo_iraqi_treaty
-				IRQ_agrarian_society
-			}
-			focuses = {
-				IRQ_rally_behind_the_hashemite_dynasty
-				IRQ_bakr_sidqi_coup
-				#Replace this with KUR focus
-				IRQ_decouple_from_the_pound
-			}
-		}
+#		IRQ = {
+#			minor = yes
+#			history = "IRQ_GATHERING_STORM_DESC"
+#			ideology = neutrality
+#			available = { has_dlc = "Graveyard of Empires" }
+#			ideas = {
+#				IRQ_golden_square
+#				IRQ_anglo_iraqi_treaty
+#				IRQ_agrarian_society
+#			}
+#			focuses = {
+#				IRQ_rally_behind_the_hashemite_dynasty
+#				IRQ_bakr_sidqi_coup
+#				#Replace this with KUR focus
+#				IRQ_decouple_from_the_pound
+#			}
+#		}
 		LUX ={
 			minor = yes
 			history = LUX_GATHERING_STORM_DESC
@@ -904,9 +904,9 @@ bookmarks = {
 				LUX_the_great_depression_dummy
 			}
 			focuses = {			
-				LUX_Benilux_quastion
-				LUX_confirm_neutrality
-				LUX_damian_kratzenberg_coup
+				LUX_reject_army_limits
+				LUX_negotiation_with_GER
+				LUX_great_luxembourg_focus
 			}
 		}
 		effect = {
