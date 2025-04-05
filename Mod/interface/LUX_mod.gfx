@@ -1,48 +1,12 @@
 spriteTypes = {
 	### LUXEMBURG ###
 	spriteType = {
-		name = "GFX_idea_charlotte_grand_duchess"
-		texturefile = "gfx/interface/ideas/idea_charlotte_grand_duchess.dds"
-	}
-	spriteType = {
-		name = "GFX_idea_protect_benilux"
-		texturefile = "gfx/interface/goals/protect_benilux.dds"
-	}
-	spriteType = {
-		name = "GFX_idea_chile_elections"
-		texturefile = "gfx/interface/goals/chile_elections.dds"
-	}
-	spriteType = {
-		name = "GFX_idea_charlotte_grand_duchess_3k2_main"
-		texturefile = "gfx/interface/ideas/idea_charlotte_grand_duchess_3k2_main.dds"
-	}
-	spriteType = {
-		name = "GFX_idea_charlotte_grand_duchess_3k2_idea"
-		texturefile = "gfx/interface/ideas/idea_charlotte_grand_duchess_3k2_idea.dds"
-	}
-	spriteType = {
-		name = "GFX_focus_prime_ministe_dictature"
-		texturefile = "gfx/interface/goals/focus_prime_ministre_dictature.dds"
-	}
-	spriteType = {
-		name = "GFX_focus_coup_fascism"
-		texturefile = "gfx/interface/goals/focus_coup_fascism.dds"
-	}
-	spriteType = {
-		name = "GFX_focus_fascism_coup_2"
-		texturefile = "gfx/interface/goals/focus_fascism_coup.dds"
-	}
-	spriteType = {
 		name = "GFX_agency_logo_lux"
 		texturefile = "gfx/interface/operatives/agency_logo_lux.dds"
 	}
 	spriteType = {
 		name = "GFX_event_luxemburg_events.0"
 		texturefile = "gfx/events/news_sign_white_peace_lux.dds"
-	}
-    spriteType = {
-		name = "GFX_portrait_luxembourg_charlotte_grand_duchess"
-		texturefile = "gfx/leaders/LUX/Portrait_Luxemburg_Charlotte.png"
 	}
 	spriteType = {
 		name = "GFX_idea_lux_five_year_plan"
@@ -61,10 +25,6 @@ spriteTypes = {
 		texturefile = "gfx/interface/ideas/lux_investment.png"
 	}
 	spriteType = {
-		name = "GFX_focus_lux_tank_upgrade"
-		texturefile = "gfx/interface/goals/focus_lux_tank_upgrade.dds"
-	}
-	spriteType = {
 		name = "GFX_focus_lux_commune_act"
 		texturefile = "gfx/interface/goals/focus_lux_commune_act.png"
 	}	
@@ -75,10 +35,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_idea_france_credit"
 		texturefile = "gfx/interface/ideas/idea_france_credit.png"
-	}
-	spriteType = {
-		name = "GFX_focus_lux_benelux_join_eng_dominion"
-		texturefile = "gfx/interface/goals/focus_lux_benelux_join_eng_dominion.dds"
 	}
 	spriteType = {
 		name = "GFX_focus_lux_benelux_creating"
@@ -109,16 +65,8 @@ spriteTypes = {
 		texturefile = "gfx/interface/ideas/idea_national_law.png"
 	}
 	spriteType = {
-		name = "GFX_focus_lux_himmler_leader"
-		texturefile = "gfx/interface/goals/focus_lux_himmler_leader.dds"
-	}
-	spriteType = {
 		name = "GFX_pierre_dupong_leader"
 		texturefile = "gfx/leaders/LUX/Pierre_Dupong.png"
-	}
-	spriteType = {
-		name = "GFX_focus_joseph_bech_is_elected"
-		texturefile = "gfx/interface/goals/focus_joseph_bech_is_elected.dds"
 	}
 	spriteType = {
 		name = "GFX_focus_pierre_dupong_is_elected"
@@ -153,10 +101,6 @@ spriteTypes = {
         textureFile = "gfx/interface/autonomy/autonomy_anarchist_commune_icon.dds"
     }
 	spriteType = {
-		name = "GFX_focus_leader_war_coup_fascism"
-		texturefile = "gfx/interface/goals/focus_leader_war_coup_fascism.png"
-	}
-	spriteType = {
 		name = "GFX_news_peace_sign_with_germany"
 		texturefile = "gfx/events/news_peace_sign_with_germany.dds"
 	}
@@ -185,14 +129,6 @@ spriteTypes = {
 		texturefile = "gfx/interface/ideas/idea_better_diplomatic_relations.png"
 	}
 	spriteType = {
-		name = "GFX_focus_ultimatum_to_benelux"
-		texturefile = "gfx/interface/goals/focus_ultimatum_to_benelux.dds"
-	}
-	#spriteType = {
-	#	name = "GFX_focus_benelux_economic_union"
-	#	texturefile = "gfx/interface/goals/focus_benelux_economic_union.dds"
-	#}
-	spriteType = {
 		name = "GFX_Christophe_Jessé"
 		texturefile = "gfx/leaders/LUX/Christophe_Jessé.png"
 	}
@@ -210,10 +146,6 @@ spriteTypes = {
 	}
 	#focus image from mod: Germany Rework: Blitzkrieg
 	spriteType = {
-		name = "GFX_focus_benelux_friend_pact"
-		texturefile = "gfx/interface/goals/focus_benelux_friend_pact.dds"
-	}
-	spriteType = {
 		name = "GFX_report_event_picture_ask_to_join_friend_pact"
 		texturefile = "gfx/events/report_event_picture_ask_to_join_friend_pact.dds"
 	}
@@ -222,40 +154,16 @@ spriteTypes = {
 		texturefile = "gfx/events/report_event_picture_benelux_frined_pact_reply.dds"
 	}
 	spriteType = {
-		name = "GFX_LUX_alexander_von_falkenhausen"
-		texturefile = "gfx/leaders/LUX/alexander_von_falkenhausen2.png"
-	}
-	spriteType = {
-		name = "GFX_focus_workers_dictaturship_in_luxembourg"
-		texturefile = "gfx/interface/goals/focus_workers_dictaturship_in_luxembourg.dds"
-	}
-	spriteType = {
 		name = "GFX_focus_workers_country_luxemborg"
 		texturefile = "gfx/interface/goals/focus_workers_country_luxemborg.dds"
-	}
-	spriteType = {
-		name = "GFX_focus_charlotte_in_exile"
-		texturefile = "gfx/interface/goals/focus_charlotte_in_exile.dds"
-	}
-	spriteType = {
-		name = "GFX_focus_arrest_coup_plotters"
-		texturefile = "gfx/interface/goals/focus_arrest_coup_plotters.dds"
 	}
 	spriteType = {
 		name = "GFX_idea_workers_from_all_world"
 		texturefile = "gfx/interface/ideas/idea_workers_from_all_world.png"
 	}
 	spriteType = {
-		name = "GFX_focus_right_go_youth_org"
-		texturefile = "gfx/interface/goals/focus_right_go_youth_org.dds"
-	}
-	spriteType = {
 		name = "GFX_focus_left_go_youth_org"
 		texturefile = "gfx/interface/goals/focus_left_go_youth_org.dds"
-	}
-	spriteType = {
-		name = "GFX_focus_invasion_in_benelux"
-		texturefile = "gfx/interface/goals/focus_invasion_in_benelux.dds"
 	}
 	spriteType = {
 		name = "GFX_news_death_charlotte_grand_duches"
@@ -286,20 +194,12 @@ spriteTypes = {
 		texturefile = "gfx/interface/ideas/idea_general_germany_attack.png"
 	}
 	spriteType = {
-		name = "GFX_arsène_tancrède"
-		texturefile = "gfx/leaders/LUX/arsène_tancrède.jpg"
-	}
-	spriteType = {
 		name = "GFX_member_benelux_economic_union"
 		texturefile = "gfx/interface/ideas/dynamic_modifier_shared_member_benelux_economic_union.png"
 	}
 	spriteType = {
 		name = "GFX_focus_fascism_support_from_army"
 		texturefile = "gfx/interface/goals/focus_fascism_support_from_army.dds"
-	}
-	spriteType = {
-		name = "GFX_Gertrude_Gerda"
-		texturefile = "gfx/leaders/LUX/Gertrude_Gerda.jpg"
 	}
 	spriteType = {
 		name = "GFX_Christophe_Jessé"
@@ -312,10 +212,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_trait_NOT_loaylty_to_fascism"
 		texturefile = "gfx/interface/traits/not_loaylty_to_fascism.dds"
-	}
-	spriteType = {
-		name = "GFX_Collective_Goverment"
-		texturefile = "gfx/leaders/LUX/Collective_Goverment.jpg"
 	}
 	spriteType = {
 		name = "GFX_idea_charlotte_grand_duchess_remove_from_power"
@@ -354,16 +250,8 @@ spriteTypes = {
 		texturefile = "gfx/interface/goals/focus_attack_luxembourg.png"
 	}
 	spriteType = {
-		name = "GFX_focus_generic_belgum_flag"
-		texturefile = "gfx/interface/goals/focus_generic_belgum_flag.dds"
-	}
-	spriteType = {
 		name = "GFX_focus_generic_luxembourg_flag"
 		texturefile = "gfx/interface/goals/focus_generic_luxembourg_flag.dds"
-	}
-	spriteType = {
-		name = "GFX_focus_generic_niderland_flag"
-		texturefile = "gfx/interface/goals/focus_generic_niderland_flag.dds"
 	}
 	spriteType = {
 		name = "GFX_focus_befriend_belgum"
@@ -400,14 +288,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_attack_spain_anarchist"
 		texturefile = "gfx/interface/goals/focus_attack_spain_anarchist.png"
-	}
-	spriteType = {
-		name = "GFX_focus_army_junta_coup_luxembourg"
-		texturefile = "gfx/interface/goals/focus_army_junta_coup_luxembourg.png"
-	}
-	spriteType = {
-		name = "GFX_focus_incite_army"
-		texturefile = "gfx/interface/goals/focus_incite_army.png"
 	}
 	spriteType = {
 		name = "GFX_idea_luxembourg_flag"
@@ -522,14 +402,6 @@ spriteTypes = {
 		texturefile = "gfx/interface/goals/focus_luxembourg_revolution_march.png"
 	}
 	spriteType = {
-		name = "GFX_focus_build_bunkers_belgum"
-		texturefile = "gfx/interface/goals/focus_build_bunkers_belgum.png"
-	}
-	spriteType = {
-		name = "GFX_focus_build_bunkers_niderlands"
-		texturefile = "gfx/interface/goals/focus_build_bunkers_niderlands.png"
-	}
-	spriteType = {
 		name = "GFX_idea_lux_neatrality_guarantees"
 		texturefile = "gfx/interface/ideas/idea_lux_neatrality_guarantees.png"
 	}
@@ -636,10 +508,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_focus_befriend_spain_anarchist"
 		texturefile = "gfx/interface/goals/focus_befriend_spain_anarchist.png"
-	}
-	spriteType = {
-		name = "GFX_idea_SPR_anarchist_council"
-		texturefile = "gfx/interface/ideas/idea_spr_anarchist_council.dds"
 	}
 	spriteType = {
 		name = "GFX_anarchist_commune_modifier"
@@ -797,10 +665,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_portrait_LUX_emile_speller_mod" #Emile speller general
 		texturefile = "gfx/leaders/LUX/portrait_LUX_emile_speller.png"
-	}
-	spriteType = {
-		name = "GFX_portrait_LUX_retirement_government"
-		texturefile = "gfx/leaders/LUX/LUX_retirement_government.jpg"
 	}
 	spriteType = {
 		name = "GFX_decision_category_picture_form_great_luxembourg"
@@ -961,6 +825,50 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_focus_LUX_communist_party"
 		texturefile = "gfx/interface/goals/focus_LUX_communist_party.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_project_of_germany_confederation"
+		texturefile = "gfx/interface/goals/focus_LUX_project_of_germany_confederation.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_demand_nord_pas_de_calais"
+		texturefile = "gfx/interface/goals/focus_LUX_demand_nord_pas_de_calais.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_demand_rhein"
+		texturefile = "gfx/interface/goals/focus_LUX_demand_rhein.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_commune_creation"
+		texturefile = "gfx/interface/goals/focus_LUX_commune_creation.png"
+	}
+	spriteType = {
+		name = "GFX_report_event_picture_generic_handshake"
+		texturefile = "gfx/events/report_event_picture_generic_handshake.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_conflirm_claims_on_benilux"
+		texturefile = "gfx/interface/goals/focus_LUX_conflirm_claims_on_benilux.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_strong_regime"
+		texturefile = "gfx/interface/goals/focus_LUX_strong_regime.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_second_term_for_joseph_besh"
+		texturefile = "gfx/interface/goals/focus_LUX_second_term_for_joseph_besh.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_new_democratic_leader"
+		texturefile = "gfx/interface/goals/focus_LUX_new_democratic_leader.png"
+	}
+	spriteType = {
+		name = "GFX_focus_LUX_great_luxembourg"
+		texturefile = "gfx/interface/goals/focus_LUX_great_luxembourg.png"
+	}
+	spriteType = {
+		name = "GFX_idea_LUX_goverment_in_exile"
+		texturefile = "gfx/interface/ideas/idea_LUX_goverment_in_exile.png"
 	}
 	#advisors
 	spriteType = {
