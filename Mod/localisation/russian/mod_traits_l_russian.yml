@@ -50,6 +50,7 @@
  LUX_war_propagandist:0 "Военный пропагандист"
  LUX_minister_of_education_trait:0 "$mussolini_minister_of_education$"
  LUX_furer_trait2:0 "$GER_der_fuhrer$"
+ LUX_lord_of_nations_trait:0 "Повелитель народов"
  #characters
  LUX_collective_govermnet_commnunist:0 "Коллективное управление"
  LUX_retirement_government:0 "Правительство в отставке"
