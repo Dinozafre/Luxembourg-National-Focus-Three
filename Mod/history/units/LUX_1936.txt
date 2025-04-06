@@ -38,7 +38,7 @@ units = {
     }
 	division = { 
 		name = "National Miliz 2"
-		location = 13345 
+		location = 6583 
 		division_template = "Public Force" 
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8

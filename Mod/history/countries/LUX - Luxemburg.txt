@@ -102,29 +102,6 @@ set_variable = { political_power_factor_leader_economic_union_modifier = 0.20 }
 set_variable = { production_speed_buildings_factor_leader_economic_union_modifier = 0.25 }
 #LUX_the_great_depression
 set_LUX_the_great_depression_vars_effect = yes
-#LUX_trotskyism
-#TODO - remade LUX_trotskyism into idea
-set_variable = {
-	LUX_trotskyism_communism_drift_var = 0.05
-}
-set_variable = {
-	LUX_trotskyism_party_popularity_stability_factor_var = 0
-}
-set_variable = {
-	LUX_trotskyism_political_power_factor_var = 0
-}
-set_variable = {
-	LUX_proleterian_shield_army_attack_factor = 0.10
-}
-set_variable = {
-	LUX_proleterian_shield_army_defence_factor = 0.15
-}
-set_variable = {
-	LUX_proleterian_shield_army_core_defence_factor = 0
-}
-set_variable = {
-	LUX_proleterian_shield_party_popularity_stability_factor = 0
-}
 #LUX_revolution_internetional
 set_variable = {
 	LUX_revolution_internetional_lend_lease_tension = -0.50
@@ -140,6 +117,8 @@ set_variable = {
 }
 #LUX_charlotte_wilhelmine
 set_LUX_charlotte_wilhelmine_vars_effect = yes
+### GOVERMENT IN EXILE #####
+set_LUX_goverment_in_exile_dm_vaers_effect = yes
 #elections set
 set_politics = {
     ruling_party = democratic
@@ -191,6 +170,7 @@ recruit_character = LUX_anarchist_council_industrial
 recruit_character = LUX_anarchist_council_integration
 recruit_character = LUX_anarchist_council_defence
 recruit_character = LUX_retirement_government
+recruit_character = LUX_industrials
 
 #anarchist
 1939.1.1 = {
