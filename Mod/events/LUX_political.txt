@@ -123,8 +123,7 @@ country_event = {
 	option = {
 		name = LUX_electins.3.a
 		custom_effect_tooltip = LUX_electins.3_effect_tt
-		promote_character = LUX_pierre_dupong
-		complete_national_focus = LUX_pierre_dupong_elected
+		retire_character = LUX_pierre_dupong
 	}
 	immediate = {
 		
@@ -479,6 +478,11 @@ country_event = {
 				target = ROOT
 				type = annex_everything
 			}
+			add_ai_strategy = {
+				type = declare_war
+				id = FROM
+				value = 50
+			}
 		}
 	}
 	option = {
@@ -634,6 +638,11 @@ country_event = {
 				target = ROOT
 				type = take_state
 				generator = { 42 }
+			}
+			add_ai_strategy = {
+				type = declare_war
+				id = FROM
+				value = 50
 			}
 		}
 		ai_chance = {
@@ -817,12 +826,12 @@ country_event = {
 #FROM make democratic coup in ROOT
 country_event = {
 	id = LUX_political_events.17
-	title = LUX_political_events.17.t
-	desc = LUX_political_events.17.desc 
+	title = wuw_GER_realpolitik.28.t
+	desc = wuw_GER_realpolitik.28.desc 
 	picture = GFX_report_event_french_resistance_02
 	is_triggered_only = yes
 	option = {
-		name = LUX_political_events.17.a
+		name = wuw_GER_realpolitik.28.a
 		set_politics = {
 			ruling_party = democratic
 			elections_allowed = yes
@@ -858,6 +867,7 @@ country_event = {
 	picture = GFX_report_event_military_planning
 	fire_only_once = yes
 	trigger = {
+		always = no
 		original_tag = LUX
 		OR = {
 			AND = {
@@ -950,6 +960,9 @@ country_event = {
 		}
 	}
 	option = {
+		trigger = {
+			is_ai = no
+		}
 		#no
 		name = LUX_communist.1.count.b
 		
@@ -1025,14 +1038,7 @@ country_event = {
 	desc = LUX_political_events.23.desc
 	picture = GFX_report_event_generic_sign_treaty1
 	fire_only_once = yes
-	trigger = {
-		original_tag = LUX
-		has_capitulated = yes
-		days_since_capitulated > 1
-	}
-	mean_time_to_happen = {
-		days = 2
-	}
+	is_triggered_only = yes
 	immediate = {
 		set_country_flag = in_exile_flag
 		mark_focus_tree_layout_dirty = yes
@@ -1051,7 +1057,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes 
 	option = {
-		name = LUX_referendums.1.count.a
+		name = AAT_Sweden.24.a
 		add_popularity = {
 			ideology = communism
 			popularity = 0.02
@@ -1074,17 +1080,22 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes 
 	option = {
-		name = LUX_referendums.2.count.a
-		custom_effect_tooltip = coommunist_resistence_tt
+		name = AAT_Sweden.7.a
+#		custom_effect_tooltip = coommunist_resistence_tt
+        add_ideas = LUX_ban_communism_ns
 		custom_effect_tooltip = remove_political_advisor
 		show_ideas_tooltip = LUX_charles_marx
-		#bye communists!
-		LUX_charles_marx = {
-			retire = yes
+		show_ideas_tooltip = LUX_pierre_fonck
+		hidden_effect = {
+			#bye communists!
+		    LUX_charles_marx = {
+			   retire = yes
+		    }
+		    LUX_pierre_fonck = {
+		       retire = yes
+		    }
 		}
-		LUX_pierre_fonck = {
-			retire = yes
-		}
+
 	}
 	trigger = {
 		original_tag = LUX
@@ -1096,6 +1107,7 @@ country_event = {
 	    set_country_flag = LUX_referendum_accepted_communism_party
 		hidden_effect = {
 			activate_decision = ban_communist_party
+			add_political_power = 100
 		}
     }
 }
@@ -1106,9 +1118,6 @@ country_event = {
 	desc = LUX_political_events.26.desc
 	picture = GFX_report_event_generic_sign_treaty1
 	is_triggered_only = yes
-	trigger = {
-		has_completed_focus = LUX_fascists_goining_to_elections
-	}
 	fire_only_once = yes 
 	option = { #time for coup!
 		name = LUX_political_events.23.a
@@ -1137,14 +1146,24 @@ country_event = {
 	desc = LUX_political_events.27.desc
 	picture = GFX_report_event_german_volunteers
 	is_triggered_only = yes
+	trigger = {
+		controls_state = 51
+		controls_state = 42
+	}
 	option = {
 		name = LUX_political_events.27.a #ok, now they free
+		ai_chance = {
+			base = 25
+		}
 		release = RHI
 	}
 	option = {
 		name = LUX_political_events.27.b #heck no!
+		ai_chance = {
+			base = 100
+		}
 		#uprisng coming....
-		81 = { 
+		51 = { 
             add_resistance_target = 50
 			add_resistance = 10
 		}
@@ -1152,6 +1171,73 @@ country_event = {
 			add_resistance_target = 50
 			add_resistance = 10
 		}
+	}
+}
+news_event = {
+	id = LUX_political_events.28
+	title = LUX_political_events.28.t
+	desc = LUX_political_events.28.desc
+	picture = GFX_news_event_soldiers_marching
+	major = yes
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = LUX_political_events.28.a
+		trigger = {
+			not = {
+				tag = LUX
+				has_war_with = RHI
+			}
+		}
+	}
+	option = {
+		name = LUX_political_events.28.b
+		trigger = {
+			has_war_with = RHI
+		}
+	}
+	option = {
+		name = iceland_events.18.a
+		trigger = {
+			tag = LUX
+			NOT = {
+				has_war_with = RHI
+			}
+		}
+	}
+}
+#fascist leader is cooperation with enemy
+country_event = {
+	id = LUX_political_events.29
+	title = LUX_political_events.29.t
+	desc = LUX_political_events.29.desc
+	picture = GFX_report_event_fascists_posing
+	fire_only_once = yes
+	trigger = {
+		original_tag = LUX
+		has_completed_focus = LUX_in_exile
+	}
+	mean_time_to_happen = {
+		months = 1
+		days = 40
+	}
+	option = {
+		name = denmark_overlord_events.4.a
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.3
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = ROOT
+			}
+			add_compliance = 10
+			add_resistance = -5
+			add_resistance_target = -10
+		}
+		set_country_flag = LUX_fascist_leader_need_capture
 	}
 }
 #### NEWS ####

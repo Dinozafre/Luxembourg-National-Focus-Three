@@ -534,7 +534,7 @@ country_event = {
 	title = LUX_anarchist_events.15.t
 	desc = LUX_anarchist_events.15.desc
 	picture = GFX_report_event_picture_generic_protest
-	is_triggered_only = no
+	is_triggered_only = yes
 	trigger = {
 		has_idea = shared_anarchist_help_in_liberation_ns
 		compare_autonomy_progress_ratio > 0.7
