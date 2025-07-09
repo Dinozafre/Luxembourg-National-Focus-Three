@@ -1,0 +1,216 @@
+LUX_democratic_alt_plan = {
+	name = "Pierre Dugong is elected, join allies"
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+			has_country_flag = LUX_DEMOCRATIC_ALT_AI_PLAN
+			has_game_rule = {
+				rule = LUX_ai_behavior
+				option = DEMOCRATIC_ALT
+			}
+		}
+	}
+	ai_national_focuses = {
+		LUX_constitutional_monarchy
+		LUX_confirm_neutrality
+		LUX_ban_communisn_party_referendum
+		LUX_continue_support
+		LUX_new_democratic_leader
+		LUX_agreement_with_ENG_focus
+		LUX_prepere_for_invasion
+		LUX_protect_democracy
+		LUX_fight_against_tyranny
+		LUX_broke_neutrality
+		LUX_join_allies
+	}
+}
+LUX_autocracy_plan = {
+   name = "Joseph Besh save occupation and made autocracy, after that go the the The Great Luxembourg idea"
+   allowed = {
+	   original_tag = LUX
+   }
+   enable = {
+	  OR = {
+		has_country_flag = LUX_AUTOCRACY_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = AUTOCRACY
+		}
+	  }
+   }
+   ai_national_focuses = {
+	   LUX_constitutional_monarchy
+	   LUX_continue_support
+	   LUX_ban_communisn_party_referendum
+	   LUX_confirm_neutrality
+	   LUX_second_term_for_joseph_besh
+	   LUX_joseph_bech_is_elected
+	   LUX_dissolve_parliament
+	   LUX_revoke_monarch_power
+	   LUX_dictatorship_joseph_bech
+	   LUX_president_republic
+	   LUX_repression_against_opossition
+	   LUX_cancel_neatruality
+	   LUX_communist_in_exile
+	   LUX_fascists_in_exile
+	   LUX_cult_of_personality
+	   LUX_strong_regime
+	   LUX_benilux_creation_unite
+	   LUX_unification_with_benilux
+	   LUX_cancel_treaty_of_london
+	   LUX_national_law_focus
+	   LUX_demand_referedum_to_rhein
+	   LUX_military_socity
+	   LUX_demand_nord_pas_de_calais
+	   LUX_great_luxembourg_focus
+   }
+}
+LUX_anarchist_plan = {
+	name = "Ai coming to make anarchist world revolution!"
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+			has_country_flag = LUX_ANARCHIST_AI_PLAN
+			has_game_rule = {
+				rule = LUX_ai_behavior
+				option = ANARCHIST
+			}
+		}
+	}
+	ai_national_focuses = {
+		LUX_desperate_measures
+		LUX_workers_awakening
+		LUX_commune_creation
+		LUX_workers_revolution
+		LUX_antivilence_anarchist
+		LUX_cancel_national_state
+		LUX_nationalisation_of_products
+		LUX_benefit_distribution
+		LUX_nationalisation_of_infrastructure
+		LUX_brothers_of_deal
+		LUX_every_workers_word_is_metter
+		LUX_workers_dictatorship
+		LUX_better_worker_conditions
+		LUX_place_of_workers
+		LUX_capital_of_people
+		LUX_commune_theory
+		LUX_commune_proctise
+		LUX_commune_militia
+		LUX_explore_anarchist_ideas
+		LUX_crate_global_anarchist_council
+		LUX_creation_of_new_communes
+		LUX_military_intervention_in_uprisings
+		LUX_we_bring_light
+	    LUX_crate_anarchist_internnational
+		LUX_propaganda_of_anarchism
+		LUX_people_mobilisation
+		LUX_centralisation_of_communes
+		LUX_international_anarchist_brigages
+		LUX_intergreation_every_state
+		LUX_world_under_one_flag
+	}
+}
+LUX_communism_trotsky_plan = {
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+            has_country_flag = LUX_COMMUNISM_TROTSKY_AI_PLAN
+			has_game_rule = {
+				rule = LUX_ai_behavior
+				option = COMMUNISM_TROTSKY
+			}
+		}
+	}
+	ai_national_focuses = {
+		LUX_desperate_measures
+		LUX_workers_awakening
+		LUX_liberate_workers
+		LUX_follow_trotsy_idiology
+		LUX_invite_trotscky
+		LUX_sabotage_production
+		LUX_protect_trade_nuions
+		LUX_trotsky_revolution
+		LUX_people_victory
+		LUX_workers_democracy
+	}
+	ai_strategy = {
+		type = befriend
+		id = SOS
+		value = -100
+	}
+	ai_strategy = {
+		type = alliance
+		id = SOS
+		value = -100
+	}
+}
+LUX_communist_marxist_plan = {
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+            has_country_flag = LUX_COMMUNISM_MARXIST_AI_PLAN
+			has_game_rule = {
+				rule = LUX_ai_behavior
+				option = COMMUNISM_MARXIST
+			}
+		}
+	}
+	ai_national_focuses = {
+		LUX_desperate_measures
+		LUX_workers_awakening
+		LUX_liberate_workers
+		LUX_workers_support
+		LUX_workers_march
+		LUX_workers_goverment
+		LUX_people_victory
+	}
+}
+LUX_fascism_destroy_capital_plan = {
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+			has_country_flag = LUX_FASCISM_AI_PLAN
+			has_game_rule = {
+				rule = LUX_ai_behavior
+				option = FASCISM
+			}
+		}
+	}
+	ai_national_focuses = {
+		LUX_desperate_measures
+		LUX_strong_hand
+		LUX_luxembourg_nazism
+		LUX_fascist_party_army
+		LUX_shut_down_1937_elections
+		LUX_attack_opponents
+		LUX_damian_kratzenberg_coup
+		LUX_charlotte_wilhelmine_fate
+		LUX_our_furer
+		LUX_corporation_country
+		LUX_anti_communism
+		LUX_anti_liberalism
+		LUX_organic_nation
+		LUX_join_axis
+	}
+}
+LUX_fascism_cooperation_with_capital_capital_plan = { # for random option
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		has_country_flag = LUX_ALT_FASCISM_AI_PLAN
+	}
+	ai_national_focuses = {
+		
+	}
+}

@@ -408,6 +408,9 @@ ideas = {
             request_lease_tension = 1
             generate_wargoal_tension_against = 0.15
             democratic_drift = 0.01
+            ai_join_ally_desire_factor = -100
+            ai_get_ally_desire_factor = -100
+            ai_call_ally_desire_factor = -100
            }
            cancel = {
                OR = {
@@ -654,6 +657,7 @@ ideas = {
             picture = lux_neatrality_guarantees
             modifier = {
                 ai_focus_peaceful_factor = 0.5
+                custom_modifier_tooltip = LUX_neatrality_guarantees_remove_tt
             }
             cancel = {
                 OR = {
@@ -684,9 +688,6 @@ ideas = {
                         }
                     }
                 }
-            }
-            rule = {
-                
             }
             on_add = {
                 set_country_flag = LUX_neatrality_guarantees_is_active_flag
@@ -1479,7 +1480,8 @@ ideas = {
             }
             picture = usa_great_depression
         }
-        LUX_national_law = {
+        LUX_national_law_ns = {
+            name = LUX_national_law
             allowed = {
                 always = yes
             }
@@ -1540,9 +1542,9 @@ ideas = {
     LUX_prepare_for_invasion_ns = {
         picture = generic_preperatioion_for_war
         modifier = {
-            army_core_defence_factor = 0.05
-            army_defence_factor = 0.07
-            army_core_attack_factor = 0.05
+  #          army_core_defence_factor = 0.05
+   #         army_defence_factor = 0.07
+  #           army_core_attack_factor = 0.05
             war_support_factor = 0.1
             weekly_casualties_war_support = 0.005
             weekly_bombing_war_support = 0.001
@@ -1844,8 +1846,8 @@ ideas = {
     }
     LUX_desperate_measures_ns = {
         modifier = {
-            democratic_drift = -0.05
-            stability_weekly = -0.001
+            democratic_drift = -0.1
+            stability_weekly = -0.002
         }
         cancel = {
             OR = {
@@ -1854,7 +1856,7 @@ ideas = {
                 has_government = neutrality
             }
         }
-        picture = SWE_neither_death_nor_dishonor
+        picture = LUX_desperate_measures
     }
     LUX_luxembourg_nazism2_ns = {
         name = LUX_luxembourg_nazism_ns
@@ -2276,6 +2278,9 @@ ideas = {
         democratic_drift = 0.05
         stability_factor = 0.05
         stability_weekly = 0.001
+        ai_join_ally_desire_factor = -100
+        ai_get_ally_desire_factor = -100
+        ai_call_ally_desire_factor = -100
        }
        cancel = {
            OR = {
@@ -2335,13 +2340,13 @@ ideas = {
         name = LUX_anarchist_militia
         picture = chi_army_corruption3
         modifier = {
-            org_loss_at_low_org_factor = -0.1
+    #        org_loss_at_low_org_factor = -0.1
             army_attack_factor = 0.2
             army_strength_factor = 0.1
             army_defence_factor = 0.15
             experience_loss_factor = -0.05
-            army_org = 5
-            army_org_factor = 0.15
+     #        army_org = 5
+     #        army_org_factor = 0.15
         }
     }
     LUX_anarchism1_ns = {
@@ -2354,9 +2359,9 @@ ideas = {
        rule = {
         can_access_market = no
         can_join_factions = no
-        can_declare_war_on_same_ideology = yes
+    #    can_declare_war_on_same_ideology = yes
         can_send_volunteers = yes
-        can_declare_war_without_wargoal_when_in_war = yes
+   #     can_declare_war_without_wargoal_when_in_war = yes
         can_only_justify_war_on_threat_country = no
         can_join_opposite_factions = no
         can_create_collaboration_government = no
@@ -2374,9 +2379,9 @@ ideas = {
         rule = {
             can_access_market = no
             can_join_factions = no
-            can_declare_war_on_same_ideology = yes
+   #          can_declare_war_on_same_ideology = yes
             can_send_volunteers = yes
-            can_declare_war_without_wargoal_when_in_war = yes
+  #           can_declare_war_without_wargoal_when_in_war = yes
             can_only_justify_war_on_threat_country = no
             can_join_opposite_factions = no
             can_create_collaboration_government = no
@@ -2396,14 +2401,66 @@ ideas = {
         rule = {
             can_access_market = no
             can_join_factions = no
-            can_declare_war_on_same_ideology = yes
+   #          can_declare_war_on_same_ideology = yes
             can_send_volunteers = yes
-            can_declare_war_without_wargoal_when_in_war = yes
+  #           can_declare_war_without_wargoal_when_in_war = yes
             can_only_justify_war_on_threat_country = no
             can_join_opposite_factions = no
             can_create_collaboration_government = no
         }
-     }
+    }
+    LUX_anarchism4_ns = {
+        name = LUX_anarchism_ns
+        picture = SPR_crush_the_revolution
+        modifier = {
+           neutrality_drift = 0.25          
+           stability_weekly = -0.01
+           consumer_goods_factor = -0.2
+           resistance_target = -0.3
+           equipment_upgrade_xp_cost = -0.25
+           equipment_conversion_speed = 0.25
+           production_factory_efficiency_gain_factor = 0.1
+           production_factory_max_efficiency_factor = 0.12
+           production_factory_start_efficiency_factor = 0.35
+        }
+        rule = {
+            can_access_market = no
+            can_join_factions = no
+ #            can_declare_war_on_same_ideology = yes
+            can_send_volunteers = yes
+ #            can_declare_war_without_wargoal_when_in_war = yes
+            can_only_justify_war_on_threat_country = no
+            can_join_opposite_factions = no
+            can_create_collaboration_government = no
+        }
+    }
+    LUX_anarchism5_ns = {
+        name = LUX_anarchism_ns
+        picture = SPR_crush_the_revolution
+        modifier = {
+           neutrality_drift = 0.25          
+           stability_weekly = -0.01
+           consumer_goods_factor = -0.2
+           resistance_target = -0.3
+           equipment_upgrade_xp_cost = -0.25
+           equipment_conversion_speed = 0.25
+           production_factory_efficiency_gain_factor = 0.1
+           production_factory_max_efficiency_factor = 0.12
+           production_factory_start_efficiency_factor = 0.35
+           mobilization_speed = 0.35
+           mobilization_laws_cost_factor = -0.1
+        }
+        rule = {
+            can_access_market = no
+            can_join_factions = no
+     #        can_declare_war_on_same_ideology = yes
+            can_send_volunteers = yes
+     #        can_declare_war_without_wargoal_when_in_war = yes
+            can_only_justify_war_on_threat_country = no
+            can_join_opposite_factions = no
+            can_create_collaboration_government = no
+        }
+    }
     LUX_workers_commune1_ns = {
         name = LUX_workers_commune_ns
         picture = generic_production_bonus
@@ -2529,7 +2586,8 @@ ideas = {
             army_defence_factor = 0.1
             army_attack_factor = 0.05
             conscription = 0.1
-            weekly_manpower = 150
+            weekly_manpower = 300
+            training_time_army = -0.1
         }
     }
     LUX_closed_luxembourg_radio_ns = {
@@ -2667,13 +2725,13 @@ ideas = {
         picture = RAJ_just_good_business
         modifier = {
             political_power_factor = -0.2
-            party_popularity_stability_factor = 0.3
+  #           party_popularity_stability_factor = 0.3
             stability_factor = -0.1
             political_power_cost = 0.15
-            fascism_drift = 0.04
-            consumer_goods_factor = 0.5
-            conversion_cost_civ_to_mil_factor = 0.75
-            conversion_cost_mil_to_civ_factor = -0.1
+   #          fascism_drift = 0.04
+   #          consumer_goods_factor = 0.5
+   #         conversion_cost_civ_to_mil_factor = 0.75
+   #          conversion_cost_mil_to_civ_factor = -0.1
         }
     }
     LUX_capital_influnce2_ns = { #angry
@@ -2740,6 +2798,7 @@ ideas = {
             production_speed_facility_factor = -0.75
             industrial_capacity_factory = -0.1
             custom_modifier_tooltip = SPR_military_disloyalty_tt
+            custom_modifier_tooltip = LUX_army_limits_remove_tt
         }
         on_add = {
             set_country_flag = LUX_army_limits_active_flag
@@ -2809,7 +2868,7 @@ ideas = {
     }
     LUX_international_brigade_ns = {
         name = "International Brigaden"
-        picture = mex_revolutionary_army
+        picture = MEX_revolutionary_army
         modifier = {
             weekly_manpower = 1500
   #          weekly_casualties_war_support = 0.007
@@ -2831,6 +2890,444 @@ ideas = {
         modifier = {
             license_armor_purchase_cost = -0.5
             license_purchase_cost = -0.35
+        }
+    }
+    LUX_intelligence_agency_network_ns = {
+        picture = generic_spy_intel
+        allowed = {
+            has_dlc = "La Resistance"
+        }
+        modifier = {
+            civilian_intel_factor = 0.1
+            army_intel_factor = 0.1
+            navy_intel_factor = 0.1
+            airforce_intel_factor = 0.1
+            civilian_intel_decryption_bonus = 0.05
+            army_intel_decryption_bonus = 0.05
+            navy_intel_decryption_bonus = 0.05
+            airforce_intel_decryption_bonus = 0.05
+            operative_slot = 2
+            operative_death_on_capture_chance = -0.15
+            intel_network_gain = 0.2
+            intel_from_operatives_factor = 0.07
+            intelligence_agency_defense = 0.15
+        }
+    }
+    LUX_economic_deal_with_ROOT_ns = {
+        picture = LUX_economic_integration_deal
+        modifier = {
+            min_export = 0.2
+            stability_factor = -0.15
+            autonomy_gain = -0.2         	
+            political_power_cost = 0.25
+            custom_modifier_tooltip = war_will_cancel_deal_tt
+        }
+        targeted_modifier = {
+            tag = LUX
+   #        cic_to_target_factor = 0.35
+            extra_trade_to_target_factor = 1
+   #        mic_to_target_factor = 0.35
+            trade_cost_for_target_factor = -1
+        }
+        cancel = {
+            has_war_with = LUX
+        }
+    }
+    shared_military_deal_with_LUX_ns = {
+       picture = generic_army_war_college
+       modifier = {
+         army_core_attack_factor = -0.1
+         army_core_defence_factor = -0.1
+         army_attack_factor = 0.2
+         army_defence_factor = 0.2
+         command_power_gain = 0.02
+         custom_modifier_tooltip = war_will_cancel_deal_tt
+       }
+       cancel = {
+        has_war_with = LUX
+       }
+    }
+    LUX_europe_separatism_ns = {
+       picture = chi_war_of_resistance3
+       
+    }
+    LUX_country_recovery_ns = { 
+        picture = generic_foreign_capital
+        modifier = {
+            consumer_goods_factor = -0.2
+            production_speed_buildings_factor = 0.1
+            industry_free_repair_factor = 0.35
+            war_support_factor = -0.15
+        }
+    }
+    LUX_organic_nation_ns = {
+        picture = SPR_political_violence
+        modifier = {
+            democratic_drift = -0.1
+            communism_drift = -0.1
+            neutrality_drift = -0.1
+            fascism_drift = 0.05
+            drift_defence_factor = 0.1
+            monthly_population = -0.05
+            custom_modifier_tooltip = LUX_organic_nation_tt # remove split when facist get 100% support
+        }
+        cancel = {
+            fascism > 0.99
+        }
+    }
+    LUX_nuclear_research_university_ns = {
+        picture = generic_research_bonus
+        modifier = {
+    #        state_production_speed_commercial_nuclear_reactor_factor = 0.1
+            state_production_speed_nuclear_reactor_factor = 0.05
+            sp_nuclear_bomb_speed_factor = 0.07
+            specialization_nuclear_speed_factor = 0.05
+        }
+    }
+    LUX_nuclear_research_university2_ns = {
+        name = LUX_nuclear_research_university_ns
+        picture = generic_research_bonus
+        modifier = {
+     #       state_production_speed_commercial_nuclear_reactor_factor = 0.1
+            state_production_speed_nuclear_reactor_factor = 0.1
+            sp_nuclear_bomb_speed_factor = 0.1
+            specialization_nuclear_speed_factor = 0.1
+       #      nuclear_production = 0.2
+        }
+    }
+    LUX_prepare_for_invasion2_ns = {
+        name = LUX_prepare_for_invasion_ns
+        picture = generic_preperatioion_for_war
+        modifier = {
+   #         army_core_defence_factor = 0.05
+   #         army_defence_factor = 0.07
+   #         army_core_attack_factor = 0.05
+            war_support_factor = 0.1
+            weekly_casualties_war_support = 0.005
+            weekly_bombing_war_support = 0.001
+            attrition = -0.05
+            equipment_capture_factor = 0.05
+        }
+    }
+    LUX_prepare_for_invasion3_ns = {
+        name = LUX_prepare_for_invasion_ns
+        picture = generic_preperatioion_for_war
+        modifier = {
+            war_support_factor = 0.1
+            weekly_casualties_war_support = 0.005
+            weekly_bombing_war_support = 0.001
+            attrition = -0.05
+            equipment_capture_factor = 0.05
+            army_defence_factor = 0.1
+        }
+    }
+    LUX_prepare_for_invasion4_ns = {
+        name = LUX_prepare_for_invasion_ns
+        picture = generic_preperatioion_for_war
+        modifier = {
+            war_support_factor = 0.1
+            weekly_casualties_war_support = 0.005
+            weekly_bombing_war_support = 0.001
+            attrition = -0.05
+            equipment_capture_factor = 0.05
+            army_defence_factor = 0.1
+            army_core_attack_factor = 0.15
+        }
+    }
+    LUX_law_defence_political_and_social_order_ns = {
+        picture = vittoria_mutilata
+        modifier = {
+           democratic_drift = -0.05
+           fascism_drift = -0.15
+           communism_drift = -0.15
+           drift_defence_factor = 0.3
+           political_power_factor = 0.1
+        }
+    }
+    LUX_main_trade_partner_of_germany_ns = {
+        picture = LUX_main_trade_partner_of_germany
+        modifier = {
+            trade_opinion_factor = 0.15
+        }
+        targeted_modifier = {
+            tag = GER
+            extra_trade_to_target_factor = 0.5
+            trade_cost_for_target_factor = -0.45
+        }
+        cancel = {
+            OR = {
+                has_war_with = GER
+                NOT = {
+                    country_exists = GER
+                }
+            }
+        }
+    }
+    LUX_main_trade_partner_of_germany2_ns = {
+        name = LUX_main_trade_partner_of_germany_ns
+        picture = LUX_main_trade_partner_of_germany
+        modifier = {
+            trade_opinion_factor = 0.15
+        }
+        targeted_modifier = {
+            tag = GER
+            extra_trade_to_target_factor = 0.1
+            trade_cost_for_target_factor = -0.25
+        }
+        cancel = {
+            OR = {
+                has_war_with = GER
+                NOT = {
+                    country_exists = GER
+                }
+            }
+        }
+    }
+    LUX_main_trade_partner_of_germany3_ns = {
+        name = LUX_main_trade_partner_of_germany_ns
+        picture = LUX_main_trade_partner_of_germany
+        modifier = {
+            trade_opinion_factor = 0.15
+        }
+        targeted_modifier = {
+            tag = GER
+            extra_trade_to_target_factor = 0.65
+            trade_cost_for_target_factor = -0.7
+        }
+        cancel = {
+            OR = {
+                has_war_with = GER
+                NOT = {
+                    country_exists = GER
+                }
+            }
+        }
+    }
+    LUX_trade_partner_of_belgum_ns = {
+        picture = LUX_trade_partner_of_belgum
+        modifier = {
+            consumer_goods_factor = -0.05
+        }
+        targeted_modifier = {
+            tag = BEL
+            trade_cost_for_target_factor = -0.35
+        }
+        cancel = {
+            OR = {
+                has_war_with = BEL
+                NOT = {
+                    country_exists = BEL
+                }
+            }
+        }
+    }
+    LUX_trade_partner_of_niderlands_ns = {
+        picture = LUX_trade_partner_of_niderlands
+        modifier = {
+            consumer_goods_factor = -0.05
+        }
+        targeted_modifier = {
+            tag = HOL
+            trade_cost_for_target_factor = -0.35
+        }
+        cancel = {
+            OR = {
+                has_war_with = HOL
+                NOT = {
+                    country_exists = HOL
+                }
+            }
+        }
+    }
+    LUX_intervantion_scw_nationalist_ns = {
+        picture = SPR_nationalist_remnants
+        targeted_modifier = {
+            tag = SPA
+            weekly_manpower = 2500
+        }
+        modifier = {
+            send_volunteer_divisions_required = -0.3
+            send_volunteer_size = 10
+            send_volunteers_tension = -1
+            air_volunteer_cap = 150
+            civil_war_involvement_tension = -0.2
+        }
+        cancel = {
+            has_global_flag = scw_over
+        }
+    }
+    LUX_intervantion_republican_ns = {
+        picture = SPA_maquis
+        targeted_modifier = {
+            tag = SPD
+            weekly_manpower = 2500
+        }
+        modifier = {
+            send_volunteer_divisions_required = -0.3
+            send_volunteer_size = 10
+            send_volunteers_tension = -1
+            air_volunteer_cap = 150
+            civil_war_involvement_tension = -0.2
+        }
+        cancel = {
+            has_global_flag = scw_over
+        }
+    }
+    LUX_intervantion_in_benelux_ns = { #for 365 days
+        picture = CZE_planning_bonus
+        modifier = {
+            planning_speed = 0.15
+            max_planning = 0.1
+            breakthrough_factor = 0.05
+        }
+    }
+    LUX_threat_from_east_idea = {
+        name = FIN_german_threat
+        picture = FIN_german_threat
+        targeted_modifier = {
+            tag = GER
+            attack_bonus_against_cores = 0.1
+            attack_bonus_against = 0.15
+            defense_bonus_against = 0.1
+        }
+    }
+     LUX_anarchist_militia2_ns = {
+        name = LUX_anarchist_militia
+        picture = chi_army_corruption3
+        modifier = {
+    #        org_loss_at_low_org_factor = -0.15
+            army_attack_factor = 0.23
+            army_strength_factor = 0.12
+            army_defence_factor = 0.17
+            experience_loss_factor = -0.05
+            mobilization_speed = 0.05
+  #           army_org = 5
+  #           army_org_factor = 0.15
+            training_time_army = -0.1
+        }
+    }
+    LUX_militarist_production_ns = {
+        picture = generic_improved_industries
+        modifier = {
+            conversion_cost_civ_to_mil_factor = -0.15
+            conversion_cost_mil_to_civ_factor = 0.2
+            production_speed_arms_factory_factor = 0.05
+            production_factory_max_efficiency_factor = 0.02
+        }
+    }
+    LUX_anarchist_propaganda_ns = {
+        modifier = {
+            compliance_gain = 0.02
+            compliance_growth = 0.05
+        }
+        picture = SPR_anarchist_society
+    }
+    LUX_world_anarcnism_ns = {
+        modifier = {
+            political_power_factor = 0.35
+            political_power_gain = 0.2
+            compliance_growth = 0.1
+            resistance_target = -0.35
+        }
+        picture = SPR_anarchist_society
+    }
+    shared_centralisation_idea = {
+        picture = generic_pp_unity_bonus
+        modifier = {
+            cic_to_overlord_factor = 0.50
+            mic_to_overlord_factor = 0.35
+            overlord_trade_cost_factor = -0.65
+        }
+    }
+    LUX_we_bring_light_idea = {
+        picture = SPR_torchbearers_of_tomorrow
+        name = LUX_we_bring_light
+        modifier = {
+            justify_war_goal_time = -0.65
+     #       justify_war_goal_when_in_major_war_time = -0.85
+            war_support_factor = 0.15
+            army_attack_against_major_factor = 0.15
+            army_defence_against_major_factor = 0.1
+        }
+    }
+     anti_stalinist_member_pact_idea = {
+        picture = ger_bulwark_against_bolshevism
+         cancel = {
+            any_enemy_country = {
+                has_idea = anti_stalinist_member_pact_idea
+            }
+         }
+         on_add = {
+            set_country_flag = member_anti_stalinist_pact_flag
+         }
+         on_remove = {
+            clr_country_flag = member_anti_stalinist_pact_flag
+            log = "Kick out from anti-stalinist pact"
+         }
+    }
+    LUX_shared_BLEU_idea = { #Luxo-Belgum economic union 1923
+        name = shared_BLEU_idea
+        picture = shared_BLEU
+        modifier = {
+            stability_factor = 0.1
+            political_power_factor = 0.07
+            min_export = 0.15
+            trade_opinion_factor = 0.15
+        }
+        targeted_modifier = {
+            tag = BEL
+            trade_cost_for_target_factor = -1
+        }
+        cancel = {
+            all_country_with_original_tag = {
+                original_tag_to_check = BEL
+                has_idea = BEL_shared_BLEU_idea
+                OR = {
+                    scope_exists = no
+                    has_war_with = ROOT
+                }
+            }
+        }
+        on_remove = {
+            set_global_flag = luxo_belgum_economic_union_was_removed
+        }
+    }
+    BEL_shared_BLEU_idea = { #Luxo-Belgum economic union 1923
+        name = shared_BLEU_idea
+        picture = shared_BLEU
+        modifier = {
+            stability_factor = 0.05
+            political_power_factor = 0.07
+            min_export = 0.4
+            trade_opinion_factor = 0.3
+        }
+        targeted_modifier = {
+            tag = LUX
+            trade_cost_for_target_factor = -1
+        }
+        cancel = {
+            all_country_with_original_tag = {
+                original_tag_to_check = LUX
+                has_idea = LUX_shared_BLEU_idea
+                OR = {
+                    scope_exists = no
+                    has_war_with = ROOT
+                }
+            }
+        }
+        on_remove = {
+            set_global_flag = luxo_belgum_economic_union_was_removed
+        }
+    }
+    LUX_trade_unions = {
+        name = ARG_state_unions_idea
+        picture = ARG_construction_guilds
+        modifier = {
+            production_factory_efficiency_gain_factor = 0.05
+            production_factory_max_efficiency_factor = 0.1
+            production_factory_start_efficiency_factor = 0.02
+            communism_drift = 0.05
+            stability_factor = 0.05
         }
     }
   }

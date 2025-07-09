@@ -1,0 +1,58 @@
+#historical
+LUX_historical_plan = {
+	name = "Luxemburg Historical Plan"
+	desc = "Luxemburg will pursue neutrality for as long as possible."
+
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+		   has_country_flag = LUX_HISTORICAL_AI_PLAN
+		   has_game_rule = {
+			   rule = LUX_ai_behavior
+			   option = HISTORICAL
+		    }
+		}
+	}
+	abort = {
+	}
+	ai_national_focuses = {
+	   LUX_constitutional_monarchy
+	   LUX_continue_support
+	   LUX_less_dependence_from_germany
+	   LUX_trade_with_belgum
+	   LUX_confirm_neutrality
+	   LUX_trade_with_niderlands
+	   LUX_ban_communisn_party_referendum
+       LUX_new_democratic_leader
+	   LUX_great_depression
+	   LUX_agreement_with_ENG_focus
+	   LUX_imigretes_welcome
+	   LUX_negotiation_with_GER
+	   LUX_legitimacy_govermnet
+	   LUX_benelux_economic_union
+	   LUX_fascist_major_attack_us
+	   LUX_ban_fascism
+	}
+	ai_strategy = {
+		type = befriend
+		id = ENG
+		value = 50
+	}
+	ai_strategy = {
+		type = alliance
+		id = ENG
+		value = 25
+	}
+	ai_strategy = {
+		type = befriend
+		id = FRA
+		value = 50
+	}
+	ai_strategy = {
+		type = alliance
+		id = FRA
+		value = 25
+	}
+}

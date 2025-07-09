@@ -112,9 +112,9 @@ leader_traits = {
 	}
 	LUX_fascism_sympathizes  = {
 		sprite = 13
-		fascism_drift = 0.10
-		command_power_gain = 0.02
-		political_power_factor = -0.15
+		fascism_drift = 0.15
+	#	command_power_gain = 0.02
+	#	political_power_factor = -0.15
 		fascism_acceptance = 25
 	}
 	LUX_grand_duchess_luxembourg_trait = {
@@ -208,10 +208,10 @@ leader_traits = {
 	}
 	LUX_divided_society = {
 		stability_weekly = -0.001
-		political_power_factor = -0.15
+		political_power_factor = -0.1
 		surrender_limit = 0.25
-		mobilization_laws_cost_factor = 0.25
-		political_advisor_cost_factor = 0.10
+#		mobilization_laws_cost_factor = 0.25
+#		political_advisor_cost_factor = 0.10
 	}
 	#LUX_charles_marx trait
 	LUX_workers_revolution_leader = {
@@ -314,5 +314,25 @@ leader_traits = {
 		resistance_target = -0.75
 		compliance_gain = 0.02
 		compliance_growth = 0.05
+	}
+	LUX_minister_social_security_and_labor = {
+		sprite = 13
+		stability_factor = 0.1
+		production_factory_max_efficiency_factor = 0.02
+		production_factory_efficiency_gain_factor = 0.05
+	}
+	LUX_anarchist_syndycalist = {
+		sprite = 13
+		neutrality_drift = 0.15
+		stability_factor = -0.1
+		equipment_capture = 0.1
+		resistance_target_on_our_occupied_states = 0.05
+	}
+	anarchist_council_of_sciense_trait = {
+		sprite = 13
+		research_speed_factor = 0.2
+		nuclear_production_factor = 0.05
+		equipment_conversion_speed = 0.1
+		production_factory_max_efficiency_factor = 0.05
 	}
 }

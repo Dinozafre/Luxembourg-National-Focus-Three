@@ -1,1132 +1,29 @@
-#anarchism
-#resource getting
-LUX_steel_get = {
-	add_resource = {
-		type = steel
-		amount = 10
-		state = 8
-	}
-}
-LUX_oil_get = {
-	add_resource = {
-		type = oil
-		amount = 15
-		state = 8
-	}
-}
-LUX_get_oil_from_SAU = {
-SAU = {
-	add_opinion_modifier = {
-		target = ROOT
-		modifier = LUX_has_oil_from_SAU
-	}
-	give_resource_rights = { 
-		receiver = ROOT
-		state = 292
-	}
-	give_resource_rights = { 
-		receiver = ROOT
-		state = 858
-	}
-	give_resource_rights = { 
-		receiver = ROOT
-		state = 678
-	}
-	add_offsite_building = {
-		type = arms_factory
-		level = 2
-	}
-}
-hidden_effect = {
-	add_resource = {
-		type = oil
-		amount = 20
-		state = 292
-	}
-	add_resource = {
-		type = oil
-		amount = 10
-		state = 678
-	}
-	add_resource = {
-		type = oil
-		amount = 10
-		state = 858
-	}
-	add_resource = {
-		type = oil
-		amount = 15
-		state = 856
-	}
-	add_resource = {
-		type = oil
-		amount = 15
-		state = 859
-	}	
-	add_resource = {
-		type = oil
-		amount = 5
-		state = 857
-	}
-	add_resource = {
-		type = oil
-		amount = 10
-		state = 854
-	}
-	add_resource = {
-		type = oil
-		amount = 10
-		state = 855
-	}
-}
-}
-LUX_gets_steel_from_SWE = {
-	SWE = {
-		add_offsite_building = {
-			type = industrial_complex
-			level = 2
-		}
-		give_resource_rights = {
-			receiver = ROOT 
-			state = 918 #Västerbotten 
-		}
-	}
-}
-LUX_credit_give_army_factory = {
-	add_offsite_building = {
-		type = arms_factory
-		level = 2
-	}
-}
-LUX_equipment_give_SAU = {
-	add_equipment_to_stockpile = {
-		type = support_equipment_1
-		amount = -500
-		producer = ROOT
-	}
-SAU = {
-	add_equipment_to_stockpile = {
-		type = support_equipment_1
-		amount = 500
-		producer = ROOT
-	}
-}
-}
-LUX_equipment_give_SWE = {
-	add_equipment_to_stockpile = {
-		type = infantry_equipment_0
-		amount = -1500
-		producer = ROOT
-	}
-  SWE = {
-	add_equipment_to_stockpile = {
-		type = infantry_equipment_0
-		amount = 1500
-		producer = ROOT
-  }
-  }
-}
-LUX_trade_oponion = {
-	add_opinion_modifier = {
-		target = ROOT
-		modifier = LUX_trade_wtih
-	}
-}
-LUX_ban_communism = {
-	set_popularities = {
-		communism = 0
-	}
-}
-LUX_coup_facsimt_unite_benelux = {
-	start_civil_war = {
-		ruling_party = fascism
-		ideology = ROOT
-		capital = 8
-		states = { 7 35 36 8 }
-		keep_political_leader = yes
-		keep_political_party_members = yes
-	}
-	set_country_flag = LUX_fascism_coup_flag
-}
-LUX_coup_fascism = {
-	set_politics = {
-		ruling_party = fascism
-		elections_allowed = no
-	}
-	set_country_flag = LUX_fascism_coup_flag
-}
-LUX_benelux_event = {
-	unlock_decision_tooltip = HOL_propose_benelux_unification
-}
-#join axis 
-General_join_axis = {
-	GER = {
-		country_event = generic.2
-	}
-}
-#future of germany effects
-LUX_germany_future = {
-	GER = {
-		set_politics = {
-			ruling_party = democratic
-			elections_allowed = no
-		}
-		set_popularities = {
-			democratic = 80
-			neutrality = 5
-			fascism = 0
-			communism = 15
-		}
-		set_major = no
-	}
-	POL = {
-		add_state_claim = 763
-		add_state_claim = 5
-	}
-	add_named_threat = {
-		threat = -15
-		name = LUX_germany_security
-	}
-	if = {
-    limit = {LUX_DEN_is_GER_puppet = yes}
-	GER  ={
-		set_autonomy = {
-			target = DEN
-			autonomous_state = autonomy_free
-		}
-	}
-	}
-}
-LUX_confirm_claims = {
-	POL = {
-		set_state_owner = 763
-		set_state_owner = 5
-		release_autonomy = {
-			target = DNZ
-			autonomy_state = autonomy_colony
-			freedom_level = 0.2
-		}
-	}
-}
-LUX_demilitorization_rain_land = {
-	42 = {
-		set_demilitarized_zone = yes
-	}
-	51 = {
-		set_demilitarized_zone = yes
-	}
-}
-GER_declare_war_LUX = {
-	GER = {
-	declare_war_on = {
-		target = ROOT
-		type = puppet_wargoal_focus
-	}
-}
-}
-GER_kill_hitler_no_LaR = {
-	GER = {
-		kill_country_leader = yes
-	}
-}
-GER_start_civil_war = {
-	start_civil_war = {
-		ideology = communism
-		states = {
-          61 62 56 
-		}
-		states_filter = {
-			is_on_continent = europe
-			is_capital = no
-		}
-		keep_all_characters = yes
-		promote_character = GER_heinrich_himmler
-		set_global_flag = GER_civil_war_against_communist
-		# Sets a country flag that gets used in a country tag alias.
-	}
-}
-#set veribles
-set_variable_charlotte_grand_duchess1 = {
-	add_to_variable = {idea_neutrality_drift_factor = 0.01 tooltip = neutrality_drift_factor_tt}
-	add_to_variable = {idea_political_power_gain_factor = 0.25}
-}
-effect_world_revolution = {
-	every_possible_country = {
-		limit = {
-			NOT = {
-				has_government = communism
-			}
-		}
-		start_civil_war = {
-			ideology = communism
-			size = 0.9
-			states_filter = {
-				is_capital = no
-			}
-			set_global_flag = global_world_revolution_start_flag
-		}
-	}
-}
-fouth_international_set_national_states = {
-	every_state = {
-		limit = {
-			NOT  = {
-			  is_core_of = ROOT
-			}
-		}
-		add_core_of = ROOT
-	}
-}
-crate_Parliament = {
-	create_country_leader = {
-		desc = "Parlament"
-		picture = GFX_portrait_POL_the_sejm
-		ideology = liberalism
-		traits = { likes_allies }
-		name = "Parlament"
-	}
-}
-crate_corps_commander_emile_speller = {
-	create_corps_commander = {
-		name = "Emile Speller"
-		picture = "general_emile_speller.dds"
-		traits = { brilliant_strategist }
-		skill = 2
-		attack_skill = 3
-		defense_skill = 2
-		planning_skill = 3
-		logistics_skill = 2
-	}
-}
-lUX_anarchist_ruling_set  = {
-	create_country_leader = {
-		name = "Anarchist Commune"
-		picture = GFX_portrait_SPR_anarchist_commune
-		ideology = anarchism
-		traits = {
-			LUX_divided_society
-		}
-	}
-	set_party_name = {
-		ideology = neutrality
-		long_name = LUX_anarchist_commune_party_desc
-		name = LUX_anarchist_commune_party
-	}
-	hidden_effect = {
-		remove_dynamic_modifier = {
-			modifier = LUX_modifier_lefts_go_1
-		}
-	    add_dynamic_modifier = {
-			modifier = LUX_modifier_lefts_go_3
-		}
-	}
-	custom_effect_tooltip = LUX_modify_LUX_modifier_lefts_go_3
-	add_to_variable = { LUX_neutrality_drift_modifier_2 = 0.10 tooltip = neutrality_drift_factor_tt }
-}
-LUX_crate_leader_fasism_coup_leader =  {
-	add_country_leader_role = {
-		character = LUX_army_junta
-		promote_leader = yes
-		country_leader = {
-			ideology = despotism
-			traits = { LUX_army_power }
-		}
-	}
-}
-LUX_germany_crate_autonomy_reichskommissariat = {
-	set_autonomy = {
-		target = LUX
-		autonomous_state = autonomy_reichskommissariat
-	}
-}
-LUX_fascism_coup = {
-	set_politics = {
-		ruling_party = fascism
-		elections_allowed = no
-	}
-}
-LUX_upload_idea_youth_organization = {
-	if = {
-		limit = {
-           has_idea = LUX_youth_organization
-		}
-		swap_ideas = {
-			remove_idea = LUX_youth_organization
-			add_idea = LUX_youth_organization2
-		}
-	}
-}
-LUX_get_wargoal_on_benelux = {
-	declare_war_on = {
-		target = BEL
-		type = annex_everything
-	}
-	declare_war_on = {
-		target = HOL
-		type = annex_everything
-	}
-	set_rule = {
-		can_not_declare_war = no
-	}
-	add_autonomy_score = {
-		value = 250
-	}
-	GER = {
-		add_to_war = {
-			targeted_alliance = ROOT
-			enemy = HOL
-			hostility_reason = asked_to_join
-		}
-		add_to_war = {
-			targeted_alliance = ROOT
-			enemy = BEL
-			hostility_reason = asked_to_join
-		}
-	}
-}
-LUX_get_opinion_general_benelux_work_together = {
-	add_opinion_modifier = {
-		target = ROOT
-		modifier = benelux_work_together_in_exile_opinion
-	}
-}
-LUX_economic_union_get_opinion = {
-	
-}
-LKUX_rename_fascism_aprty_into_NSDP = {
-	set_party_name = {
-		ideology = fascism
-		long_name = GER_fascism_party_long
-		name = GER_fascism_party
-	}
-}
-LUX_collecive_goverment_communist_crate = {
-	add_country_leader_role = {
-		character = LUX_collective_govermnet_commnunist
-		promote_leader = yes
-		country_leader = {
-			ideology = anti_revisionism
-			expire = "1965.1.1.1"
-			traits = { LUX_collective_goverment_communist }
-		}
-	}
-}
-LUX_apct_of_driend_effects = {
-  HOL = {
-	country_event = { id = benelux_friend_pact_events.0 }
-  }
-  BEL = {
-	country_event = { id = benelux_friend_pact_events.0 }
-  }
-  
-}
-LUX_effect_event_sign_friend_pact = {
-	give_guarantee = FROM
-	give_military_access = FROM
-	add_opinion_modifier = {
-		target = FROM
-		modifier = in_friend_pact
-	}
-	FROM  = {
-	   set_country_flag = in_friend_pact_flag
-	   give_guarantee = ROOT
-	   give_military_access = ROOT
-	}
-	add_opinion_modifier = {
-		target = FROM
-		modifier = LUX_sign_friend_pact
-	}
-}
-LUX_liberia_ultimatum_tooltip  ={
-	custom_effect_tooltip = if_they_accept_tt
-	effect_tooltip  = { 
-		annex_country = {
-			target = LIB
-			transfer_troops = yes
-		}
-	}
-	custom_effect_tooltip = if_they_reject
-	effect_tooltip  = { 
-		declare_war_on = {
-			target = LIB
-			type = puppet_wargoal_focus
-		}
-	}
-}
-LUX_live_or_death_effect = {
-	if = {
-		limit = {
-			is_ai = yes
-		}
-		add_ideas = LUX_live_or_death_ai
-	}
-	else = {
-        add_ideas = LUX_live_or_death
-	}
-}
-LUX_ask_hostile_lux_event_effect = {
-	ENG = {
-		country_event = {
-			id = LUX_diplomacy.9
-			random_days = 3
-		}
-	}
-}
-LUX_send_monarch_in_exile_random_effect = {
-	custom_effect_tooltip = LUX_send_monarch_in_exile_random_effect_tt
-	hidden_effect = {
-		every_possible_country = {
-			random_other_country = {
-				limit = {
-					capital_scope = {
-						OR = {
-							is_on_continent = north_america
-							is_on_continent = south_america
-						}
-					}
-				}
-				country_event = LUX_fascism.7
-			}
-		}
-	}
-}
-LUX_crate_divison_workers_union_effect = {
-	division_template = {
-		name = "Aarbechter Gewerkschaft"		
-		division_names_group = LUX_INF_01
-		regiments = {
-			infantry = { x = 0 y = 0 }
-			infantry = { x = 0 y = 1 }
-			infantry = { x = 0 y = 2 }
-			infantry = { x = 0 y = 3 }
-			infantry = { x = 1 y = 0 }
-			infantry = { x = 1 y = 1 }
-			infantry = { x = 1 y = 2 }
-			infantry = { x = 1 y = 3 }
-			infantry = { x = 2 y = 0 }
-			infantry = { x = 2 y = 1 }
-			infantry = { x = 2 y = 2 }
-			infantry = { x = 2 y = 3 }
-		}
-		support = {
-			artillery = { x = 0 y = 0 }
-			engineer = { x = 0 y = 1 }
-		}
-		is_locked = no
-	}
-	custom_effect_tooltip = workers_union_division_creating_effect_tt
-}
-LUX_modify_army_limits_remove1_effect = {
-	custom_effect_tooltip = LUX_modify_army_limits_tt
-	add_to_variable = { max_command_power_army_limits_modifier = 50 tooltip = max_command_power_tt }
-	add_to_variable = { mobilization_speed_army_limits_modifier = 0.25 tooltip = mobilization_speed_tt }
-	set_variable = { army_defence_factor_army_limits_modifier = 0 tooltip = army_defence_factor_tt } 
-	set_variable = { army_attack_factor_army_limits_modifier = 0 tooltip = army_attack_factor_tt }
-	#custom_effect_tooltip = LUX_modify_remove_modifers_tt
-}
-LUX_add_core_for_INS_states_effect = {
-	every_state = {
-		limit = {
-			is_core_of = INS
-		}
-		add_core_of = ROOT
-	}
-}
-LUX_integration_colonies = {
-	every_state = {
-		limit = {
-			is_fully_controlled_by = ROOT
-			NOT = {
-				is_on_continent = europe
-			}
-		}
-		add_core_of = ROOT
-	}
-}
-LUX_brothers_of_deal_effect = {
-	add_ideas = LUX_brothers_of_deal_idea
-	add_popularity = {
-		ideology = neutrality
-		popularity = 0.10
-	}
-	add_offsite_building = { 
-		type = industrial_complex 
-		level = 1 
-	}
-}
-LUX_anti_fascism_movement_effect = {
-	custom_effect_tooltip = LUX_modify_germany_attack_dm_tt
-	add_to_variable = { fascism_drift_germany_attack_modfier = -0.10 tooltip = fascism_drift_tt }
-	set_variable = { defense_bonus_against_germany_attack_modfier = 0.10 tooltip = defense_bonus_against_a_country_tt }
-}
-LUX_economic_union_effect = {
-	if =  {
-		limit = {
-			country_exists = BEL
-		}
-		BEL =  {
-			country_event = {
-				id = benelux_events.0
-				random_hours = 12
-				days = 1
-			}
-		}
-	}
-	if =  {
-		limit = {
-			country_exists = HOL
-		}
-		HOL =  {
-           country_event = {
-			  id = benelux_events.0
-			  random_hours = 12
-			  days = 1
-		   }
-		}
-	}
-}
-LUX_unite_resistnece_effect =  {
-	every_country = {
-		limit = {
-			OR  = {
-				has_country_flag = member_of_economic_union_flag
-				has_country_flag = leader_of_benelux_economic_union_flag
-			}
-		}
-		every_owned_state = {
-			limit =  {
-				is_core_of = PREV.PREV
-				NOT = {
-					is_controlled_by = PREV.PREV
-				}
-			}
-			add_compliance = -10
-			add_resistance_target = 15
-			add_resistance = 5
-		}
-	}
-	add_war_support = 0.05
-	add_command_power = 15
-	add_manpower = 5000
-	custom_effect_tooltip = LUX_unite_resistnece_effect_tt
-	add_to_variable = {
-		var = resistance_target_support_resistence_var
-		value = 7
-	}
-}
-set_ai_for_LUX_no_arm_lmits_effect = {
-	set_variable = {
-		ai_wants_divisions = 20
-		ai_strategy_prepare_for_war@ROOT = 100
-	}
-}
-set_variables_benelux_economic_leader_effect = {
-	set_variable = {
-		consumer_goods_factor_leader_economic_union_modifier = -0.15
-	}
-	set_variable = {
-		political_power_factor_leader_economic_union_modifier = 0.20
-	}
-	set_variable = {
-		production_speed_buildings_factor_leader_economic_union_modifier = 0.25
-	}
-}
-set_variables_benelux_economic_member_effect = {
-	set_variable = {
-		consumer_goods_factor_member_economic_union_modifier = -0.10
-	}
-	set_variable = {
-		political_power_factor_member_economic_union_modifier = 0.10
-	}
-	set_variable = {
-		production_speed_buildings_factor_member_economic_union_modifier = 0.15
-	}
-}
-LUX_ask_emile_spaller_to_be_fascist_effect = {
-	custom_effect_tooltip = LUX_ask_emile_spaller_to_be_fascist_effect_tt
-	hidden_effect = {
-		random_list = {
-			75 = {
-				LUX_Emile_Speller = {
-					unit_leader_event = {
-						id = LUX_fascism.12
-						random_hours = 6
-					}
-				}
-			}
-			25 = {
-                LUX_Emile_Speller = {
-					unit_leader_event = {
-						id = LUX_fascism.13
-						random_hours = 6
-					}
-				}
-				modifier = {
-					LUX_Emile_Speller = {
-						is_field_marshal = yes
-					}
-					factor = 100
-				}
-			}
-		}
-	}
-	
-}
-DEBUG_effect_activate_mission_LUX_increase_emile_speller_to_field_marchel_mission = {
-	activate_mission = LUX_increase_emile_speller_to_field_marchel_mission
-}
-LUX_first_effect = {
-    8 = {
-		add_extra_state_shared_building_slots = 1
-		add_building_construction = {
-			type = arms_factory
-			level = 2
-			instant_build = yes
-		}
-	}
-	add_manpower = 10000
-	add_stability = 0.1
-	add_war_support = 0.05
-	add_autonomy_score = {
-		value = -250
-	}
-	if = {
-		limit = {
-			is_subject = yes
-		}
-		OVERLORD = {
-			give_guarantee = ROOT
-		}
-	}
-}
-LUX_president_republic_effect = {
-	add_popularity = {
-		ideology = neutrality
-		popularity = party_popularity@democratic
-	}
-	# custom_effect_tooltip = LUX_president_republic_effect_tt
-	custom_effect_tooltip = LUX_president_republic_effect2_tt
-	set_party_name = {
-		ideology = democratic
-		name = LUX_democratic_party_alternative
-		long_name = LUX_democratic_party_alternative_long
-	}
-	set_party_name = {
-		ideology = neutrality
-		name = LUX_democratic_party
-		long_name = LUX_democratic_party
-	}
-	swap_country_leader_traits = {
-		remove = LUX_life_prime_minister
-		add = LUX_life_president
-		ideology = despotism
-	}
-	hidden_effect = {
-		set_politics = {
-			ruling_party = neutrality
-			elections_allowed = no
-			name = LUX_democratic_party
-		    long_name = LUX_democratic_party
-		}
-		retire_country_leader = yes
-		add_country_leader_role = {
-			character = LUX_joseph_bech
-			promote_leader = yes
-			country_leader = {
-				ideology = despotism
-				traits = { 
-					LUX_hostility_to_communist  
-					LUX_life_president
-				}
-			}
-		}
-	}
-}
-LUX_fight_with_france_effect = {
-	add_timed_idea = {
-		idea = LUX_fight_with_FRA
-		days = 365
-	}
-	custom_effect_tooltip = LUX_fight_with_france_effect_tt
-	custom_effect_tooltip = LUX_diplomatic_with_FRA_activation_tt
-	hidden_effect = {
-		every_possible_country = {
-			limit = {
-				OR = {
-					is_subject_of = FRA
-					original_tag = FRA
-					is_in_faction_with = FRA
-				}
-			}
-			ROOT = {
-				create_wargoal = {
-					type = topple_government
-					target = PREV
-				}
-			}
-		}
-	}
-}
-LUX_fight_with_germany_effect = {
-	add_timed_idea = {
-		idea = LUX_fight_with_GER
-		days = 365
-	}
-	custom_effect_tooltip = LUX_fight_with_germany_effect_tt
-	custom_effect_tooltip = LUX_diplomatic_with_GER_activation_tt
-	hidden_effect = {
-		every_possible_country = {
-			limit = {
-				OR = {
-					original_tag = GER
-					is_in_faction_with = GER
-				}
-			}
-			ROOT = {
-				create_wargoal = {
-					type = topple_government
-					target = PREV
-				}
-			}
-		}
-	}
-}
-upgrade_mobilazion_laws_effect = {
-   if = {
-	  limit = {
-		 has_idea = disarmed_nation
-	  }
-	  add_ideas = volunteer_only
-   }
-   else_if = {
-	 limit = {
-		has_idea = volunteer_only
-	 }
-	 add_ideas = limited_conscription
-   }
-   else_if = {
-	limit = {
-	   has_idea = limited_conscription
-	}
-	add_ideas = extensive_conscription
-  }
-  else_if = {
-	limit = {
-	   has_idea = extensive_conscription
-	}
-	add_ideas = service_by_requirement
-  }
-  else_if = {
-	limit = {
-	   has_idea = service_by_requirement
-	}
-	add_ideas = all_adults_serve
-  }
-  else = {
-	add_manpower = 10000
-  }
-}
-LUX_wantt_attack_us_event_effect = {
-	country_event = {
-		id = LUX_joseph_besh_events.5
-		random_hours = 12
-		days = 3
-	}
-	custom_effect_tooltip = LUX_wantt_attack_us_event_effect_tt
-}
-LUX_tooltip_effect_get_oil_from_SAU = {
-	custom_effect_tooltip = if_they_accept_tt
-	effect_tooltip = {
-		SAU = {
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = LUX_has_oil_from_SAU
-			}
-			give_resource_rights = { 
-				receiver = ROOT
-				state = 292
-			}
-			give_resource_rights = { 
-				receiver = ROOT
-				state = 858
-			}
-			give_resource_rights = { 
-				receiver = ROOT
-				state = 678
-			}
-		}
-	}
-}
-LUX_tooltip_effect_get_steel_from_SWE = {
-	custom_effect_tooltip = if_they_accept_tt
-	effect_tooltip = {
-		SWE  = {
-			give_resource_rights = {
-				receiver = ROOT 
-				state = 918
-			}
-		}
-	}
-}
-great_luxembourg_effect = {
-	if = {
-		limit = {
-			NOT = {
-				controls_state = 42
-			}
-		}
-		transfer_state = 42
-	}
-	if = {
-		limit = {
-			NOT = {
-				controls_state = 51
-			}
-		}
-		transfer_state = 51
-	}
-	if = {
-		limit = {
-			NOT = {
-				controls_state = 29
-			}
-		}
-		transfer_state = 29
-	}
-	if = {
-		limit = {
-			NOT = {
-				controls_state = 55
-			}
-		}
-		transfer_state = 55
-	}
-	if = {
-		limit = {
-			NOT = {
-				controls_state = 57
-			}
-		}
-		transfer_state = 57
-	}
-	if = {
-		limit = {
-			NOT = {
-				controls_state = 56
-			}
-		}
-		transfer_state = 56
-	}
-	every_state = {
-		limit = {
-			OR = {
-				state = 29
-				state = 51
-				state = 42
-				state = 55
-				state = 57
-				state = 56
-			}
-		}
-		add_core_of = ROOT
-	}
-	set_cosmetic_tag = LUX_great_luxembourg_cosmetic_neatrality
-	add_named_threat = {
-		threat = 5
-		name = LUX_great_luxembourg_claims_threat
-	}
-	add_war_support = 0.15
-	add_stability = 0.10
-	hidden_effect = {
-		news_event = {
-			id = LUX_demand_events.5
-			days = 1
-			random_hours = 6
-		}
-	}
-}
-LUX_the_great_depression_add_consumer_goods_factor_effect = {
-	custom_effect_tooltip = LUX_the_great_depression_modify_tt
-	add_to_variable = {
-		var = LUX_the_great_depression_consumer_goods_factor_var
-		value = 0.05
-		tooltip = consumer_goods_factor_tt
-	}
-}
-LUX_the_great_depression_remove_consumer_goods_factor_effect = {
-	custom_effect_tooltip = LUX_the_great_depression_modify_tt
-	add_to_variable = {
-		var = LUX_the_great_depression_consumer_goods_factor_var
-		value = -0.04
-		tooltip = consumer_goods_factor_tt
-	}
-}
-modify1_LUX_modifier_lefts_go_1_effect = {
-   custom_effect_tooltip = LUX_modifier_lefts_go_modify_tt
-   add_to_variable = {
-	  var = LUX_communism_drift_modifier
-	  value = 0.03
-	  tooltip = communism_drift_tt
-   }
-}
-invite_trotsky_in_LUX_effect = {
-	if = {
-		limit = {
-			has_global_flag = NOR_trotsky_in_norway
-		}
-		NOR = {
-            country_event = {
-				id = LUX_political_events.20
-				random_hours = 6
-				days = 1
-			}
-		}
-	}
-	else_if = {
-		limit = { 
-			has_global_flag = AAT_trotsky_in_mexico 
-		}
-		MEX  = {
-            country_event = {
-				id = LUX_political_events.20
-				random_hours = 6
-				days = 1
-			}
-		}
-	}
-}
-LUX_communisst_agency_creation_effect = {
-	create_intelligence_agency = {
-		name = "Revolutionär Agence"
-		icon = GFX_intelligence_agency_logo_generic_9
-	}
-}
-block_benelux_brench_effect = {
-	uncomplete_national_focus = {
-		focus = LUX_Benilux_quastion
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_benilux_creation_unite
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_invasion_in_niderlkands
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_calm_benelux_2
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_ultimattus_to_benelux
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_cancel_treaty_of_london
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_bunkers_in_belgum
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_bunkers_niderlands
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_explore_colonies
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_demand_iceland
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_ultimatum_to_liberaria
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_establish_EU
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_call_conference
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_create_benilux_faction
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_invate_belgum
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_bunkers_in_belgum_benelux
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_invate_niderlands
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_bunkers_in_niderlands_benelux
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_benelux_base
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_benilux_mobilization
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_benulux_investment
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-	uncomplete_national_focus = {
-		focus = LUX_protect_allies
-		uncomplete_children = yes
-		refund_political_power = no
-	}
-}
-	#### Joseph Besh - 1  #####
-	#### Pierre Dupong - 2 ####
+#### Joseph Besh - 1  #####
+#### Pierre Dupong - 2 ####
 add_support_for_condidate_1 = {
-	add_to_variable = {
-		value = 1
-		var = global.joseph_besh_support
-		tooltip = joseph_besh_support_tt
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = add_support_for_condidate_tt
+			CHARACTER = LUX_joseph_bech
+		}
+		add_to_variable = {
+		    value = 1
+		    var = global.joseph_besh_support
+		    tooltip = joseph_besh_support_tt
+	    }
 	}
 }
 add_support_for_condidate_2 = {
-	add_to_variable = {
-		value = 1
-		var = global.pierre_dugong_support
-		tooltip = pierre_dugong_support_tt
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = add_support_for_condidate_tt
+			CHARACTER = LUX_pierre_dupong
+		}
+		add_to_variable = {
+		   value = 1
+		   var = global.pierre_dugong_support
+		   tooltip = pierre_dugong_support_tt
+	    }
 	}
 }
 join_axis_power_effect = {
@@ -1147,41 +44,10 @@ join_axis_power_effect = {
 	}
 	else = {
 		get_best_alliance_match_fascism_effect = yes
-		
 		country_event = {
 			id = WW_hungary.26
 			hours = 6
 		}
-	}
-}
-LUX_cancel_neutrality_effect = {
-	if = {
-		limit = {
-				has_idea = neutrality_idea
-			}
-		remove_ideas = neutrality_idea
-	}
-remove_ideas = LUX_neatrality_guarantees
-FRA = {
-		country_event = {
-				id = LUX_political_events.1
-				random_hours = 6
-				days = 1
-			}
-	}
-ENG = {
-		country_event = {
-				id = LUX_political_events.1
-				random_hours = 6
-				days = 1
-			}
-	}
-hidden_effect = {
-		news_event = {
-				id = LUX_political_events_news.0
-				random_hours = 24
-				days = 1
-			}
 	}
 }
 LUX_demand_decolonisation_effect = {
@@ -1246,24 +112,31 @@ set_LUX_the_great_depression_vars_effect = {
 		LUX_the_great_depression_communism_drift_var = 0.02
 	}
 	set_variable = {
-		LUX_the_great_depression_consumer_goods_factor_var = 0.15
-	}
-	if = {
-		limit = {
-			has_dlc = "Arms Against Tyranny"
-		}
-		set_variable = {
-			LUX_the_great_depression_military_industrial_organization_policy_cost_var = 10
-		}
+		LUX_the_great_depression_consumer_goods_factor_var = 0.3
 	}
 	set_variable = {
-		LUX_the_great_depression_political_power_cost_var = -0.05
+		LUX_the_great_depression_political_power_cost_var = -0.2
 	}
 	set_variable = {
-		LUX_the_great_depression_economy_cost_factor_var = 0.20
+		LUX_the_great_depression_economy_cost_factor_var = 0.4
 	}
 	set_variable = {
 		LUX_the_great_depression_trade_laws_cost_factor_var = 0.50
+	}
+	set_variable = {
+		LUX_the_great_depression_stability_factor_var = -0.3
+	}
+	set_variable = {
+		LUX_the_great_depression_stability_weekly_var = -0.01
+	}
+	set_variable = {
+		LUX_the_great_depression_production_factory_max_efficiency_factor = -0.1
+	}
+	set_variable = {
+		LUX_the_great_depression_production_factory_efficiency_gain_factor = -0.1
+	}
+	set_variable = {
+		LUX_the_great_depression_production_speed_buildings_factor = -0.5
 	}
 }
 set_LUX_charlotte_wilhelmine_vars_effect = {
@@ -1302,55 +175,45 @@ LUX_referendum_effect = {
 	custom_effect_tooltip = LUX_referendum_tt
 	hidden_effect = {
 		random_list = {
-			   #people not agree
-			60 = {
+			#people not agree
+			1 = {
 				modifier = {
-					add = 100
-					is_historical_focus_on = yes
+					is_ai = yes
+					LUX_historical_ai = yes
+					factor = 10
 				}
 				modifier = {
-					OR = {
-						communism > 0.3
-						AND = {
-							has_country_leader = {
-								character = LUX_joseph_bech
-								ruling_only = yes
-							}
-							NOT = {
-								has_country_flag = LUX_elections_1937_flag
-							}
-						}
+					check_variable = {
+						party_popularity@communism > party_popularity@ruling_party
 					}
-					add = 10
+					factor = 10
 				}
 				country_event = {
 					id = LUX_political_events.24
-					hours = 4
+					hours = 10
+					random_hours = 24
 				}
 			}
 			#people agree
-			40 = {
+			1 = {
+				modifier = {
+					is_ai = yes
+					LUX_is_autocracy_ai = yes
+					factor = 10
+				}
 				modifier = {
 					NOT = {
-						has_government = democratic
+						party_popularity@communism > party_popularity@ruling_party
+                        party_popularity@democratic > party_popularity@ruling_party
+						party_popularity@fascism > party_popularity@ruling_party
+						party_popularity@neutrality > party_popularity@ruling_party
 					}
-					add = 5
-				}
-				modifier = {
-					has_country_flag = banned_communism_flag
-					factor = 100
-				}
-				modifier = {
-					has_country_leader = {
-						character = LUX_joseph_bech
-						ruling_only = yes
-					}
-					has_country_flag = LUX_elections_1937_flag
-					add = 15
+					factor = 5
 				}
 				country_event = {
 					id = LUX_political_events.25
-					hours = 4
+					hours = 10
+					random_hours = 24
 				}
 			}
 		}
@@ -1422,5 +285,194 @@ set_LUX_goverment_in_exile_dm_vaers_effect = {
 	}
 	set_variable = {
 		exiled_government_weekly_manpower_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		LUX_goverment_in_exile_weekly_manpower_var = 0
+	}
+}
+set_LUX_luxo_fascism_dm_vars = {
+	set_variable = {
+		fascism_drift_LUX_luxo_fascism_dm_var = 0.02
+	}
+	set_variable = {
+		defensive_war_stability_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		political_advisor_cost_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		political_power_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		fascism_drift_LUXstability_factor_LUX_luxo_fascism_dm_var_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		stability_weekly_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		stability_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		war_support_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		war_support_weekly_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		war_support_weekly_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		weekly_casualties_war_support_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		democratic_drift_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		communism_drift_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		communism_acceptance_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		democratic_acceptance_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		monthly_population_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		conscription_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		weekly_manpower_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		mobilization_laws_cost_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		trade_laws_cost_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		economy_cost_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		high_command_cost_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		army_core_defence_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		army_defence_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		army_strength_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		army_core_attack_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		army_attack_factor_LUX_luxo_fascism_dm_var = 0
+	}
+}
+set_cosmetic_tag_effect = {
+	custom_override_tooltip = { # wthat a hell that not using by devs
+		tooltip = {
+			localization_key = EFFECT_SET_COSMETIC_TAG
+			COUNTRY = "[ROOT.GetName]"
+			COSMETIC_NAME = COSMETIC_NAME
+		}
+		set_cosmetic_tag = COSMETIC_NAME 
+	}
+}
+LUX_upload_commune_list = {
+	hidden_effect = {
+		for_each_scope_loop = {
+			array = global.countries
+			if = {
+				limit = { 
+				    exists = no
+					any_state = {
+						is_core_of = PREV
+					}
+			    }
+				add_to_array = {
+					array = LUX.possible_communes
+					value = THIS
+				}
+			}
+		}
+	}
+}
+modify_great_depression_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_the_great_depression
+		}
+	}
+}
+crate_anarchist_division = {
+	division_template = {
+		name = "Anarchistesch Miliz"
+		is_locked = yes
+		division_names_group = LUX_INF_01
+		priority = 10
+		division_cap = 20
+		regiments = {
+			militia = {
+				x = 0
+				y = 0
+			}
+			militia = {
+				x = 0
+				y = 1
+			}
+			militia = {
+				x = 0
+				y = 2
+			}
+			militia = {
+				x = 1
+				y = 0
+			}
+			militia = {
+				x = 1
+				y = 1
+			}
+			militia = {
+				x = 1
+				y = 2
+			}
+			militia = {
+				x = 2
+				y = 0
+			}
+			militia = {
+				x = 2
+				y = 1
+			}
+			militia = {
+				x = 2
+				y = 2
+			}
+		}
+		support = {
+			engineer = {
+				x = 0
+				y = 0
+			}
+			artillery = {
+				x = 0
+				y = 1
+			}
+		}
+	}
+	custom_effect_tooltip = division_template_anarchist_militia_unlock_tt
+}
+modify_LUX_charlotte_wilhelmine_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_charlotte_wilhelmine
+		}
 	}
 }

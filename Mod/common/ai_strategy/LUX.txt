@@ -113,3 +113,41 @@ LUX_neatrality = {
 		value = 100
 	}
 }
+LUX_appaecment_with_germany = {
+	allowed = {
+		original_tag = LUX
+	}
+	abort_when_not_enabled = yes
+	enable = {
+		LUX_historical_ai = yes
+		has_country_flag = LUX_elections_1937_flag
+	}
+	abort = {
+		OR = {
+			has_war_with = GER
+			is_in_faction_with = GER
+			has_completed_focus = LUX_negotiation_with_GER
+		}
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = GER
+		target = improve_relation
+		value = 100
+	}
+}
+LUX_time_to_build_bunkers = {
+	allowed = {
+		original_tag = LUX
+	}
+	abort_when_not_enabled = yes
+	enable = {
+		LUX_historical_ai = yes
+		threat > 0.3
+	}
+	ai_strategy = {
+		type = building_target
+		id = bunker
+		value = 45
+	}
+}

@@ -1,0 +1,831 @@
+
+#triggers for exile focuses
+#democratic oposition
+#elections 1937 
+#leader ruling check
+LUX_ruling_paarty_leader_joseph_bech = {
+	has_country_leader = {
+		character = LUX_joseph_bech
+		ruling_only = yes
+	}
+}
+LUX_ruling_paarty_leader_pierre_dupong = {
+	has_country_leader = {
+		character = LUX_pierre_dupong
+		ruling_only = yes
+	}
+}
+#triggers La Résistance
+#triggers for limits
+LUX_triggers_check_FROM_uprising = {
+	NOT = { 
+		has_government = communism 
+		has_country_flag = general_start_workers_uprisng
+	}
+}
+#lux peace with BEL HOL FRA
+LUX_any_aounty_NOT_in_Benelux_justifying_wargoal_against = {
+	OR = {
+		BEL = {
+			is_in_faction_with = ROOT
+			has_war = yes
+		}
+		HOL = {
+			is_in_faction_with = ROOT
+			has_war = yes
+		}
+		ROOT = {
+			has_war = yes
+		}
+		any_other_country = {
+			OR  = {
+			    has_wargoal_against = BEL
+				has_wargoal_against = HOL
+				has_wargoal_against = LUX
+			}
+		}
+	}
+}
+LUX_any_county_crate_tension_checking = {
+	any_other_country = {
+		NOT = {
+			original_tag = LUX
+		}
+		has_added_tension_amount > 10
+	}
+}
+LUX_trade_with_ally_bypass_trigger = {
+	any_country_with_original_tag = {
+		original_tag_to_check = ENG
+		OR = {
+			exists = no
+			has_capitulated = yes
+			has_war_with = ROOT
+		}
+	}
+}
+LUX_ROOT_or_PUPPET_controlling_INS_core_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = puppet_or_root_control_cores_of_ins_tt
+		INS  = {
+			all_core_state = {
+				is_core_of = INS
+				controller = {
+					OR  = {
+					   is_subject_of = ROOT
+					   original_tag = ROOT
+					   is_ally_with = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+LUX_support_trade_uniots_more_than_4_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = LUX_support_trade_uniots_more_than_4_tt
+		check_variable = {
+			var_supports_trade_unions_value > 4
+		}
+	}
+}
+LUX_benelux_has_all_originals_benelux_countiers = {
+	any_country = {
+		capital_scope = {
+			region = 5
+		}
+	}
+}
+LUX_benelux_original_tags_exist_trigger = {
+	country_exists = BEL
+	country_exists = HOL
+	country_exists = LUX
+}
+LUX_benelux_economic_union_trigger = {
+   if = {
+	  limit = {
+		  country_exists = BEL
+	  }
+	  BEL =  {
+		 is_ally_with = ROOT
+		 has_capitulated = yes
+	  }
+   }
+   if = {
+	  limit = {
+		 country_exists = HOL
+	}
+	  HOL =  {
+		  is_ally_with = ROOT
+		  has_capitulated = yes
+	  }
+    }
+}
+is_benelux_state_trigger = {
+	OR =  {
+		state = 8 # Luxembourg
+		state = 34 # Wallonie
+		state = 6 # Wallonie
+		state = 35 # Gelderland
+		state = 7 # Holland
+		state = 36 # Friesland
+	}
+}
+dont_crate_any_world_tension_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = dont_crate_any_world_tension_trigger_tt
+		has_added_tension_amount < 0.1
+	}
+}
+benelux_countries_trigger = {
+	OR = {
+		original_tag = LUX
+		original_tag = BEL
+		original_tag = HOL
+	}
+}
+controlled_more_than_1_state_trigger  = {
+   custom_trigger_tooltip = {
+	tooltip = controlled_more_than_1_state_trigger_tt
+	num_of_controlled_states > 1
+   }
+}
+has_war_with_any_benelux_county_trigger =  {
+	OR  = {
+		has_war_with = LUX
+		has_war_with = BEL
+		has_war_with = HOL
+	}
+}
+army_has_1500_num_equipment_in_armies_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = army_has_1500_num_equipment_in_armies_trigger_tt
+		check_variable = {
+			num_equipment_in_armies@infantry_equipment > 750
+		}
+	}
+}
+army_has_100_num_support_equipment_in_armies_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = army_has_100_num_support_equipment_in_armies_trigger_tt
+		check_variable = {
+			num_equipment_in_armies@support_equipment > 100
+		}
+	}
+}
+enemy_control_state = {
+   custom_trigger_tooltip = {
+	 tooltip = enemy_control_state_tt
+	 controller = {
+		has_war_with = ROOT
+	  }
+   }
+}
+NOT_has_communist_goverment_trigger = {
+	NOT = {
+		has_government = communism
+	}
+}
+has_500_num_support_equipment_trigger  = {
+	custom_trigger_tooltip = {
+		tooltip = has_500_num_support_equipment_trigger_tt
+		check_variable = {
+			num_equipment@support_equipment > 499
+		}
+	}
+}
+LUX_aggresive_expansion_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = LUX_aggresive_expansion_trigger_tt
+		always = no
+	}
+}
+LUX_diplomacy_pressure_expenesion_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = LUX_diplomacy_pressure_expenesion_trigger_tt
+		always = no
+	}
+}
+europe_france_states_trigger = {
+	OR = {
+		state = 29
+		state = 785
+		state = 18
+		state = 28
+		state = 17
+		state = 27
+		state = 24
+		state = 15
+		state = 14
+		state = 30
+		state = 23
+		state = 33
+		state = 25
+		state = 19
+		state = 806
+		state = 31
+		state = 22
+		state = 26
+		state = 20
+		state = 32
+		state = 21
+		state = 851
+		state = 735
+		state = 1
+	}
+}
+controls_INS_core_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = controls_INS_core_trigger_tt
+		INS = {
+			all_core_state = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+		}
+	}
+}
+great_luxembourg_trigger = {
+	# custom_trigger_tooltip = {
+	#	tooltip = controls_bnelux_trigger_tt
+		has_full_control_of_state = 8
+		has_full_control_of_state = 34
+		has_full_control_of_state = 6
+		has_full_control_of_state = 35
+		has_full_control_of_state = 7
+		has_full_control_of_state = 36
+	#}
+	AND = {
+		OR = {
+			56 = {
+				controller = {
+					is_subject_of = rOOT
+				}
+			}
+			controls_state = 56
+		}
+		OR = {
+			57 = {
+				controller = {
+					is_subject_of = rOOT
+				}
+			}
+			controls_state = 57
+		}
+		OR = {
+			55 = {
+				controller = {
+					is_subject_of = rOOT
+				}
+			}
+			controls_state = 55
+		}
+		OR = {
+			20 = {
+				controller = {
+					is_subject_of = rOOT
+				}
+			}
+			controls_state = 20
+		}
+		OR = {
+			51 = {
+				controller = {
+					is_subject_of = rOOT
+				}
+			}
+			controls_state = 51
+		}
+		OR = {
+			42 = {
+				controller = {
+					is_subject_of = rOOT
+				}
+			}
+			controls_state = 42
+		}
+	}
+	is_subject = no
+}
+military_factories_more_than_civ_factories_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = military_factories_more_than_civ_factories_trigger_tt
+		check_variable = {
+			num_of_military_factories > num_of_factories
+		 }
+	}
+}
+any_belgum_core_has_state_flag_benelux_base_is_set_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = any_belgum_core_has_state_flag_benelux_base_is_set_trigger_tt
+		BEL = {
+			any_core_state = {
+				has_state_flag = benelux_base_is_set_flag
+			}
+		}
+	}
+}
+any_niderland_core_has_state_flag_benelux_base_is_set_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = any_niderland_core_has_state_flag_benelux_base_is_set_trigger_tt
+		HOL = {
+			any_core_state = {
+				has_state_flag = benelux_base_is_set_flag
+			}
+		}
+	}
+}
+dicisions_in_action_con_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = dicisions_in_action_con_tt
+		NOT = {
+			check_variable = {
+				dicisions_in_action_con = 2
+			}
+		}
+	}
+}
+#state scope
+general_state_controling_by_enemy_trigger = {
+   custom_trigger_tooltip = {
+	  tooltip = general_state_controling_by_enemy_trigger_tt
+	  controller = {
+		  has_war_with = PREV.owner
+	  }
+   }
+}
+has_bba = {
+	has_dlc = "By Blood Alone"
+}
+seller_trigger_axis = {
+	AND = {
+		is_faction_leader = yes
+		has_government = fascism
+		is_major = yes
+	}
+}
+seller_trigger_allies = {
+	AND = {
+		is_faction_leader = yes
+		has_government = democratic
+		is_major = yes
+	}
+}
+friend_pact_is_active_trigger = {
+   custom_trigger_tooltip = {
+	  tooltip = friend_pact_is_active_tt
+	  OR = {
+		has_idea = benelux_shared_friend_pact
+		has_idea = benelux_shared_friend_pact_member
+		hidden_trigger = {
+			is_in_array = {
+				array = friend_pact_member
+				value = ROOT
+			}
+			has_country_flag = in_friend_pact_flag
+		}
+	  }
+   }
+}
+active_mission_elections_1937 = {
+	has_active_mission = LUX_elections_1937_mission
+}
+axis_power_leader_exist_trigger = {
+	any_other_country = {
+		is_faction_leader = yes
+		has_government = fascism
+		NOT = {
+			has_war_with = ROOT
+		}
+	}
+}
+allince_leader_exist_trigger = {
+	any_other_country = {
+		is_faction_leader = yes
+		has_government = democratic
+		NOT = {
+			has_war_with = ROOT
+		}
+	}
+}
+fascism_regime_is_ruling_heinrich_himmler_trigger = {
+	has_government = fascism
+	has_country_leader = {
+		ruling_only = yes
+		character = GER_heinrich_himmler
+	}
+	country_exists = GER
+	NOT = {
+		has_war_with = GER
+	}
+	GER = {
+		has_government = fascism
+		OR = {
+			has_subject = ROOT
+			is_in_faction_with = ROOT
+		}
+	}
+}
+general_form_eu_trigger = {
+	controls_state = 8
+
+	# Netherlands
+	custom_trigger_tooltip = {
+		tooltip = form_eu_netherlands_required_states_tt
+		controls_state = 7
+		controls_state = 35
+		controls_state = 36
+	}
+
+	# Belgium
+	custom_trigger_tooltip = {
+		tooltip = form_eu_belgium_required_states_tt
+		controls_state = 6
+		controls_state = 34
+		controls_state = 977
+		controls_state = 980
+	}
+
+	# France
+	custom_trigger_tooltip = {
+		tooltip = form_eu_france_required_states_tt
+		controls_state = 29
+		controls_state = 18
+		controls_state = 17
+		controls_state = 28
+		controls_state = 15
+		controls_state = 16
+		controls_state = 27
+		controls_state = 14
+		controls_state = 30
+		controls_state = 24
+		controls_state = 23
+		controls_state = 33
+		controls_state = 26
+		controls_state = 20
+		controls_state = 32
+		controls_state = 735
+		controls_state = 25
+		controls_state = 22
+		controls_state = 21
+		controls_state = 851
+		controls_state = 19
+		controls_state = 1
+		controls_state = 785
+		controls_state = 31
+		controls_state = 806
+	}
+
+	# Italy
+	custom_trigger_tooltip = {
+		tooltip = form_eu_italy_required_states_tt
+		controls_state = 158
+		controls_state = 159
+		controls_state = 39
+		controls_state = 160
+		controls_state = 161
+		controls_state = 162
+		controls_state = 157
+		controls_state = 2
+		controls_state = 117
+		controls_state = 156
+		controls_state = 115
+		controls_state = 114
+		controls_state = 736
+		controls_state = 849
+		controls_state = 850
+		controls_state = 852
+	}
+
+	# Germany
+	custom_trigger_tooltip = {
+		tooltip = form_country_germany_required_states_tt
+		controls_state = 51
+		controls_state = 42
+		controls_state = 56
+		controls_state = 57
+		controls_state = 55
+		controls_state = 50
+		controls_state = 978 #BADEN
+		controls_state = 59
+		controls_state = 58
+		controls_state = 909 #New state of SCHLESWIG
+		controls_state = 60
+		controls_state = 54
+		controls_state = 52
+		controls_state = 53
+		controls_state = 61
+		controls_state = 64
+		controls_state = 65
+		controls_state = 62
+		controls_state = 68
+		controls_state = 66
+		controls_state = 67
+		controls_state = 63
+		controls_state = 5
+		controls_state = 763
+	}
+}
+SPD_cw_exist_and_peace_with_ROOT_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = POR_spr_tooltip_country_exist_tt
+		country_exists = SPR
+	}
+    custom_trigger_tooltip = {
+		tooltip = POR_spr_tooltip_at_peace_tt
+		NOT = {
+				has_war_with = SPR
+			}
+	}
+}
+ROOT_owned_and_controlled_benilux_trigger = {
+	6 = { #Belgum
+		is_owned_and_controlled_by = ROOT
+	}
+	34 = { #Belgum
+		is_owned_and_controlled_by = ROOT
+	}
+	977 = { #Belgum
+		is_owned_and_controlled_by = ROOT
+	}
+	980 = { #Belgum
+		is_owned_and_controlled_by = ROOT
+	}
+	7 = { #Niderlands
+		is_owned_and_controlled_by = ROOT
+	}
+	35 = { #Niderlands
+		is_owned_and_controlled_by = ROOT
+	}
+	36 = { #Niderlands
+		is_owned_and_controlled_by = ROOT
+	}
+	8 = { #Luxembourg
+		is_owned_and_controlled_by = ROOT
+	}
+}
+scope_has_any_resources = {
+	OR = {
+		oil > 0
+		aluminium > 0
+		rubber > 0
+		tungsten > 0
+		steel > 0
+		chromium > 0
+	}
+}
+has_exile_feature_trigger = {
+	OR = {
+		has_dlc = "Man the Guns"
+		has_dlc = "By Blood Alone"
+	}
+}
+#general triggers
+has_defensive_war_against_major = {
+	custom_trigger_tooltip = {
+		tooltip = FIN_in_a_defensive_war_against_a_major_tt
+		any_enemy_country = {
+			is_major = yes
+			ROOT = { has_defensive_war_with = PREV }
+		}
+	}
+}
+industrial_complex_not_has_slots_on_all_owned_states = {
+	custom_trigger_tooltip = {
+		tooltip = construction_effort_tt
+		all_owned_state = {
+			free_building_slots = {
+				building = industrial_complex
+				size < 1
+				include_locked = yes
+			}					
+		}
+	}
+}
+arms_factory_not_has_slots_on_all_owned_states = {
+	custom_trigger_tooltip = {
+		tooltip = production_effort_tt
+		all_owned_state = {
+			free_building_slots = {
+				building = arms_factory
+				size < 1
+				include_locked = yes
+			}
+		}
+	}
+}
+infrastructure_not_has_slots_on_all_owned_states = {
+	custom_trigger_tooltip = {
+		tooltip = infrastructure_effort_tt
+		all_owned_state = {			
+			free_building_slots = {
+				building = infrastructure
+				size < 1
+			}
+		}
+	}
+}
+synthetic_refinery_not_has_slots_on_all_owned_states = {
+	custom_trigger_tooltip = {
+		tooltip = synth_oil_effort_tt
+		all_owned_state = {
+			free_building_slots = {
+				building = synthetic_refinery
+				size < 0
+				include_locked = yes
+			}
+		}
+	}
+}
+#ai plan triggers
+LUX_is_autocracy_ai = {
+	OR = {
+		has_country_flag = LUX_AUTOCRACY_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = AUTOCRACY
+		}
+	  }
+}
+LUX_democratic_alt_ai  = {
+	OR = {
+		has_country_flag = LUX_DEMOCRATIC_ALT_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = DEMOCRATIC_ALT
+		}
+	}
+}
+LUX_historical_ai = {
+	OR = {
+		has_country_flag = LUX_HISTORICAL_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = HISTORICAL
+		 }
+	 }
+}
+LUX_anarchist_ai = {
+	OR = {
+		has_country_flag = LUX_ANARCHIST_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = ANARCHIST
+		}
+	}
+}
+LUX_communism_trotsky_ai = {
+	OR = {
+		has_country_flag = LUX_COMMUNISM_TROTSKY_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = COMMUNISM_TROTSKY
+		}
+	}
+}
+LUX_communism_marxist_ai = {
+	OR = {
+		has_country_flag = LUX_COMMUNISM_MARXIST_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = COMMUNISM_MARXIST
+		}
+	}
+}
+####################################
+has_all_intelligence_agency_upgrades = { #23 upgrades
+	has_done_agency_upgrade = upgrade_economy_civilian
+	has_done_agency_upgrade = upgrade_army_department
+	has_done_agency_upgrade = upgrade_naval_department
+	has_done_agency_upgrade = upgrade_airforce_department
+	has_done_agency_upgrade = upgrade_passive_defense
+	has_done_agency_upgrade = upgrade_anti_partisan
+	has_done_agency_upgrade = upgrade_blueprint_stealing
+	has_done_agency_upgrade = upgrade_portable_radios
+	has_done_agency_upgrade = upgrade_invisible_ink
+	has_done_agency_upgrade = upgrade_plastic_explosives
+	has_done_agency_upgrade = upgrade_suicide_pills
+	has_done_agency_upgrade = upgrade_training_centers
+	has_done_agency_upgrade = upgrade_commando_training
+	has_done_agency_upgrade = upgrade_interrogation_techniques
+	has_done_agency_upgrade = upgrade_diplo_training
+	has_done_agency_upgrade = upgrade_psycho_warfare
+	has_done_agency_upgrade = upgrade_form_department
+	has_done_agency_upgrade = upgrade_decryption_boost
+	has_done_agency_upgrade = upgrade_decryption_boost_2
+	has_done_agency_upgrade = upgrade_crypto_strength
+	has_done_agency_upgrade = upgrade_crypto_strength_2
+}
+member_or_leader_of_beu = {
+    OR = {
+		has_country_flag = leader_of_benelux_economic_union_flag
+		has_country_flag = member_of_economic_union_flag
+	}
+}
+is_europe_state_trigger = {
+	OR = {
+		tag = ENG
+		tag = FRA
+		tag = GER
+		tag = BEL
+		tag = HOL
+		tag = LUX
+		tag = SWI
+		tag = AUS
+		tag = SPR
+		tag = POR
+		tag = ITA
+		tag = ROM
+		tag = BUL
+		tag = ALB
+		tag = GRE
+		tag = POL
+		tag = DEN 
+		tag = NOR
+		tag = SWE
+		tag = FIN
+		tag = TUR
+		tag = IRE
+		tag = HUN
+		tag = YUG
+		tag = CZE
+	}
+}
+has_LUX_main_trade_partner_of_germany_ns_trigger = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = TRIGGER_HAS_IDEA_COUNTRY
+			IDEA = LUX_main_trade_partner_of_germany_ns
+		}
+		OR = {
+			has_idea = LUX_main_trade_partner_of_germany_ns
+			has_idea = LUX_main_trade_partner_of_germany2_ns
+			has_idea = LUX_main_trade_partner_of_germany3_ns
+		}
+	}
+}
+moscow_is_capital = {
+	capital_scope = {
+		state = 219
+	}
+}
+stanilist_russia_exist ={
+	any_country_with_original_tag = {
+		original_tag_to_check = SOV
+		has_government = communism
+		has_country_leader = {
+			character = SOV_iosif_stalin
+			ruling_only = yes
+		}
+	}
+}
+trotsky_is_rulling = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = TRIGGER_HAS_COUNTRY_LEADER
+			COUNTRY = "[ROOT.GetNameWithFlag]"
+			NAME = MEX_leon_trotsky
+		}
+		OR = {
+			has_country_leader = {
+				character = MEX_leon_trotsky
+				ruling_only = yes
+			}
+			has_country_leader = {
+				character = NOR_lev_trotsky
+				ruling_only = yes
+			}
+		}
+	}
+}
+is_yugoslavia_state = {
+	OR = {
+        tag = SER 
+	    tag = SLV 
+	    tag = CRO 
+	    tag = MNT
+	    tag = KOS 
+	    tag = BOS
+	    tag = HRZ 
+	    tag = MAC
+	    tag = TRA 
+	}
+}
+THIS_non_exist_or_is_ssubject_of_ROOT = {
+	OR = {
+		scope_exists = no
+		is_subject_of = ROOT
+	}
+}
+is_vishy_france_trigger = {
+	original_tag = FRA
+	has_country_leader = {
+		character = FRA_philippe_petain
+		ruling_only = yes
+	}
+}
+THIS_is_ally_or_non_exist = {
+	OR = {
+		is_ally_with = ROOT
+		exists = no
+	}
+}

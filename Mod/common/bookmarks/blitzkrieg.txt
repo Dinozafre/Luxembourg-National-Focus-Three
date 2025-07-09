@@ -751,7 +751,7 @@ bookmarks = {
 				LUX_idea_neutrality
 			}
 			focuses = {
-				LUX_in_exile
+				LUX_accept_defeat
 				LUX_legitimacy_govermnet
 				LUX_fascist_major_attack_us
 			}

@@ -80,9 +80,9 @@ country_event = {
 				is_historical_focus_on = no
 			}
 		}
-		mark_focus_tree_layout_dirty = yes
+	#	mark_focus_tree_layout_dirty = yes
 		name = LUX_electins.1.count.c
-		complete_national_focus = LUX_communist_win
+	#	complete_national_focus = LUX_communist_win
 		set_country_flag = LUX_choose_communist_win_elections
 		trigger = {
             NOT = {
@@ -141,6 +141,14 @@ country_event = { #joseph besh win election
 		add_trait = {
 			trait = dictator
 			character = LUX_joseph_bech
+		}
+		LUX_joseph_bech = {
+			remove_country_leader_trait = {
+				trait = LUX_hostility_to_communist
+			}
+			add_country_leader_trait = {
+				trait = LUX_authoritarian_anticommunist
+			}
 		}
 		complete_national_focus = LUX_joseph_bech_is_elected
 	}
@@ -524,31 +532,34 @@ country_event = {
 		set_country_flag = need_run_pierre_dugong_election_campaign_flag
 	}
 }
-#demand 29 (Nord-Pas-de-Calais)
+#demand state
 country_event = {
 	id = LUX_political_events.10
-	title = LUX_political_events.10.t
+	title = AAT_Sweden_flashpoints.63.t
 	picture = GFX_report_event_generic_read_write
 	desc = LUX_political_events.10.d
 	is_triggered_only = yes
 	option = {
-		name = LUX_political_events.10.opt.a
+		name = denmark_protection_event.100.a
 		FROM = {
+            effect_tooltip = {
+				transfer_state = event_target:demand_state_target
+			}
 			country_event = {
 				id = LUX_diplomacy.56
 				hours = 8
 			}
 		}
 		ai_chance = {
-			base = 4
+			base = 1
 			modifier = { 
-				add = 2
+				factor = 2
 				check_variable = {
 					FROM.has_war_support > ROOT.has_war_support
 				}
 			}
 			modifier = { 
-				add = 3
+				factor = 3
 				check_variable = {
 					FROM.num_divisions > ROOT.num_divisions
 				}
@@ -581,10 +592,10 @@ country_event = {
 			}
 			modifier = {
 				is_ally_with = FROM
-				add = 5
+				factor = 5
 			}
 			modifier = {
-				add = 5
+				factor = 5
 				FROM = {
 					fighting_army_strength_ratio = {
 						tag = ROOT
@@ -595,7 +606,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = LUX_political_events.10.opt.b
+		name = denmark_overlord_events.20.b
 		FROM = {
 			country_event = {
 				id = LUX_diplomacy.55
@@ -1041,11 +1052,10 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		set_country_flag = in_exile_flag
-		mark_focus_tree_layout_dirty = yes
 	}
 	option = {
 		name = LUX_political_events.23.a
-        complete_national_focus = LUX_in_exile
+        complete_national_focus = LUX_accept_defeat
 	}
 }
 #people not agree
@@ -1217,7 +1227,7 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		original_tag = LUX
-		has_completed_focus = LUX_in_exile
+		has_completed_focus = LUX_accept_defeat
 	}
 	mean_time_to_happen = {
 		months = 1
@@ -1238,6 +1248,224 @@ country_event = {
 			add_resistance_target = -10
 		}
 		set_country_flag = LUX_fascist_leader_need_capture
+	}
+}
+country_event = { # government's resignation
+	id = LUX_political_events.30
+	title = LUX_political_events.30.t
+	desc = LUX_political_events.30.desc
+	picture = GFX_report_event_fascists_posing
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = denmark_overlord_events.4.a
+	}
+}
+country_event = { # opossition against law!
+	id = LUX_political_events.31
+	title = LUX_political_events.31.t
+	desc = LUX_political_events.31.desc
+	picture = GFX_report_event_generic_parliament
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = { #fine, lets hold referendum (historic)
+		name = LUX_political_events.31.a
+		LUX_referendum_effect = yes
+		ai_chance = {
+			base = 5
+			modifier = {
+			    LUX_historical_ai = yes
+				factor = 10
+			}
+			modifier = {
+				LUX_is_autocracy_ai = yes
+				factor = 0
+			}
+		}
+	}
+	option = { #they opinion has a meaning?
+	    name = LUX_political_events.31.b
+		ai_chance = {
+			base = 5
+			modifier = {
+				LUX_is_autocracy_ai = yes
+				factor = 5
+			}
+		}
+		add_stability = -0.1
+		add_political_power = -100
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.1
+		}
+		add_ideas = LUX_law_defence_political_and_social_order_ns
+		hidden_effect = {
+			every_other_country = {
+				news_event = {
+					id = LUX_political_events.32
+					hours = 2
+					random_hours = 6
+				}
+			}
+		}
+    }
+}
+news_event = { # LUX ban any opposition!
+	id = LUX_political_events.32
+	title = LUX_political_events.32.t
+	desc = LUX_political_events.32.desc
+	picture = GFX_news_event_generic_read_write
+	is_triggered_only = yes
+	trigger = {
+		any_controlled_state = {
+			is_on_continent = europe
+		}
+	}
+	option = { # is that democracy?
+		name = LUX_political_events.32.a
+		trigger = {
+			has_government = democratic
+		}
+	}
+	option = { #very well
+		name = denmark_expansion_event.24.a
+		trigger = {
+			OR = {
+				has_government = neutrality
+				has_government = fascism
+			}
+		}
+	}
+	option = {
+	    name = denmark_protection_event.12.a
+		trigger = {
+			has_government = communism
+		}
+    }
+}
+country_event = { # we get order about communist revolution in europe from moscow
+	id = LUX_political_events.33
+	title = LUX_political_events.33.t
+	desc = LUX_political_events.33.desc
+	picture = GFX_report_event_journalists_speech
+	is_triggered_only = yes
+	option = {
+		name = ARG_political_events.42.a
+	}
+	immediate = {
+		set_country_flag = has_order_from_SOV_capital_flag
+	}
+}
+# ELECTION EVENTS 
+# Pierre Dupong
+country_event = { # Pierre Dupong told with him be stability 
+	id = LUX_political_events.34
+	title = LUX_political_events.34.t
+	desc = LUX_political_events.34.desc
+    picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		add_support_for_condidate_2 = yes
+		name = LUX_political_events.34.option.a
+	}
+}
+country_event = { # Pierre Dupong says curing leader is not effecting
+	id = LUX_political_events.35
+    title = LUX_political_events.35.t
+	desc = LUX_political_events.35.desc
+	picture = GFX_report_event_communist_leader
+	is_triggered_only = yes
+	option = {
+		add_support_for_condidate_2 = yes
+		name = LUX_political_events.35.option.a
+	}
+}
+country_event = { # Pierre Dupong says he is protect democracy
+	id = LUX_political_events.36
+	title = LUX_political_events.36.t
+	desc = LUX_political_events.36.desc
+	picture = GFX_report_event_journalists_speech
+	is_triggered_only = yes
+	option = {
+		add_support_for_condidate_2 = yes
+		name = LUX_political_events.36.option.a
+	}
+}
+# Joseph Besh
+country_event = { # Joseph Besh speaching on radio
+	id = LUX_political_events.37
+	title = LUX_political_events.37.t
+	desc = LUX_political_events.37.desc
+	picture = GFX_report_event_king_speech
+	is_triggered_only = yes
+	option = {
+		add_support_for_condidate_1 = yes
+		name = LUX_political_events.37.option.a
+	}
+}
+country_event = { # Joseph Besh promising destroy communists
+	id = LUX_political_events.38
+	title = LUX_political_events.38.t
+	desc = LUX_political_events.38.desc
+	picture = GFX_report_event_generic_rally
+	is_triggered_only = yes
+	option = {
+		add_support_for_condidate_1 = yes
+		name = LUX_political_events.38.option.a
+	}
+}
+country_event = { # Joseph Besh say he is can do stability in the state
+	id = LUX_political_events.39
+	title = LUX_political_events.39.t
+	desc = LUX_political_events.39.desc
+	picture = GFX_report_event_journalists_speech
+	is_triggered_only = yes
+	option = {
+		add_support_for_condidate_1 = yes
+		name = LUX_political_events.39.option.a
+	}
+}
+#assasination on stalin
+country_event = {
+	id = LUX_political_events.40
+	title = LUX_political_events.40.t
+	desc = LUX_political_events.40.desc
+	picture = GFX_report_event_stalin_01
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { 
+					has_country_leader = {
+						character = SOV_iosif_stalin
+						ruling_only = yes
+					}
+				}
+			    kill_country_leader = yes
+			}
+		}
+	}
+	trigger = {
+		has_country_leader = {
+			character = SOV_iosif_stalin
+			ruling_only = yes
+		}
+	}
+	option = {
+		name = AAT_norway_news.2.a
+		add_political_power = -150
+		add_stability = -0.25
+		hidden_effect = {
+			random_character = {
+			    add_country_leader_role = {
+				    character = THIS
+				    promote_leader = yes
+				    country_leader = { 
+                        ideology = stalinism
+				   }
+			    }
+		    }
+		}
 	}
 }
 #### NEWS ####

@@ -901,12 +901,13 @@ bookmarks = {
 			ideas = {
 				LUX_army_limits_ns
 				LUX_charlotte_wilhelmine_dummy
-				LUX_the_great_depression_dummy
+				LUX_main_trade_partner_of_germany_ns
+				LUX_neatrality_guarantees
 			}
-			focuses = {			
-				LUX_reject_army_limits
-				LUX_negotiation_with_GER
-				LUX_great_luxembourg_focus
+			focuses = {		
+				LUX_election_1937
+				LUX_cut_off_trade_with_germany
+				LUX_national_labour_council
 			}
 		}
 		effect = {

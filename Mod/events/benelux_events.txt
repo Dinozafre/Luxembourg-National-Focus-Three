@@ -75,10 +75,9 @@ country_event = {
 	   FROM = {
 		  set_country_flag = leader_of_benelux_economic_union_flag
 	   }
-	   set_variables_benelux_economic_member_effect = yes
 	}
 }
-#agree to join economic union report event
+#agreedment was signed about joining economic union report event
 country_event = {
 	id = benelux_events.1
 	title = benelux_events.1.t
@@ -86,30 +85,18 @@ country_event = {
 	picture = GFX_report_event_picture_benelux_economic_union
 	is_triggered_only = yes
 	option = { 
-		name = benelux_events.1.a
-	}
-	trigger = {
-       
-	}
-	immediate = {
-       
+		name = lar_congress_of_paris.3.a
 	}
 }
-#refuse to join economic union report event
+#refused to sign agreedment about joining economic union report event
 country_event = {
 	id = benelux_events.2
-	title = benelux_events.2.t
+	title = lar_congress_of_paris.4.t
 	desc = benelux_events.2.desc
 	picture = GFX_report_event_picture_benelux_economic_union
 	is_triggered_only = yes
 	option = { 
-		name = benelux_events.2.a
-	}
-	trigger = {
-       
-	}
-	immediate = {
-       
+		name = lar_spain.32.a
 	}
 }
 #Belgum join Benelux
@@ -408,7 +395,7 @@ country_event = {
 				target = FROM
 				modifier = shared_join_benelux_conference_opinion
 			}
-			give_guarantee = FROM
+			give_guarantee = ROOT
 			country_event = {
 				id = benelux_news_events.12
 				hours = 6
@@ -432,9 +419,6 @@ country_event = {
 				hours = 6
 			}
 		}
-	}
-	trigger = {
-
 	}
 	immediate = {
 		FROM = {
@@ -468,13 +452,19 @@ country_event = {
 	desc = benelux_friend_pact_events.0.desc
 	picture = GFX_report_event_picture_ask_to_join_friend_pact
 	is_triggered_only = yes
-	#agree to sign
+	#agreed to sign
 	option = {
 		ai_chance = {
 			base = 10
 			modifier = {
-				add = 25
-				has_government = ROOT
+				factor = 5
+				FROM = {
+					has_same_ideology = yes
+				}
+			}
+			modifier = {
+				factor = 2
+				has_non_aggression_pact_with = FROM
 			}
 		}
 		name = benelux_friend_pact_events.0.a
@@ -524,12 +514,14 @@ country_event = {
 		}
 	    FROM  = {
            set_country_flag = in_friend_pact_flag
-		   give_guarantee = ROOT
-		   give_military_access = ROOT
-		   add_opinion_modifier = {
-			   target = ROOT
-			   modifier = LUX_sign_friend_pact
-		    }
+		   effect_tooltip = {
+			    give_guarantee = ROOT
+		        give_military_access = ROOT
+		        add_opinion_modifier = {
+			        target = ROOT
+			        modifier = LUX_sign_friend_pact
+		        }
+		   }
 	    }
 		add_ideas = benelux_shared_friend_pact_member
 		FROM = {
@@ -865,10 +857,8 @@ news_event = {
 	title = benelux_news_events.8.t
 	desc = benelux_news_events.8.desc
 	picture = GFX_news_event_generic_read_write
+	is_triggered_only = yes
 	major = yes
-	mean_time_to_happen = {
-		days = 1
-	}
 	trigger = {
 		NOT  = {
 			has_global_flag = formation_economic_union_benelux_news

@@ -10,9 +10,6 @@ political_actions = {
 				has_country_flag = LUX_cancel_election_flag
 			}
 			has_elections = yes
-			NOT = {
-				has_completed_focus = LUX_return_elections
-			}
 		}
 	
 		available = {
@@ -56,9 +53,6 @@ political_actions = {
 			has_completed_focus = LUX_election_1937
 			has_country_flag = LUX_cancel_election_flag
 			has_elections = no
-			NOT = {
-				has_completed_focus = LUX_return_elections
-			}
 		}
 		available = {
             has_war = no
@@ -124,7 +118,7 @@ political_actions = {
 			#	 }
 			# }
 			# add_command_power = -25
-			country_event = LUX_fascism.14
+		#	country_event = LUX_fascism.14
 		}
 		fire_only_once = yes
 		cancel_if_not_visible = no
@@ -778,7 +772,6 @@ foreign_politics = {
 	LUX_send_ultimatum = {
 		visible = { 
 			original_tag = LUX
-			has_completed_focus = LUX_ultimattus_to_benelux
 			always = no
 		}
 		available = {
@@ -1453,176 +1446,6 @@ LUX_liberation_war_category = {
 	}
    }
 }
-shared_benelux_economic_union_category = {
-	shared_benelux_economic_union_go_out = {
-		visible = {
-            has_country_flag = member_of_economic_union_flag
-			NOT = {
-				has_global_flag = benelux_economic_union_dissolved_flag
-			}
-		}
-		available = {
-			has_country_flag = member_of_economic_union_flag
-			has_war = no
-		}
-		complete_effect = {
-			set_country_flag = go_out_from_beu_flag
-			clr_country_flag = member_of_economic_union_flag
-			remove_dynamic_modifier = {
-				modifier = shared_member_benelux_economic_union_dynamic_modifier
-			}
-			var:leader_benelux_economic_union = {
-				country_event = benelux_events.4
-			}
-		}
-		ai_will_do = {
-			base = 0
-		}
-		icon = generic_break_treaty
-		cost = 50
-	}
-	leader_benelux_economic_union_dissolve = {
-		visible = {
-			has_country_flag = leader_of_benelux_economic_union_flag
-			NOT = {
-				has_global_flag = benelux_economic_union_dissolved_flag
-			}
-		}
-		available = {
-			has_country_flag = leader_of_benelux_economic_union_flag
-			any_country = {
-				has_country_flag = member_of_economic_union_flag
-			}
-		}
-		complete_effect = {
-			# custom_effect_tooltip = all_countriers_emmbers_tt
-			every_other_country = {
-				limit  = {
-					has_country_flag = member_of_economic_union_flag
-				}
-				clr_country_flag = member_of_economic_union_flag
-				remove_dynamic_modifier = {
-					modifier = shared_member_benelux_economic_union_dynamic_modifier
-				}
-				clear_variable = leader_benelux_economic_union
-				hidden_effect = {
-					remove_ideas = member_economic_union_hidden
-				}
-			}
-			remove_dynamic_modifier = {
-				modifier = LUX_leader_benelux_economic_union_dynamic_modifier
-			}
-			set_global_flag = benelux_economic_union_dissolved_flag
-			hidden_effect = {
-				country_event = {
-					id = benelux_news_events.9
-					random_hours = 6
-					days = 1
-				}
-			}
-		}
-		icon = generic_operation
-		cost = 125
-		ai_will_do = {
-			base = 0
-		}
-	}
-	leader_benelux_economic_union_development_colonies = {
-		visible = {
-			has_country_flag = leader_of_benelux_economic_union_flag
-			NOT = {
-				has_global_flag = benelux_economic_union_dissolved_flag
-			}
-		}
-		available = {
-			FROM = {
-				has_country_flag = member_of_economic_union_flag
-				any_controlled_state = {
-                    is_owned_by = FROM
-				}
-			}
-		}
-		complete_effect = {
-			
-		}
-		remove_effect = {
-			FROM = {
-				random_controlled_state = {
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = arms_factory
-						level = 1
-						instant_build = yes
-					}
-				}
-				add_stability = 0.03
-			}
-		}
-		target_trigger = {
-			FROM = {
-				has_country_flag = member_of_economic_union_flag
-			}
-		}
-		days_remove = 45
-		icon = generic_research
-		cost = 75
-	}
-	shared_benelux_economic_union_support_resistence = {
-		visible = {
-			OR = {
-			   has_country_flag = leader_of_benelux_economic_union_flag
-			   has_country_flag = member_of_economic_union_flag
-			}
-			FROM = {
-				has_capitulated = yes
-			}
-			NOT = {
-				has_global_flag = benelux_economic_union_dissolved_flag
-			}
-		}
-		available = {
-			FROM = {
-				any_owned_state = {
-					is_core_of = FROM
-					enemy_control_state = yes
-					NOT = {
-						is_controlled_by_ROOT_or_ally = yes
-					}
-				}
-			}
-			has_equipment = {
-				infantry_equipment > 24
-			}
-		}
-		target_trigger = {
-			FROM = {
-				has_country_flag = member_of_economic_union_flag
-			}
-		}
-		complete_effect = {
-			FROM = {
-				random_core_state = {
-					add_resistance_target = 10
-				}
-			}
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = -25
-				producer = ROOT
-			}
-		}
-		custom_cost_trigger = {
-			check_variable = {
-				num_equipment@infantry_equipment > 24
-			}
-		}
-		ai_will_do = {
-			base = 0
-		}
-		icon = generic_protection
-		custom_cost_text = num_equipment_infantry_equipment_cost_25
-	}
-}
 generic_research_category = {
 	LUX_research_mission1 = {
 		icon = generic_factory
@@ -1855,8 +1678,8 @@ economy_decisions = {
                 is_owned_and_controlled_by = ROOT
 			}
 		}
-		target_root_trigger = {
-			has_completed_focus = LUX_steel_get_from_state
+		visible = {
+			always = no
 		}
 		targets = {
 			8
@@ -1923,7 +1746,7 @@ foreign_politics = {
 		}
 		fire_only_once = yes
 		target_root_trigger = {
-			has_completed_focus = LUX_benelux_base
+			always = no
 		}
 		icon = generic_operation
 		cost = 50
@@ -2342,7 +2165,7 @@ foreign_politics = {
 			}
 		}
 		target_root_trigger = {
-
+            always = no
 		}
 		available = {
 			NOT = {
@@ -2441,122 +2264,6 @@ foreign_politics = {
 		#	}
 		#}
 		cost = 50
-	}
-	LUX_pressure_country_government_benilux = {
-		name = FIN_pressure_country_government_nordic
-		icon = generic_political_discourse
-		targets = {
-			BEL HOL
-		}
-		target_trigger = {
-			SOV_basic_pressure_government_triggers = yes #Reusable
-		}
-
-		target_root_trigger = {
-			has_completed_focus = LUX_benilux_creation_unite
-			is_subject = no
-		}
-
-		allowed = {
-			original_tag = LUX
-		}
-
-		available = {
-			is_faction_leader = yes
-			FROM = {
-				has_opinion = {
-					target = ROOT
-					value > 49
-				}
-				SOV_is_valid_subject = yes # Reusable
-				NOT = { has_war_with = ROOT }
-			}
-			NOT = { has_country_flag = FIN_pressure_government_active_flag }
-		}
-
-		visible = {
-		}
-
-		days_remove = FIN_pressure_government_days
-
-		days_re_enable = FIN_pressure_government_cd
-
-		cost = FIN_pressure_country_government_cost
-
-		modifier = {
-			political_power_gain = -0.25
-		}
-
-		complete_effect = {
-			set_country_flag = FIN_pressure_government_active_flag
-		}
-
-		remove_effect = {
-			FROM = {
-				country_event = { id = NSB_soviet_foreign_politics_events.1 hours = 4 random_hours = 2 } #Reusable
-				set_country_flag = FIN_government_pressured_flag #For AI weights - don't spam
-			}
-			clr_country_flag = FIN_pressure_government_active_flag
-			custom_effect_tooltip = SOV_pressure_government_effects_tt
-			custom_effect_tooltip = FIN_pressure_government_cd_tt
-		}
-	}
-	LUX_promote_ideology_rallies_benilux = {
-		name = FIN_promote_ideology_rallies_baltic
-		icon = generic_political_rally
-
-		ai_will_do = {
-			base = 1
-			modifier = {
-				factor = 2
-				has_political_power > 160
-			}
-		}
-
-		targets = { BEL HOL }
-
-		target_trigger = {
-			SOV_basic_promote_rallies_triggers = yes #Reusable
-		}
-
-		target_root_trigger = {
-			has_completed_focus = LUX_benilux_creation_unite
-		}
-
-		allowed = {
-			original_tag = LUX
-		}
-
-		available = {
-			FROM = {
-				SOV_is_valid_subject = yes #Reusable
-				NOT = { has_war_with = ROOT }
-			}
-		}
-
-		visible = {
-		}
-
-		days_remove = FIN_ideological_rallies_days
-
-		fire_only_once = yes
-
-		cost = FIN_promote_ideology_rallies_cost
-
-		modifier = {
-			political_power_gain = -0.25
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			FROM = {
-				country_event = { id = NSB_soviet_foreign_politics_events.2 hours = 4 random_hours = 2 }
-			}
-			custom_effect_tooltip = SOV_promote_rallies_effects_tt
-			custom_effect_tooltip = SOV_promote_ideological_rallies_cd_tt
-		}
 	}
 }
 form_united_netherlands_category = {
@@ -2741,6 +2448,7 @@ foreign_politics = {
 		}
 		visible = {
 			original_tag = LUX
+			always = no
 		}
 		available = {
 			NOT = {
@@ -2752,7 +2460,7 @@ foreign_politics = {
 			}
 		}
 		target_root_trigger = {
-			has_completed_focus = LUX_ultimatum_to_africa
+	#		has_completed_focus = LUX_ultimatum_to_africa
 		}
 		cost = 50
 		cancel_trigger = {
@@ -2802,44 +2510,6 @@ foreign_politics = {
 			
 		}
 		days_remove = 14
-	}
-	LUX_pressure_on_benilux = {
-		name = SOV_pressure_country_government_baltic
-		priority = 50
-		ai_hint_pp_cost = 30
-		cost = 75
-		icon = generic_political_discourse
-		modifier = {
-			political_power_cost = 0.25
-		}
-		targets = {
-			BEL HOL
-		}
-		allowed = {
-			original_tag = LUX
-		}
-		target_trigger = {
-			SOV_basic_pressure_government_triggers = yes
-		}
-		target_root_trigger = {
-			has_completed_focus = LUX_benilux_creation_unite
-			is_subject = no
-		}
-		available = {
-			NOT = { has_country_flag = SOV_pressure_government_active_flag }
-		}
-		complete_effect = {
-			set_country_flag = SOV_pressure_government_active_flag
-		}
-		remove_effect = {
-			clr_country_flag = SOV_pressure_government_active_flag
-			FROM = {
-				country_event = { id = NSB_soviet_foreign_politics_events.1 hours = 4 random_hours = 2 }
-				set_country_flag = SOV_government_pressured_flag #For AI weights - don't spam
-			}
-		}
-		days_remove = 14
-		days_re_enable = 7
 	}
 }
 political_actions = {
@@ -3269,7 +2939,6 @@ border_conflict_category = {
 		icon = border_war
         visible = {
 			original_tag = LUX
-			has_completed_focus = LUX_demand_FRA_ter
 		}
 		is_good = no
 		activation = {
@@ -3417,61 +3086,6 @@ border_conflict_category = {
 	
 }
 foreign_politics = {
-	send_ultimatum_to_benelux = {
-		name = SOV_pressure_country_government_baltic
-		icon = eng_trade_unions_demand
-		visible = {
-			original_tag = LUX
-			always = no
-		}
-		target_root_trigger = {
-			has_completed_focus = LUX_ultimattus_to_benelux
-		}
-		target_trigger = {
-			FROM = {
-				capital_scope = {
-					region = 5
-				}
-			}
-		}
-		available = {
-			NOT = {
-				has_war_with = FROM
-				has_wargoal_against = FROM
-				has_non_aggression_pact_with = FROM
-				has_attache_from = FROM
-			}
-			NOT = { has_country_flag = SOV_pressure_government_active_flag }
-		}
-		complete_effect = {
-			set_country_flag = SOV_pressure_government_active_flag
-		}
-		remove_effect = {
-			from = {
-				country_event = {
-					id = LUX_diplomacy.28
-					days = 1
-				}
-			}
-			custom_effect_tooltip = if_they_accept_tt
-			effect_tooltip = {
-				annex_country = {
-					target = fROM
-					transfer_troops = yes
-				}
-			}
-			custom_effect_tooltip = if_they_reject
-			effect_tooltip = {
-				create_wargoal = {
-					target = FROM
-					type = annex_everything
-				}
-			}
-		}
-		war_with_target_on_remove = yes
-		cost = 75
-		days_remove = 14
-	}
 	LUX_integrate_benelux_puppet = {
 		icon = generic_nationalism
 		cost = 150
@@ -3519,10 +3133,6 @@ foreign_politics = {
 		}
 		visible = {
 			original_tag = LUX
-			NOT = {
-				has_completed_focus = LUX_delegation_to_britain
-				has_completed_focus = LUX_delegetaion_to_us
-			}
 		}
 		target_root_trigger = {
 			has_completed_focus = LUX_start_five_years_plan
@@ -3541,30 +3151,6 @@ foreign_politics = {
 					id = LUX_diplomacy.44
 					hours = 6
 				}
-			}
-		}
-	}
-	RHI_peace_with_occupier = { #for scripted peace
-		visible = {
-			is_ai = yes
-			tag = RHI
-			all_enemy_country = {
-				is_ai = yes
-			}
-		}
-		ai_will_do = {
-			base = 100
-		}
-		fire_only_once = yes
-		available = {
-			has_global_flag = {
-				flag = rhein_uprising_is_ongoing
-				days > 15
-			}
-		}
-		complete_effect = {
-			every_enemy_country = {
-				white_peace = ROOT
 			}
 		}
 	}
@@ -3637,30 +3223,99 @@ foreign_politics = {
 		}
 		cost = 15
 	}
-	# wil be made as event
-#	LUX_ask_for_peace_and_made_FROM_puppet = {
-#		target_trigger = {
-#			FROM = {
-#				has_defensive_war_with = ROOT
-#				capital_scope = {
-#					region = 5
-#				}
-#			}
-#		}
-#		available = {
-#			FROM = {
-#				OR = {
-#					surrender_progress > 0.5
-#					capital_scope = {
-#						is_controlled_by = ROOT
-#					}
-#				}
-#			}
-#		}
-#		remove_effect = {
-#			
-#		}
-#	}
+	LUX_generic_pressure_on_goverment = { #for focuses
+	name = SOV_pressure_country_government_baltic
+	priority = 50
+	icon = generic_political_discourse
+	target_trigger = {
+		SOV_basic_pressure_government_triggers = yes #Reusable
+		FROM = {
+			capital_scope = {
+				region = 5
+			}
+		}
+	}
+	target_root_trigger = {
+		has_completed_focus = LUX_diplomatic_intervantion_in_benelux
+	}
+
+	allowed = {
+		original_tag = LUX
+	}
+
+	days_remove = 30
+
+	days_re_enable = 365
+
+	cost = 50
+
+	available = {
+		NOT = { has_country_flag = FIN_pressure_government_active_flag }
+	}
+	complete_effect = {
+		set_country_flag = FIN_pressure_government_active_flag
+	}
+	remove_effect = {
+		FROM = {
+			country_event = { id = NSB_soviet_foreign_politics_events.1 hours = 4 random_hours = 2 } #Reusable
+			set_country_flag = FIN_government_pressured_flag #For AI weights - don't spam
+		}
+		clr_country_flag = FIN_pressure_government_active_flag
+		custom_effect_tooltip = SOV_pressure_government_effects_tt
+	}
+	visible = {
+		original_tag = LUX
+	}
+}
+LUX_promote_ideology_rallies = {
+	name = SOV_promote_ideology_rallies_baltic
+	icon = generic_political_rally
+	ai_will_do = {
+		base = 1
+		modifier = {
+			factor = 2
+			has_political_power > 160
+		}
+	}
+	target_trigger = {
+		SOV_basic_promote_rallies_triggers = yes #Reusable
+		FROM = {
+			capital_scope = {
+				region = 5
+			}
+		}
+	}
+	allowed = {
+		original_tag = LUX
+	}
+	available = {
+		FROM = {
+			SOV_is_valid_subject = yes #Reusable
+			NOT = { has_war_with = ROOT }
+		}
+	}
+    target_root_trigger = {
+		has_completed_focus = LUX_diplomatic_intervantion_in_benelux
+	}
+
+	days_remove = 90
+
+	cost = 50
+
+	modifier = {
+		political_power_gain = -0.25
+	}
+
+	complete_effect = {
+	}
+
+	remove_effect = {
+		FROM = {
+			country_event = { id = NSB_soviet_foreign_politics_events.2 hours = 4 random_hours = 2 }
+		}
+		custom_effect_tooltip = SOV_promote_rallies_effects_tt
+	}
+}
 }
 generic_trade_cat = {
 	LUX_cancel_trade_with_target = {
@@ -3834,6 +3489,9 @@ operations = {
 		days_remove = 10
 		visible = {
 			tag = LUX
+			NOT = {
+				country_exists = RHI
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3862,6 +3520,7 @@ operations = {
 				controller = {
 					is_controlled_by_ROOT_or_subject = no
 				}
+				has_resistance = yes
 			}
 		}
 		cost = 15
@@ -3893,26 +3552,95 @@ operations = {
 			}
 		}
 		visible = {
-			controls_state = 51
-			controls_state = 42
+			OR = {
+			   owns_state = 51
+			   owns_state = 42
+			}
 		}
 		activation = {
-			51 = {
-				has_resistance = yes
-				resistance > 69
-			}
-			42 = {
-				has_resistance = yes
-				resistance > 69
+			always = no
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_core_of = RHI
+				is_controlled_by = root
 			}
 		}
-		cancel_trigger = {
-
-		}
+#		activation = {
+#			51 = {
+#				has_resistance = yes
+#				resistance > 69
+#			}
+#			42 = {
+#				has_resistance = yes
+#				resistance > 69
+#			}
+#		}
 		timeout_effect = {
-			country_event = LUX_political_events.27
+	#		country_event = LUX_political_events.27
+	        effect_tooltip = {
+				RHI = { 
+					transfer_state = 51 
+					transfer_state = 42 
+				}
+				every_country = {
+					limit = {
+						OR = {
+			                owns_state = 51
+			                owns_state = 42
+		              	}
+			    	}
+					RHI = {
+						declare_war_on = {
+							target = PREV
+							type = independence_wargoal
+						}
+					}
+					51 = {
+						teleport_armies = { 
+							# just teleport everyone home
+						}
+					}
+				}
+				RHI = {
+					division_template = {
+						name = "Partisan Militia"
+						is_locked = no
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 3 }		
+							
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							infantry = { x = 1 y = 3 }	
+						}
+						support = {
+						
+						}
+					}
+					51 = {
+						create_unit = {
+							division = "name = \"Partisan Militia's\" division_template = \"Partisan Militia\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
+							owner = RHI
+							allow_spawning_on_enemy_provs = yes 
+							count = 10 
+						}
+					}
+					42 = {
+						create_unit = {
+							division = "name = \"Partisan Militia's\" division_template = \"Partisan Militia\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
+							owner = RHI
+							allow_spawning_on_enemy_provs = yes 
+							count = 10 
+						}
+					}
+				}
+			}
 		}
-		days_mission_timeout = 1
+		days_mission_timeout = 60
 	}
 	LUX_demand_rhein = {
 		state_target = yes
@@ -3950,6 +3678,12 @@ operations = {
 				save_global_event_target_as = demand_state_target
 			}
 			set_country_flag = SOV_pressure_government_active_flag
+		}
+		cancel_trigger = {
+			OR = {
+				controls_state = FROM
+				has_war_with = from.controller
+			}
 		}
 		remove_effect = {
 			clr_country_flag = SOV_pressure_government_active_flag
@@ -4006,97 +3740,155 @@ operations = {
 			}
 		}
 	}
-	LUX_generic_pressure_on_goverment = { #for focuses
-		name = SOV_pressure_country_government_baltic
-		priority = 50
-		icon = generic_political_discourse
-		target_trigger = {
-			SOV_basic_pressure_government_triggers = yes #Reusable
-		}
-		target_root_trigger = {
-			has_completed_focus = FIN_united_under_the_north_star
-			is_subject = no
-		}
-
-		allowed = {
-			original_tag = LUX
-		}
-
-		days_remove = 30
-
-		days_re_enable = 365
-
-		cost = 50
-
-		available = {
-			NOT = { has_country_flag = FIN_pressure_government_active_flag }
-		}
-		complete_effect = {
-			set_country_flag = FIN_pressure_government_active_flag
-		}
-		remove_effect = {
-			FROM = {
-				country_event = { id = NSB_soviet_foreign_politics_events.1 hours = 4 random_hours = 2 } #Reusable
-				set_country_flag = FIN_government_pressured_flag #For AI weights - don't spam
+	LUX_start_rhein_uprising = { # copy ICE_incite_communist_uprising_wales code - done it
+	    icon = generic_ignite_civil_war
+		highlight_states = {
+			highlight_state_targets = {
+				state = 51
+				state = 42
 			}
-			clr_country_flag = FIN_pressure_government_active_flag
-			custom_effect_tooltip = SOV_pressure_government_effects_tt
-			custom_effect_tooltip = FIN_pressure_government_cd_tt
 		}
 		visible = {
-			always = no
+			has_completed_focus = LUX_reestablish_united_rhenish_movement
+			original_tag = LUX
+			NOT = {
+				country_exists = RHI
+			}
 		}
+		cost = 125
+		fire_only_once = yes
+		available = {
+			51 = {
+                resistance > 34
+			}
+			42 = {
+                resistance > 34
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = LUX_start_thein_uprising_tt
+			hidden_effect = {
+				set_global_flag = rhein_is_rise_achievement
+				news_event = {
+					id = LUX_political_events.28
+					random_hours = 6
+					hours = 2
+				}
+				RHI = { 
+					transfer_state = 51 
+					transfer_state = 42 
+					add_ideas = RHI_separatist_rising
+				}
+				for_each_scope_loop = {
+					array = LUX.rhenish_uprising_enemies
+					RHI = {
+						declare_war_on = {
+							target = PREV
+							type = independence_wargoal
+						}
+					}
+					51 = {
+						teleport_armies = { 
+							# just teleport everyone home
+						}
+					}
+				}
+				RHI = {
+					division_template = {
+						name = "Partisan Militia"
+						is_locked = no
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+							infantry = { x = 0 y = 3 }		
+							
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+							infantry = { x = 1 y = 3 }	
+						}
+						support = {
+						
+						}
+					}
+					51 = {
+						create_unit = {
+							division = "name = \"Partisan Militia's\" division_template = \"Partisan Militia\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
+							owner = RHI
+							allow_spawning_on_enemy_provs = yes 
+							count = 20 
+						}
+					}
+					42 = {
+						create_unit = {
+							division = "name = \"Partisan Militia's\" division_template = \"Partisan Militia\" start_experience_factor = 0.1 start_equipment_factor = 1 start_manpower_factor = 1"
+							owner = RHI
+							allow_spawning_on_enemy_provs = yes 
+							count = 15 
+						}
+					}
+					add_popularity = {
+						ideology = ROOT
+						popularity = 0.25
+					}
+					set_politics = {
+						ruling_party = ROOT
+						elections_allowed = no
+					}
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				every_other_country = {
+					limit = {
+						any_owned_state = {
+							is_core_of = RHI
+						}
+					}
+					add_to_array = { LUX.rhenish_uprising_enemies = THIS }
+					activate_mission = LUX_rhein_uprising_coming_mission
+				}
+			}
+		}
+		days_remove = 60
 	}
-	LUX_promote_ideology_rallies = {
-		name = SOV_promote_ideology_rallies_baltic
-		priority = 50
-
-		icon = generic_political_rally
-
-		ai_will_do = {
-			base = 1
-			modifier = {
-				factor = 2
-				has_political_power > 160
+	LUX_prepare_assassiantion_in_SOV = {
+		targets = {
+			SOV
+		}
+		custom_cost_text = decision_cost_ie_500
+		days_remove = 45
+		target_root_trigger = {
+			has_completed_focus = LUX_conspiracy_behind_the_scenes
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment > 499
 			}
+#		    has_equipment = {
+#				support_equipment > 149
+#			}
 		}
-
-		target_trigger = {
-			SOV_basic_promote_rallies_triggers = yes #Reusable
-		}
-
-		allowed = {
-			original_tag = LUX
-		}
-
 		available = {
-			FROM = {
-				SOV_is_valid_subject = yes #Reusable
-				NOT = { has_war_with = ROOT }
+			has_equipment = {
+				infantry_equipment > 499
 			}
 		}
-
-		visible = {
-			always = no
-		}
-
-		days_remove = 90
-
-		cost = 50
-
-		modifier = {
-			political_power_gain = -0.25
-		}
-
-		complete_effect = {
-		}
-
 		remove_effect = {
+			custom_effect_tooltip = LUX_prepare_assassiantion_in_SOV_effect
 			FROM = {
-				country_event = { id = NSB_soviet_foreign_politics_events.2 hours = 4 random_hours = 2 }
+				set_country_flag = assassiantion_on_stalin_ready_flag
 			}
-			custom_effect_tooltip = SOV_promote_rallies_effects_tt
-			custom_effect_tooltip = SOV_promote_ideological_rallies_cd_tt
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -500
+				}
+			}
 		}
 	}
 }
@@ -4186,10 +3978,10 @@ economy_decisions = {
 		cost = 50
 		days_remove = 30
 		visible = {
-			original_tag = LUX
+			always = no
 		}
 		target_root_trigger = {
-			has_completed_focus = LUX_get_oil
+			
 		}
 		remove_effect = {
 			add_resource = {
@@ -4231,6 +4023,284 @@ propaganda_efforts = {
 			}
 			remove_ideas = LUX_closed_luxembourg_radio_ns
 			clr_country_flag = LUX_radio_is_closed_flag
+		}
+	}
+}
+LUX_closer_european_union_cat =  {
+	LUX_invite_to_the_european_union_decision = {
+		name = BEL_invite_to_the_european_union_decision
+		priority = 75
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		ai_will_do = {
+			base = 50
+		}
+#		targets = { GER ITA AUS GRE DEN IRE POR SPR SWE FIN CZE POL HUN ROM EST LAT LIT BUL SLV CRO FRA ENG LUX HOL } #Avoid states that are not in the eu to this day such as SWI, NOR and YUG (Serbia),but include the UK for shits and giggles :D
+
+		target_trigger = {
+			FROM = {
+				exists = yes
+				is_government_in_exile = no
+				
+				NOT = {
+					has_war_with = ROOT
+				}
+				NOT = { has_country_flag = sent_eu_invitation_flag }
+				capital_scope = {
+					is_on_continent = europe
+				}
+			}
+		}
+
+		cost = 50
+
+		days_remove = 30
+
+		fire_only_once = yes
+		visible = {
+			FROM = {
+				is_in_faction = no
+				is_subject = no #It has to be here or the decision is cancelled by the taret trigger rather than the cancel trigger if it happens. Cancellation via target trigger doesn't run cancel_effect meaning following decisions get perma-locked by a flag that can't be removed
+				OR = { #needs to be here to cancel correctly if there is a ideology flip
+					has_government = neutrality
+					has_government = democratic
+				}
+			}
+		}
+
+		available = {
+			NOT = {	has_country_flag = BEL_currently_taking_eu_decision_flag }	
+		}
+
+		cancel_trigger = {
+			FROM = {
+				OR = {
+					is_subject = yes
+					exists = no
+					is_in_faction = yes
+					NOT = {
+						has_government = neutrality
+						has_government = democratic
+					}
+				}
+			}
+		}
+
+		cancel_effect = {
+			clr_country_flag = BEL_currently_taking_eu_decision_flag
+		}
+
+		complete_effect = {
+			set_country_flag = BEL_currently_taking_eu_decision_flag
+		}
+
+		remove_effect = {
+			FROM = {
+				country_event = {
+					id = ww_BEL_event_diplomatic.20
+					hours = 12
+				}
+			}
+			clr_country_flag = BEL_currently_taking_eu_decision_flag
+		}
+	}
+
+	LUX_establish_research_sharing_group_decision = {
+		name = BEL_establish_research_sharing_group_decision
+		priority = 80
+	
+		icon = GFX_decision_hol_exchange_intelligence_data
+	
+		ai_will_do = {
+			base = 10
+		}
+
+		cost = 100
+
+		days_remove = 30
+
+		fire_only_once = yes
+		available = {
+			NOT = {	has_country_flag = BEL_currently_taking_eu_decision_flag }
+			any_country = { is_in_faction_with = ROOT }
+		}
+
+		cancel_trigger = {
+			NOT = {
+				any_country = { is_in_faction_with = ROOT }
+			}
+		}
+
+		cancel_effect = {
+			clr_country_flag = BEL_currently_taking_eu_decision_flag
+		}
+
+		complete_effect = {
+			set_country_flag = BEL_currently_taking_eu_decision_flag
+		}
+
+		remove_effect = {
+			clr_country_flag = BEL_currently_taking_eu_decision_flag
+
+			add_to_tech_sharing_group = EU_tech_sharing_group
+
+			every_other_country = {
+				limit = {
+					is_in_faction_with = ROOT
+				}
+				country_event = {
+					id = ww_BEL_event_diplomatic.23
+					hours = 6
+				}
+			}
+		}
+	}
+
+	LUX_propose_limited_federalization_descision = {
+		name = BEL_propose_limited_federalization_descision
+		priority = 80
+	
+		icon = GFX_decision_hol_exchange_intelligence_data
+	
+		ai_will_do = {
+			base = 10
+		}
+
+		target_array = ROOT.faction_members
+
+		target_trigger = {
+			FROM = {
+				exists = yes
+				capital_scope = {
+					is_on_continent = europe
+				}
+			}
+		}
+		cost = 100
+
+		days_remove = 30
+
+		fire_only_once = yes
+		visible = {
+			FROM = { is_government_in_exile = no } 
+			is_subject = no #has to be here or the target trigger will kill the decision rather than the cancel leading to cancel effects not being run
+		}
+
+		available = {
+			NOT = {	has_country_flag = BEL_currently_taking_eu_decision_flag }
+			FROM = {
+				is_in_faction_with = ROOT
+			}
+		}
+
+		cancel_trigger = {
+			FROM = {
+				OR = {
+					is_subject = yes
+					is_government_in_exile = yes
+					exists = no
+					NOT = {
+						is_in_faction_with = ROOT
+					}
+				}
+			}
+		}
+
+		cancel_effect = {
+			clr_country_flag = BEL_currently_taking_eu_decision_flag
+		}
+
+		complete_effect = {
+			set_country_flag = BEL_currently_taking_eu_decision_flag
+
+		}
+
+		remove_effect = {
+			clr_country_flag = BEL_currently_taking_eu_decision_flag
+			FROM = {
+				country_event = {
+					id = ww_BEL_event_diplomatic.26
+					hours = 6
+				}
+			}
+
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				ROOT = {
+					set_autonomy = {
+						target = FROM
+						autonomy_state = autonomy_eu_member
+						freedom_level = 0.5
+					}
+				}
+			}
+
+			custom_effect_tooltip = generic_more_likely_to_accept_tt
+			custom_effect_tooltip = more_likely_to_accept_federalization_tt
+		}
+	}
+	LUX_talk_about_embargo_against_FROM = { # we can made economy embargo on FROM
+	    icon = generic_speech
+	    visible = {
+			is_faction_leader = yes
+		}
+		target_array = LUX.target_for_actions_against
+		visible = {
+			tag = event_target:european_union_leader
+		}
+		target_trigger = {
+			FROM = {
+				has_offensive_war = yes
+			}
+		}
+        available = {
+			any_other_country = {
+				NOT = {
+					is_in_faction_with = ROOT
+				}
+				capital_scope = {
+					is_on_continent = europe
+				}
+				has_offensive_war = yes
+				any_enemy_country = { #has war with non europe union member
+					NOT = {
+						is_in_faction_with = ROOT
+					}
+					capital_scope = {
+						is_on_continent = europe
+					}
+				}
+			}
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			every_allied_country = { #FROM wanna made embargo on country in war
+				
+			}
+			FROM = {
+				save_event_target_as = target_for_actions
+			}
+		}
+	}
+	LUX_talk_about_operation_against_FROM = {
+		visible = {
+			tag = event_target:european_union_leader
+		}
+		target_trigger = {
+			FROM = {
+				has_offensive_war = yes
+				OR = {
+				    longest_war_length > 1
+					has_added_tension_amount > 5
+				}
+			}
+		}
+		target_array = LUX.target_for_actions_against
+		complete_effect = {
+			
 		}
 	}
 }

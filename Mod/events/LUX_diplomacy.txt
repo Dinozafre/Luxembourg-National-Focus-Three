@@ -1,18 +1,36 @@
 add_namespace = LUX_diplomacy
-# BBA_italy_civil_war.6 & BBA_italy_civil_war.7 generic events for demand independence reply
-# wuw_GER_diplomacy.77 generic event for pupping ROOT
-# mtg_netherlands.77 unite Benelux event
-# ww_BEL_event_diplomatic.2 can be using as annex ulitmatum event
-# ARG_political_events.73 use for ask guarantees events
-# AAT_finland_diplomacy.01 to make ammex ultimatum LUX_diplomacy.51 is raplacer of this event
-# WW_hungary.26 generic ask for join faction
-# NSB_soviet_foreign_politics_events.210 pressure from FROM event
-# wuw_GER_realpolitik.1 invite to faction
-# mtg_germany.1 text can be using for ultimatum events
-# wuw_GER_realpolitik.28 for democratic coups
-# JUNO_brazil_events.30 war cooperations
-# AUS_political_events.40 ask join to faction
+# BBA_italy_civil_war.6 & BBA_italy_civil_war.7 generic events for demand independence reply 
+# BBA_ethiopia_fascist_events.20 [FROM.GetNameDefCap] объявляет о независимости
+# wuw_GER_diplomacy.77 [FROM.GetNameDefCap] требует от нас референдума о присоединении
+# mtg_netherlands.77 [From.GetNameDef] предлагает основать федерацию
+# ww_BEL_event_diplomatic.2 [FROM.GetNameDefCap] требует нашего присоединения
+# ARG_political_events.73 [FROM.GetNameDefCap] ищет более близкого сотрудничества
+# AAT_finland_diplomacy.01 [FROM.GetAdjective]ое предложение об объединении
+# WW_hungary.26 [FROM.GetNameDefCap] хочет вступить в наш альянс
+# NSB_soviet_foreign_politics_events.210 Давление со стороны государства [FROM.GetNameDef]
+# wuw_GER_realpolitik.1 [FROM.GetNameDefCap] приглашает нас в альянс
+# mtg_germany.1 Государство [From.GetName] требует подчинения
+# wuw_GER_realpolitik.28 Гражданская война в государстве [ROOT.GetNameDef]
+# AUS_political_events.40 [FROM.GetNameDefCap] хочет присоединиться к альянсу «[ROOT.GetFactionName]»
 # wuw_GER_diplomacy.111 economic deal
+# IRQ_political_events.60 [FROM.GetNameDefCap] предлагает мир
+# BBA_italy_second_italo_ethiopian_war.1 [FROM.GetAdjective]ое государство предлагает мир
+# wtt_japan.126 [From.GetName] предлагает заключить мир
+# PER_industrial_events.1 [FROM.GetNameDefCap] предлагает права на ресурсы
+# wuw_GER_realpolitik.36 [FROM.GetNameDefCap] предлагает объединение
+# JUNO_brazil_events.73.t [FROM.GetAdjective]ий ультиматум
+# JUNO_brazil_events.70.t [FROM.GetNameDefCap] требует заморские территории
+# tfv_canada.20.t [From.GetNameDefCap] желает вступить в альянс
+# tfv_canada.10.t [From.GetNameDefCap] желает стать членом альянса [Root.GetFactionName]
+# tfv_australia.50.t [From.GetNameDefCap] желает вступить в альянс [Root.GetFactionName]
+# ww_BEL_event_diplomatic.1.t [FROM.GetNameDefCap] отказывается от наших гарантий
+# ww_BEL_event_diplomatic.12.t [FROM.GetNameDefCap] просит нас о помощи
+# JUNO_brazil_events.33.t [FROM.GetName] соглашается передать территорию
+# JUNO_brazil_events.34.t [FROM.GetName] отказывается передать территорию
+# JUNO_brazil_events.30.t [FROM.GetNameDefCap] предлагает сотрудничество
+# ww_BEL_event_spanish_interaction.1.t [FROM.GetNameDefCap] присылает снаряжение
+# NSB_soviet_foreign_politics_events.266.t Пакт о [ROOT.GetAdjective]о-[FROM.GetAdjective]ой дружбе
+# custom_effect_tooltip = may_provoke_hostility
 #### DEMAND INDEPENDENCE GENERIC EVENT #####
 #### AI CHANCES #####
 ### VARS ####
@@ -461,15 +479,12 @@ country_event = {
 				add = 100
 			}
 		}
-		set_variable = {
-			LUX.negotiatioans_with_germans_failed = FROM
-		}
 		hidden_effect = {
 			FROM = {
 				country_event = {
 					id = LUX_diplomacy.13
-					days = 1
-					random_hours = 12
+					hours = 4
+					random_hours = 6
 				}
 			}
 		}
@@ -500,8 +515,8 @@ country_event = {
 			FROM = {
 				country_event = {
 					id = LUX_diplomacy.14
-					days = 1
-					random_hours = 12
+					hours = 4
+					random_hours = 4
 				}
 			}
 		}
@@ -589,7 +604,7 @@ country_event = {
 	option = {
 		#demand peace
 		name = LUX_diplomacy.16.a
-		LUX = {
+		FROM = {
 			country_event = {
 				id = LUX_diplomacy.59
 				days = 1
@@ -623,6 +638,21 @@ country_event = {
 			country = FROM
 			relation = guarantee
 			active = no
+		}
+		add_ai_strategy = {
+			type = alliance
+			id = FROM
+			value = -100
+		}
+		add_ai_strategy = {
+			type = antagonize
+			id = FROM
+			value = 100
+		}
+		add_ai_strategy = {
+			type = befriend
+			id = FROM
+			value = -100
 		}
 	}
 }
@@ -813,11 +843,6 @@ country_event = {
 				add = -10
 			}
 		}
-		send_equipment = {
-			equipment = infantry_equipment
-			amount = 500
-			target = FROM
-		}
 
 	    ################################
 	#	add_equipment_to_stockpile = {      #tooltip for receiver
@@ -855,12 +880,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = CHL_political_events.30.a
-		effect_tooltip = {
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 500
-				producer = FROM
-			}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 250
+			producer = FROM
 		}
 	}
 }
@@ -1479,6 +1502,7 @@ country_event = { #LUX_charlotte in exile
 					set_nationality = ROOT
 				}
 			}
+			log = "Charlotte came to [THIS.GetName]"
 		}
 	}
 }
@@ -1600,15 +1624,15 @@ country_event = {
 		name = AAT_finland_diplomacy.01.a
 
 		ai_chance = {
-			base = 4
+			base = 1
 			modifier = { 
-				add = 2
+				factor = 2
 				check_variable = {
 					FROM.has_war_support > ROOT.has_war_support
 				}
 			}
 			modifier = { 
-				add = 3
+				factor = 3
 				check_variable = {
 					FROM.num_divisions > ROOT.num_divisions
 				}
@@ -1641,19 +1665,25 @@ country_event = {
 			}
 			modifier = {
 				is_ally_with = FROM
-				add = 5
+				factor = 5
 			}
 			modifier = {
-				add = 5
+				factor = 5
 				FROM = {
-					fighting_army_strength_ratio = {
+					strength_ratio = {
 						tag = ROOT
 						ratio > 1
 					}
 				}
 			}
+			modifier = {
+				factor = 10
+				FROM = {
+				    has_same_ideology = yes
+				}
+			}
 		}
-
+        set_country_flag = ROOT_accept_annexation
 		effect_tooltip = {
 			FROM = {
 				annex_country = {
@@ -1743,34 +1773,36 @@ country_event = {
 	picture = GFX_report_event_generic_peaceful_annexation
 
 	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				every_core_state = {
+					limit = {
+						is_owned_and_controlled_by = PREV
+					}
+					add_dynamic_modifier = {
+						modifier = autonomy_state_of_federation
+					}
+				}
+			}
+		}
+	}
 	#COOL!
 	option = {
 		name = AAT_finland_diplomacy.02.a
 
 		if = { #Bring unit leaders if NSB is active (otherwise is just generic people)
-			limit = {
-				has_dlc = "No Step Back"
-			}
 			if = { #Filter out ANti-Bolshevik generals if Finland is communist
 				limit = {
 					has_government = communism
 				}
 				FROM = {
 					every_unit_leader = {
-						limit = {
-							NOT = { has_trait = BALTIC_anti_bolshevik }
-						}
-						hidden_effect = {
-							if = {
-								limit = {
-									is_field_marshal = yes
-								}
-								demote_leader = yes
-							}
-						}
 						set_nationality = ROOT
 					}
-					every_core_state = { add_core_of = ROOT }
+					every_core_state = { 
+						add_core_of = ROOT 
+					}
 				}
 			}
 			else = {
@@ -1866,7 +1898,7 @@ country_event = {
 		}
 		every_state = {
 			limit = {
-				is_core_of = EST
+				is_core_of = FROM
 				NOT = { is_owned_by = ROOT }
 			}
 			add_claim_by = ROOT
@@ -1876,44 +1908,48 @@ country_event = {
 #generic refuse transfer state
 country_event = {
 	id = LUX_diplomacy.55
-	title = LUX_diplomacy.55.t
+	title = AAT_Sweden_flashpoints.64.t
 	desc = LUX_diplomacy.55.desc
 	is_triggered_only = yes
 	picture = GFX_report_event_generic_read_write
 	option = {
-		name = LUX_diplomacy.55.a
+		name = AAT_norway.17.a
 		add_ai_strategy = {
 			type = declare_war
 			id = FROM
 			value = 50
 		}
 		create_wargoal = {
-			target = event_target:demand_state_target
+			target = FROM
 			type = annex_everything
 		}
+	}
+	option = {
+		name = denmark_overlord_events.42.a
+		add_political_power = -50
 	}
 }
 #generic accept taking state
 country_event = {
 	id = LUX_diplomacy.56
-	title = LUX_diplomacy.56.t
+	title = JUNO_brazil_events.33.t
 	desc = LUX_diplomacy.56.desc
 	is_triggered_only = yes
 	picture = GFX_report_event_generic_read_write
 	option = {
-		name = LUX_diplomacy.56.a
+		name = denmark_protection_event.202.a
 		transfer_state = event_target:demand_state_target
 	}
 }
 #demand rhein
 country_event = {
 	id = LUX_diplomacy.57
-	title = LUX_diplomacy.57.t
+	title = AAT_Sweden_flashpoints.63.t
 	desc = LUX_diplomacy.57.desc
 	is_triggered_only = yes
 	picture = GFX_report_event_generic_read_write
 	option = {
-		name = LUX_diplomacy.57.a
+		name = denmark_expansion_event.13.a
 		transfer_state = event_target:demand_state_target
 		FROM = {
 			country_event = {
@@ -1977,7 +2013,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = LUX_diplomacy.57.b
+		name = AAT_Sweden.16.b
 		FROM = {
 			country_event = {
 				id = LUX_diplomacy.55
@@ -2039,7 +2075,6 @@ country_event = {
 	desc = LUX_neatrality.0.desc
 	picture = GFX_report_event_generic_read_write
 	is_triggered_only = yes
-	fire_only_once = no
 	option = {
 		#peace
 		name = LUX_neatrality.9.a
@@ -2278,7 +2313,760 @@ country_event = { # europe economic intergration event reject
 		}
 	}
 }
-
+#invitation into EEU (Europe Economic Union)
+country_event = {
+	id = LUX_diplomacy.65
+	title = LUX_diplomacy.65.t
+	desc = LUX_diplomacy.65.desc
+	is_triggered_only = yes
+	option = {
+		
+	}
+}
+country_event = { #accept invitation
+	id = LUX_diplomacy.66
+	title = LUX_diplomacy.66.t
+	desc = LUX_diplomacy.66.desc
+	is_triggered_only = yes
+	option = {
+		
+	}
+}
+country_event = { #reject invitation
+	id = LUX_diplomacy.67
+	title = LUX_diplomacy.67.t
+	desc = LUX_diplomacy.67.desc
+	is_triggered_only = yes
+	option = {
+		
+	}
+}
+country_event = { #puppet or war
+	id = LUX_diplomacy.68
+	title = mtg_germany.1.t
+	desc = mtg_germany.1.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_finnish_letter
+	option = {
+		ai_chance = {
+			base = 4
+			modifier = { 
+				factor = 5
+				check_variable = {
+					FROM.has_war_support > ROOT.has_war_support
+				}
+			}
+			modifier = { 
+				factor = 5
+				check_variable = {
+					FROM.num_divisions > ROOT.num_divisions
+				}
+			}
+			modifier = { 
+				factor = 3
+				check_variable = {
+					FROM.num_of_factories > ROOT.num_of_factories
+				}
+			}
+			modifier = { 
+				add = 2
+				is_guaranteed_by = FROM
+			}
+			modifier = { 
+				factor = 2
+				has_non_aggression_pact_with = FROM
+			}
+			modifier = { 
+				add = 2
+				check_variable = {
+					FROM.num_of_military_factories > ROOT.num_of_military_factories
+				}
+			}
+			modifier = { 
+				add = 2
+				check_variable = {
+					ROOT.opinion@FROM > 59
+				}
+			}
+			modifier = {
+				is_ally_with = FROM
+				factor = 5
+			}
+			modifier = {
+				add = 5
+				FROM = {
+					fighting_army_strength_ratio = {
+						tag = ROOT
+						ratio > 1
+					}
+				}
+			}
+		}
+		name = mtg_germany.1.a
+		FROM = {
+			country_event = {
+				id = LUX_diplomacy.69
+				hours = 4
+			}
+		}
+	}
+	option = {
+		ai_chance = {
+			base = 4
+		}
+		name = mtg_germany.1.b
+		FROM = {
+			country_event = {
+				id = LUX_diplomacy.70
+				hours = 4
+			}
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = SOV_pressured_our_government
+		}
+		diplomatic_relation = {
+			country = FROM
+			relation = market_access_rights
+			active = no
+		}
+	}
+}
+country_event = { #FROM agreed to be our puppet
+	id = LUX_diplomacy.69
+	title = mtg_germany.2.t
+	desc = mtg_germany.2.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = excellent
+		puppet = FROM
+	}
+}
+country_event = { #FROM they choose war
+	id = LUX_diplomacy.70
+	title = mtg_germany.3.t
+	desc = mtg_germany.3.d
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty1
+	option = {
+		name = news.330.b
+		create_wargoal = {
+			target = FROM
+			type = puppet_wargoal_focus
+		}
+		diplomatic_relation = {
+			country = FROM
+			relation = military_access
+			active = no
+		}
+        if = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			diplomatic_relation = {
+				country = FROM
+				relation = market_access_rights
+				active = no
+			}
+		}
+	}
+}
+country_event = { # FROM offers made trade deal (for belgum and niderlands)
+	id = LUX_diplomacy.71
+	title = wuw_GER_diplomacy.111.t
+	desc = LUX_diplomacy.71.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = { #why not
+		name = wuw_GER_realpolitik.63.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = ICE_trade_partner
+		}
+		FROM = {
+            country_event = {
+				id = LUX_diplomacy.72
+				hours = 4
+				random_hours = 6
+			}
+		}
+		ai_chance = {
+			base = 4
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 10
+			}
+			modifier = {
+				has_opinion = {
+					target = FROM
+					value > 19
+				}
+				add = 5
+			}
+			modifier = {
+				has_government = FROM
+				factor = 5
+			}
+		}
+	}
+	option = { #neh
+		name = BBA_ethiopia_fascist_events.02.b
+		ai_chance = {
+			base = 4
+		}
+		FROM = {
+            country_event = {
+				id = LUX_diplomacy.73
+				hours = 4
+				random_hours = 4
+			}
+		}
+	}
+}
+country_event = { #FROM accept deal
+	id = LUX_diplomacy.72
+	title = BBA_ethiopia_industrial_financial_events.5.t
+	desc = LUX_diplomacy.72.desc
+	picture = GFX_report_event_picture_agreed_sign_trade_treaty
+	is_triggered_only = yes
+	option = {
+		name = congo_independence_struggle.13.a
+		if = {
+			limit = { 
+				FROM = {
+					original_tag = BEL
+				}
+			}
+			add_ideas = LUX_trade_partner_of_belgum_ns
+		}
+		else_if = {
+			limit = { 
+				FROM = {
+					original_tag = HOL
+				}
+			}
+			add_ideas = LUX_trade_partner_of_niderlands_ns
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = ICE_trade_partner
+		}
+	}
+}
+country_event = { #FROM reject deal
+	id = LUX_diplomacy.73
+	title =  wuw_GER_diplomacy.3.t
+	desc = LUX_diplomacy.73.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = {
+		name = ww_congo.65.a
+	}
+}
+country_event = { # FROM wanna be our puppet (anarchist)
+	id = LUX_diplomacy.75
+	title = LUX_diplomacy.75.t
+	desc = LUX_diplomacy.75..desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_sign_treaty1
+	option = {
+		ai_chance = {
+			base = 5
+			modifier = {
+				has_anarchist_government = yes
+				factor = 5
+			}
+		}
+        name = AAT_finland_misc_events.07.a
+		set_autonomy = {
+			target = FROM
+			autonomy_state = autonomy_anarchist_commune
+		}
+	}
+	option = {
+		ai_chance = {
+			base = 0
+		}
+		name = AAT_finland_diplomacy.01.c
+	}
+}
+country_event = { #FROM anarchist annex us
+	id = LUX_diplomacy.76
+	title = wuw_GER_diplomacy.81.t
+	desc = LUX_diplomacy.76.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_read_write
+	option = {
+		name = wuw_GER_diplomacy.81.a
+		FROM = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+	}
+}
+country_event = {
+	id = LUX_diplomacy.77
+	hidden = yes
+	trigger = {
+		original_tag = RHI
+		any_enemy_country = {
+			OR = {
+			   casualties_k > 30
+			   surrender_progress > 0.05
+			}
+		}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 3
+	}
+	immediate = {
+		every_controlled_state = {
+			limit = {
+				NOT = {
+					is_core_of = ROOT
+				}
+				owner = {
+					has_war_with = ROOT
+				}
+			}
+	#		set_occupation_law = autonomous_occupation
+			transfer_state_to = ROOT
+		}
+		every_enemy_country = {
+			white_peace = ROOT
+		}
+		set_global_flag = RHI_make_peace_flag
+	}
+}
+# DOD_hungary.20.c for anti-stalinist pact future events
+#FROM want to sign with us anti-stalinist pact
+country_event = {
+	id = LUX_diplomacy.78
+	title = AAT_nordic_shared.2.t
+	desc = LUX_diplomacy.78.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		ai_chance = {
+			base = 5
+			modifier = {
+				is_neighbor_of = SOV
+                factor = 10
+			}
+			modifier = {
+				has_war_with = SOV
+				factor = 10
+			}
+			modifier = {
+			   is_ally_with = SOV
+			   factor = 0
+		    }
+			modifier = {
+				has_government = communism
+				factor = 0
+			}
+		}
+        name = DOD_yugoslavia.70.a
+		add_ideas = anti_stalinist_member_pact_idea
+		hidden_effect = {
+			add_ai_strategy = {
+				type = befriend
+				id = SOU
+				value = -100
+			}
+			add_ai_strategy = {
+				type = alliance
+				id = SOU
+				value = -100
+			}
+		}
+	}
+	option = {
+		name = DOD_hungary.46.a
+	}
+}
+#FROK was attacked, call to arms
+country_event = {
+	id = LUX_diplomacy.79
+	title = LUX_diplomacy.79.t
+	desc = LUX_diplomacy.79.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			has_country_flag = we_are_join_war_flag
+		}
+	}
+	option = {
+		name = AAT_norway.17.a
+		set_country_flag = we_are_join_war_flag
+		hidden_effect = {
+			every_other_country = {
+			    limit = {
+				   has_variable = global.member_anti_stalinist_pact
+			    }
+			    every_other_country = {
+				    limit = {
+					   has_variable = enemy_anti_stalinist_pact
+					   has_war_with = PREV
+				    }
+				    ROOT = {
+                        add_to_war = {
+						    targeted_alliance = PREV.PREV
+						    enemy = PREV
+					    }
+				    }
+			    }
+		    }
+		}
+	}
+}
+country_event = { #pact with fichy france
+	id = LUX_diplomacy.80
+	title = NSB_soviet_foreign_politics_events.266.t
+	desc = LUX_diplomacy.80.desc
+	is_triggered_only = yes
+	option = {
+		ai_chance = {
+			base = 5
+			modifier = {
+				has_non_aggression_pact_with = FROM
+				factor = 5
+			}
+			modifier = {
+				factor = 5
+				has_opinion = {
+					target = FROM
+					value > 29
+				}
+			}
+			modifier = {
+				is_ally_with = FROM
+				factor = 10
+			}
+		}
+		name = NSB_soviet_foreign_politics_events.266.a
+		effect_tooltip = {
+			FROM = {
+                transfer_state = 461
+			    transfer_state = 462
+			    transfer_state = 459
+			    transfer_state = 513
+			    transfer_state = 460
+			    transfer_state = 458
+			    transfer_state = 665
+			}
+			DEN_non_aggression_pact_effect = yes
+		}
+		FROM = {
+			country_event = {
+				id = LUX_diplomacy.81
+				hours = 4
+			}
+		}
+	}
+	option = {
+		ai_chance = {
+			base = 5
+			modifier = {
+				is_in_faction = yes
+				NOT = {
+					is_in_faction_with = FROM
+				}
+				factor = 5
+			}
+			modifier = {
+				any_other_country = {
+					has_guaranteed = ROOT
+					NOT = {
+						is_guaranteed_by = FROM
+					}
+				}
+				factor = 5
+			}
+		}
+		name = NSB_soviet_foreign_politics_events.272.b
+		FROM = {
+			country_event = {
+				id = LUX_diplomacy.82
+				hours = 4
+			}
+		}
+	}
+}
+country_event = {
+	id = LUX_diplomacy.81
+	title = NSB_soviet_foreign_politics_events.271.t
+	desc = LUX_diplomacy.81.desc
+	is_triggered_only = yes
+	option = {
+		name = NSB_soviet_foreign_politics_events.273.a
+		transfer_state = 461
+		transfer_state = 462
+		transfer_state = 459
+		transfer_state = 513
+		transfer_state = 460
+		transfer_state = 458
+		transfer_state = 665
+		DEN_non_aggression_pact_effect = yes
+	}
+}
+country_event = {
+	id = LUX_diplomacy.82
+	title = NSB_soviet_foreign_politics_events.275.t
+	desc = LUX_diplomacy.82.desc
+	is_triggered_only = yes
+	option = {
+		every_state = {
+			display_individual_scopes = yes
+			limit = {
+				OR = {
+				    state = 461
+		            state = 462
+		            state = 459
+		            state = 513
+		            state = 460
+		            state = 458
+		            state = 665
+				}
+			}
+			add_claim_by = root
+		}
+		name = NSB_soviet_foreign_politics_events.275.a
+	}
+}
+country_event = { # ultimatum to ussr
+	id = LUX_diplomacy.83
+	title = JUNO_brazil_events.73.t
+	desc = LUX_diplomacy.83.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_read_write
+	option = { # be annexed
+		name = AFG_industrial_events.54.a
+ai_chance = {
+	base = 4
+	modifier = { 
+		add = 2
+		check_variable = {
+			FROM.has_war_support > ROOT.has_war_support
+		}
+	}
+	modifier = { 
+		add = 3
+		check_variable = {
+			FROM.num_divisions > ROOT.num_divisions
+		}
+	}
+	modifier = { 
+		factor = 2
+		check_variable = {
+			FROM.num_of_factories > ROOT.num_of_factories
+		}
+	}
+	modifier = { 
+		factor = 2
+		is_guaranteed_by = FROM
+	}
+	modifier = { 
+		factor = 2
+		has_non_aggression_pact_with = FROM
+	}
+	modifier = { 
+		factor = 4
+		check_variable = {
+			FROM.num_of_military_factories > ROOT.num_of_military_factories
+		}
+	}
+	modifier = { 
+		factor = 3
+		check_variable = {
+			ROOT.opinion@FROM > 59
+		}
+	}
+	modifier = {
+		is_ally_with = FROM
+		factor = 10
+	}
+	modifier = {
+		factor = 10
+		FROM = {
+			fighting_army_strength_ratio = {
+				tag = ROOT
+				ratio > 1
+			}
+		}
+	}
+}
+		hidden_effect = {
+			save_event_target_as = annex_target
+			FROM = {
+				save_event_target_as = annexing_target
+			}
+		}
+		FROM = {
+			country_event = {
+				id = LUX_diplomacy.84
+				random_hours = 4
+				hours = 2
+			}
+		}
+	}
+	option = { # be puppet
+		name = AFG_political_events.74.a
+		ai_chance = {
+			base = 4
+				modifier = { 
+		add = 2
+		check_variable = {
+			FROM.has_war_support > ROOT.has_war_support
+		}
+	}
+	modifier = { 
+		add = 3
+		check_variable = {
+			FROM.num_divisions > ROOT.num_divisions
+		}
+	}
+	modifier = { 
+		factor = 2
+		check_variable = {
+			FROM.num_of_factories > ROOT.num_of_factories
+		}
+	}
+	modifier = { 
+		factor = 2
+		is_guaranteed_by = FROM
+	}
+	modifier = { 
+		factor = 2
+		has_non_aggression_pact_with = FROM
+	}
+	modifier = { 
+		factor = 4
+		check_variable = {
+			FROM.num_of_military_factories > ROOT.num_of_military_factories
+		}
+	}
+	modifier = { 
+		factor = 3
+		check_variable = {
+			ROOT.opinion@FROM > 59
+		}
+	}
+	modifier = {
+		is_ally_with = FROM
+		factor = 10
+	}
+	modifier = {
+		factor = 10
+		FROM = {
+			fighting_army_strength_ratio = {
+				tag = ROOT
+				ratio > 1
+			}
+		}
+	}
+		}
+	}
+	option = { # reject ultimatum
+		name = AFG_industrial_events.55.b
+		ai_chance = {
+			base = 6
+		}
+	}
+}
+country_event = { # FROM agreed to be annexed
+	id = LUX_diplomacy.84
+	title = DOD_romania.41.t
+	desc = LUX_diplomacy.84.desc
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = czech.17.a
+		annex_country = {
+			target = FROM
+			transfer_troops = no
+		}
+	}
+	after = {
+        news_event = {
+			id = LUX_diplomacy.27
+			hours = 2
+		}
+	}
+}
+country_event = { # FROM asks for non aggretion pact
+	id = LUX_diplomacy.85
+	title = denmark_protection_event.1.t
+	desc = denmark_protection_event.1.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		ai_chance = {
+			base = 1
+			modifier = {
+				has_government = FROM
+				factor = 10
+			}
+			modifier = {
+				has_war = no
+				factor = 5
+			}
+		}
+		name = denmark_protection_event.1.a
+		FROM = { 
+			country_event = { 
+			    id =  denmark_protection_event.2 
+				hours = 4
+				random_hours = 12
+		    }
+	    }
+	}
+	option = {
+		name = denmark_protection_event.1.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				FROM = {
+					is_subject = yes
+				}
+				factor = 10
+			}
+		}
+		FROM = { 
+			country_event = { 
+			    id =  denmark_protection_event.3 
+				hours = 4
+				random_hours = 12
+		    }
+		}
+	}
+}
+country_event = { #FROM wants to renegotiate ouchy convention
+	id = LUX_diplomacy.86
+	title = LUX_diplomacy.86.t
+	desc = LUX_diplomacy.86.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = { #good
+		name = wuw_GER_monroe.5.a
+	}
+	option = { #refuse
+		name = BBA_italo_ethiopian_war_events.10.b
+	}
+}
+country_event = { #we agree to have deal with that
+	id = LUX_diplomacy.87
+    title = AAT_Sweden_nationalists.2.t
+}
+country_event = { #nah guys
+	id = LUX_diplomacy.88
+	title = AAT_norway_rikstanken.12.t
+}
 ######## ROOT ANNEX FROM NEWS #####
 news_event = { #annexing_target #annex_target
 	id = LUX_diplomacy.27
@@ -2291,7 +3079,7 @@ news_event = { #annexing_target #annex_target
 		trigger = {
 			original_tag = LUX
 		}
-		name = LUX_diplomacy.27.a
+		name = DOD_hungary.22.a
 	}
 	option = {
 		trigger = {
@@ -2299,6 +3087,6 @@ news_event = { #annexing_target #annex_target
 			    original_tag = LUX
 			}
 		}
-	    name = UX_diplomacy.27.b
+	    name = czech.18.a
 	}
 }

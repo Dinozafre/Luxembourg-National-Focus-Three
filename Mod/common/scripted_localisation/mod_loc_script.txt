@@ -74,8 +74,92 @@ defined_text = {
 	text = {
 		trigger = {
             has_character = LUX_damian_kratzenberg
-			has_completed_focus = LUX_fascists_goining_to_elections
+			always = no
 		}
 		localization_key = damian_kratzenberg_score_text
+	}
+}
+defined_text = {
+	name = GetGreatLuxembourgName
+    text = {
+		trigger = {
+			has_government = neutrality
+		}
+		localization_key = LUX_great_luxembourg_neutrality
+	}
+	text = {
+		trigger = {
+			has_government = democratic
+		}
+		localization_key = LUX_great_luxembourg_democratic
+	}
+	text = {
+		trigger = {
+			has_government = fascism
+		}
+		localization_key = LUX_great_luxembourg_fascism
+	}
+	text = {
+		trigger = {
+			has_government = communism
+		}
+		localization_key = LUX_great_luxembourg_communism
+	}
+}
+defined_text = {
+	name = GETEURUNIFIEDNAME
+	text = {
+		trigger = {
+			has_government = democratic
+		}
+		localization_key = EUR_UNIFIED_democratic
+	}
+	text = {
+		trigger = {
+			has_government = fascism
+		}
+		localization_key = EUR_UNIFIED_fascism
+	}
+	text = {
+		trigger = {
+			has_government = communism
+		}
+		localization_key = EUR_UNIFIED_communism
+	}
+	text = {
+		trigger = {
+			has_government = neutrality
+		}
+		localization_key = EUR_UNIFIED_neutrality
+	}
+}
+defined_text = {
+	name = GetEconomicUnionName
+	text = {
+		trigger = {
+			has_global_flag = formation_of_benilux_economic_union
+		}
+		localization_key = benilux_economic_union_name
+	}
+	text = {
+		trigger = {
+			has_global_flag = formation_europe_economic_union_flag
+		}
+		localization_key = europe_economic_union_name
+	}
+}
+defined_text =  {
+	name = GetEconomicUnionIcon
+	text = {
+		trigger = {
+			has_global_flag = formation_europe_economic_union_flag
+		}
+		localization_key = GFX_decision_cat_europe_economic_union_icon
+	}
+	text = {
+		trigger = {
+			has_global_flag = formation_of_benilux_economic_union
+		}
+		localization_key = GFX_decision_cat_benelux_economic_union_icon
 	}
 }

@@ -116,14 +116,14 @@ ideas = {
 			}
 			on_add = {
 				set_country_flag = in_friend_pact_flag
-				every_country = {
-					limit = {
-						has_country_flag = in_friend_pact_flag
-					}
-					ROOT = {
-					   give_guarantee = PREV
-					}
-				}
+		#		every_country = {
+		#			limit = {
+		#				has_country_flag = in_friend_pact_flag
+		#			}
+		#			ROOT = {
+		#			    give_guarantee = PREV
+		#			}
+		#		}
 				add_to_array = {
 					array = global.friend_pact_member
 					value = ROOT

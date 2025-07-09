@@ -1,0 +1,764 @@
+LUX_anarchist_uprisng_category = {
+   LUX_annex_anarchist_commune = {
+	icon = eng_trade_unions_support
+       visible = {
+		  original_tag = LUX
+	   }
+	   available = {
+		   LUX_anarchist_ruling = yes
+		   FROM = {
+			    is_subject_of = rOOT
+		   }
+		   NOT = {
+              has_country_flag = send_ultimatum_to_commune
+		   }
+	   }
+	   target_trigger = {
+		  FROM = {
+			 is_subject_of = ROOT
+			 has_autonomy_state = autonomy_anarchist_commune
+		  }
+	   }
+	   remove_effect = {
+		   FROM = {
+			country_event = {
+				id = LUX_anarchist_events.10
+				random_days = 2
+				hours = 6
+			}
+		   }
+		   custom_effect_tooltip = if_they_accept
+		   effect_tooltip = {
+			annex_country = {
+				target = FROM
+				transfer_troops = yes
+			}
+			custom_effect_tooltip = add_core_to_anarchist_effect_tt
+		   }
+		   custom_effect_tooltip = if_they_reject
+		   effect_tooltip = {
+			country_event = LUX_anarchist_events.12
+			end_puppet = FROM
+			drop_cosmetic_tag = yes
+			if = {
+				limit = { 
+					is_in_faction = yes
+				}
+				leave_faction = yes
+			}
+		   }
+		   clr_country_flag = send_ultimatum_to_commune
+	   }
+	   complete_effect = {
+		   set_country_flag = send_ultimatum_to_commune
+		   set_variable = {
+			   untimatum_sender_var = ROOT
+		   }
+	   }
+	   days_remove = 60
+	   cost = 75
+   }
+   LUX_anarchist_protest_in_FROM = {
+	   icon = eng_blackshirt_speech
+	   available = {
+
+	   }
+	   visible = {
+		original_tag = LUX
+	   }
+	   target_array = LUX.propaganda_target
+	   remove_effect = {
+		   FROM = {
+			  country_event = {
+				 id = LUX_anarchist_events.14
+				 random_hours = 12
+			  }
+		   }
+	   }
+	   complete_effect = {
+		FROM = {
+		    set_country_flag = target_for_anarchuist_cw
+		}
+	}
+   }
+}
+LUX_anarchist_general_category = {
+	LUX_support_trade_unions = {
+		icon = generic_fundraising
+		available = {
+			#neutrality > 0.50
+		}
+		visible = {
+            original_tag = LUX
+			has_completed_focus = LUX_workers_revolution
+			has_anarchist_government = no
+		}
+		fire_only_once = no
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 15
+				LUX_anarchist_ai = yes
+			}
+		}
+		cost = 30
+		ai_hint_pp_cost = 10
+		days_remove = 7
+		remove_effect = {
+			random_list = {
+				50 = {
+					country_event = LUX_anarchist_events.8
+					effect_tooltip = {
+						add_stability = -0.03
+						add_popularity = {
+							ideology = neutrality
+							popularity = 0.04
+						}
+					}
+				}
+				40 = {
+                    country_event = LUX_anarchist_events.7
+					effect_tooltip = {
+						add_stability = -0.02
+						add_popularity = {
+							ideology = neutrality
+							popularity = 0.02
+						}
+						add_popularity = {
+							ideology = communism
+							popularity = 0.03
+						}
+					}
+				}
+				10 = {
+					country_event = LUX_anarchist_events.6
+					effect_tooltip = {
+						add_stability = -0.05
+						add_popularity = {
+							ideology = neutrality
+							popularity = 0.07
+						}
+					}
+				}
+			}
+			add_to_variable = {
+				var = var_supports_trade_unions_value
+				value = 1
+			}
+		}
+		modifier = {
+			neutrality_drift = 0.15
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	LUX_support_anarchist_subject_liberation = {
+		target_array = LUX.anarchist_subjects_liberation
+		icon = generic_political_discourse
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		target_root_trigger = {
+			
+		}
+		available = {
+			#tooltips
+			NOT = {
+				has_subject = FROM
+				has_war_with = FROM
+			}
+			FROM = {
+				is_subject = yes
+			}
+		}
+		remove_effect = {
+			FROM = {
+				country_event = {
+					id = generic.1
+					random_hours = 6
+					random_days = 3
+				}
+				add_ideas = shared_anarchist_help_in_liberation_ns
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				for_each_scope_loop = {
+					array = subjects
+					if = {
+						limit = {
+							NOT = {
+								is_subject_of = LUX
+								is_in_array = {
+									array = LUX.anarchist_subjects_liberation
+									value = THIS
+								}
+							}
+						}
+						add_to_array = {
+							array = LUX.anarchist_subjects_liberation
+							value = THIS
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			political_power_cost = 0.15
+		}
+		cancel_effect = {
+			add_political_power = 75
+		}
+		cancel_trigger = {
+			FROM = {
+				is_subject = no
+			}
+		}
+		days_remove = 35
+		cost = 100
+	}
+	LUX_support_anarchist_liberation_generic = {
+		target_array = LUX.anarchist_liberation
+		icon = generic_civil_support
+		target_trigger = {
+			FROM = {
+				NOT = {
+				    has_government = neutrality
+				}
+			}
+		}
+		target_root_trigger = {
+			
+		}
+		available = {
+			
+		}
+		remove_effect = {
+			FROM = {
+                add_political_power = 1
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				for_each_scope_loop = {
+					array = global.countries
+					if = {
+						limit = {
+							is_subject = no
+							NOT = {
+								is_in_array = {
+									array = LUX.anarchist_liberation
+									value = THIS
+								}
+							}
+						}
+						add_to_array = {
+							array = LUX.anarchist_liberation
+						    value = THIS
+						}
+					}
+				}
+			}
+		}
+		days_remove = 60
+		cost = 125
+	}
+	shared_anarrchist_epacful_coup_mission = {
+		icon = generic_PLACEHOLDER
+	   activation = {
+		  always = no
+		  is_ai = yes
+	   }
+	   #conditions for cmoplecation
+	   available = {
+		 always = no
+	   }
+	   complete_effect = {
+		
+	   }
+	   cancel_trigger = {
+		 has_government = neutrality
+	   }
+	   timeout_effect = {
+		create_country_leader = {
+			name = "Anarchist Commune"
+			picture = GFX_portrait_SPR_anarchist_commune
+			ideology = anarchism
+			traits = {
+				LUX_divided_society
+			}
+		}
+		set_political_party = {
+			ideology = neutrality
+			popularity = 1
+		}
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+			long_name = LUX_anarchist_commune_party_desc
+			name = LUX_anarchist_commune_party
+		}
+		add_stability = -0.1
+	   }
+	   is_good = no
+	   selectable_mission = no
+	   days_mission_timeout = 45
+	}
+}
+LUX_integration_into_commune_category = {
+	LUX_invate_to_faction_anarchist_state = {
+		icon = hol_exchange_intelligence_data
+		target_trigger = {
+			from = {
+				has_anarchist_government = yes
+				is_in_faction = no
+			}
+		}
+		visible = {
+			original_tag = LUX
+			is_faction_leader = yes
+		}
+		available = {
+			NOT = {
+				has_war_with = from
+			}
+			from = {
+				is_subject = no
+			}
+		}
+		target_root_trigger = {
+			has_completed_focus = LUX_crate_anarchist_internnational
+		}
+		remove_effect = {
+			from = {
+				country_event = {
+					id = generic.5
+					hours = 6
+				}
+			}
+		}
+		cost = 25
+	}
+	LUX_support_resistence_in_africa_state = {
+		state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			from = {
+				is_on_continent = africa
+			}
+		}
+		target_root_trigger = {
+	        always = no
+		}
+		available = {
+			has_government = communism
+		}
+		visible = {
+			original_tag = LUX
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			FROM = {
+               add_resistance = 15
+			}
+		}
+	}
+	LUX_boost_industry_in_FROM = {
+		icon = generic_confiscation
+		cost = 20
+        state_target = yes
+		on_map_mode = map_only
+		target_trigger = {
+			FROM = {
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						original_tag = ROOT
+					}
+				}
+				OR = {
+					arms_factory > 0
+					industrial_complex > 0
+				}
+				state_population_k > 50
+				impassable = no
+				OR  = {
+					has_state_category = town
+					has_state_category = megalopolis
+					has_state_category = metropolis
+				}
+				NOT = {
+					has_state_flag = state_waas_boosted_flag
+				}
+			}
+		}
+		available = {
+			FROM = {
+				OR = {
+					arms_factory > 0
+					industrial_complex > 0
+				}
+				controller = {
+					OR = {
+						is_subject_of = ROOT
+						original_tag = ROOT
+					}
+				}
+			}
+		}
+		visible = {
+			original_tag = LUX
+		}
+		target_root_trigger = {
+			has_completed_focus = LUX_workers_dictatorship
+		}
+		complete_effect = {
+			FROM = {
+				set_temp_variable = { state_extra_slots_added = 0 }
+			}
+		}
+		remove_effect = {
+			FROM = {
+				if = {
+					limit = {
+						arms_factory > 0
+					}
+					add_extra_state_shared_building_slots = var:arms_factory_level
+					add_to_temp_variable = {
+						state_extra_slots_added = arms_factory_level
+					}
+				}
+				if = {
+					limit = {
+						industrial_complex > 0
+					}
+					add_extra_state_shared_building_slots = var:industrial_complex_level
+					add_to_temp_variable = {
+						state_extra_slots_added = industrial_complex_level
+					}
+				}
+				set_state_flag = state_waas_boosted_flag
+			}
+		}
+		modifier = {
+			
+		}
+		days_remove = 30
+	}
+    LUX_start_cw_anarchist_uprising_in_FROM = {
+		cost = 65
+		icon = generic_civil_support
+		available = {
+			FROM = {
+				has_civil_war = no
+			}
+		}
+        visible = {
+			has_anarchist_government = yes
+		}
+		target_root_trigger = {
+			has_completed_focus = LUX_explore_anarchist_ideas
+		}
+		cancel_trigger = {
+			FROM = {
+				has_civil_war = yes
+			}
+		}
+		target_trigger = {
+			OR = {
+				is_neighbor_of = FROM
+				any_other_country = {
+					is_in_faction_with = root
+					is_neighbor_of = FROM
+				}
+			}
+			FROM = {
+				has_anarchist_government = no
+			}
+		}
+		days_remove = 30
+		remove_effect = {
+			if = {
+				limit = { 
+					FROM = {
+						num_of_controlled_states > 1
+					}
+				}
+				FROM = {
+					start_civil_war = {
+						# PREV is original counry ROOT is breakaway
+						# Original country's ideology changes to communism
+						ideology = neutrality
+						size = 0.4
+	#                    states = all
+						states_filter = {
+							has_state_flag = possible_breakway_states_flag
+						}
+						PREV = {
+							add_ideas = BAS_shocked_army
+						}
+						create_country_leader = {
+							name = "Anarchist Commune"
+							picture = GFX_portrait_SPR_anarchist_commune
+							ideology = anarchism
+							traits = { }
+						}
+						set_party_name = {
+							ideology = neutrality
+							long_name = LUX_anarchist_commune_party_desc
+							name = LUX_anarchist_commune_party
+						}
+		#				add_ideas = shared_anarsihst_revolution_ns
+						hidden_effect = {
+							set_cosmetic_tag = LUX_shared_anarshist
+							load_focus_tree = breakway_anarchist_state
+						}
+						set_country_flag = anarchist_state_flag
+					}
+				}
+			}
+			else = {
+				FROM = {
+					set_politics = {
+						ruling_party = communism
+						elections_allowed = no
+					}
+					create_country_leader = {
+						name = "Anarchist Commune"
+						picture = GFX_portrait_SPR_anarchist_commune
+						ideology = anarchist_communism
+						traits = {  }
+					}
+					set_party_name = {
+						ideology = communism
+						long_name = LUX_anarchist_commune_party_desc
+						name = LUX_anarchist_commune_party
+					}
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				every_state = {
+					every_neighbor_state = {
+						limit = {
+							is_owned_and_controlled_by = FROM
+							controller = {
+								is_neighbor_of = root
+							}
+						}
+						set_state_flag = possible_breakway_states_flag
+					}
+				}
+			}
+		}
+	}
+	LUX_intervantion_in_anarchist_uprising = {
+        name = BEL_intervene_on_side_of_SPR
+		cost = 25
+		icon = generic_prepare_civil_war
+		target_trigger = {
+			FROM = {
+				has_country_flag = anarchist_state_flag
+				has_civil_war = yes
+			}
+		}
+		available = {
+			has_war_support > 0.1
+		}
+		target_root_trigger = {
+			has_completed_focus = LUX_military_intervention_in_uprisings
+		}
+		complete_effect = {
+			every_other_country = {
+				limit = {
+					has_civil_war = yes
+					has_anarchist_government = no
+					has_war_with = FROM
+					any_enemy_country = {
+						has_country_flag = anarchist_state_flag
+					}
+				}
+				ROOT = {
+					add_to_war = { 
+						targeted_alliance = FROM 
+						enemy = PREV 
+						hostility_reason = asked_to_join 
+					}
+				}
+			}
+		}
+	}
+	LUX_integration_into_commune = {
+        state_target = any_controlled_state
+		name = SPR_integrate_commune
+		icon = generic_nationalism
+		days_remove = 30
+		cost = 30
+		target_trigger = {
+			FROM = {
+				NOT = {
+					is_core_of = root
+				}
+				is_controlled_by = root
+			}
+		}
+		on_map_mode = map_only
+		target_root_trigger = {
+			has_completed_focus = LUX_intergreation_every_state
+		}
+		available = {
+			FROM = {
+				compliance > 30
+			}
+		}
+		complete_effect = {
+		    if = {
+				limit = { 
+					NOT = {
+						has_variable = cored_states
+					}
+				}
+				set_variable = {
+					cored_states = 0
+				}
+			}
+		}
+		remove_effect = {
+			FROM = {
+				add_core_of = root
+			}
+			add_to_variable = {
+				var = cored_states
+				value = 1
+			}
+		}
+	}
+	LUX_suggest_become_commune = {
+		target_trigger = {
+			FROM = {
+				is_in_faction_with = root
+			}
+		}
+	}
+	LUX_crate_commune_in_FROM = {
+		icon = generic_civil_support
+        target_array = LUX.possible_communes
+		target_root_trigger = {
+			has_completed_focus = LUX_creation_of_new_communes
+		}
+		target_non_existing = yes
+		visible = {
+			original_tag = LUX
+		}
+		ai_hint_pp_cost = 0
+		ai_will_do = {
+			base = 15
+			modifier = {
+				any_controlled_state = {
+					is_core_of = FROM
+					resistance > 10
+				}
+				factor = 5
+			}
+			modifier = {
+				any_controlled_state = {
+					is_core_of = FROM
+					resistance_target > 20
+				}
+				factor = 10
+			}
+		}
+		on_map_mode = map_only
+		highlight_states = {
+			highlight_states_trigger = {
+				is_core_of = FROM
+				NOT = {
+					is_core_of = root
+				}
+			}
+		}
+		target_trigger = {
+			FROM = {
+				any_core_state = {
+					is_controlled_by = root
+				}
+			}
+		}
+		complete_effect = {
+			release_puppet_on_controlled = FROM
+			LUX_upload_commune_list = yes
+			hidden_effect = {
+				set_autonomy = {
+                    target = FROM
+                    autonomous_state = autonomy_anarchist_commune
+                }
+                FROM = {
+                    create_country_leader = {
+					   name = "Anarchist Commune"
+					   picture = GFX_portrait_SPR_anarchist_commune
+					   ideology = anarchism
+				    }
+				    set_party_name = {
+				        ideology = neutrality
+					    long_name = LUX_anarchist_commune_party_desc
+					    name = LUX_anarchist_commune_party
+				    }
+					set_cosmetic_tag = LUX_shared_anarshist
+					load_focus_tree = breakway_anarchist_state
+				    set_country_flag = anarchist_state_flag
+					remove_from_array = {
+						array = LUX.possible_communes
+						value = THIS
+					}
+			    }
+				if = {
+					limit = { 
+						has_completed_focus = LUX_centralisation_of_communes
+					}
+					FROM = {
+						add_ideas = shared_centralisation_idea
+					}
+				}
+			}
+		}
+		cost = 75
+	}
+}
+political_actions = {
+	LUX_anarchist_referendum = {
+		icon = generic_civil_support
+		available = {
+			OR = {
+			   neutrality > 0.55
+			   democratic < 0.1
+			}
+		}
+		visible = {
+            original_tag = LUX
+			has_completed_focus = LUX_antivilence_anarchist
+		}
+		fire_only_once = yes
+		ai_hint_pp_cost = 30
+		cost = 65
+		complete_effect = {
+			country_event = LUX_anarchist_events.0
+			custom_effect_tooltip = the_following_will_happen_TT
+			event_option_tooltip = LUX_anarchist_events.0.a
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				LUX_anarchist_ai = yes
+				add = 100
+			}
+		}
+	}
+}

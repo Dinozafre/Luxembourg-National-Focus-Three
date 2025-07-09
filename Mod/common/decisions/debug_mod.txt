@@ -85,8 +85,8 @@ LUX_debug_category = {
 	}
     LUX_enable_exile_branch = {
 		complete_effect = {
-			set_country_flag = in_exile_flag
-			mark_focus_tree_layout_dirty = yes
+			complete_national_focus = LUX_accept_defeat
+	#		mark_focus_tree_layout_dirty = yes
 		}
 	}
 	LUX_send_51_owner_ulitimatum = {
@@ -150,6 +150,60 @@ LUX_debug_category = {
 				country_event = {
 					id = LUX_political_events.10
 					hours = 6
+				}
+			}
+		}
+	}
+	LUX_crate_intelligence_agency = {
+		complete_effect = {
+			create_intelligence_agency = {
+				name = "Special Service"
+				icon = GFX_intelligence_agency_logo_generic_8
+			}
+		}
+	}
+	LUX_test_civil_war = {
+		complete_effect = {
+			random_list = {
+				25 = {
+					start_civil_war = {
+						# Original country's ideology changes to communism
+						ideology = neutrality
+						# Breakaway gets old ideology of ROOT
+						size = 0.5
+						keep_political_leader = yes
+						keep_political_party_members = yes
+					}
+				}
+				25 = {
+					start_civil_war = {
+						# Original country's ideology changes to communism
+						ideology = communism
+						# Breakaway gets old ideology of ROOT
+						size = 0.5
+						keep_political_leader = yes
+						keep_political_party_members = yes
+					}
+				}
+				25 = {
+					start_civil_war = {
+						# Original country's ideology changes to communism
+						ideology = democratic
+						# Breakaway gets old ideology of ROOT
+						size = 0.5
+						keep_political_leader = yes
+						keep_political_party_members = yes
+					}
+				}
+				25 = {
+					start_civil_war = {
+						# Original country's ideology changes to communism
+						ideology = fascism
+						# Breakaway gets old ideology of ROOT
+						size = 0.5
+						keep_political_leader = yes
+						keep_political_party_members = yes
+					}
 				}
 			}
 		}

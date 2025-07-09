@@ -124,4 +124,7 @@ general_opinion_ban_idiology_our_goverment = {
 shared_cooperation_with = {
   value = 30
 }
+shared_BLEU_opinion = {
+  value = 75
+}
 }

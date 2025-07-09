@@ -1,0 +1,282 @@
+focus_tree = {
+	id = breakway_anarchist_state
+	country = {
+		factor = 0
+		modifier = {
+			add = 1
+			has_country_flag = anarchist_state_flag
+		}
+	}
+	default = no
+    continuous_focus_position = { x = 100 y = 1500 }
+	focus = {
+		id = BAS_our_revolution
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 5
+		x = 5
+		available = {
+			has_anarchist_government = yes
+		}
+		search_filters = {
+			FOCUS_FILTER_POLITICAL FOCUS_FITLER_ARMY FOCUS_FILTER_WAR_SUPPORT
+		}
+		completion_reward = { 
+			add_ideas = shared_anarsihst_revolution_ns
+			custom_effect_tooltip = generic_skip_one_line_tt 
+			add_country_leader_trait = our_right_to_survive
+			set_rule = {
+				can_join_opposite_factions = no
+				can_join_factions = yes
+			}
+			hidden_effect = {
+				every_other_country = {
+					limit = {
+						has_anarchist_government = yes
+					}
+					ROOT = {
+						add_ai_strategy = {
+							type = befriend
+							id = PREV
+							value = 100
+						}
+						add_ai_strategy = {
+							type = alliance
+							id = PREV
+							value = 100
+						}
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = BAS_workers_treade_unions
+		icon = GFX_focus_por_workers_of_iberia
+		relative_position_id = BAS_our_revolution
+		prerequisite = {
+			focus = BAS_our_revolution
+		}
+		cost = 5
+		x = -2
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		completion_reward = { 
+			add_ideas = BAS_trade_unions
+		}
+	}
+	focus = {
+		id = BAS_masters_our_fate
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		relative_position_id = BAS_workers_treade_unions
+		prerequisite = {
+			focus = BAS_workers_treade_unions
+		}
+		cost = 5
+		y = 1
+		completion_reward = { 
+			add_ideas = BAS_masters_our_fate_ns
+		}
+	}
+	focus = {
+		id = BAS_autorky_commune
+		icon = GFX_focus_GER_autarky_achieved
+		relative_position_id = BAS_masters_our_fate
+        prerequisite = {
+			focus = BAS_masters_our_fate
+		}
+		cost = 5
+		y = 1
+		search_filters = {
+			FOCUS_FITLER_ECONOMY
+		}
+		available = {
+			
+		}
+		completion_reward = { 
+			add_ideas = closed_economy
+			add_ideas = SPR_collectivized_society
+		}
+	}
+	########## ARMY #########
+	focus = {
+		id = BAS_people_army
+		icon = GFX_focus_prc_infiltration
+		relative_position_id = BAS_our_revolution
+		prerequisite = {
+			focus = BAS_our_revolution
+		}
+		cost = 5
+		x = 2
+		y = 1
+		completion_reward = { }
+	}
+	focus = {
+		id = BAS_commune_militia
+		icon = GFX_focus_generic_manpower
+		relative_position_id = BAS_people_army
+		prerequisite = {
+			focus = BAS_people_army
+		}
+		search_filters = {
+			FOCUS_FITLER_ARMY
+		}
+		cost = 5
+		y = 1
+		ai_will_do = {
+			base = 5
+			modifier = {
+				has_civil_war = yes
+				factor = 10
+			}
+		}
+		completion_reward = { 
+			add_ideas = BAS_militia
+			division_template = {
+				name = "Militia"
+				is_locked = no
+				division_cap = 3 
+				division_names_group = USA_INF_01
+				priority = 0
+				template_counter = 0
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+				}
+			}
+			every_owned_state = {
+	            limit = {
+					is_owned_and_controlled_by = root
+					is_core_of = root
+				}
+				if = {
+					limit = {
+						ROOT = {
+							has_civil_war = yes
+						} 
+					}
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Militia\" start_experience_factor = 0.2"
+						owner = ROOT
+						count = 2
+					}
+				}
+				else = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Militia\" start_experience_factor = 0.2"
+						owner = ROOT
+						count = 1
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = BAS_revolutions_around_the_world
+		icon = GFX_focus_spr_anarchism_knows_no_borders
+		relative_position_id = BAS_commune_militia
+		prerequisite = {
+			focus = BAS_commune_militia
+		}
+		cost = 5
+		y = 1
+		available = {
+			any_neighbor_country = {
+				NOT = {
+					OR = {
+						has_country_leader_ideology = anarchist_communism 
+						has_country_leader_ideology = anarchism 
+					}
+				}
+			}
+		}
+		completion_reward = { 
+
+		}
+	}
+	############################
+	focus = {
+		id = BAS_seek_for_allies
+		icon = GFX_goal_generic_alliance
+		relative_position_id = BAS_our_revolution
+		prerequisite = {
+			focus = BAS_our_revolution
+		}
+		cost = 5
+		y = 1
+		search_filters = {
+			FOCUS_FITLER_FOREIGN_POLICY
+		}
+		available = {
+	#		any_other_country = {
+	#			has_anarchist_government = yes
+	#			is_faction_leader = yes
+	#		}
+			LUX = {
+				has_anarchist_government = yes
+				is_faction_leader = yes
+			}
+		}
+		completion_reward = { 
+            LUX = {
+	#			limit = {
+	#				has_anarchist_government = yes
+	#				is_faction_leader = yes
+	#			}
+				country_event = {
+					id = WW_hungary.26
+					random_hours = 4
+					hours = 2
+				}
+			}
+		}
+	}
+#	focus = {
+#		id = BAS_brothers_of_revolution
+#		icon = GFX_focus_ICE_embrace_the_workers_revolution
+#		relative_position_id = BAS_seek_for_allies
+#		prerequisite = {
+#			focus = BAS_seek_for_allies
+#		}
+#		cost = 5
+#		y = 1
+#		completion_reward = { }
+#	}
+	focus = {
+		id = BAS_their_protect_us
+		icon = GFX_focus_CZE_german_puppet
+		relative_position_id = BAS_seek_for_allies
+		prerequisite = {
+			focus = BAS_seek_for_allies
+		}
+		cost = 10
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_TFV_AUTONOMY
+		}
+		available = {
+			has_anarchist_government = yes
+			LUX = {
+				has_anarchist_government = yes
+			}
+			is_in_faction_with = LUX
+			is_faction_leader = no
+		}
+		completion_reward = { 
+			LUX = {
+                country_event = {
+					id = LUX_diplomacy.75
+					hours = 2
+					random_hours = 6
+				}
+			}
+		}
+	}
+}

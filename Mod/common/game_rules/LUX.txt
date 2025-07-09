@@ -26,8 +26,8 @@ LUX_ai_behavior = {
 	}
 	option = {
 		name = ANARCHIST
-		text = "RULE_OPTION_ANARCHIST"
-		desc = "RULE_ANARCHIST_LUX_AI_DESC"
+		text = "LUX_RULE_OPTION_ANARCHIST"
+		desc = "LUX_RULE_OPTION_ANARCHIST_DESC"
 		allow_achievements = yes
 	}
 	option = {

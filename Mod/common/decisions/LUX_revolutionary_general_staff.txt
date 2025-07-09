@@ -1,3 +1,5 @@
+#arrays 
+#global.colonial_powers
 LUX_revolutionary_general_staff_cat = {
 	LUX_support_communist_in_FROM = { #prepere for CW
 	    #use country event text from event wuw_GER_diplomacy.72
@@ -373,7 +375,7 @@ LUX_revolutionary_general_staff_cat = {
 		cost = 50
 		target_array = global.colonial_powers
 		target_root_trigger = {
-			has_completed_focus = LUX_demand_librate_colonies
+	#		has_completed_focus = LUX_demand_librate_colonies
 		}
         target_trigger = {
 		}
@@ -383,6 +385,91 @@ LUX_revolutionary_general_staff_cat = {
 					id = LUX_diplomacy.43
 					hours = 6
 				}
+			}
+		}
+	}
+	LUX_support_resistence_in_state = {
+		name = ETH_support_resistance_decision
+		icon = generic_nationalism
+		state_target = yes
+		on_map_mode = map_only
+		visible = {
+			tag = LUX
+			always = no
+		}
+		target_root_trigger = {
+			
+		}
+		target_trigger = {
+			FROM = {
+				owner = {
+					is_in_array = {
+						array = global.colonial_powers
+					}
+				}
+                NOT = {
+					is_on_continent = europe
+				}
+			}
+		}
+		available = {
+			FROM = {
+                owner = {
+					has_full_control_of_state = PREV
+				}
+			}
+		}
+	}
+	LUX_give_equipment_for_FROM_stalinist = {
+		name = BEL_guns_for_the_spaniards_decision
+		icon = generic_prepare_civil_war
+		target_root_trigger = {
+			has_completed_focus = LUX_flame_of_revolution_stalinist
+		}
+		custom_cost_trigger = {
+			has_equipment = { infantry_equipment > 1999 }
+		}
+		custom_cost_text = decision_cost_ie_2000
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = root
+				}
+				has_defensive_war = yes
+				capital_scope = {
+					is_on_continent = europe
+				}
+			}
+		}
+		remove_effect = {
+			
+		}
+		complete_effect = {
+			
+		}
+		cancel_trigger = {
+			FROM = {
+				has_war = no
+			}
+		}
+	}
+	LUX_anti_capitalist_propaganda = {
+		icon = eng_propaganda_campaigns
+		modifier = {
+			communism_drift = 0.05
+			democratic_drift = -0.1
+			fascism_drift = -0.1
+			neutrality_drift = -0.1
+		}
+		days_remove = 90
+		cost = 50
+		visible = {
+			has_completed_focus = LUX_destroy_counter_revolution
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
 			}
 		}
 	}

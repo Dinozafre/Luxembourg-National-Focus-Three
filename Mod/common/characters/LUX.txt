@@ -2,17 +2,13 @@ characters={
 	LUX_joseph_bech={
 		name = LUX_joseph_bech
 		portraits={
-			civilian={
-				large=GFX_portrait_luxembourg_joseph_bech
-			}
-			army = {
+			civilian = {
 				large = GFX_portrait_luxembourg_joseph_bech
 			}
 		}
 		country_leader={
 			ideology=conservatism
 			expire="1965.1.1.1"
-			id = 041
 			traits = {
 				LUX_hostility_to_communist
 			}
@@ -25,8 +21,11 @@ characters={
 			allowed  = {
 				original_tag = LUX
 			}
+			visible = {
+				has_anarchist_government = no
+			}
 			cost = 150
-			traits = { LUX_democratic_reformer }
+			traits = { LUX_minister_social_security_and_labor }
 		}
 		country_leader = {
 			ideology = socialism
@@ -68,6 +67,9 @@ characters={
 					has_country_flag = banned_communism_flag
 				}
 			}
+			visible = {
+				has_anarchist_government = no
+			}
 			allowed = {
 				original_tag = LUX
 			}
@@ -100,6 +102,9 @@ characters={
 					}
 					has_country_flag = banned_fascism_flag
 				}
+			}
+			visible = {
+				has_anarchist_government = no
 			}
 			allowed = {
 				original_tag = LUX
@@ -465,6 +470,9 @@ characters={
 				traits  = {
 					captain_of_industry 
 				}
+				visible = {
+					has_anarchist_government = no
+				}
 		}
 		name="Pierre Krier"
 		portraits={
@@ -483,29 +491,14 @@ characters={
 				traits  = {
 					war_industrialist 
 				}
+				visible = {
+					has_anarchist_government = no
+				}
 		}
 		name= "Robin Fulbert"
 		portraits={
 			civilian = {
 				small = "GFX_LUX_robin_fulbert_advisor"
-			}
-		}
-	}
-	LUX_Manuel_Daniel={
-		advisor={
-			slot = political_advisor
-			idea_token = LUX_Manuel_Daniel
-			allowed  = {
-					original_tag  = LUX
-				}
-				traits  = {
-					marxsism_revolutioner 
-				}
-		}
-		name="Manuel_Daniel"
-		portraits={
-			army={
-				small="GFX_idea_r_b_bennett"
 			}
 		}
 	}
@@ -621,7 +614,7 @@ characters={
 	}
 	#Pierre Fonck
 	LUX_pierre_fonck = {
-		name = LUX_pierre_fonck
+		name = "Pierre Fonck"
 		portraits = {
 			civilian = {
 				small = GFX_LUX_pierre_fonck_advisor
@@ -638,11 +631,8 @@ characters={
 					has_country_flag = LUX_referendum_accepted_communism_party
 				}
 			}
-			on_add = {
-
-			}
-			on_remove = {
-				
+			visible = {
+				always = no
 			}
 			cost = 175
 			traits = {
@@ -679,10 +669,14 @@ characters={
                NOT = {
 				  has_government  = democratic
 			   }
+			   has_completed_focus = LUX_strong_hand
 			}
 			cost = 125
 			traits = {
 				LUX_fascism_sympathizes
+			}
+			visible = {
+				has_anarchist_government = no
 			}
 			ai_will_do = {
 				base = 0
@@ -731,6 +725,9 @@ characters={
 			ai_will_do = {
 				base = 0
 			}
+			visible = {
+				has_anarchist_government = no
+			}
 		}
 	}
 	#add agent advisor
@@ -748,13 +745,11 @@ characters={
 			has_dlc = "La Resistance"
 		}
 		available = {
+			has_anarchist_government = no
 		   has_intelligence_agency = yes
 		}
-		on_add = {
-
-		}
-		on_remove = {
-	
+		visible = {
+			has_anarchist_government = no
 		}
 		cost = 150
 		traits = {
@@ -765,28 +760,28 @@ characters={
 		}
 	}
 	}
-	LUX_workers_leader = {
-		name = LUX_workers_leader
-		portraits = {
-			civilian = {
-				large = GFX_portrait_unknown
-			}
-		}
-		country_leader={
-			ideology = marxism
-			traits = { 
-				LUX_workers_ruling 
-		    }
-		}
-	}
-	LUX_army_junta = {
-		name = LUX_army_junta
-		portraits = {
-			civilian = {
-				large = GFX_LUX_army_junta
-			}
-		}
-	}
+#	LUX_workers_leader = {
+#		name = LUX_workers_leader
+#		portraits = {
+#			civilian = {
+#				large = GFX_portrait_unknown
+#			}
+#		}
+#		country_leader={
+#			ideology = marxism
+#			traits = { 
+#				LUX_workers_ruling 
+#		    }
+#		}
+#	}
+#	LUX_army_junta = {
+#		name = LUX_army_junta
+#		portraits = {
+#			civilian = {
+#				large = GFX_LUX_army_junta
+#			}
+#		}
+#	}
 	LUX_retirement_government = {
 		name = LUX_retirement_government
 		portraits = {
@@ -895,6 +890,33 @@ characters={
 			}
 		}
 	}
+	LUX_anarchist_council_of_sciense = {
+		name = LUX_anarchist_council_of_sciense
+		portraits = {
+			civilian = {
+				small = "GFX_idea_SPR_anarchist_council"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = LUX_anarchist_council_of_sciense
+			cost = 100
+			can_be_fired = no
+			allowed = {
+				original_tag = LUX
+			}
+			available = {
+				has_completed_focus = LUX_education_for_everyone
+			}
+			visible = {
+				has_anarchist_government = yes
+			}
+			traits = { 
+				anarchist_council_of_sciense_trait
+			}
+		}
+	}
+	#############
 	#war propagandist
 	LUX_régi_maël  ={
 		name = "Régis Maël"
@@ -912,6 +934,7 @@ characters={
 				original_tag = LUX
 			}
 			visible = {
+				has_anarchist_government = no
 				OR = {
 					has_completed_focus = LUX_reject_army_limits
 					has_country_flag = unlock_LUX_régi_maël
@@ -938,7 +961,7 @@ characters={
 				original_tag = LUX
 			}
 			visible = {
-				always = yes
+				has_anarchist_government = no
 			}
             available = {
 				NOT = {
@@ -970,4 +993,23 @@ characters={
 			}
 		}
 	}
+	LUX_Lili_Augustine = {
+		name = "Lili Augustine"
+		portraits = {
+			civilian = {
+				small = "GFX_idea_generic_political_advisor_female_europe"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			traits = { LUX_anarchist_syndycalist }
+			available = {
+				has_completed_focus = LUX_commune_creation
+			}
+			cost = 125
+			idea_token = LUX_Lili_Augustine
+		}
+	}
+	#advisors
+
 }

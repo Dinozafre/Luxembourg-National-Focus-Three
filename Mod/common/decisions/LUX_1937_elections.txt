@@ -69,9 +69,6 @@ LUX_general_election_1937_category = {
 		}
 		#also made debug desicion with add 100 var for one of the canditates
 		timeout_effect = {
-			effect_tooltip = {
-			    country_event = LUX_electins.1
-			}
 			custom_effect_tooltip = LUX_elections_1937_mission_effect_tt
 			hidden_effect = {
 				hold_election = ROOT
@@ -84,7 +81,7 @@ LUX_general_election_1937_category = {
 					}
 					#Joseph Besh win elections event
 					country_event = LUX_electins.4
-					country_event = LUX_political_events.26
+#					country_event = LUX_political_events.26
 				}
 				else_if = {
 					limit = {
@@ -95,7 +92,7 @@ LUX_general_election_1937_category = {
 					}
 					#Pierre Dugong win elections event
 					country_event = LUX_electins.5
-					country_event = LUX_political_events.26
+#					country_event = LUX_political_events.26
 				}
 				else_if ={
 					limit = {
@@ -105,7 +102,7 @@ LUX_general_election_1937_category = {
 						check_variable = { global.pierre_dugong_support = global.joseph_besh_support }
 					}
 					country_event = LUX_electins.6
-					country_event = LUX_political_events.26
+#					country_event = LUX_political_events.26
 				}
 			}
 		}
@@ -190,13 +187,16 @@ LUX_general_election_1937_category = {
 	   cost = 30
 	   icon = generic_political_address
 	}
-	LUX_support_condidate_1_mission = {
+	LUX_support_condidate_1_mission = { # maybe should rework into on_action
+	    allowed = {
+			always = no
+		}
 		visible = {
 			original_tag = LUX
 			NOT = {
 				has_country_flag = LUX_elections_1937_flag
 			 }  
-			  has_active_mission = LUX_elections_1937_mission
+			has_active_mission = LUX_elections_1937_mission
 		}
 		available = {
 			hidden_trigger = {
@@ -220,7 +220,10 @@ LUX_general_election_1937_category = {
 		icon = eng_propaganda_campaigns
 		days_mission_timeout = 35
 	 }
-	 LUX_joseph_besh_election_campaign_mission = {
+	 LUX_joseph_besh_election_campaign_mission = { # maybe should rework into on_action
+	    allowed = {
+			always = no
+		}
 		visible = {
 			original_tag = LUX
 			active_mission_elections_1937 = yes
@@ -232,10 +235,7 @@ LUX_general_election_1937_category = {
 		}
 		activation = {
 			active_mission_elections_1937 = yes
-			or = {
-				has_completed_focus = LUX_fascists_goining_to_elections
-				has_completed_focus = LUX_new_democratic_leader
-			}
+			has_completed_focus = LUX_new_democratic_leader
 			has_country_flag = {
 				flag = need_run_joseph_besh_lection_campaign_flag
 				days > 20
@@ -356,7 +356,10 @@ LUX_general_election_1937_category = {
 		icon = generic_political_address
 	}
 	#опонент проводит кампанию
-	LUX_pierre_dugong_election_campaign_mission = {
+	LUX_pierre_dugong_election_campaign_mission = {  # maybe should rework into on_action
+	    allowed = {
+			always = no
+		}
 		visible = {
 			original_tag = LUX
 			active_mission_elections_1937 = yes
@@ -368,10 +371,7 @@ LUX_general_election_1937_category = {
 		}
 		activation = {
 			active_mission_elections_1937 = yes
-			OR = {
-				has_completed_focus = LUX_second_term_for_joseph_besh
-				has_completed_focus = LUX_fascists_goining_to_elections
-			}
+			has_completed_focus = LUX_second_term_for_joseph_besh
 			NOT = {
 				has_country_flag = joseph_is_assassinated_flag
 			}
