@@ -1,0 +1,403 @@
+#arrays 
+#global.colonial_powers
+LUX_revolutionary_general_staff_cat = {
+	LUX_support_communist_in_FROM = { #prepere for CW
+	    #use country event text from event wuw_GER_diplomacy.72
+		icon = generic_civil_support
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+		targeted_modifier = {
+			tag = FROM
+			communism_drift = 0.05
+		}
+        target_trigger = {
+			NOT = {
+				has_wargoal_against = FROM
+				has_war_with = FROM
+			}
+			FROM = {
+				has_same_ideology = no
+				any_neighbor_country = {
+					OR = {
+						has_country_flag = flame_of_revolution_flag
+						original_tag = LUX
+					}
+				}
+				NOT = {
+					has_idea = LUX_communist_inflounce_FROM_out_country_ns
+				}
+			}
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_capital = yes
+				is_core_of = FROM
+				is_owned_and_controlled_by = FROM
+				NOT = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		remove_effect = {
+			FROM  = {
+				country_event = {
+					id = LUX_diplomacy.39
+					hours = 6
+				}
+			}
+		}
+		days_remove = 45
+		cost = 80
+	}
+	LUX_communist_influence_in_FROM = {
+		icon = eng_propaganda_campaigns
+		cost = 75
+        target_trigger = {
+			NOT = {
+				has_wargoal_against = FROM
+				has_war_with = FROM
+			}
+			FROM = {
+				has_same_ideology = no
+				any_neighbor_country = {
+					OR = {
+						has_country_flag = flame_of_revolution_flag
+						original_tag = LUX
+					}
+				}
+				NOT = {
+					has_idea = communist_influence
+				}
+			}
+		}
+		remove_effect = {
+			FROM = {
+				add_timed_idea = {
+					idea = communist_influence
+					days = 175
+				}
+				country_event = generic.1
+			}
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_capital = yes
+				is_core_of = FROM
+				is_owned_and_controlled_by = FROM
+				NOT = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		days_remove = 30
+	}
+	LUX_start_communist_uprising_in_FROM = { #here need use text from wuw_GER_diplomacy.75 event
+		icon = generic_prepare_civil_war
+		cost = 80
+		available = {
+			FROM = {
+				communism > 0.35
+			}
+			NOT = {
+				has_war_with = FROM
+			}
+		}
+        target_trigger = {
+			NOT = {
+				has_wargoal_against = FROM
+			}
+			FROM = {
+				has_same_ideology = no
+				has_idea = LUX_communist_inflounce_FROM_out_country_ns
+			}
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_capital = yes
+				NOT = {
+					is_fully_controlled_by = ROOT
+				}
+				is_owned_by = FROM
+				is_controlled_by = FROM
+			}
+		}
+		remove_effect = {
+			FROM = {
+				country_event = LUX_diplomacy.42
+			}
+		}
+		days_remove = 65
+	}
+	LUX_crate_communist_volunteer_international = {
+        icon = generic_political_address
+		cost = 150
+		available = {
+			any_other_country = {
+				has_war = yes
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		complete_effect = {
+			set_global_flag = communist_volunteer_international_created_flag
+			#news event for this
+			hidden_effect = {
+				
+			}
+		}
+	}
+	LUX_support_communst_civil_war_in_FROM = {
+		icon = generic_tank
+		target_trigger = {
+			FROM = {
+				has_same_ideology = yes
+				has_civil_war = yes
+				NOT = {
+					has_war_with = rOOT
+				}
+			}
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			
+		}
+	}
+	LUX_support_communst_contries_equipment = { #send equipment to contry 
+	    ### BBA_italy_sends_military_support.1 event for FROM scope ###
+	    icon = generic_industry
+		cost = 50
+	    target_trigger = {
+		   FROM = {
+			   has_same_ideology = yes
+			   has_war = yes
+			   NOT = {
+				   has_war_with = ROOT
+			   }
+		    }
+	    }
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.02
+			}
+			add_war_support = 0.04
+		}
+		remove_effect = {
+			FROM = {
+                country_event = {
+					id = BBA_italy_sends_military_support.1
+					days = 1
+					random_hours = 6
+				}
+			}
+			effect_tooltip = {
+				FROM = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 2500
+						producer = FROM
+					}
+					add_equipment_to_stockpile = {
+						type = support_equipment
+						amount = 250
+						producer = FROM
+					}
+					add_opinion_modifier = {
+						target = FROM
+						modifier = SOV_sent_us_weapons
+					}
+				}
+			}
+		}
+		days_remove = 14
+	}
+	LUX_send_manpower_to_country = { #add var for returing voluteers after war
+	    icon = eng_blackshirt_march
+		days_remove = 7
+		target_trigger = {
+			FROM = {
+				has_same_ideology = yes
+				has_war = yes
+				NOT = {
+					has_war_with = ROOT
+				}
+			 }
+		}
+		available = {
+			has_manpower > 2999
+		}
+		remove_effect = {
+			FROM = {
+				add_manpower = 3000
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_manpower = -3000
+			}
+		}
+	}
+	LUX_draw_world_communist_to_us = {
+		icon = eng_blackshirt_march
+		available = {
+			
+		}
+		modifier = {
+			weekly_manpower = 250
+		}
+		remove_effect = {
+			add_manpower = 15000
+		}
+		days_remove = 180
+		cost = 75
+	}
+	LUX_assign_communist_leader_as_general = {
+		available = {
+			has_war = yes
+		}
+        icon = generic_army_support
+		complete_effect = {
+			var:country_leader = {
+				add_corps_commander_role = {
+					skill = 3
+					attack_skill = 3
+					defense_skill = 5
+					planning_skill = 4
+					logistics_skill = 5
+				}
+				set_character_flag = become_general_flag
+			}
+		}
+		visible = {
+			var:country_leader = {
+				NOT = {
+					has_character_flag = become_general_flag
+				}
+			}
+		}
+		cost = 50
+	}
+	LUX_repression_against_fascist = {
+		icon = oppression
+		available = {
+			fascism > 0.00
+		}
+		modifier = {
+			fascism_drift = -0.15
+		}
+		cost = 30
+		days_remove = 195
+	}
+	LUX_influence_to_ex_colonies = {
+		icon = eng_propaganda_campaigns
+		on_map_mode = map_only
+		target_array = LUX.decolonized_contries
+		target_trigger = {
+			FROM = {
+				has_country_flag = has_been_decolonized_flag
+				NOT = {
+					has_war_with = ROOT
+					has_idea = communist_influence
+				}
+			}
+		}
+		targeted_modifier = {
+			tag = FROM
+			communism_drift = 0.1
+		}
+		days_remove = 30
+		cost = 25
+		target_root_trigger = {
+	#		has_completed_focus = LUX_communist_influnce_in_ex_colonies
+		}
+		highlight_states = {
+			highlight_states_trigger = {
+				is_core_of = FROM
+			}
+		}
+        complete_effect = {
+			
+		}
+		remove_effect = {
+			FROM = {
+				owner = {
+					country_event = {
+						random_days = 2
+						days = 2
+						id = generic.1
+					}
+					add_timed_idea = {
+						idea = communist_influence
+						months = 6
+					}
+					set_country_flag = ex_colonies_has_coommunist_influence_flag
+				}
+			}
+		}
+	}
+	LUX_demand_to_be_puppet_ex_colonies = {
+        target_trigger = {
+			NOT = {
+				has_wargoal_against = FROM
+				has_war_with = FROM
+			}
+			FROM = {
+				is_subject = no
+				has_country_flag = ex_colonies_has_coommunist_influence_flag
+			}
+		}
+		icon = eng_trade_unions_demand
+		cost = 75
+		days_remove = 30
+		highlight_states = {
+			highlight_states_trigger = {
+				is_capital = yes
+				is_owned_and_controlled_by = FROM
+				NOT = {
+					is_controlled_by = ROOT
+				}
+			}
+		}
+		remove_effect = {
+			FROM = {
+				country_event = {
+					random_days = 3
+					id = wuw_GER_diplomacy.77
+					days = 1
+				}
+			}
+		}
+	}
+	LUX_ask_for_military_help_from_major = {
+		icon = ger_military_buildup
+		days_remove = 14
+        cost = 25
+		visible = {
+			has_war_with_major = yes
+			has_government = communism
+			has_completed_focus = LUX_reach_out_to_our_enemies
+		}
+		available = {
+			
+		}
+		target_trigger = {
+			FROM = {
+				NOT = {
+					has_war_with = ROOT
+					has_wargoal_against = ROOT
+				}
+				is_major = yes
+			}
+		}
+		remove_effect = {
+			
+		}
+	}
+}

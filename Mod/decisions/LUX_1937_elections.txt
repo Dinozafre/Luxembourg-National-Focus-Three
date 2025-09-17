@@ -1,0 +1,458 @@
+##### effects ##### 
+# add_support_for_condidate_1
+# add_support_for_condidate_2
+###################
+LUX_general_election_1937_category = {
+	#### Joseph Besh - 1  #####
+	#### Pierre Dupong - 2 ####
+	debug_victory_1_condidate = {
+		visible = {
+			original_tag = LUX
+			is_debug = yes
+		}
+		available = {
+			always = yes
+		}
+		complete_effect = {
+			country_event = LUX_electins.4
+		}
+	}
+	debug_victory_2_condidate = {
+		visible = {
+			original_tag = LUX
+			is_debug = yes
+		}
+		available = {
+			always = yes
+		}
+		complete_effect = {
+			country_event = LUX_electins.5
+		}
+	}
+	debug_equal_score_for_condidates = {
+		visible = {
+			original_tag = LUX
+			is_debug = yes
+		}
+		available = {
+			always = yes
+		}
+		complete_effect = {
+			country_event = LUX_electins.6
+		}
+	}
+	debug_divide_total_pp_which_was_spent_on_elections = {
+        visible = {
+			is_debug = yes
+		}
+		complete_effect = {
+			divide_variable = {
+				total_pp_was_spent_on_1 = 2
+			}
+			divide_variable = {
+				total_pp_was_spent_on_2 = 2
+			}
+		}
+		remove_effect = {
+			add_political_power = var:total_pp_was_spent_on_1
+			custom_effect_tooltip = newline_tt
+			add_political_power = var:total_pp_was_spent_on_2
+		}
+		days_remove = 1
+	}
+	add_score_for_joseph_besh = {
+        visible = {
+			is_debug = yes
+			NOT = {
+		        has_country_flag = LUX_elections_1937_flag
+	        } 
+		}
+		complete_effect = {
+			add_to_variable = {
+		        value = 1
+				tooltip = joseph_besh_support_tt
+		        var = global.joseph_besh_support
+	        }
+		}
+	}
+	add_score_for_pierre_dugong = {
+		visible = {
+			is_debug = yes
+			NOT = {
+		        has_country_flag = LUX_elections_1937_flag
+	        } 
+		}
+		complete_effect = {
+			add_to_variable = {
+		        value = 1
+				tooltip = pierre_dugong_support_tt
+		        var = global.pierre_dugong_support
+	        }
+		}
+	}
+	LUX_elections_1937_mission = {
+		icon = eng_trade_unions_support
+		fire_only_once = yes
+		activation = {
+			original_tag = LUX
+			has_start_date < 1936.01.02
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		#also made debug desicion with add 100 var for one of the canditates
+		timeout_effect = {
+			custom_effect_tooltip = LUX_elections_1937_mission_effect_tt
+			custom_effect_tooltip = newline_tt
+			custom_effect_tooltip = half_pp_spent_will_return_tt
+			divide_variable = {
+				total_pp_was_spent_on_1 = 2
+			}
+			divide_variable = {
+				total_pp_was_spent_on_2 = 2
+			}
+			hidden_effect = {
+	#			hold_election = ROOT
+	            complete_national_focus = LUX_elections_of_1937_year
+				if = {
+					limit = {
+						OR = {
+							has_country_flag = joseph_is_assassinated_flag
+							check_variable = { global.joseph_besh_support > global.pierre_dugong_support }
+						}
+					}
+					#Joseph Besh wining elections event
+					country_event = LUX_electins.4
+				}
+				else_if = {
+					limit = {
+						NOT = {
+							has_country_flag = joseph_is_assassinated_flag
+						}
+						check_variable = { global.pierre_dugong_support > global.joseph_besh_support }
+					}
+					#Pierre Dugong wining elections event
+					country_event = LUX_electins.5
+				}
+				else_if ={
+					limit = {
+						NOT = {
+							has_country_flag = joseph_is_assassinated_flag
+						}
+						check_variable = { global.pierre_dugong_support = global.joseph_besh_support }
+					}
+					country_event = LUX_electins.6
+				}
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_elections = no
+				NOT = {
+					has_government = democratic
+				}
+				has_country_flag = LUX_elections_1937_flag
+				LUX_joseph_bech = {
+					is_country_leader = no
+				}
+			}
+		}
+		cancel_effect = {
+			set_country_flag = LUX_1937_elections_was_canceled_flag
+		}
+		days_mission_timeout = 522
+		# days_mission_timeout = 1
+	}
+	#Joseph Besh
+	LUX_reach_out_to_people = {
+        visible = {
+			has_completed_focus = LUX_joseph_besh_remains_in_power
+			NOT = {
+		        has_country_flag = LUX_elections_1937_flag
+	        } 
+		}
+		complete_effect = {
+			set_var_total_pp_was_spent_on_joseph_besh = yes
+			add_to_variable = {
+				var = total_pp_was_spent_on_1
+				value = 30
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				check_variable = {
+					value = global.joseph_besh_support
+					var = global.pierre_dugong_support
+					compare = greater_than_or_equals
+				}
+				factor = 100
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_elections = no
+				has_country_flag = LUX_elections_1937_flag
+			}
+		}
+		remove_effect = {
+			add_to_variable = {
+		        value = 1
+				tooltip = joseph_besh_support_tt
+		        var = global.joseph_besh_support
+	        }
+		}
+		icon = generic_political_address
+		cost = 30
+		days_remove = 30
+	}
+	LUX_anti_communist_speech = {
+        visible = {
+			has_completed_focus = LUX_joseph_besh_remains_in_power
+			NOT = {
+		        has_country_flag = LUX_elections_1937_flag
+	        } 
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				check_variable = {
+					value = global.joseph_besh_support
+					var = global.pierre_dugong_support
+					compare = greater_than_or_equals
+				}
+				factor = 100
+			}
+		}
+		complete_effect = {
+			set_var_total_pp_was_spent_on_joseph_besh = yes
+			add_to_variable = {
+				var = total_pp_was_spent_on_1
+				value = 20
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_elections = no
+				has_country_flag = LUX_elections_1937_flag
+			}
+		}
+		modifier = {
+			communism_drift = -0.02
+		}
+		remove_effect = {
+			add_to_variable = {
+		        value = 1
+				tooltip = joseph_besh_support_tt
+		        var = global.joseph_besh_support
+	        }
+		}
+		icon = eng_propaganda_campaigns
+		cost = 20
+		days_remove = 25
+	}
+	LUX_jb_chooses_stability_speech = {
+        visible = {
+			has_completed_focus = LUX_joseph_besh_remains_in_power
+			NOT = {
+		        has_country_flag = LUX_elections_1937_flag
+	        } 
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				check_variable = {
+					value = global.joseph_besh_support
+					var = global.pierre_dugong_support
+					compare = greater_than_or_equals
+				}
+				factor = 100
+			}
+		}
+		days_remove = 35
+		cancel_trigger = {
+			OR = {
+				has_elections = no
+				has_country_flag = LUX_elections_1937_flag
+			}
+		}
+		complete_effect = {
+			set_var_total_pp_was_spent_on_joseph_besh = yes
+			add_to_variable = {
+				var = total_pp_was_spent_on_1
+				value = 25
+			}
+		}
+		remove_effect = {
+			add_to_variable = {
+		        value = 1
+				tooltip = joseph_besh_support_tt
+		        var = global.joseph_besh_support
+	        }
+		}
+		icon = hol_exchange_intelligence_data
+		cost = 25
+	}
+	# Pierre Dupong
+    LUX_criticize_the_government = {
+        visible = {
+		   has_completed_focus = LUX_new_prime_minister
+		   	NOT = {
+		        has_country_flag = LUX_elections_1937_flag
+	        } 
+	    }
+		ai_will_do = {
+			base = 10
+			modifier = {
+				check_variable = {
+					value = global.pierre_dugong_support
+					var = global.joseph_besh_support
+					compare = greater_than_or_equals
+				}
+				factor = 100
+			}
+		}
+		complete_effect = {
+			set_var_total_pp_was_spent_on_pierre_dupong = yes
+			add_to_variable = {
+				var = total_pp_was_spent_on_2
+				value = 30
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_elections = no
+				has_country_flag = LUX_elections_1937_flag
+			}
+		}
+		remove_effect = {
+			add_to_variable = {
+		        value = 1
+				tooltip = pierre_dugong_support_tt
+		        var = global.pierre_dugong_support
+	        }
+		}
+		icon = generic_political_discourse
+		days_remove = 25
+		cost = 30
+	}
+	LUX_democracy_protecting_speech = {
+        visible = {
+		   has_completed_focus = LUX_new_prime_minister
+		   	NOT = {
+		        has_country_flag = LUX_elections_1937_flag
+	        } 
+	    }
+		complete_effect = {
+			set_var_total_pp_was_spent_on_pierre_dupong = yes
+			add_to_variable = {
+				var = total_pp_was_spent_on_2
+				value = 25
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				check_variable = {
+					value = global.pierre_dugong_support
+					var = global.joseph_besh_support
+					compare = greater_than_or_equals
+				}
+				factor = 100
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_elections = no
+				has_country_flag = LUX_elections_1937_flag
+			}
+		}
+		remove_effect = {
+			add_to_variable = {
+		        value = 1
+				tooltip = pierre_dugong_support_tt
+		        var = global.pierre_dugong_support
+	        }
+		}
+		icon = SWI_swiss_democratic_tradition_campaign
+		days_remove = 28
+		cost = 25
+	}
+    LUX_with_me_future_speech = {
+        visible = {
+		    has_completed_focus = LUX_new_prime_minister
+			NOT = {
+		        has_country_flag = LUX_elections_1937_flag
+	        } 
+	    }
+		complete_effect = {
+			set_var_total_pp_was_spent_on_pierre_dupong = yes
+			add_to_variable = {
+				var = total_pp_was_spent_on_2
+				value = 35
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				check_variable = {
+					value = global.pierre_dugong_support
+					var = global.joseph_besh_support
+					compare = greater_than_or_equals
+				}
+				factor = 100
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_elections = no
+				has_country_flag = LUX_elections_1937_flag
+			}
+		}
+		remove_effect = {
+			add_to_variable = {
+		        value = 1
+				tooltip = pierre_dugong_support_tt
+		        var = global.pierre_dugong_support
+	        }
+		}
+		icon = generic_civil_support
+		days_remove = 30
+		cost = 35
+	}
+	LUX_assasination_pierre_dugong = {
+		icon = oppression
+		visible = {
+			original_tag = LUX
+			has_completed_focus = LUX_joseph_besh_remains_in_power
+			has_active_mission = LUX_elections_1937_mission
+			always = no
+		}
+		available = {
+			has_active_mission = LUX_elections_1937_mission
+		}
+		remove_effect = {
+			set_country_flag = joseph_is_assassinated_flag
+			country_event = LUX_electins.3
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				check_variable = {
+					global.pierre_dugong_support > global.joseph_besh_support
+				}
+				add = 10
+			}
+			modifier = {
+				LUX_is_autocracy_ai = yes
+				add = 2
+			}
+		}
+		ai_hint_pp_cost = 50
+		cost = 150
+		days_remove = 30
+        fire_only_once = yes
+	 }
+}

@@ -1,0 +1,185 @@
+ideas = {
+    country = {
+        BEL_neatrality_guarantees = {
+			allowed = {
+				always = yes
+			}
+			modifier = {
+				ai_focus_peaceful_factor = 0.25
+				drift_defence_factor = 0.15
+			}
+			picture = generic_pp_unity_bonus
+		}
+		benelux_shared_friend_pact = {
+            allowed = {
+				always = yes
+			}
+			modifier = {
+			#	license_purchase_cost = -0.80
+			#	license_production_speed = 0.25
+			#	surrender_limit = 0.10
+			#	max_command_power = 25
+			#	defensive_war_stability_factor = 0.10
+				guarantee_tension = -0.50
+				join_faction_tension = -0.75
+				ai_focus_defense_factor = 0.25
+				ai_desired_divisions_factor = 0.10
+				army_core_defence_factor = 0.05
+				custom_modifier_tooltip = benelux_friend_pact_tt
+			}
+			cancel = {
+				OR =  {
+					any_enemy_country = {
+						has_country_flag = in_friend_pact_flag
+					}
+					#no members of pact
+					all_other_country = {
+						NOT = {
+							has_idea = benelux_shared_friend_pact
+						}
+						NOT = {
+							has_idea = benelux_shared_friend_pact_member
+						}
+					}
+				}
+			}
+			on_add = {
+				set_country_flag = in_friend_pact_flag
+				every_country = {
+					limit = {
+						has_country_flag = in_friend_pact_flag
+					}
+					ROOT = {
+					    give_guarantee = PREV
+					}
+					add_ai_strategy = {
+						type = befriend
+						id = ROOT
+						value = 50
+					}
+				}
+				add_to_array = {
+					array = friend_pact_member
+					value = ROOT
+				}
+				set_variable = {
+					fp_member = ROOT
+				}
+			}
+			on_remove = {
+				clr_country_flag = in_friend_pact_flag
+				every_possible_country = {
+					limit = {
+						has_country_flag = in_friend_pact_flag
+					}
+					country_event = {
+						id = benelux_friend_pact_events.4
+						days = 1
+						hours = 3
+					}
+				}
+				clear_array = friend_pact_member
+				clear_variable = fp_member
+			}
+			picture = generic_deal_with_the_devil2
+		}
+		benelux_shared_friend_pact_member = {
+            allowed = {
+				always = yes
+			}
+			modifier = {
+			#	license_purchase_cost = -0.75
+			#	license_production_speed = 0.20
+			#	surrender_limit = 0.25
+			#	max_command_power = 25
+			#	defensive_war_stability_factor = 0.10
+				guarantee_tension = -0.50
+				join_faction_tension = -0.75
+				ai_focus_defense_factor = 0.25
+				ai_desired_divisions_factor = 0.10
+				army_core_defence_factor = 0.05
+				custom_modifier_tooltip = benelux_friend_pact_tt
+			}
+			cancel = {
+				any_enemy_country = {
+					has_country_flag = in_friend_pact_flag
+				}
+				#no members of pact
+				all_other_country = {
+					NOT = {
+						has_idea = benelux_shared_friend_pact
+					}
+					NOT = {
+						has_idea = benelux_shared_friend_pact_member
+					}
+				}
+			}
+			on_add = {
+				set_country_flag = in_friend_pact_flag
+		#		every_country = {
+		#			limit = {
+		#				has_country_flag = in_friend_pact_flag
+		#			}
+		#			ROOT = {
+		#			    give_guarantee = PREV
+		#			}
+		#		}
+				add_to_array = {
+					array = global.friend_pact_member
+					value = ROOT
+				}
+			}
+			on_remove = {
+				clr_country_flag = in_friend_pact_flag
+				every_possible_country = {
+					limit = {
+						has_country_flag = in_friend_pact_flag
+					}
+					country_event = {
+						id = benelux_friend_pact_events.4
+						days = 1
+						hours = 3
+					}
+					ROOT = { 
+						diplomatic_relation = {
+							country = PREV
+							relation = guarantee
+							active = no
+						}
+					}
+				}
+				clear_array = global.friend_pact_member
+			}
+			picture = generic_deal_with_the_devil2
+		}
+		benelux_shared_reseaches = {
+			allowed = {
+				always = yes
+			}
+            modifier = {
+				
+			}
+			picture = generic_research_bonus
+		}
+	}
+	hidden_ideas = {
+		member_economic_union_hidden = {
+			on_add = {
+				add_to_array = {
+					array = global.memeber_benelux_economic_union
+					value = ROOT
+				}
+				set_country_flag = member_of_economic_union_flag
+				log = "[ROOT.GetName] welcome in economic union"
+			}
+			on_remove = {
+				clear_array = global.memeber_benelux_economic_union
+				clr_country_flag = member_of_economic_union_flag
+				remove_dynamic_modifier = {
+					modifier = shared_member_benelux_economic_union_dynamic_modifier
+				}
+				log = "[THIS.GetName] bye from economic union"
+			}
+		}
+	}
+}

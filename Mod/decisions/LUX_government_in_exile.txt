@@ -1,0 +1,938 @@
+political_actions = {
+	LUX_ask_govermnet_in_exile_host_in_SOV = {
+		icon = hol_exchange_intelligence_data
+
+		visible = {
+			original_tag = LUX
+            has_government = communism 
+			is_in_faction_with = SOV
+		}
+	
+		available = {
+            is_in_faction_with = SOV
+			NOT = {
+				has_war_with = SOV
+			}
+		}
+		days_remove = 2
+		cost = 0
+	    fire_only_once = yes 
+		complete_effect = {
+            SOV = {
+				country_event = {
+					id = LUX_communist_goverment_in_exile.0
+					days = 2
+					random_hours = 12
+				}
+			}
+		}
+		ai_will_do = {
+			base = 5
+		}
+	}
+}
+governments_in_exile = {
+	LUX_training_army = {
+		icon = generic_tank
+        visible = {
+			original_tag = LUX
+		}
+		allowed = {
+			has_exile_feature_trigger = yes
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			army_experience = 15
+		}
+		target_trigger = {
+			FROM = {
+				is_hosting_exile = ROOT
+			}
+		}
+		modifier = {
+			experience_gain_army = 0.065
+		}
+		days_remove = 30
+		cost = 30
+	}
+	LUX_shared_training_with_host = {
+		visible = {
+			original_tag = LUX
+		}
+		days_remove = 45
+		allowed = {
+			has_exile_feature_trigger = yes
+		}
+		modifier = {
+			experience_gain_army = 0.025
+		}
+        complete_effect = {
+			
+		}
+		remove_effect = {
+			army_experience = 20
+		}
+		target_root_trigger = {
+			always = no
+		}
+		target_trigger = {
+			FROM = {
+				is_hosting_exile = ROOT
+			}
+		}
+	}
+	LUX_crate_militia_unite = {
+		icon = generic_reorganize_irregulars
+        visible = {
+		   original_tag = LUX
+	    }
+	    available = {
+		   has_capitulated = yes
+	    }
+		allowed = {
+			has_exile_feature_trigger = yes
+		}
+	    target_root_trigger = {
+		   has_completed_focus = LUX_militia_in_exile
+	    }
+		target_trigger = {
+		
+		}
+#	    state_target = yes
+	    target_array = host
+	    on_map_mode = map_only
+	    complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+					   has_template = "Miliz am Exil"
+					}
+				}
+				division_template = {
+					name = "Miliz am Exil"
+					is_locked = no
+					division_names_group = LUX_INF_01
+					priority = 1
+					regiments = {
+						militia = {
+							x = 0
+							y = 0
+						}
+						militia = {
+							x = 0
+							y = 1
+						}
+						militia = {
+							x = 0
+							y = 2
+						}
+						militia = {
+							x = 0
+							y = 3
+						}
+						militia = {
+							x = 1
+							y = 0
+						}
+						militia = {
+							x = 1
+							y = 1
+						}
+						militia = {
+							x = 1
+							y = 2
+						}
+						militia = {
+							x = 1
+							y = 3
+						}
+						militia = {
+							x = 2
+							y = 0
+						}
+						militia = {
+							x = 2
+							y = 1
+						}
+						militia = {
+							x = 2
+							y = 2
+						}
+						militia = {
+							x = 2
+							y = 3
+						}
+					}
+					support = {
+						engineer = {
+							x = 0
+							y = 0
+						}
+					}
+				}
+			}
+	   }
+	   remove_effect = {
+		var:host = {
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Miliz am Exil\" division_template = \"Miliz am Exil\" start_experience_factor = 0.2"
+					owner = ROOT
+					count = 2
+				}
+			}
+		}
+	   }
+	   cost = 75
+	   modifier = {
+		  political_power_cost = 0.35
+	   }
+	   days_remove = 60
+	}
+	LUX_send_LUX_send_equipment_to_resistence_in_state = {
+		icon = generic_prepare_civil_war
+		custom_cost_text = custom_cost_trigger_50_infantry_equipment
+		on_map_mode = map_only
+		state_target = any_owned_state
+		days_remove = 45
+		allowed = {
+			has_exile_feature_trigger = yes
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment > 49
+			}
+		}
+		target_trigger = {
+			FROM = {
+				is_core_of = ROOT
+				controller = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		visible = {
+			original_tag = LUX
+			is_government_in_exile = yes
+		}
+		available = {
+			FROM = {
+				has_resistance = yes
+			}
+			hidden_trigger = {
+				has_equipment = {
+					infantry_equipment > 49
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -50
+				}
+			}
+		}
+		remove_effect = {
+			FROM = {
+				add_resistance = 5
+				add_resistance_target = 15
+			}
+		}
+	}
+	LUX_call_volunteers_in_militia = {
+		icon = generic_military
+		visible = {
+			original_tag = LUX
+			has_completed_focus = LUX_volunteers_from_host
+		}
+		modifier = {
+	#		exiled_government_weekly_manpower = 100
+		}
+		allowed = {
+			has_exile_feature_trigger = yes
+		}
+		available = {
+			has_capitulated = yes
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			add_manpower = 500
+		}
+		cost = 125
+		days_remove = 30
+	}
+	LUX_prepare_uprising_in_cores = {
+		icon = eng_blackshirt_march
+		state_target = any_owned_state
+		target_trigger = {
+			has_completed_focus = LUX_start_prepere_for_uprising
+		}
+		visible = {
+			original_tag = LUX
+		}
+		allowed = {
+			has_exile_feature_trigger = yes
+		}
+		available = {
+			has_equipment = {
+				infantry_equipment > 49
+			}
+			has_manpower > 749
+		}
+		cancel_trigger = {
+			FROM = {
+				controller = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+		}
+        complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -50
+				producer = ROOT
+			}
+			add_manpower = -750
+		}
+		remove_effect = {
+			FROM = {
+                set_state_flag = uprising_state_target_flag
+				add_dynamic_modifier = {
+					modifier = LUX_resistence_modifier
+				}
+			}
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				is_core_of = ROOT
+				controller = {
+					has_war_with = ROOT
+				}
+				NOT = {
+					has_state_flag = uprising_state_target_flag
+				}
+			}
+		}
+		days_remove = 45
+		cost = 50
+	}
+	LUX_start_uprising_in_state = {
+		icon = generic_civil_support
+	#	state_target = yes
+	    visible = {
+			original_tag = LUX
+			has_completed_focus = LUX_start_uprising
+		}
+		allowed = {
+			has_exile_feature_trigger = yes
+		}
+		available = {
+			has_equipment = {
+				infantry_equipment > 2999
+			}
+			has_manpower > 9999
+			any_owned_state = {
+				has_state_flag = uprising_state_target_flag
+			}
+		}
+		remove_effect = {
+			every_state = {
+				limit = {
+					has_state_flag = uprising_state_target_flag
+				}
+				teleport_armies = {
+					limit = { 
+						OR = {
+							is_ally_with = occupier_country
+							has_military_access_to = occupier_country
+						}
+					}
+					to_state_array = owned_controlled_states
+				}
+				for_loop_effect = {
+				    end = num_units_to_create_during_uprising
+				    create_unit = {
+					    division = "division_template = \"Liberatioun Arméi\" start_experience_factor = 1 start_equipment_factor = 1"
+					    owner = ROOT
+				    }
+			    }
+			}
+			set_global_flag = LUX_uprising_happpaned
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -3000
+				producer = ROOT
+			}
+			add_manpower = -10000
+			hidden_effect = {
+				division_template = {
+					name = "Liberatioun Arméi"
+					is_locked = yes
+					regiments = {
+						militia = { x = 0 y = 0 }
+						militia = { x = 0 y = 1 }
+						militia = { x = 0 y = 2 }
+						militia = { x = 1 y = 0 }
+						militia = { x = 1 y = 1 }
+						militia = { x = 1 y = 2 }
+						militia = { x = 2 y = 0 }
+						militia = { x = 2 y = 1 }
+						militia = { x = 2 y = 2 }
+					}
+				}
+				set_temp_variable = {
+                    num_units_to_create_during_uprising = num_owned_states
+			    }
+			    multiply_variable = {
+				    num_units_to_create_during_uprising = arms_factory_level
+			    }
+			    set_temp_variable = { occupied_country = ROOT }
+			}
+		}
+		cancel_trigger = {
+			all_owned_state = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+		cost = 125
+		days_remove = 145
+	}
+	LUX_take_under_controls_uprising_states_mission = {
+		icon = hol_draw_up_staff_plans
+		is_good = yes
+		fire_only_once = no
+		selectable_mission = no
+		visible = {
+			original_tag = LUX
+		}
+		allowed = {
+			has_exile_feature_trigger = yes
+		}
+		activation = {
+			all_core_state = {
+				is_controlled_by = ROOT
+				has_state_flag = uprising_state_target_flag
+			}
+			has_global_flag = LUX_uprising_happpaned
+		}
+		available = {
+			all_core_state = {
+				NOT = {
+				    is_controlled_by = ROOT
+				}
+				has_state_flag = uprising_state_target_flag
+			}
+		}
+        timeout_effect = {
+			set_country_flag = LUX_take_under_controls_uprising_states_mission_completed
+		}
+		complete_effect = {
+			
+		}
+		cancel_trigger = {
+			
+		}
+		days_mission_timeout = 60
+	}
+	LUX_speech_to_nation = {
+	   icon = generic_political_address
+       visible = {
+		  original_tag = LUX
+		  has_completed_focus = LUX_accept_defeat
+#		  is_government_in_exile = yes
+	   }
+	   available = {
+		   has_character = LUX_charlotte
+	   }
+	   allowed = {
+		    has_exile_feature_trigger = yes
+	   }
+	   cost = 15
+	   days_re_enable = 65
+	   days_remove = 30
+	   	modifier = {
+		   war_support_weekly = 0.01
+	   }
+	   remove_effect = {
+		    every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					controller = {
+						has_war_with = ROOT
+						has_full_control_of_state = PREV
+					}
+				}
+				add_resistance_target = 10
+			}
+	   }
+	}
+}
+war_measures = {
+	LUX_training_army_wm = {
+		name = LUX_training_army
+		icon = generic_tank
+        visible = {
+			original_tag = LUX
+		}
+		allowed = {
+			has_exile_feature_trigger = no
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			army_experience = 15
+		}
+		target_trigger = {
+			FROM = {
+				is_hosting_exile = ROOT
+			}
+		}
+		modifier = {
+			experience_gain_army = 0.065
+		}
+		days_remove = 30
+		cost = 30
+	}
+	LUX_shared_training_with_host_wm = {
+        name = LUX_shared_training_with_host
+		visible = {
+			original_tag = LUX
+		}
+		days_remove = 45
+		allowed = {
+			has_exile_feature_trigger = no
+		}
+		modifier = {
+			experience_gain_army = 0.025
+		}
+        complete_effect = {
+			
+		}
+		remove_effect = {
+			army_experience = 20
+		}
+		target_root_trigger = {
+			always = no
+		}
+		target_trigger = {
+			FROM = {
+				is_hosting_exile = ROOT
+			}
+		}
+	}
+	LUX_crate_militia_unite_wm = {
+		name = LUX_crate_militia_unite
+		icon = generic_reorganize_irregulars
+        visible = {
+		   original_tag = LUX
+	    }
+	    available = {
+		   has_capitulated = yes
+	    }
+		allowed = {
+			has_exile_feature_trigger = no
+		}
+	    target_root_trigger = {
+		   has_completed_focus = LUX_militia_in_exile
+	    }
+		target_trigger = {
+		
+		}
+#	    state_target = yes
+	    target_array = host
+	    on_map_mode = map_only
+	    complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+					   has_template = "Miliz am Exil"
+					}
+				}
+				division_template = {
+					name = "Miliz am Exil"
+					is_locked = no
+					division_names_group = LUX_INF_01
+					priority = 1
+					regiments = {
+						militia = {
+							x = 0
+							y = 0
+						}
+						militia = {
+							x = 0
+							y = 1
+						}
+						militia = {
+							x = 0
+							y = 2
+						}
+						militia = {
+							x = 0
+							y = 3
+						}
+						militia = {
+							x = 1
+							y = 0
+						}
+						militia = {
+							x = 1
+							y = 1
+						}
+						militia = {
+							x = 1
+							y = 2
+						}
+						militia = {
+							x = 1
+							y = 3
+						}
+						militia = {
+							x = 2
+							y = 0
+						}
+						militia = {
+							x = 2
+							y = 1
+						}
+						militia = {
+							x = 2
+							y = 2
+						}
+						militia = {
+							x = 2
+							y = 3
+						}
+					}
+					support = {
+						engineer = {
+							x = 0
+							y = 0
+						}
+					}
+				}
+			}
+	   }
+	   remove_effect = {
+		var:host = {
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Miliz am Exil\" division_template = \"Miliz am Exil\" start_experience_factor = 0.2"
+					owner = ROOT
+					count = 2
+				}
+			}
+		}
+	   }
+	   cost = 75
+	   modifier = {
+		  political_power_cost = 0.35
+	   }
+	   days_remove = 60
+	}
+	LUX_send_LUX_send_equipment_to_resistence_in_state_wm = {
+		name = LUX_send_LUX_send_equipment_to_resistence_in_state
+		icon = generic_prepare_civil_war
+		custom_cost_text = custom_cost_trigger_50_infantry_equipment
+		on_map_mode = map_only
+		state_target = any_owned_state
+		days_remove = 45
+		allowed = {
+			has_exile_feature_trigger = no
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment > 49
+			}
+		}
+		target_trigger = {
+			FROM = {
+				is_core_of = ROOT
+				controller = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		visible = {
+			original_tag = LUX
+			is_government_in_exile = yes
+		}
+		available = {
+			FROM = {
+				has_resistance = yes
+			}
+			hidden_trigger = {
+				has_equipment = {
+					infantry_equipment > 49
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = -50
+				}
+			}
+		}
+		remove_effect = {
+			FROM = {
+				add_resistance = 5
+				add_resistance_target = 15
+			}
+		}
+	}
+	LUX_call_volunteers_in_militia_wm = {
+		name = LUX_call_volunteers_in_militia
+		icon = generic_military
+		visible = {
+			original_tag = LUX
+			has_completed_focus = LUX_volunteers_from_host
+		}
+		modifier = {
+	#		exiled_government_weekly_manpower = 100
+		}
+		allowed = {
+			has_exile_feature_trigger = no
+		}
+		available = {
+			has_capitulated = yes
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			add_manpower = 500
+		}
+		cost = 125
+		days_remove = 30
+	}
+	LUX_prepare_uprising_in_cores_wm = {
+		name = LUX_prepare_uprising_in_cores
+		icon = eng_blackshirt_march
+		state_target = any_owned_state
+		target_trigger = {
+			has_completed_focus = LUX_start_prepere_for_uprising
+		}
+		visible = {
+			original_tag = LUX
+		}
+		allowed = {
+			has_exile_feature_trigger = no
+		}
+		available = {
+			has_equipment = {
+				infantry_equipment > 49
+			}
+			has_manpower > 749
+		}
+		cancel_trigger = {
+			FROM = {
+				controller = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+		}
+        complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -50
+				producer = ROOT
+			}
+			add_manpower = -750
+		}
+		remove_effect = {
+			FROM = {
+                set_state_flag = uprising_state_target_flag
+				add_dynamic_modifier = {
+					modifier = LUX_resistence_modifier
+				}
+			}
+		}
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				is_core_of = ROOT
+				controller = {
+					has_war_with = ROOT
+				}
+				NOT = {
+					has_state_flag = uprising_state_target_flag
+				}
+			}
+		}
+		days_remove = 45
+		cost = 50
+	}
+	LUX_start_uprising_in_state_wm = {
+		name = LUX_start_uprising_in_state
+		icon = generic_civil_support
+	#	state_target = yes
+	    visible = {
+			original_tag = LUX
+			has_completed_focus = LUX_start_uprising
+		}
+		allowed = {
+			has_exile_feature_trigger = no
+		}
+		available = {
+			has_equipment = {
+				infantry_equipment > 2999
+			}
+			has_manpower > 9999
+			any_owned_state = {
+				has_state_flag = uprising_state_target_flag
+			}
+		}
+		remove_effect = {
+			every_state = {
+				limit = {
+					has_state_flag = uprising_state_target_flag
+				}
+				teleport_armies = {
+					limit = { 
+						OR = {
+							is_ally_with = occupier_country
+							has_military_access_to = occupier_country
+						}
+					}
+					to_state_array = owned_controlled_states
+				}
+				for_loop_effect = {
+				    end = num_units_to_create_during_uprising
+				    create_unit = {
+					    division = "division_template = \"Liberatioun Arméi\" start_experience_factor = 1 start_equipment_factor = 1"
+					    owner = ROOT
+				    }
+			    }
+			}
+			set_global_flag = LUX_uprising_happpaned
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -3000
+				producer = ROOT
+			}
+			add_manpower = -10000
+			hidden_effect = {
+				division_template = {
+					name = "Liberatioun Arméi"
+					is_locked = yes
+					regiments = {
+						militia = { x = 0 y = 0 }
+						militia = { x = 0 y = 1 }
+						militia = { x = 0 y = 2 }
+						militia = { x = 1 y = 0 }
+						militia = { x = 1 y = 1 }
+						militia = { x = 1 y = 2 }
+						militia = { x = 2 y = 0 }
+						militia = { x = 2 y = 1 }
+						militia = { x = 2 y = 2 }
+					}
+				}
+				set_temp_variable = {
+                    num_units_to_create_during_uprising = num_owned_states
+			    }
+			    multiply_variable = {
+				    num_units_to_create_during_uprising = arms_factory_level
+			    }
+			    set_temp_variable = { occupied_country = ROOT }
+			    every_owned_state = {
+				    limit = {
+					    is_core_of = ROOT
+					    NOT = {
+						    is_controlled_by = ROOT
+					    }
+				    }
+			    }
+			}
+		}
+		cancel_trigger = {
+			all_owned_state = {
+				is_controlled_by_ROOT_or_ally = yes
+			}
+		}
+		cost = 125
+		days_remove = 145
+	}
+	LUX_take_under_controls_uprising_states_mission_wm = {
+		name = LUX_take_under_controls_uprising_states_mission
+		icon = hol_draw_up_staff_plans
+		is_good = yes
+		fire_only_once = no
+		selectable_mission = no
+		visible = {
+			original_tag = LUX
+		}
+		allowed = {
+			has_exile_feature_trigger = no
+		}
+		activation = {
+			all_core_state = {
+				is_controlled_by = ROOT
+				has_state_flag = uprising_state_target_flag
+			}
+			has_global_flag = LUX_uprising_happpaned
+		}
+		available = {
+			all_core_state = {
+				NOT = {
+				    is_controlled_by = ROOT
+				}
+				has_state_flag = uprising_state_target_flag
+			}
+		}
+        timeout_effect = {
+			set_country_flag = LUX_take_under_controls_uprising_states_mission_completed
+		}
+		complete_effect = {
+			
+		}
+		cancel_trigger = {
+			
+		}
+		days_mission_timeout = 60
+	}
+	LUX_speech_to_nation_wm = {
+	   name = LUX_speech_to_nation
+	   icon = generic_political_address
+       visible = {
+		  original_tag = LUX
+		  has_completed_focus = LUX_accept_defeat
+#		  is_government_in_exile = yes
+	   }
+	   available = {
+		   has_character = LUX_charlotte
+	   }
+	   allowed = {
+		    has_exile_feature_trigger = no
+	   }
+	   cost = 15
+	   days_re_enable = 65
+	   days_remove = 60
+	   modifier = {
+		   war_support_weekly = 0.01
+	   }
+	   remove_effect = {
+		    every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					controller = {
+						has_war_with = ROOT
+						has_full_control_of_state = PREV
+					}
+				}
+				add_resistance_target = 10
+			}
+	   }
+	}
+}

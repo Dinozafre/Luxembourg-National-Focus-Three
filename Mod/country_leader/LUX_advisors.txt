@@ -1,0 +1,8 @@
+leader_traits = {
+ marxsism_revolutioner = {
+	weekly_manpower = 25
+	communism_acceptance = 35
+	communism_drift = 0.05
+	stability_factor = -0.05
+ }
+}

@@ -1,0 +1,399 @@
+shared_member_benelux_economic_union_dynamic_modifier = {
+	enable = { always = yes }
+	remove_trigger = {
+		ROOT  = {
+			has_war_with = var:ROOT.memeber_benelux_economic_union
+		}
+		all_other_country = {
+			var:ROOT.memeber_benelux_economic_union = {
+                exists = no
+			}
+		}
+	}
+	icon = GFX_member_benelux_economic_union
+	political_power_factor = political_power_factor_member_economic_union_modifier # 0.10
+	production_speed_buildings_factor = production_speed_buildings_factor_member_economic_union_modifier # 0.15
+	consumer_goods_factor = consumer_goods_factor_member_economic_union_modifier # -0.10 for future events and dicisons
+}
+LUX_leader_benelux_economic_union_dynamic_modifier = {
+	enable = { always = yes }
+	remove_trigger = {
+		ROOT  = {
+			has_war_with = var:ROOT.memeber_benelux_economic_union
+		}
+		all_other_country = {
+			var:ROOT.memeber_benelux_economic_union = {
+                exists = no
+			}
+		}
+	}
+	icon = GFX_member_benelux_economic_union
+	political_power_factor = political_power_factor_leader_economic_union_modifier # 0.20
+	production_speed_buildings_factor = production_speed_buildings_factor_leader_economic_union_modifier # 0.25
+	consumer_goods_factor = consumer_goods_factor_leader_economic_union_modifier # -0.15
+}
+LUX_explore_mobilsation_dynamic = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_generic_manpower_bonus
+	conscription = LUX_explore_mobilsation_conscription # 0.10
+	mobilization_speed = LUX_explore_mobilsation_mobilization_speed # 0.15
+}
+LUX_the_great_depression =  {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_usa_great_depression
+#	communism_drift = LUX_the_great_depression_communism_drift_var # 0.02
+	consumer_goods_factor = LUX_the_great_depression_consumer_goods_factor_var # 0.3
+#	military_industrial_organization_policy_cost = LUX_the_great_depression_military_industrial_organization_policy_cost_var # 10
+	political_power_factor = LUX_the_great_depression_political_power_cost_var # -0.05
+	economy_cost_factor = LUX_the_great_depression_economy_cost_factor_var # 0.20
+	trade_laws_cost_factor = LUX_the_great_depression_trade_laws_cost_factor_var # 0.50
+	production_speed_buildings_factor = LUX_the_great_depression_production_speed_buildings_factor # -0.70
+	stability_factor = LUX_the_great_depression_stability_factor_var # -0.3
+	stability_weekly = LUX_the_great_depression_stability_weekly_var # -0.010
+	production_factory_max_efficiency_factor = LUX_the_great_depression_production_factory_max_efficiency_factor # -0.1
+	production_factory_efficiency_gain_factor = LUX_the_great_depression_production_factory_efficiency_gain_factor # -0.1
+}
+LUX_invesments_in_factories = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_generic_production_bonus
+	production_speed_buildings_factor = 0.25
+	production_speed_infrastructure_factor = 0.20
+	production_speed_arms_factory_factor = 0.15
+}
+#TODO - remade LUX_trotskyism into idea
+LUX_trotskyism = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_LUX_trotskyism
+	communism_drift = LUX_trotskyism_communism_drift_var 
+	party_popularity_stability_factor = LUX_trotskyism_party_popularity_stability_factor_var
+	political_power_factor = LUX_trotskyism_political_power_factor_var
+}
+LUX_equlity_in_production_idea = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_generic_production_bonus
+	production_speed_buildings_factor = 0.15
+	production_speed_arms_factory_factor = 0.10
+	production_speed_industrial_complex_factor = 0.10
+	production_factory_efficiency_gain_factor = 0.05 
+}
+LUX_revolution_agency = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_generic_spy_intel
+	operation_risk = -0.1
+	intelligence_agency_defense = 0.45
+	operative_slot = 3
+	boost_ideology_mission_factor = 0.35
+}
+LUX_revolution_internetional = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_idea_ger_the_great_red_menace
+	lend_lease_tension = LUX_revolution_internetional_lend_lease_tension # -0.50
+	send_volunteer_divisions_required = LUX_revolution_internetional_send_volunteer_divisions_required # -0.10
+	send_volunteer_size = LUX_revolution_internetional_send_volunteer_size # 10
+	send_volunteers_tension = LUX_revolution_internetional_send_volunteers_tension # -0.30
+}
+LUX_charlotte_wilhelmine = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		ROOT = {
+			NOT = {
+				has_character = LUX_charlotte
+			}
+		}
+	}
+	icon = GFX_idea_LUX_charlotte_wilhelmine
+	political_power_factor = LUX_charlotte_wilhelmine_political_power_factor # -0.1
+	stability_factor = LUX_charlotte_wilhelmin_stability_factor # 0.05
+	weekly_casualties_war_support = LUX_charlotte_wilhelmine_weekly_casualties_war_support # 0.005
+	political_power_gain = LUX_charlotte_wilhelmine_political_power_gain
+	army_core_attack_factor = LUX_charlotte_wilhelmine_army_core_attack_factor
+	army_core_defence_factor = LUX_charlotte_wilhelmine_army_core_defence_factor
+	resistance_growth_on_our_occupied_states = LUX_charlotte_wilhelmine_resistance_growth_on_our_occupied_states
+	resistance_target_on_our_occupied_states = LUX_charlotte_wilhelmine_resistance_target_on_our_occupied_states
+	neutrality_drift = LUX_charlotte_wilhelmine_neutrality_drift
+	communism_drift = LUX_charlotte_wilhelmine_communism_drift
+	fascism_drift = LUX_charlotte_wilhelmine_fascism_drift
+	custom_modifier_tooltip = LUX_charlotte_wilhelmine_exile_tt
+}
+state_faction_modifier = {
+	icon = GFX_modifier_faction_state
+	enable = {
+	}
+	remove_trigger = {
+	}
+	enemy_army_speed_factor = -0.10
+	equipment_capture_for_controller = 0.05
+	mobilization_speed = 0.25
+	army_core_attack_factor = 0.1
+	army_core_defence_factor = 0.15
+}
+#state modifier
+LUX_anarchist_commune_state_modifier = {
+	icon = GFX_anarchist_commune_modifier
+	local_factories = -0.1
+	resistance_target = -0.25
+	enemy_local_supplies = -0.1
+}
+LUX_resistence_modifier = {
+	icon = GFX_state_generic_resistence_modifier
+	resistance_damage_to_garrison_on_our_occupied_states = 0.15
+	resistance_target_on_our_occupied_states = 0.2
+	resistance_growth_on_our_occupied_states = 0.1
+	resistance_decay_on_our_occupied_states = -0.15
+}
+#state modifier
+LUX_reinish_separatism = {
+   icon = GFX_modifier_reinish_separatism
+   remove_trigger = {
+	    FROM = {
+		   controller = {
+			    tag = RHI
+		    }
+	    }
+   }
+   resistance_target = global.resistance_target_reinish_separatism_modifier #0.1
+   resistance_activity = global.resistance_activity_reinish_separatism_modifier #0.05
+   resistance_growth = global.resistance_growth_reinish_separatism_modifier # 0.1
+   compliance_growth = global.compliance_growth_reinish_separatism_modifier # -0.05
+   resistance_damage_to_garrison = 0.3
+}
+LUX_goverment_in_exile_dm = {
+	icon = GFX_idea_LUX_goverment_in_exile
+	dockyard_donations = dockyard_donations_LUX_goverment_in_exile_var # 0
+	exile_manpower_factor = exile_manpower_LUX_goverment_in_exile_factor_var # 0
+	industrial_factory_donations = industrial_factory_donations_LUX_goverment_in_exile_var # 0
+	legitimacy_daily = legitimacy_daily_LUX_goverment_in_exile_var # 0
+	legitimacy_gain_factor = legitimacy_gain_factor_LUX_goverment_in_exile_var # 0
+	military_factory_donations = military_factory_donations_LUX_goverment_in_exile_var # 0
+	attack_bonus_against = attack_bonus_against_LUX_goverment_in_exile_var # 0
+	attack_bonus_against_cores = attack_bonus_against_cores_LUX_goverment_in_exile_var # 0
+	army_strength_factor = army_strength_factor_LUX_goverment_in_exile_var # 0
+	army_core_defence_factor = army_core_defence_factor_LUX_goverment_in_exile_var # 0.02
+	army_core_attack_factor = army_core_attack_factor_LUX_goverment_in_exile_var # 0.05
+	resistance_damage_to_garrison_on_our_occupied_states = resistance_damage_to_garrison_on_our_occupied_states_LUX_goverment_in_exile_var # 0
+	resistance_decay_on_our_occupied_states = resistance_decay_on_our_occupied_states_LUX_goverment_in_exile_var # 0
+	resistance_growth_on_our_occupied_states = resistance_growth_on_our_occupied_states_LUX_goverment_in_exile_var # 0
+	resistance_target_on_our_occupied_states = resistance_target_on_our_occupied_states_LUX_goverment_in_exile_var # 0
+	compliance_growth_on_our_occupied_states = compliance_growth_on_our_occupied_states_LUX_goverment_in_exile_var # 0
+	modifier_army_sub_unit_militia_attack_factor = modifier_army_sub_unit_militia_attack_factor_LUX_goverment_in_exile_var # 0
+	modifier_army_sub_unit_militia_defence_factor = modifier_army_sub_unit_militia_defence_factor_LUX_goverment_in_exile_var # 0
+	modifier_army_sub_unit_militia_org_recovery_cap_factor = modifier_army_sub_unit_militia_org_recovery_cap_factor_LUX_goverment_in_exile_var # 0
+	modifier_army_sub_unit_militia_speed_factor = modifier_army_sub_unit_militia_speed_factor_LUX_goverment_in_exile_var # 0
+	exiled_government_weekly_manpower = exiled_government_weekly_manpower_LUX_goverment_in_exile_var # 0
+	weekly_manpower = LUX_goverment_in_exile_weekly_manpower_var
+}
+LUX_luxo_fascism_dm = {
+	icon = GFX_idea_luxo_fascism
+	fascism_drift = fascism_drift_LUX_luxo_fascism_dm_var
+	defensive_war_stability_factor = defensive_war_stability_factor_LUX_luxo_fascism_dm_var
+	political_advisor_cost_factor = political_advisor_cost_factor_LUX_luxo_fascism_dm_var
+	political_power_factor = political_power_factor_LUX_luxo_fascism_dm_var
+	stability_factor = stability_factor_LUX_luxo_fascism_dm_var
+	stability_weekly = stability_weekly_LUX_luxo_fascism_dm_var
+	war_support_factor = war_support_factor_LUX_luxo_fascism_dm_var
+	war_support_weekly = war_support_weekly_LUX_luxo_fascism_dm_var
+	war_support_weekly_factor = war_support_weekly_factor_LUX_luxo_fascism_dm_var
+	weekly_casualties_war_support = weekly_casualties_war_support_LUX_luxo_fascism_dm_var
+	democratic_drift = democratic_drift_LUX_luxo_fascism_dm_var #antiliberalism
+	communism_drift = communism_drift_LUX_luxo_fascism_dm_var #anticommunism
+	communism_acceptance = communism_acceptance_LUX_luxo_fascism_dm_var #anticommunism
+	democratic_acceptance = democratic_acceptance_LUX_luxo_fascism_dm_var #antiliberalism
+	monthly_population = monthly_population_LUX_luxo_fascism_dm_var
+	conscription = conscription_LUX_luxo_fascism_dm_var
+	weekly_manpower = weekly_manpower_LUX_luxo_fascism_dm_var
+	mobilization_laws_cost_factor = mobilization_laws_cost_factor_LUX_luxo_fascism_dm_var
+	trade_laws_cost_factor = trade_laws_cost_factor_LUX_luxo_fascism_dm_var
+	economy_cost_factor = economy_cost_factor_LUX_luxo_fascism_dm_var
+	high_command_cost_factor = high_command_cost_factor_LUX_luxo_fascism_dm_var
+	army_core_defence_factor = army_core_defence_factor_LUX_luxo_fascism_dm_var
+	army_defence_factor = army_defence_factor_LUX_luxo_fascism_dm_var
+	army_strength_factor = army_strength_factor_LUX_luxo_fascism_dm_var
+	army_core_attack_factor = army_core_attack_factor_LUX_luxo_fascism_dm_var
+	army_attack_factor = army_attack_factor_LUX_luxo_fascism_dm_var
+}
+autonomy_state_of_federation = {
+	icon = GFX_modifiers_LUX_autonomy_state_of_federation
+	local_resources = -0.35
+	recruitable_population = -0.1
+	local_factories = -0.2
+	remove_trigger = {
+		FROM = {
+			NOT = {
+				is_owned_by = LUX
+			}
+		}
+	}
+}
+LUX_socialist_state = {
+   icon = GFX_idea_LUX_communist_state
+   communism_drift = communism_drift_LUX_communist_state_var
+   
+}
+LUX_anarchism = {
+	icon = GFX_idea_SPR_crush_the_revolution
+	neutrality_drift = neutrality_drift_LUX_anarchism_var # 0.02 + 0.02 + 0.01 + 0.20 = 0.25
+	stability_weekly = stability_weekly_LUX_anarchism_var # -0.001 + -0.004 + -0.006 = -0.01
+	consumer_goods_factor = consumer_goods_factor_LUX_anarchism_var # -0.1 + -0.05 + -0.05 = -0.2
+	resistance_target = resistance_target_LUX_anarchism_var # -0.15 + -0.15 = -0.3
+	production_factory_efficiency_gain_factor = production_factory_efficiency_gain_factor_LUX_anarchism_var # 0.1
+	production_factory_max_efficiency_factor = production_factory_max_efficiency_factor_LUX_anarchism_var # 0.12
+	production_factory_start_efficiency_factor = production_factory_start_efficiency_factor_LUX_anarchism_var # 0.35
+	mobilization_speed = mobilization_speed_LUX_anarchism_var # 0.35
+	mobilization_laws_cost_factor = mobilization_laws_cost_factor_LUX_anarchism_var # -0.1
+	annex_cost_factor = annex_cost_factor_LUX_anarchism_var
+	subjects_autonomy_gain = subjects_autonomy_gain_LUX_anarchism_var
+	compliance_growth = compliance_growth_LUX_anarchism_var
+	compliance_gain = compliance_gain_LUX_anarchism_var
+}
+LUX_workers_commune =  {
+	icon = GFX_idea_generic_production_bonus
+	production_factory_efficiency_gain_factor = production_factory_efficiency_gain_factor_LUX_workers_commune_var # 0.02 + 0.03 + 0.05 + 0.05 = 0.05 = 0.2
+	production_factory_max_efficiency_factor = production_factory_max_efficiency_factor_LUX_workers_commune_var # 0.03 + 0.02 + 0.03 = 0.02 + 0.05 = 0.2
+	equipment_conversion_speed = equipment_conversion_speed_LUX_workers_commune_var # 0.05 + 0.02 + 0.03 = 0.1
+	#production_speed_buildings_factor = production_speed_buildings_factor_LUX_workers_commune_var
+	#production_speed_industrial_complex_factor = production_speed_industrial_complex_factor_LUX_workers_commune_var
+	drift_defence_factor = drift_defence_factor_LUX_workers_commune_var # 0.15 + 0.10 = 0.25
+	line_change_production_efficiency_factor = line_change_production_efficiency_factor_LUX_workers_commune_var # 0.02 + 0.03 = 0.05
+	political_power_factor = political_power_factor_LUX_workers_commune_var # 0.05 + 0.02 = 0.03 = 0.05 = 0.15
+}
+LUX_support_imigration = {
+    icon = GFX_idea_support_imigration
+	recruitable_population = recruitable_population_LUX_support_imigration_var # 0.01
+	monthly_population = monthly_population_LUX_support_imigration_var # 0.1
+	conscription = conscription_LUX_support_imigration_var # 0.05
+	local_manpower = local_manpower_LUX_support_imigration_var # 0.2
+	weekly_manpower = weekly_manpower_LUX_support_imigration_var # 150
+}
+state_prepared_military_plan_dynamic = {
+   icon = GFX_modifiers_generic_military_plans
+   army_attack_factor = 0.15
+   army_defence_factor = 0.1
+   army_org_factor = 0.05
+}
+LUX_prepare_for_invasion = {
+	icon = GFX_idea_generic_preperatioion_for_war
+	war_support_factor = LUX_prepare_for_invasion_var_war_support_factor # 0.1
+	weekly_casualties_war_support = LUX_prepare_for_invasion_var_weekly_casualties_war_support # 0.005
+	weekly_bombing_war_support = LUX_prepare_for_invasion_var_weekly_bombing_war_support # 0.001
+	attrition = LUX_prepare_for_invasion_var_attrition # -0.05
+	equipment_capture_factor = LUX_prepare_for_invasion_var_equipment_capture_factor # 0.05
+	army_defence_factor = LUX_prepare_for_invasion_var_army_defence_factor # 0.1
+	army_core_attack_factor = LUX_prepare_for_invasion_var_army_core_attack_factor # 0.15
+}
+shared_european_army = {
+	
+}
+LUX_navy_modifier = {
+	enable = { always = yes }
+
+	icon = GFX_idea_generic_navy_bonus
+
+	experience_gain_navy = JUNO_navy_experience_gain_navy_factor 
+	mines_planting_by_fleets_factor = JUNO_navy_mines_planting_by_fleets_factor
+	navy_anti_air_attack_factor = JUNO_navy_navy_anti_air_attack_factor
+	navy_spirit_category_type_cost_factor = JUNO_navy_navy_spirit_category_type_cost_factor
+	convoy_retreat_speed = JUNO_navy_convoy_retreat_speed
+	refit_speed = JUNO_navy_refit_speed
+	spotting_chance = JUNO_navy_spotting_chance
+	repair_speed_factor = JUNO_navy_repair_speed_factor
+	production_speed_dockyard_factor = JUNO_navy_production_speed_dockyard_factor
+	industrial_capacity_dockyard = JUNO_navy_industrial_capacity_dockyard
+	extra_marine_supply_grace = JUNO_navy_extra_marine_supply_grace
+	naval_invasion_capacity = JUNO_navy_naval_invasion_capacity
+	naval_mines_effect_reduction = JUNO_navy_naval_mines_effect_reduction
+	experience_gain_navy_unit_factor = JUNO_navy_experience_gain_navy_unit_factor
+	naval_coordination = JUNO_navy_naval_coordination
+	naval_equipment_upgrade_xp_cost = JUNO_navy_naval_equipment_upgrade_xp_cost
+	naval_morale_factor = JUNO_naval_morale_factor
+	screening_efficiency =	JUNO_screening_efficiency
+	convoy_escort_efficiency =	JUNO_convoy_escort_efficiency		
+	navy_capital_ship_defence_factor =	JUNO_navy_capital_ship_defence_factor  
+	naval_accidents_chance = JUNO_naval_accidents_chance
+	navy_screen_defence_factor = JUNO_navy_screen_defence_factor
+	production_speed_coastal_bunker_factor = JUNO_modifier_production_speed_coastal_bunker_factor
+}
+LUX_army_modifier = {
+	icon = GFX_idea_chi_army_corruption3
+	army_attack_factor = LUX_army_modifier_var_army_attack_factor
+	army_core_attack_factor = LUX_army_modifier_var_army_core_attack_factor
+	army_defence_factor = LUX_army_modifier_var_army_defence_factor
+	army_core_defence_factor = LUX_army_modifier_var_army_core_defence_factor
+	army_strength_factor = LUX_army_modifier_var_army_strength_factor
+	breakthrough_factor = LUX_army_modifier_var_breakthrough_factor 
+	army_org_factor = LUX_army_modifier_var_army_org_factor 
+	planning_speed = LUX_army_modifier_var_planning_speed
+	army_infantry_attack_factor = LUX_army_modifier_var_infantry_attack_factor
+	army_infantry_defence_factor = LUX_army_modifier_var_infantry_defence_factor
+	army_armor_attack_factor = LUX_army_modifier_var_army_armor_attack_factor
+	army_armor_defence_factor = LUX_army_modifier_var_army_armor_defence_factor
+	army_armor_speed_factor = LUX_army_modifier_var_army_armor_speed_factor
+	motorized_attack_factor = LUX_army_modifier_var_motorized_attack_factor
+	motorized_defence_factor = LUX_army_modifier_var_motorized_defence_factor
+	mechanized_attack_factor = LUX_army_modifier_var_mechanized_attack_factor
+	mechanized_defence_factor = LUX_army_modifier_var_mechanized_defence_factor
+	special_forces_attack_factor = LUX_army_modifier_var_special_forces_attack_factor
+	special_forces_defence_factor = LUX_army_modifier_var_special_forces_defence_factor
+	land_doctrine_cost_factor = LUX_army_modifier_var_land_doctrine_cost_factor
+	army_speed_factor = LUX_army_modifier_var_army_speed_factor 
+}
+LUX_president_republic_dm = { # Neie Staat
+    icon = GFX_dm_LUX_new_state
+   	political_power_factor = LUX_president_republic_var_political_power_factor
+	political_power_gain = LUX_president_republic_var_political_power_gain
+	neutrality_drift = LUX_president_republic_var_neutrality_drift
+	democratic_drift = LUX_president_republic_var_democratic_drift
+	communism_drift = LUX_president_republic_var_communism_drift
+	party_popularity_stability_factor = LUX_president_republic_var_party_popularity_stability_factor
+	offensive_war_stability_factor = LUX_president_republic_var_offensive_war_stability_factor 
+	drift_defence_factor = LUX_president_republic_var_drift_defence_factor 
+	weekly_casualties_war_support = LUX_president_republic_var_weekly_casualties_war_support
+	weekly_convoys_war_support = LUX_president_republic_var_weekly_convoys_war_support 
+	weekly_bombing_war_support = LUX_president_republic_var_weekly_bombing_war_support 
+}
+bunker_project = {
+	icon = GFX_modifiers_generic_bunker_build_speed
+	state_bunker_max_level_terrain_limit = 3
+}
+LUX_resistence_in_colonies = {
+	icon = GFX_modifiers_generic_resistance
+	remove_trigger = {
+		FROM = {
+			has_resistance = no
+		}
+	}
+	resistance_target = variable_LUX_resistence_in_colonies_resistance_target
+	compliance_growth = variable_LUX_resistence_in_colonies_compliance_growth
+	resistance_growth = variable_LUX_resistence_in_colonies_resistance_growth
+	resistance_activity = variable_LUX_resistence_in_colonies_resistance_activity
+	resistance_damage_to_garrison = variable_LUX_resistence_in_colonies_resistance_damage_to_garrison
+}
+LUX_five_year_plan = {
+	icon = GFX_idea_generic_central_management
+	consumer_goods_factor = LUX_five_year_plan_consumer_goods_factor_var # 0
+	production_speed_infrastructure_factor = LUX_five_year_plan_production_speed_infrastructure_factor_var # 0.15
+	production_speed_industrial_complex_factor = LUX_five_year_plan_production_speed_industrial_complex_factor_var # 0.15
+	production_speed_arms_factory_factor = LUX_five_year_plan_production_speed_arms_factory_factor_var # 0.1
+	conversion_cost_civ_to_mil_factor = LUX_five_year_plan_conversion_cost_civ_to_mil_factor_var  # -0.15
+	conversion_cost_mil_to_civ_factor = LUX_five_year_plan_conversion_cost_mil_to_civ_factor_var # 0.1
+	repair_speed_infrastructure_factor = LUX_five_year_plan_repair_speed_infrastructure_factor_var # 0
+	repair_speed_industrial_complex_factor = LUX_five_year_plan_repair_speed_industrial_complex_factor_var # 0
+	repair_speed_arms_factory_factor = LUX_five_year_plan_repair_speed_arms_factory_factor_var # 0
+    production_factory_max_efficiency_factor = LUX_five_year_plan_production_factory_max_efficiency_factor_var # 0.05
+	production_factory_efficiency_gain_factor = LUX_five_year_plan_production_factory_efficiency_gain_factor_var # 0.05
+}

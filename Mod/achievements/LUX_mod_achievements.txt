@@ -1,0 +1,150 @@
+unique_id = custom_achievements_LUX_mod
+welcome_back_old_germany = {
+	possible = {
+		tag = LUX
+		has_start_date < 1936.01.02
+		game_rules_allow_achievements = yes
+	}
+	happened = {
+		AND = {
+			count_triggers = {
+				amount > 2
+				PRE = {
+					is_subject_of = LUX
+				}
+				MEK = {
+					is_subject_of = LUX
+				}
+				BAY = {
+					is_subject_of = LUX
+				}
+				SAX = {
+					is_subject_of = LUX
+				}
+				HAN = {
+					is_subject_of = LUX
+				}
+				WUR = {
+					is_subject_of = LUX
+				}
+				SHL = {
+					is_subject_of = LUX
+				}
+				THU = {
+					is_subject_of = LUX
+				}
+				HES = {
+					is_subject_of = LUX
+				}
+				RHI = {
+					is_subject_of = LUX
+				}
+			}
+		}
+	}
+}
+united_benelux = {
+	possible = {
+		tag = LUX
+		has_start_date < 1936.01.02
+		game_rules_allow_achievements = yes
+	}
+	happened = {
+		owns_state = 7
+		owns_state = 35
+		owns_state = 36
+		owns_state = 6
+		owns_state = 34
+		owns_state = 8
+		owns_state = 29
+		owns_state = 51
+		owns_state = 42
+		owns_state = 977
+		owns_state = 980
+		HOL = {
+			has_country_flag = ROOT_accept_annexation
+	#		all_core_state = {
+	#			is_core_of = LUX
+	#			is_owned_and_controlled_by = LUX
+	#		}
+		}
+		BEL = {
+			has_country_flag = ROOT_accept_annexation
+	#		all_core_state = {
+	#			is_core_of = LUX
+	#			is_owned_and_controlled_by = LUX
+	#		}
+		}
+		owns_state = 8
+	}
+}
+rhein_is_rise = {
+	possible = {
+		tag = LUX
+		has_start_date < 1936.01.02
+		game_rules_allow_achievements = yes
+	}
+	happened = {
+		has_global_flag = rhein_is_rise_achievement
+	}
+}
+disarmed_crown = {
+	possible = {
+	    tag = LUX
+		has_start_date < 1936.01.02
+		game_rules_allow_achievements = yes
+	}
+	happened = {
+		ENG = {
+			OR = {
+				is_subject_of = ROOT
+				scope_exists = no
+			}
+		}
+		any_state = {
+			is_core_of = ENG
+			is_controlled_by_ROOT_or_subject = yes
+		}
+	}
+}
+even_they_got_france = {
+	possible = {
+	    tag = LUX
+		has_start_date < 1936.01.02
+		game_rules_allow_achievements = yes
+	}
+	happened = {
+#		has_war_with = FRA
+#		has_war_together_with = GER
+#		is_ally_with = GER
+		FRA = {
+			OR = {
+				is_subject_of = ROOT
+				scope_exists = no
+			}
+		}
+		any_state = {
+			is_core_of = FRA
+			is_controlled_by_ROOT_or_subject = yes
+		}
+	}
+}
+absolute_neutrality_achievement = {
+   	possible = {
+	    tag = LUX
+		has_start_date < 1936.01.02
+		game_rules_allow_achievements = yes
+	}
+	happened = {
+		date > 1941.01.01
+		OR  ={
+			has_idea = LUX_idea_neutrality
+			has_idea = neutrality_idea
+		}
+		NOT = {
+			has_country_flag = LUX_in_state_at_war
+		}
+	    is_in_faction = no
+		is_subject = no
+	}
+}

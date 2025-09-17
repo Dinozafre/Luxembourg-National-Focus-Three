@@ -1,0 +1,213 @@
+shared_benelux_economic_union_category = {
+	shared_benelux_economic_union_go_out = {
+		visible = {
+            has_country_flag = member_of_economic_union_flag
+			NOT = {
+				has_global_flag = benelux_economic_union_dissolved_flag
+			}
+		}
+		available = {
+			has_country_flag = member_of_economic_union_flag
+			has_war = no
+		}
+		complete_effect = {
+			set_country_flag = go_out_from_beu_flag
+			clr_country_flag = member_of_economic_union_flag
+			remove_dynamic_modifier = {
+				modifier = shared_member_benelux_economic_union_dynamic_modifier
+			}
+			var:leader_benelux_economic_union = {
+				country_event = benelux_events.4
+			}
+		}
+		ai_will_do = {
+			base = 0
+		}
+		icon = generic_break_treaty
+		cost = 50
+	}
+	leader_benelux_economic_union_dissolve = {
+		visible = {
+			has_country_flag = leader_of_benelux_economic_union_flag
+			NOT = {
+				has_global_flag = benelux_economic_union_dissolved_flag
+			}
+		}
+		available = {
+			has_country_flag = leader_of_benelux_economic_union_flag
+			any_country = {
+				has_country_flag = member_of_economic_union_flag
+			}
+		}
+		complete_effect = {
+			# custom_effect_tooltip = all_countriers_emmbers_tt
+			every_other_country = {
+				limit  = {
+					has_country_flag = member_of_economic_union_flag
+				}
+				clr_country_flag = member_of_economic_union_flag
+				remove_dynamic_modifier = {
+					modifier = shared_member_benelux_economic_union_dynamic_modifier
+				}
+				clear_variable = leader_benelux_economic_union
+				hidden_effect = {
+					remove_ideas = member_economic_union_hidden
+				}
+			}
+			remove_dynamic_modifier = {
+				modifier = LUX_leader_benelux_economic_union_dynamic_modifier
+			}
+			set_global_flag = benelux_economic_union_dissolved_flag
+			hidden_effect = {
+				country_event = {
+					id = benelux_news_events.9
+					random_hours = 6
+					days = 1
+				}
+			}
+		}
+		icon = generic_operation
+		cost = 125
+		ai_will_do = {
+			base = 0
+		}
+	}
+	leader_benelux_economic_union_development_colonies = {
+		visible = {
+			has_country_flag = leader_of_benelux_economic_union_flag
+			NOT = {
+				has_global_flag = benelux_economic_union_dissolved_flag
+			}
+		}
+		available = {
+			FROM = {
+				has_country_flag = member_of_economic_union_flag
+				any_controlled_state = {
+                    is_owned_by = FROM
+					not = {
+						is_on_continent = europe
+					}
+				}
+			}
+		}
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			FROM = {
+				random_controlled_state = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				add_stability = 0.03
+			}
+		}
+		target_trigger = {
+			FROM = {
+				has_country_flag = member_of_economic_union_flag
+				any_owned_state = {
+					OR = {
+						NOT = {
+							is_core_of = FROM
+						}
+					}
+				}
+			}
+		}
+		days_remove = 45
+		icon = generic_research
+		cost = 75
+	}
+	shared_benelux_economic_union_support_resistence = {
+		visible = {
+			OR = {
+			   has_country_flag = leader_of_benelux_economic_union_flag
+			   has_country_flag = member_of_economic_union_flag
+			}
+			FROM = {
+				has_capitulated = yes
+			}
+			NOT = {
+				has_global_flag = benelux_economic_union_dissolved_flag
+			}
+		}
+		available = {
+			FROM = {
+				any_owned_state = {
+					is_core_of = FROM
+					enemy_control_state = yes
+					NOT = {
+						is_controlled_by_ROOT_or_ally = yes
+					}
+				}
+			}
+			has_equipment = {
+				infantry_equipment > 24
+			}
+		}
+		target_trigger = {
+			FROM = {
+				has_country_flag = member_of_economic_union_flag
+			}
+		}
+		complete_effect = {
+			FROM = {
+				random_core_state = {
+					add_resistance_target = 10
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -25
+				producer = ROOT
+			}
+		}
+		custom_cost_trigger = {
+			check_variable = {
+				num_equipment@infantry_equipment > 24
+			}
+		}
+		ai_will_do = {
+			base = 0
+		}
+		icon = generic_protection
+		custom_cost_text = num_equipment_infantry_equipment_cost_25
+	}
+	LUX_integrate_another_counties_into_union = {
+		target_trigger = {
+			NOT = {
+				has_war_with = ROOT
+				has_wargoal_against = FROM
+			}
+			FROM = {
+				is_in_faction_with = ROOT
+				NOT = {
+					OR = {
+						has_country_flag = leader_of_benelux_economic_union_flag
+						has_country_flag = member_of_economic_union_flag
+					}
+				}
+				OR = {
+					is_major = yes
+					check_variable = {
+						ROOT.num_of_factories < FROM.num_of_factories
+					}
+					check_variable = {
+						ROOT.num_of_military_factories < FROM.num_of_military_factories
+					}
+				}
+			}
+		}
+		target_root_trigger = {
+			has_completed_focus = LUX_european_eonomic_union
+		}
+		cost = 30
+	}
+}
+europe_economic_union_cat = {
+	
+}

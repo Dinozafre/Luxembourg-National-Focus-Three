@@ -1,0 +1,189 @@
+LUX_general_election_1937_category = {
+	priority = 150
+	icon = LUX_elections_1937
+ 
+	picture = GFX_decision_cat_picture_concessions_to_the_trade_unions
+
+	allowed = {
+		tag = LUX
+	}
+	visible = {
+		always = yes
+	}
+#	scripted_gui = LUX_elections_1937_scripted_gui
+	visible_when_empty = no
+}
+#add LUX in exile resistence category
+LUX_luxemburg_resistence_category = {
+	priority = 50
+	icon = generic_protection
+
+	picture = GFX_decision_luxemburg_resistence
+
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_liberation_war_category = {
+	priority = 150
+	icon = NOR_fascist_deploy_prep
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_debug_category = {
+	priority = 200
+	#icon = NOR_fascist_deploy_prep
+	allowed = {
+		original_tag = LUX
+		is_debug = yes
+	}
+}
+LUX_anarchist_general_category = {
+	priority = 100
+	icon = general_anarchist
+	allowed = {
+		tag = LUX
+	}
+}
+shared_benelux_economic_union_category = {
+	priority = 100
+	icon = GFX_decision_cat_benelux_economic_union_icon
+	visible_when_empty = yes
+	allowed = {
+       always = yes
+	}
+	visible = {
+		has_global_flag = formation_of_benilux_economic_union
+		NOT = {
+			has_global_flag = benelux_economic_union_dissolved_flag
+		}
+	}
+}
+europe_economic_union_cat = {
+	priority = 100
+	visible_when_empty = yes
+	icon = GFX_decision_cat_europe_economic_union_icon
+	allowed = {
+		always = yes
+	}
+	visible = {
+		has_global_flag = formation_europe_economic_union_flag
+		NOT = {
+			has_global_flag = benelux_economic_union_dissolved_flag
+		}
+	}
+}
+generic_research_category =  {
+	icon = generic_industry
+	priority = 80
+	allowed = {
+		tag = LUX
+	}
+}
+LUX_integration_into_commune_category = {
+	icon = generic_political_actions
+	priority = 70
+	allowed = {
+		original_tag = LUX
+	}
+	visible = {
+		has_anarchist_government = yes
+	}
+}
+#european_union_cat = {
+#	icon = european_union
+#	picture = GFX_decision_cat_generic_european_union
+#	priority = 100
+#	allowed = {
+#		always = yes
+#	}
+#}
+border_conflict_category = {
+	icon = GFX_decision_category_usa_intervention_mandate
+	priority = 140
+	allowed = {
+		always = yes
+	}
+}
+generic_trade_cat = {
+	icon = GFX_decision_category_generic_trade
+	allowed = {
+		always = yes
+	}
+	priority = 65
+}
+LUX_revolutionary_general_staff_cat = { #for communists uprising etc dicisions
+	icon = GFX_decision_category_GER_war_planning
+	picture = GFX_decision_cat_picture_operational_planning
+	allowed = {
+		original_tag = LUX
+	}
+	visible = {
+		has_government = communism
+		has_completed_focus = LUX_people_victory
+	}
+	priority = 75
+}
+LUX_closer_european_union_cat = { # BEL_closer_european_union_cat
+    visible_when_empty = yes
+    icon = GFX_decision_category_generic_political_actions
+	priority = 10
+	allowed = {
+		original_tag = LUX
+	}
+	visible = {
+		has_cosmetic_tag = european_union_leader
+		is_faction_leader = yes
+	}
+}
+generic_naval = {
+	icon = GFX_decision_category_generic_naval
+	priority = 80
+	visible = {
+		always = yes
+	}
+}
+LUX_military_generic_staff_cat = {
+	icon = GFX_decision_category_GER_war_planning
+	priority = 85
+	visible = {
+		has_completed_focus = LUX_luxembourg_army
+	}
+}
+LUX_anarchist_political_actions_cat = {
+	icon = GFX_decision_category_saf_anti_colonialist_crusade
+	priority = 75
+	visible = {
+		has_country_flag = unlock_anarchist_political_actions_decisions
+	}
+}
+shared_luxo_belgum_economic_union_cat = {
+	icon = GFX_decision_category_generic_foreign_policy
+	picture = GFX_decision_cat_picture_soviet_national_academy_of_sciences
+	priority = 70
+	visible = {
+		any_country = {
+			has_country_flag = unlock_shared_luxo_belgum_economic_union_cat
+		}
+		OR = {
+			has_idea = LUX_shared_BLEU_idea
+			has_idea = BEL_shared_BLEU_idea
+		}
+		country_exists = LUX
+		country_exists = BEL
+	}
+}
+LUX_decolonization = {
+	icon = GFX_decision_category_saf_anti_colonialist_crusade
+	picture = GFX_decision_cat_picture_spr_the_inevitable_civil_war
+	priority = 80
+	on_map_area = {
+		target_array = neighbors
+		name = ETH_anti_colonialism_map_category_name
+		zoom = 150
+	}
+	visible = {
+		has_government = communism
+	}
+}

@@ -1,0 +1,1093 @@
+#### Joseph Besh - 1  #####
+#### Pierre Dupong - 2 ####
+add_support_for_condidate_1 = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = add_support_for_condidate_tt
+			CHARACTER = LUX_joseph_bech
+			NUMBER = 1
+		}
+		add_to_variable = {
+		    value = 1
+		    var = global.joseph_besh_support
+	    }
+	}
+}
+add_support_for_condidate_2 = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = add_support_for_condidate_tt
+			CHARACTER = LUX_pierre_dupong
+			NUMBER = 1
+		}
+		add_to_variable = {
+		   value = 1
+		   var = global.pierre_dugong_support
+	    }
+	}
+}
+join_axis_power_effect = {
+	if = {
+		limit = {
+			country_exists = GER
+			GER = {
+				is_faction_leader = yes
+				has_government = fascism
+			}
+		}
+		GER = {
+			country_event = {
+				id = WW_hungary.26
+				hours = 6
+			}
+		}
+	}
+	else = {
+		get_best_alliance_match_fascism_effect = yes
+		country_event = {
+			id = WW_hungary.26
+			hours = 6
+		}
+	}
+}
+LUX_demand_decolonisation_effect = {
+	every_possible_country = {
+		limit = {
+			exists = no
+			any_state = {
+				is_core_of = PREV
+				has_resistance = yes
+				NOT = {
+					is_owned_and_controlled_by = PREV
+				}
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+		ROOT = {
+			release_on_controlled = PREV
+		}
+		set_country_flag = has_been_decolonized_flag
+		add_to_array = {
+			array = FROM.decolonized_contries
+			value = THIS
+		}
+	}
+	every_subject_country = {
+		display_individual_scopes = yes
+		set_country_flag = has_been_decolonized_flag
+		add_to_array = {
+			array = FROM.decolonized_contries
+			value = THIS
+		}
+		country_event = {
+			id = LUX_diplomacy.119
+			hours = 6
+			random_hours = 12
+		}
+		ROOT = {
+            set_autonomy = {
+				target = PREV
+				autonomy_state = autonomy_free
+			}
+		}
+	}
+	hidden_effect = {
+		every_possible_country = {
+			limit = {
+				exists = yes
+				any_core_state = {
+					NOT = {
+						is_owned_and_controlled_by = PREV
+					}
+					has_resistance = yes
+				}
+			}
+			ROOT = {
+				every_controlled_state = {
+					limit = {
+						is_core_of = PREV.PREV
+						has_resistance = yes
+						is_owned_and_controlled_by = ROOT
+					}
+					transfer_state_to = PREV.PREV
+				}
+			}
+		}
+	}
+}
+LUX_send_charlotte_to_exile_effect = {
+	random_other_country = {
+		limit = {
+			NOT = {
+				has_government = communism
+			}
+			has_anarchist_government = no
+			is_subject = no
+			has_capitulated = no
+			has_civil_war = no
+		}
+		country_event = {
+			id = LUX_diplomacy.48
+			random_hours = 6
+			hours = 4
+		}
+	}
+}
+#############
+LUX_referendum_effect = {
+	custom_effect_tooltip = LUX_referendum_tt
+	hidden_effect = {
+		random_list = {
+			#people not agree
+			1 = {
+				modifier = {
+					is_ai = yes
+					LUX_historical_ai = yes
+					factor = 10
+				}
+				modifier = {
+					check_variable = {
+						party_popularity@communism > party_popularity@ruling_party
+					}
+					factor = 10
+				}
+				country_event = {
+					id = LUX_political_events.24
+					hours = 10
+					random_hours = 24
+				}
+			}
+			#people agree
+			1 = {
+				modifier = {
+					is_ai = yes
+					LUX_is_autocracy_ai = yes
+					factor = 10
+				}
+				modifier = {
+					NOT = {
+						check_variable = {
+							party_popularity@communism > party_popularity@ruling_party
+                            party_popularity@democratic > party_popularity@ruling_party
+						    party_popularity@fascism > party_popularity@ruling_party
+						    party_popularity@neutrality > party_popularity@ruling_party
+						}
+					}
+					factor = 5
+				}
+				country_event = {
+					id = LUX_political_events.25
+					hours = 10
+					random_hours = 24
+				}
+			}
+		}
+	}
+}
+# modifier variables 2
+set_LUX_the_great_depression_vars_effect = {
+	set_variable = {
+		LUX_the_great_depression_communism_drift_var = 0.01
+	}
+	set_variable = {
+		LUX_the_great_depression_consumer_goods_factor_var = 0.3
+	}
+	set_variable = {
+		LUX_the_great_depression_political_power_cost_var = 0
+	}
+	set_variable = {
+		LUX_the_great_depression_economy_cost_factor_var = 0.4
+	}
+	set_variable = {
+		LUX_the_great_depression_trade_laws_cost_factor_var = 0.50
+	}
+	set_variable = {
+		LUX_the_great_depression_stability_factor_var = -0.3
+	}
+	set_variable = {
+		LUX_the_great_depression_stability_weekly_var = -0.001
+	}
+	set_variable = {
+		LUX_the_great_depression_production_factory_max_efficiency_factor = -0.1
+	}
+	set_variable = {
+		LUX_the_great_depression_production_factory_efficiency_gain_factor = -0.1
+	}
+	set_variable = {
+		LUX_the_great_depression_production_speed_buildings_factor = -0.5
+	}
+}
+set_LUX_charlotte_wilhelmine_vars_effect = {
+	set_variable = {
+		LUX_charlotte_wilhelmine_political_power_factor = -0.1
+	}
+	set_variable = {
+		LUX_charlotte_wilhelmin_stability_factor = 0.05
+	}
+	set_variable = {
+		LUX_charlotte_wilhelmine_weekly_casualties_war_support = 0
+	}
+	set_variable = {
+		LUX_charlotte_wilhelmine_political_power_gain = 0
+	}
+	set_variable = {
+		LUX_charlotte_wilhelmine_army_core_attack_factor = 0
+	}
+	set_variable = {
+		LUX_charlotte_wilhelmine_army_core_defence_factor = 0
+	}
+	set_variable = {
+		LUX_charlotte_wilhelmine_resistance_growth_on_our_occupied_states = 0
+	}
+	set_variable = {
+		LUX_charlotte_wilhelmine_resistance_target_on_our_occupied_states = 0
+	}
+	set_variable = {
+		LUX_charlotte_wilhelmine_neutrality_drift = 0.01
+	}
+	set_variable = {
+		LUX_charlotte_wilhelmine_communism_drift = 0
+	}
+}
+set_LUX_president_republic_vars_effect = {
+	set_variable = {
+		LUX_president_republic_var_political_power_factor = 0.05
+	}
+	set_variable = {
+		LUX_president_republic_var_political_power_gain = 0
+	}
+	set_variable = {
+		LUX_president_republic_var_neutrality_drift = 0
+	}
+	set_variable = {
+		LUX_president_republic_var_democratic_drift = 0
+	}
+	set_variable = {
+		LUX_president_republic_var_communism_drift = 0
+	}
+	set_variable = {
+		LUX_president_republic_var_party_popularity_stability_factor = 0
+	}
+	set_variable = {
+		LUX_president_republic_var_offensive_war_stability_factor = 0
+	}
+	set_variable = {
+		LUX_president_republic_var_drift_defence_factor = 0
+	}
+	set_variable = {
+		LUX_president_republic_var_weekly_casualties_war_support = 0
+	}
+	set_variable = {
+		LUX_president_republic_var_weekly_convoys_war_support = 0
+	}
+	set_variable = {
+		LUX_president_republic_var_weekly_bombing_war_support = 0
+	}
+}
+set_LUX_goverment_in_exile_dm_vaers_effect = {
+	set_variable = {
+		dockyard_donations_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		exile_manpower_LUX_goverment_in_exile_factor_var = 0
+	}
+	set_variable = {
+		industrial_factory_donations_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		legitimacy_daily_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		legitimacy_gain_factor_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		military_factory_donations_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		attack_bonus_against_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		attack_bonus_against_cores_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		army_strength_factor_LUX_goverment_in_exile__var = 0
+	}
+	set_variable = {
+		army_strength_factor_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		army_core_defence_factor_LUX_goverment_in_exile_var = 0.05
+	}
+	set_variable = {
+		army_core_attack_factor_LUX_goverment_in_exile_var = 0.05
+	}
+	set_variable = {
+		resistance_damage_to_garrison_on_our_occupied_states_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		resistance_decay_on_our_occupied_states_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		resistance_growth_on_our_occupied_states_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		resistance_target_on_our_occupied_states_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		compliance_growth_on_our_occupied_states_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		modifier_army_sub_unit_militia_attack_factor_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		modifier_army_sub_unit_militia_defence_factor_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		modifier_army_sub_unit_militia_org_recovery_cap_factor_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		modifier_army_sub_unit_militia_speed_factor_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		exiled_government_weekly_manpower_LUX_goverment_in_exile_var = 0
+	}
+	set_variable = {
+		LUX_goverment_in_exile_weekly_manpower_var = 0
+	}
+}
+set_LUX_luxo_fascism_dm_vars = {
+	set_variable = {
+		fascism_drift_LUX_luxo_fascism_dm_var = 0.02
+	}
+	set_variable = {
+		defensive_war_stability_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		political_advisor_cost_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		political_power_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		fascism_drift_LUXstability_factor_LUX_luxo_fascism_dm_var_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		stability_weekly_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		stability_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		war_support_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		war_support_weekly_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		war_support_weekly_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		weekly_casualties_war_support_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		democratic_drift_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		communism_drift_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		communism_acceptance_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		democratic_acceptance_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		monthly_population_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		conscription_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		weekly_manpower_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		mobilization_laws_cost_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		trade_laws_cost_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		economy_cost_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		high_command_cost_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		army_core_defence_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		army_defence_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		army_strength_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		army_core_attack_factor_LUX_luxo_fascism_dm_var = 0
+	}
+	set_variable = {
+		army_attack_factor_LUX_luxo_fascism_dm_var = 0
+	}
+}
+########
+set_cosmetic_tag_effect = {
+	custom_override_tooltip = { # wthat a hell that not using by devs
+		tooltip = {
+			localization_key = EFFECT_SET_COSMETIC_TAG
+			COUNTRY = "[ROOT.GetName]"
+			COSMETIC_NAME = COSMETIC_NAME
+		}
+		set_cosmetic_tag = COSMETIC_NAME 
+	}
+}
+LUX_upload_commune_list = {
+	hidden_effect = {
+		for_each_scope_loop = {
+			array = global.countries
+			if = {
+				limit = { 
+				    exists = no
+					any_state = {
+						is_core_of = PREV
+					}
+			    }
+				add_to_array = {
+					array = LUX.possible_communes
+					value = THIS
+				}
+			}
+		}
+	}
+}
+modify_great_depression_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_the_great_depression
+		}
+	}
+}
+crate_anarchist_division = {
+	division_template = {
+		name = "Anarchistesch Miliz"
+		is_locked = yes
+		division_names_group = LUX_INF_01
+		priority = 10
+		division_cap = 20
+		regiments = {
+			militia = {
+				x = 0
+				y = 0
+			}
+			militia = {
+				x = 0
+				y = 1
+			}
+			militia = {
+				x = 0
+				y = 2
+			}
+			militia = {
+				x = 1
+				y = 0
+			}
+			militia = {
+				x = 1
+				y = 1
+			}
+			militia = {
+				x = 1
+				y = 2
+			}
+			militia = {
+				x = 2
+				y = 0
+			}
+			militia = {
+				x = 2
+				y = 1
+			}
+			militia = {
+				x = 2
+				y = 2
+			}
+		}
+		support = {
+			engineer = {
+				x = 0
+				y = 0
+			}
+			artillery = {
+				x = 0
+				y = 1
+			}
+		}
+	}
+}
+modify_LUX_charlotte_wilhelmine_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_charlotte_wilhelmine
+		}
+	}
+}
+modify_LUX_anarchism_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_anarchism
+		}
+	}
+}
+modify_LUX_goverment_in_exile_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_goverment_in_exile_dm
+		}
+	}
+}
+modify_LUX_workers_commune_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_workers_commune
+		}
+	}
+}
+modify_LUX_reinish_separatism_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_reinish_separatism
+		}
+	}
+}
+modify_LUX_luxo_fascism_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_luxo_fascism_dm
+		}
+	}
+}
+modify_LUX_support_imigration_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_support_imigration
+		}
+	}
+}
+modify_LUX_prepare_for_invasion_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_prepare_for_invasion
+		}
+	}
+}
+modify_LUX_navy_modifier_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_navy_modifier
+		}
+	}
+}
+modify_LUX_army_modifier_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_army_modifier
+		}
+	}
+}
+modify_LUX_president_republic_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_president_republic_dm
+		}
+	}
+}
+modify_LUX_five_year_plan_tt_effect = {
+	custom_override_tooltip = {
+		tooltip = {
+			localization_key = modify_tt
+			IDEA = LUX_five_year_plan
+		}
+	}
+}
+# modifier variables 3
+set_LUX_anarchism_variables = {
+	set_variable = {
+		neutrality_drift_LUX_anarchism_var = 0.02
+	}
+	set_variable = {
+		stability_weekly_LUX_anarchism_var = -0.001
+	}
+	set_variable = {
+		consumer_goods_factor_LUX_anarchism_var = 0
+	}
+	set_variable = {
+		resistance_target_LUX_anarchism_var = 0
+	}
+	set_variable = {
+		production_factory_efficiency_gain_factor_LUX_anarchism_var = 0
+	}
+	set_variable = {
+		production_factory_max_efficiency_factor_LUX_anarchism_var = 0
+	}
+	set_variable = {
+		production_factory_start_efficiency_factor_LUX_anarchism_var = 0
+	}
+	set_variable = {
+		mobilization_speed_LUX_anarchism_var = 0
+	}
+	set_variable = {
+		mobilization_laws_cost_factor_LUX_anarchism_var = 0
+	}
+	set_variable = {
+		annex_cost_factor_LUX_anarchism_var = 0
+	}
+	set_variable = {
+		subjects_autonomy_gain_LUX_anarchism_var = 0
+	}
+	set_variable = {
+		compliance_growth_LUX_anarchism_var = 0
+	}
+	set_variable = {
+		compliance_gain_LUX_anarchism_var = 0
+	}
+}
+set_LUX_workers_commune_variables = {
+	set_variable = {
+		production_factory_efficiency_gain_factor_LUX_workers_commune_var = 0.02
+	}
+	set_variable = {
+		production_factory_max_efficiency_factor_LUX_workers_commune_var = 0.02
+	}
+	set_variable = {
+		equipment_conversion_speed_LUX_workers_commune_var = 0
+	}
+	set_variable = {
+		drift_defence_factor_LUX_workers_commune_var = 0
+	}
+	set_variable = {
+		line_change_production_efficiency_factor_LUX_workers_commune_var = 0
+	}
+	set_variable = {
+		political_power_factor_LUX_workers_commune_var = 0
+	}
+}
+set_LUX_support_imigration_variables =  {
+	set_variable = {
+		recruitable_population_LUX_support_imigration_var = 0.01
+	}
+	set_variable = {
+		monthly_population_LUX_support_imigration_var = 0.1
+	}
+	set_variable = {
+		conscription_LUX_support_imigration_var = 0.05
+	}
+	set_variable = {
+		local_manpower_LUX_support_imigration_var = 0
+	}
+	set_variable = {
+		weekly_manpower_LUX_support_imigration_var = 0
+	}
+}
+set_LUX_army_modifier_variables =  {
+	set_variable = {
+		LUX_army_modifier_var_army_attack_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_army_core_attack_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_army_defence_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_army_core_defence_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_army_strength_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_breakthrough_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_army_org_factor = 0.1
+	}
+	set_variable = {
+		LUX_army_modifier_var_planning_speed = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_infantry_attack_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_infantry_defence_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_land_doctrine_cost_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_army_speed_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_army_armor_attack_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_army_armor_defence_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_army_armor_speed_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_motorized_attack_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_motorized_defence_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_mechanized_attack_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_mechanized_defence_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_special_forces_attack_factor = 0
+	}
+	set_variable = {
+		LUX_army_modifier_var_special_forces_defence_factor = 0
+	}
+}
+##########
+cancel_neutrlaity_LUX_effect = {
+	if = {
+		limit = { 
+			has_dlc = "By Blood Alone"
+		}
+		if = {
+			limit = {
+			    has_idea = neutrality_idea
+		    }
+	        remove_ideas = neutrality_idea
+		}
+		else_if = {
+			limit = { 
+				has_idea = LUX_idea_neutrality_bba_ns
+			}
+			remove_ideas = LUX_idea_neutrality_bba_ns
+		}
+		else_if = {
+			limit = { 
+				has_idea = LUX_idea_neutrality2_bba_ns
+			}
+			remove_ideas = LUX_idea_neutrality2_bba_ns
+		}
+	}
+	else = {
+		if = {
+		    limit = {
+			    has_idea = neutrality_idea
+		    }
+	        remove_ideas = neutrality_idea
+		}
+		else_if = {
+			limit = { 
+                has_idea = LUX_idea_neutrality
+			}
+			remove_ideas = LUX_idea_neutrality
+		}
+		else_if = {
+			limit = {
+				has_idea = LUX_idea_neutrality2
+			}
+			remove_ideas = LUX_idea_neutrality2
+		}
+	}
+	if = {
+		limit = { 
+			FRA = {
+				exists = yes
+				has_guaranteed = ROOT
+			}
+		}
+		FRA = {
+			country_event = {
+				id = LUX_political_events.1
+				hours = 4
+				random_hours = 12
+				days = 1
+			}
+		}
+	}
+	if = {
+		limit = { 
+			ENG = {
+				exists = yes
+				has_guaranteed = ROOT
+			}
+		}
+		ENG = {
+			country_event = {
+				id = LUX_political_events.1
+				hours = 4
+				random_hours = 18
+				days = 1
+			}
+		}
+	}
+	hidden_effect = {
+		news_event = {
+			id = LUX_political_events_news.0
+			random_hours = 24
+			hours = 4
+			days = 1
+		}
+	}
+}
+set_LUX_prepare_for_invasion_vars = {
+    set_variable = {
+		LUX_prepare_for_invasion_var_war_support_factor = 0.1
+	}
+	set_variable = {
+		LUX_prepare_for_invasion_var_weekly_casualties_war_support = 0.005
+	}
+	set_variable = {
+		LUX_prepare_for_invasion_var_weekly_bombing_war_support = 0.001
+	}
+	set_variable = {
+		LUX_prepare_for_invasion_var_attrition = 0
+	}
+	set_variable = {
+		LUX_prepare_for_invasion_var_equipment_capture_factor = 0
+	}
+	set_variable = {
+		LUX_prepare_for_invasion_var_army_defence_factor = 0
+	}
+	set_variable = {
+		LUX_prepare_for_invasion_var_army_core_attack_factor = 0
+	}
+}
+set_LUX_five_year_plan_vars = {
+	set_variable = {
+        LUX_five_year_plan_consumer_goods_factor_var = 0
+	}
+	set_variable = {
+		LUX_five_year_plan_production_speed_infrastructure_factor_var = 0.15
+	}
+	set_variable = {
+		LUX_five_year_plan_production_speed_industrial_complex_factor_var = 0.15
+	}
+	set_variable = {
+		LUX_five_year_plan_production_speed_arms_factory_factor_var = 0.1
+	}
+	set_variable = {
+		LUX_five_year_plan_conversion_cost_civ_to_mil_factor_var = -0.15
+	}
+	set_variable = {
+		LUX_five_year_plan_conversion_cost_mil_to_civ_factor_var = 0.1
+	}
+	set_variable = {
+		LUX_five_year_plan_repair_speed_infrastructure_factor_var = 0
+	}
+	set_variable = {
+		LUX_five_year_plan_repair_speed_industrial_complex_factor_var = 0
+	}
+	set_variable = {
+		LUX_five_year_plan_repair_speed_arms_factory_factor_var = 0
+	}
+	set_variable = {
+		LUX_five_year_plan_production_factory_max_efficiency_factor_var = 0.05
+	}
+	set_variable = {
+		LUX_five_year_plan_production_factory_efficiency_gain_factor_var = 0.05
+	}
+}
+update_mobilisation_law = {
+	if = {
+		limit = { 
+			has_idea = disarmed_nation
+		}
+		add_ideas = volunteer_only
+	}
+	else_if = {
+		limit = { 
+			has_idea = volunteer_only
+		}
+		add_ideas = limited_conscription
+	}
+	else_if = {
+		limit = { 
+			has_idea = limited_conscription
+		}
+		add_ideas = extensive_conscription
+	}
+	else_if = {
+		limit = { 
+            has_idea = extensive_conscription
+		}
+		add_ideas = service_by_requirement
+	}
+	else_if = {
+		limit = { 
+            has_idea = service_by_requirement
+		}
+		add_ideas = all_adults_serve
+	}
+	else_if = {
+		limit = { 
+            has_idea = all_adults_serve
+		}
+		add_ideas = scraping_the_barrel
+	}
+	else = {
+		add_war_support = 0.05
+		add_manpower = 25000
+	}
+}
+set_var_total_pp_was_spent_on_joseph_besh = {
+	 if = {
+		limit = { 
+			NOT = {
+				has_variable = total_pp_was_spent_on_1
+			}
+		}
+		set_variable = {
+			total_pp_was_spent_on_1 = 0
+		}
+	}
+}
+set_var_total_pp_was_spent_on_pierre_dupong = {
+	if = {
+		limit = { 
+		    NOT = {
+				has_variable = total_pp_was_spent_on_2
+			}
+		}
+		set_variable = {
+			total_pp_was_spent_on_2 = 0
+		}
+	}
+}
+multiply_LUX_resistence_in_colonies_modifiers = {
+	if = {
+		limit = { 
+            FROM = {
+                NOT = {
+					has_variable = variable_LUX_resistence_in_colonies_resistance_target
+				}
+			}
+	    }
+		FROM = {
+            set_variable = {
+				variable_LUX_resistence_in_colonies_resistance_target = 0.05
+			}
+		}
+	}
+				else = {
+					FROM = {
+						multiply_variable = {
+							variable_LUX_resistence_in_colonies_resistance_target = 2.25
+						}
+					}
+				}
+				if = {
+					limit = { 
+                        FROM = {
+                            NOT = {
+								has_variable = variable_LUX_resistence_in_colonies_compliance_growth
+							}
+						}
+					}
+					FROM = {
+						set_variable = {
+							variable_LUX_resistence_in_colonies_compliance_growth = -0.02
+						}
+					}
+				}
+				else = {
+					FROM = {
+						multiply_variable = {
+							variable_LUX_resistence_in_colonies_compliance_growth = 1.9
+						}
+					}
+				}
+				if = {
+					limit = { 
+						FROM = {
+                            NOT = {
+								has_variable = variable_LUX_resistence_in_colonies_resistance_growth
+							}
+						}
+					}
+					FROM = {
+                        set_variable = {
+							variable_LUX_resistence_in_colonies_resistance_growth = 0.03
+						}
+					}
+				}
+				else = {
+					FROM = {
+						multiply_variable = {
+							variable_LUX_resistence_in_colonies_resistance_growth = 1.75
+							tooltip = multiply_variable_LUX_resistence_in_colonies_resistance_growth_tt
+						}
+					}
+				}
+				if = {
+					limit = { 
+						FROM = {
+                            NOT = {
+								has_variable = variable_LUX_resistence_in_colonies_resistance_activity
+							}
+						}
+					}
+					FROM = {
+						set_variable = {
+						    variable_LUX_resistence_in_colonies_resistance_activity = 0.04
+					    }
+					}
+				}
+				else = {
+					FROM = {
+						multiply_variable = {
+							variable_LUX_resistence_in_colonies_resistance_activity = 1.5
+						}
+					}
+				}
+				if = {
+					limit = { 
+						FROM = {
+                            NOT = {
+								has_variable = variable_LUX_resistence_in_colonies_resistance_damage_to_garrison
+							}
+						}
+					}
+					FROM = {
+						set_variable = {
+							variable_LUX_resistence_in_colonies_resistance_damage_to_garrison = 0.02
+						}
+					}
+				}
+				else = {
+					FROM = {
+						multiply_variable = {
+							variable_LUX_resistence_in_colonies_resistance_damage_to_garrison = 2.5
+						}
+					}
+				}
+}

@@ -1,0 +1,114 @@
+LUX_anarchist_political_actions_cat = {
+	LUX_anarchist_support_strikes = {
+		icon = generic_industry
+		cost = 30
+		visible = {
+			has_anarchist_government = no
+			OR = {
+				has_completed_focus = LUX_peaceful_anarchist_revolution
+				has_completed_focus = LUX_radical_revolution
+			}
+		}
+		modifier = {
+			neutrality_drift = 0.06
+			communism_drift = 0.03
+			consumer_goods_factor = 0.05
+			line_change_production_efficiency_factor = -0.2
+		}
+		cancel_trigger = {
+			has_anarchist_government = yes
+		}
+		remove_effect = {
+			
+		}
+		days_remove = 30
+	}
+	LUX_anarchist_rallies = {
+		icon = eng_blackshirt_march
+		visible = {
+			has_completed_focus = LUX_peaceful_anarchist_revolution
+			has_anarchist_government = no
+		}
+		modifier = {
+			neutrality_drift = 0.10
+			stability_weekly_factor = -0.002
+		}
+		days_remove = 35
+		cost = 45
+	}
+	LUX_demand_anarchist_in_power = {
+        icon = eng_trade_unions_demand
+		cost = 100
+		available = {
+			neutrality > 0.5
+		}
+		cancel_trigger = {
+			has_anarchist_government = yes
+		}
+		visible = {
+			has_completed_focus = LUX_peaceful_anarchist_revolution
+			has_anarchist_government = no
+		}
+		complete_effect = {
+			country_event = {
+				id = LUX_political_events.48
+				hours = 4
+				random_hours = 6
+			}
+		}
+	}
+	LUX_anarchist_march = {
+		icon = eng_blackshirt_march
+		cost = 75
+		days_remove = 7
+		visible = {
+			has_completed_focus = LUX_radical_revolution
+			has_anarchist_government = no
+		}
+		modifier = {
+			consumer_goods_factor = 0.3
+		}
+		available = {
+			neutrality > 0.45
+		}
+		cancel_trigger = {
+			has_anarchist_government = yes
+		}
+		remove_effect = {
+			random_list = {
+				seed = random
+				50 = {
+                    country_event = {
+						id = LUX_political_events.46
+						random_hours = 12
+						hours = 4
+					}
+				}
+				50 = {
+					country_event = {
+						id = LUX_political_events.47
+						random_hours = 12
+						hours = 4
+					}
+				}
+			}
+		}
+	}
+	LUX_anarchist_redicalisation = {
+        icon = generic_prepare_civil_war
+		cost = 50
+		visible = {
+			has_completed_focus = LUX_radical_revolution
+			has_anarchist_government = no
+		}
+		cancel_trigger = {
+			has_anarchist_government = yes
+		}
+		modifier = {
+			neutrality_drift = 0.20
+			stability_weekly_factor = -0.008
+			war_support_weekly = 0.001
+		}
+		days_remove = 14
+	}
+}

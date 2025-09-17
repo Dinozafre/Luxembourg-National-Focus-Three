@@ -1,0 +1,40 @@
+autonomy_state = {
+	id = autonomy_socialist_republic
+	default = no
+	use_overlord_color = no
+	min_freedom_level = 0.1
+	manpower_influence = 0
+	rule = {
+		can_decline_call_to_war = yes
+		can_puppet = yes
+		units_deployed_to_overlord = no
+		can_join_opposite_factions = no
+		can_declare_war_without_wargoal_when_in_war = yes
+		can_declare_war_on_same_ideology = yes
+	}
+	modifier = {
+		production_factory_efficiency_gain_factor = 0.3
+		production_factory_max_efficiency_factor = 0.15
+		communism_drift = 0.25
+	}
+	allowed = {
+		OVERLORD = {
+			has_government = communism
+		}
+	}
+	can_lose_level = {
+		if = {
+			limit = { 
+				has_completed_focus = LUX_loyal_forever
+			}
+			always = no
+		}
+	}
+	allowed_levels_filter = {
+		autonomy_puppet
+        autonomy_supervised_state
+	}
+	can_take_level = {
+		always = yes
+	}
+}

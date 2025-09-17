@@ -1,0 +1,529 @@
+#historical
+LUX_historical_plan = {
+	name = "Luxemburg Historical Plan"
+	desc = "Luxemburg will pursue neutrality for as long as possible."
+
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+		   has_country_flag = LUX_HISTORICAL_AI_PLAN
+		   has_game_rule = {
+			   rule = LUX_ai_behavior
+			   option = HISTORICAL
+		    }
+		}
+	}
+	abort = {
+	}
+	ai_national_focuses = {
+	   LUX_joseph_bech_cabinet
+	   LUX_continue_support
+	   LUX_focus_neutrality
+	   LUX_national_labour_council
+	   LUX_new_prime_minister
+	   LUX_legalize_trade_unions
+	   LUX_nation_workers
+	   LUX_less_dependence_from_germany
+	   LUX_limit_immigration_workers
+	   LUX_improve_living_conditions
+	   LUX_crisis_recession
+	   LUX_get_out_of_the_gold_bloc
+	   LUX_neutral_status_in_status_quo
+	   LUX_increase_military_forces
+	   LUX_close_luxembourg_radio
+	   LUX_shuster_line
+	   LUX_joint_committee_with_belgum
+	   LUX_reach_out_to_france
+	   LUX_visit_to_london
+	   LUX_negotiation_with_GER
+	   LUX_declare_threat_to_national_security
+	   LUX_arm_the_people
+	   LUX_creating_of_local_militia
+	   LUX_resistance_undercover
+	   LUX_prepere_for_return_hist
+	   LUX_industry_in_exile
+	   LUX_protect_state_from_fascism
+	   LUX_work_with_resistence
+	   LUX_consolidate_resistance_groups
+	   LUX_liberation_of_homeland
+	}
+	ai_strategy = {
+		type = befriend
+		id = ENG
+		value = 50
+	}
+	ai_strategy = {
+		type = alliance
+		id = ENG
+		value = 25
+	}
+	ai_strategy = {
+		type = befriend
+		id = FRA
+		value = 50
+	}
+	ai_strategy = {
+		type = alliance
+		id = FRA
+		value = 25
+	}
+	focus_factors = {
+		LUX_raise_taxes = 0
+		LUX_renegotiate_ouchy_convention = 0
+		LUX_increase_trade_with_germany = 0
+	}
+}
+LUX_democratic_alt_plan_allies = {
+	name = "Pierre Dugong is elected, join allies"
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+			has_country_flag = LUX_DEMOCRATIC_ALT_AI_PLAN
+			has_game_rule = {
+				rule = LUX_ai_behavior
+				option = DEMOCRATIC_ALT
+			}
+		}
+	}
+	ai_national_focuses = {
+		LUX_joseph_bech_cabinet
+		LUX_continue_support
+		LUX_focus_neutrality
+		LUX_raise_taxes
+		LUX_states_trade_union
+		LUX_less_dependence_from_germany
+		LUX_imigretes_welcome
+		LUX_ban_communisn_party_referendum
+		LUX_new_prime_minister
+		LUX_cut_off_trade_with_germany
+		LUX_speed_up_the_process_of_obtaining_citizenship
+		LUX_immigrations_full_integration
+		LUX_country_for_tourism
+		LUX_get_out_of_the_gold_bloc
+		LUX_prepere_for_invasion
+		LUX_trade_with_belgum
+		LUX_trade_with_niderlands
+		LUX_protect_democracy
+        LUX_broke_neutrality
+		LUX_democratic_join_allies
+		LUX_fight_against_tyranny
+		LUX_war_of_attrition
+		LUX_threat_from_east
+		LUX_no_step_back
+		LUX_counter_attack
+		LUX_destroy_collaborators
+		LUX_start_prepere_for_uprising
+		LUX_partisan_activates
+		LUX_struggle_in_exile
+		LUX_volunteers_from_host
+		LUX_militia_in_exile
+		LUX_military_service_for_all_in_exile
+		LUX_ask_equipment
+		LUX_ask_manpower
+		LUX_start_uprising
+	}
+	ai_strategy = {
+		type = befriend
+		id = ENG
+		value = 100
+	}
+	ai_strategy = {
+		type = alliance
+		id = ENG
+		value = 75
+	}
+}
+LUX_democratic_alt_benelux_union_anti_communist = {
+	name = "AI to elect new democratic leader and will try found Benelux Union, then crate EU and will makes anticommunist policy"
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+			has_country_flag = LUX_DEMOCRATIC_ALT_BENELUX_UNION_AI
+			has_game_rule = {
+				rule = LUX_ai_behavior
+				option = DEMOCRATIC_ALT_BENELUX_UNION
+			}
+		}
+	}
+	ai_national_focuses = {
+		LUX_joseph_bech_cabinet
+		LUX_continue_support
+		LUX_focus_neutrality
+		LUX_raise_taxes
+		LUX_states_trade_union
+		LUX_less_dependence_from_germany
+		LUX_imigretes_welcome
+		LUX_ban_communisn_party_referendum
+		LUX_new_prime_minister
+		LUX_cut_off_trade_with_germany
+		LUX_speed_up_the_process_of_obtaining_citizenship
+		LUX_trade_with_belgum
+		LUX_trade_with_niderlands
+		LUX_immigrations_full_integration
+		LUX_country_for_tourism
+		LUX_get_out_of_the_gold_bloc
+		LUX_prepere_for_invasion
+		LUX_protect_democracy
+		LUX_broke_neutrality
+		LUX_benelux_security
+		LUX_call_conference
+		LUX_accept_non_pacts_with_benelux
+		LUX_create_benilux_faction
+		LUX_benelux_economic_union
+		LUX_benelux_bunkers
+		LUX_invate_france
+		LUX_formation_of_european_union
+		LUX_europe_unification
+		LUX_security_of_europe
+		LUX_anti_communist_faction
+		LUX_conversion_to_nato
+	}
+	ai_strategy = {
+		type = befriend
+		id = SOV
+		value = -100
+	}
+	ai_strategy = {
+		type = alliance
+		id = SOV
+		value = -100
+	}
+}
+LUX_democratic_alt_benelux_union_ally_with_communist = {
+	name = "AI to elect new democratic leader and will try found Benelux Union, then crate EU and make ally with soviet"
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+			has_country_flag = LUX_DEMOCRATIC_ALT_BENELUX_UNION_AI_ALLY_WITH_SOVIET
+			has_game_rule = {
+				rule = LUX_ai_behavior
+				option = DEMOCRATIC_ALT_BENELUX_UNION_AI_ALLY_WITH_SOVIET
+			}
+		}
+	}
+	ai_national_focuses = {
+		LUX_joseph_bech_cabinet
+		LUX_continue_support
+		LUX_focus_neutrality
+		LUX_raise_taxes
+		LUX_states_trade_union
+		LUX_less_dependence_from_germany
+		LUX_imigretes_welcome
+		LUX_ban_communisn_party_referendum
+		LUX_new_prime_minister
+		LUX_cut_off_trade_with_germany
+		LUX_speed_up_the_process_of_obtaining_citizenship
+		LUX_trade_with_belgum
+		LUX_trade_with_niderlands
+		LUX_immigrations_full_integration
+		LUX_country_for_tourism
+		LUX_get_out_of_the_gold_bloc
+		LUX_prepere_for_invasion
+		LUX_protect_democracy
+		LUX_broke_neutrality
+		LUX_benelux_security
+		LUX_call_conference
+		LUX_accept_non_pacts_with_benelux
+		LUX_create_benilux_faction
+		LUX_benelux_economic_union
+		LUX_benelux_bunkers
+		LUX_invate_france
+		LUX_formation_of_european_union
+		LUX_europe_unification
+		LUX_security_of_europe
+		LUX_anti_communist_faction
+		LUX_conversion_to_nato
+	}
+	ai_strategy = {
+		type = befriend
+		id = SOV
+		value = 30
+	}
+	ai_strategy = {
+		type = alliance
+		id = SOV
+		value = 30
+	}
+}
+LUX_autocracy_plan_demand_rhain = {
+   name = "Joseph Besh saves occupation and made autocracy, after that will try make expantion and demand rhain"
+   allowed = {
+	   original_tag = LUX
+   }
+   enable = {
+	  OR = {
+		has_country_flag = LUX_AUTOCRACY_AI_PLAN
+		has_game_rule = {
+			rule = LUX_ai_behavior
+			option = AUTOCRACY
+		}
+	  }
+   }
+   ai_national_focuses = {
+	   LUX_joseph_bech_cabinet
+	   LUX_continue_support
+	   LUX_ban_communisn_party_referendum
+	   LUX_focus_neutrality
+	   LUX_joseph_besh_remains_in_power
+	   LUX_joseph_bech_is_elected
+	   LUX_dissolve_parliament
+	   LUX_depose_duchess_from_throne
+	   LUX_dictatorship_joseph_bech
+	   LUX_arrest_oppositions_leaders
+	   LUX_president_republic
+	   LUX_review_of_foreign_policy
+	   LUX_ban_communists_movements
+	   LUX_ban_fascist_movements
+	   LUX_cult_of_personality
+	   LUX_strong_regime
+	   LUX_benilux_creation_unite
+	   LUX_unification_with_benilux
+	   LUX_cancel_treaty_of_london
+	   LUX_national_law_focus
+	   LUX_demand_referedum_to_rhein
+	   LUX_military_socity
+	   LUX_demand_nord_pas_de_calais
+	   LUX_start_states_intergtration_into_ROOT
+	   LUX_expansion_has_been_achieved
+   }
+}
+LUX_autocracy_plan_use_rhain = {
+   name = "Joseph Besh saves occupation and made autocracy, after that will try make expantion and use rhainish separatist"
+    allowed = {
+	   original_tag = LUX
+   }
+   enable = {
+	  	OR = {
+		    has_country_flag = LUX_AUTOCRACY_AI_PLAN_RHAIN
+		    has_game_rule = {
+			    rule = LUX_ai_behavior
+			    option = AUTOCRACY_RHAIN
+		    }
+	    }
+   }
+   ai_national_focuses = {
+	   LUX_joseph_bech_cabinet
+	   LUX_continue_support
+	   LUX_ban_communisn_party_referendum
+	   LUX_focus_neutrality
+	   LUX_joseph_besh_remains_in_power
+	   LUX_joseph_bech_is_elected
+	   LUX_dissolve_parliament
+	   LUX_depose_duchess_from_throne
+	   LUX_dictatorship_joseph_bech
+	   LUX_arrest_oppositions_leaders
+	   LUX_president_republic
+	   LUX_review_of_foreign_policy
+	   LUX_ban_communists_movements
+	   LUX_ban_fascist_movements
+	   LUX_cult_of_personality
+	   LUX_strong_regime
+	   LUX_benilux_creation_unite
+	   LUX_unification_with_benilux
+	   LUX_cancel_treaty_of_london
+	   LUX_national_law_focus
+	   LUX_rhenish_nationalism
+	   LUX_reestablish_united_rhenish_movement
+	   LUX_rhinish_resistence
+	   LUX_demand_nord_pas_de_calais
+	   LUX_start_states_intergtration_into_ROOT
+	   LUX_demand_referedum_to_rhein
+       LUX_expansion_has_been_achieved
+   }
+}
+LUX_anarchist_peaceful_plan = {
+	name = "Ai coming to make anarchist world revolution!"
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+			has_country_flag = LUX_ANARCHIST_AI_PLAN
+			has_game_rule = {
+				rule = LUX_ai_behavior
+				option = ANARCHIST
+			}
+		}
+	}
+	ai_national_focuses = {
+		LUX_workers_awakening
+		LUX_commune_creation
+		LUX_peaceful_anarchist_revolution
+		LUX_national_labour_council
+		LUX_legalize_trade_unions
+		LUX_cancel_national_state
+		LUX_nationalisation_of_products
+		LUX_benefit_distribution
+		LUX_nationalisation_of_infrastructure
+		LUX_brothers_of_deal
+		LUX_every_workers_word_is_metter
+		LUX_workers_dictatorship
+		LUX_better_workers_conditions
+		LUX_place_of_workers
+		LUX_capital_of_people
+		LUX_commune_theory
+		LUX_commune_proctise
+		LUX_commune_militia
+		LUX_explore_anarchist_ideas
+		LUX_crate_global_anarchist_council
+		LUX_creation_of_new_communes
+		LUX_non_military_intervantion
+		LUX_we_bring_light
+	    LUX_reestablish_the_anarchist_international
+		LUX_propaganda_of_anarchism
+		LUX_people_mobilisation
+		LUX_centralisation_of_communes
+		LUX_international_anarchist_brigages
+		LUX_intergreation_every_state
+		LUX_world_under_one_flag
+	}
+}
+LUX_anarchist_agressive_plan = {
+   	name = "Ai coming to make anarchist world revolution!"
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+			has_country_flag = LUX_ANARCHIST_AGRESSIVE_AI_PLAN
+			has_game_rule = {
+				rule = LUX_ai_behavior
+				option = ANARCHIST_AGRESSIVE
+			}
+		}
+	}
+	ai_national_focuses = {
+		LUX_workers_awakening
+		LUX_commune_creation
+		LUX_radical_revolution
+		LUX_cancel_national_state
+		LUX_nationalisation_of_products
+		LUX_benefit_distribution
+		LUX_revolutionary_society
+		LUX_commune_theory
+		LUX_commune_proctise
+		LUX_nationalisation_of_infrastructure
+		LUX_commune_militia
+		LUX_education_for_everyone
+		LUX_brothers_of_deal
+		LUX_every_workers_word_is_metter
+		LUX_better_workers_conditions
+		LUX_workers_dictatorship
+		LUX_capital_of_people
+		LUX_place_of_workers
+		LUX_crate_global_anarchist_council
+		LUX_propaganda_of_anarchism
+		LUX_international_anarchist_brigages
+		LUX_we_bring_light
+		LUX_reestablish_the_anarchist_international
+		LUX_military_intervention_in_uprisings
+		LUX_people_mobilisation
+		LUX_creation_of_new_communes
+		LUX_centralisation_of_communes
+		LUX_intergreation_every_state
+		LUX_world_under_one_flag
+	}
+}
+LUX_communism_trotsky_plan = {
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+            has_country_flag = LUX_COMMUNISM_TROTSKY_AI_PLAN
+			has_game_rule = {
+				rule = LUX_ai_behavior
+				option = COMMUNISM_TROTSKY
+			}
+		}
+	}
+	ai_national_focuses = {
+		LUX_workers_awakening
+		LUX_liberate_workers
+		LUX_follow_trotsy_idiology
+		LUX_invite_trotscky
+		LUX_sabotage_production
+		LUX_trotsky_revolution
+		LUX_people_victory
+		LUX_workers_democracy
+	}
+	ai_strategy = {
+		type = befriend
+		id = SOS
+		value = -100
+	}
+	ai_strategy = {
+		type = alliance
+		id = SOS
+		value = -100
+	}
+}
+LUX_communist_marxist_plan = {
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+            has_country_flag = LUX_COMMUNISM_MARXIST_AI_PLAN
+			has_game_rule = {
+				rule = LUX_ai_behavior
+				option = COMMUNISM_MARXIST
+			}
+		}
+	}
+	ai_national_focuses = {
+		LUX_workers_awakening
+		LUX_liberate_workers
+		LUX_workers_support
+		LUX_workers_goverment
+		LUX_people_victory
+	}
+}
+LUX_fascism_destroy_capital_plan = {
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		OR = {
+			has_country_flag = LUX_FASCISM_AI_PLAN
+			has_game_rule = {
+				rule = LUX_ai_behavior
+				option = FASCISM
+			}
+		}
+	}
+	ai_national_focuses = {
+		LUX_strong_hand
+		LUX_luxembourg_nazism
+		LUX_fascist_party_army
+		LUX_shut_down_1937_elections
+		LUX_attack_opponents
+		LUX_damian_kratzenberg_coup
+		LUX_charlotte_wilhelmine_fate
+		LUX_our_furer
+		LUX_corporation_country
+		LUX_anti_communism
+		LUX_anti_liberalism
+		LUX_organic_nation
+		LUX_join_axis
+	}
+}
+LUX_fascism_cooperation_with_capital_capital_plan = { # for random option
+	allowed = {
+		original_tag = LUX
+	}
+	enable = {
+		has_country_flag = LUX_ALT_FASCISM_AI_PLAN
+	}
+	ai_national_focuses = {
+		
+	}
+}

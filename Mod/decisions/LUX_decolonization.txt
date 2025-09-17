@@ -1,0 +1,222 @@
+LUX_decolonization = {
+	LUX_demand_decoclonsation_to_FROM = {
+		priority = 75
+		icon = eng_trade_unions_demand
+		days_remove = 30
+		cost = 75
+        target_trigger = {
+			NOT = {
+				has_wargoal_against = FROM
+				has_war_with = FROM
+			}
+			FROM = {
+				is_subject = no
+                OR = {
+                    any_controlled_state = {
+					    has_resistance = yes
+				    }
+					num_subjects > 0
+				}
+                OR = {
+					is_neighbor_of = ROOT
+					any_subject_country = {
+						is_neighbor_of = ROOT
+					}
+				}
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				has_wargoal_against = FROM
+				has_war_with = FROM
+				FROM = {
+					is_subject = yes
+				}
+			}
+		}
+		available = {
+			FROM = {
+				OR = {
+                    any_controlled_state = {
+					    has_resistance = yes
+				    }
+					num_subjects > 0
+				}
+			}
+		}
+		remove_effect = {
+			FROM = {
+				country_event = {
+					id = LUX_diplomacy.43
+					random_hours = 6
+				    hours = 6
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = if_they_accept
+			effect_tooltip = {
+				FROM = {
+					LUX_demand_decolonisation_effect = yes
+				}
+			}
+		}
+	}
+	LUX_support_resistence_in_state = {
+		name = ETH_support_resistance_decision
+		icon = generic_ignite_civil_war
+		state_target = yes
+		on_map_mode = map_only
+		custom_cost_text = decision_cost_CP_25
+		custom_cost_trigger = {
+			command_power > 24
+		}
+		days_remove = 14
+		visible = {
+			any_state = {
+				has_resistance = yes
+				NOT = {
+					is_owned_and_controlled_by = ROOT
+					is_on_continent = europe
+				}
+			}
+		}
+		target_trigger = {
+			FROM = {
+				owner = {
+					OR = {
+					    is_in_array = {
+						    array = global.colonial_powers
+					    }
+						has_country_flag = available_target_for_supportting_resistence_flag
+					}
+				}
+                NOT = {
+					is_on_continent = europe
+				}
+				has_resistance = yes
+				impassable = no
+			}
+		}
+		available = {
+			FROM = {
+                has_resistance = yes
+			}
+		}
+		complete_effect = {
+				add_command_power = -25
+				if = {
+					limit = { 
+                        FROM = {
+                            NOT = {
+								has_variable = variable_LUX_resistence_in_colonies_resistance_target
+							}
+						}
+					}
+					FROM = {
+                        set_variable = {
+						    variable_LUX_resistence_in_colonies_resistance_target = 0.05
+					    }
+					}
+				}
+				else = {
+					FROM = {
+						multiply_variable = {
+							variable_LUX_resistence_in_colonies_resistance_target = 2.25
+						}
+					}
+				}
+				if = {
+					limit = { 
+                        FROM = {
+                            NOT = {
+								has_variable = variable_LUX_resistence_in_colonies_compliance_growth
+							}
+						}
+					}
+					FROM = {
+						set_variable = {
+							variable_LUX_resistence_in_colonies_compliance_growth = -0.02
+						}
+					}
+				}
+				else = {
+					FROM = {
+						multiply_variable = {
+							variable_LUX_resistence_in_colonies_compliance_growth = 1.9
+						}
+					}
+				}
+				if = {
+					limit = { 
+						FROM = {
+                            NOT = {
+								has_variable = variable_LUX_resistence_in_colonies_resistance_growth
+							}
+						}
+					}
+					FROM = {
+                        set_variable = {
+							variable_LUX_resistence_in_colonies_resistance_growth = 0.03
+						}
+					}
+				}
+				else = {
+					FROM = {
+						multiply_variable = {
+							variable_LUX_resistence_in_colonies_resistance_growth = 1.75
+							tooltip = multiply_variable_LUX_resistence_in_colonies_resistance_growth_tt
+						}
+					}
+				}
+				if = {
+					limit = { 
+						FROM = {
+                            NOT = {
+								has_variable = variable_LUX_resistence_in_colonies_resistance_activity
+							}
+						}
+					}
+					FROM = {
+						set_variable = {
+						    variable_LUX_resistence_in_colonies_resistance_activity = 0.04
+					    }
+					}
+				}
+				else = {
+					FROM = {
+						multiply_variable = {
+							variable_LUX_resistence_in_colonies_resistance_activity = 1.5
+						}
+					}
+				}
+				if = {
+					limit = { 
+						FROM = {
+                            NOT = {
+								has_variable = variable_LUX_resistence_in_colonies_resistance_damage_to_garrison
+							}
+						}
+					}
+					FROM = {
+						set_variable = {
+							variable_LUX_resistence_in_colonies_resistance_damage_to_garrison = 0.02
+						}
+					}
+				}
+				else = {
+					FROM = {
+						multiply_variable = {
+							variable_LUX_resistence_in_colonies_resistance_damage_to_garrison = 2.5
+						}
+					}
+				}
+		}
+		remove_effect = {
+			FROM = {
+				add_dynamic_modifier = {
+					modifier = LUX_resistence_in_colonies
+				}
+			}
+		}
+	}
+}

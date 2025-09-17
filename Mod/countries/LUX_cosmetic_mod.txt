@@ -1,0 +1,16 @@
+LUX_anarchist_neutrality = { 
+	color = rgb { 26 138 4 }
+	color_ui = rgb { 26 138 4 }
+}
+LUX_great_luxembourg = {
+	color = rgb { 0 17 150 }
+	color_ui = rgb { 0 17 150 }
+}
+LUX_anarchist = {
+	color = rgb { 100 5 10 }
+	color_ui = rgb { 100 5 10 }
+}
+LUX_president_republic_cosmetic = {
+	color = rgb { 135 186 211 }
+	color_ui = rgb { 135 186 211 }
+}

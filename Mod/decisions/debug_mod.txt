@@ -1,0 +1,194 @@
+LUX_debug_category = {
+     LUX_set_anarchist_as_leader = {
+		visible = {
+			is_debug = yes
+			original_tag = LUX
+		}
+		complete_effect = {
+			create_country_leader = {
+				name = "Anarchist Commune"
+				picture = GFX_portrait_SPR_anarchist_commune
+				ideology = anarchism
+				traits = {
+					LUX_divided_society
+				}
+			}
+			set_party_name = {
+				ideology = neutrality
+				long_name = LUX_anarchist_commune_party_desc
+				name = LUX_anarchist_commune_party
+			}
+		}
+	 }
+	 LUX_remove_all_non_anarchist_advisors = {
+		  complete_effect = {
+			every_character = {
+				limit = {
+					NOT = {
+						is_character = LUX_anarchist_council_industrial
+						is_character = LUX_anarchist_council_propaganda
+					}
+				}
+				remove_advisor_role = {
+					slot = political_advisor
+				}
+			}
+		  }
+	}
+    LUX_enable_exile_branch = {
+		complete_effect = {
+			complete_national_focus = LUX_accept_defeat
+	#		mark_focus_tree_layout_dirty = yes
+		}
+	}
+	LUX_send_51_owner_ulitimatum = {
+		visible = {
+			51 = {
+                NOT = {
+					is_owned_and_controlled_by = root
+				}
+			}
+		}
+		complete_effect = {
+			every_other_country = {
+			    limit = {
+					owns_state = 51
+					controls_state = 51
+				}
+				country_event = {
+					id = LUX_diplomacy.57
+					hours = 6
+				}
+				set_country_flag = demand_51_flag
+		   }
+		}
+	}
+	LUX_send_42_owner_ulitimatum = {
+		visible = {
+			42 = {
+                NOT = {
+					is_owned_and_controlled_by = root
+				}
+			}
+		}
+		complete_effect = {
+			every_other_country = {
+			    limit = {
+				    owns_state = 42
+				    controls_state = 42
+			    }
+			    country_event = {
+				    id = LUX_diplomacy.57
+				    hours = 6
+			    }
+			    set_country_flag = demand_42_flag
+		    }
+		}
+	}
+	LUX_send_19_owner_ultimatum = {
+		visible = {
+			29 = {
+                NOT = {
+					is_owned_and_controlled_by = root
+				}
+			}
+		}
+		complete_effect = {
+			every_other_country = {
+				limit = {
+					controls_state = 29
+					owns_state = 29
+				}
+				country_event = {
+					id = LUX_political_events.10
+					hours = 6
+				}
+			}
+		}
+	}
+	LUX_crate_intelligence_agency = {
+		complete_effect = {
+			create_intelligence_agency = {
+				name = "Special Service"
+				icon = GFX_intelligence_agency_logo_generic_8
+			}
+		}
+	}
+	LUX_test_civil_war = {
+		complete_effect = {
+			random_list = {
+				25 = {
+					start_civil_war = {
+						# Original country's ideology changes to communism
+						ideology = neutrality
+						# Breakaway gets old ideology of ROOT
+						size = 0.5
+						keep_political_leader = yes
+						keep_political_party_members = yes
+					}
+				}
+				25 = {
+					start_civil_war = {
+						# Original country's ideology changes to communism
+						ideology = communism
+						# Breakaway gets old ideology of ROOT
+						size = 0.5
+						keep_political_leader = yes
+						keep_political_party_members = yes
+					}
+				}
+				25 = {
+					start_civil_war = {
+						# Original country's ideology changes to communism
+						ideology = democratic
+						# Breakaway gets old ideology of ROOT
+						size = 0.5
+						keep_political_leader = yes
+						keep_political_party_members = yes
+					}
+				}
+				25 = {
+					start_civil_war = {
+						# Original country's ideology changes to communism
+						ideology = fascism
+						# Breakaway gets old ideology of ROOT
+						size = 0.5
+						keep_political_leader = yes
+						keep_political_party_members = yes
+					}
+				}
+			}
+		}
+	}
+}
+debug_decisions = {
+	LUX_decolonisation = {
+		allowed = {
+			always = no
+		}
+		visible = {
+			is_debug = yes
+			any_controlled_state = {                     
+				has_resistance = yes
+			}
+		}
+		fire_only_once = no
+		available = {
+			
+		}
+		complete_effect = {
+			LUX_demand_decolonisation_effect = yes
+		}
+	}
+	create_SPD = {
+		visible = {
+			is_debug = yes
+		}
+		complete_effect = {
+			SPR = {
+				complete_national_focus = SPR_regional_defense_council_of_aragon
+				country_event = lar_spain.10
+			}
+		}
+	}
+}

@@ -1,0 +1,174 @@
+shared_luxo_belgum_economic_union_cat = {
+	shared_send_economic_help_to = {
+		name = FRA_send_non_military_aid_to_FROM
+		icon = hol_attract_foreign_investors
+		targets = {
+			BEL LUX
+		}
+		available = {
+			luxo_belguim_eu_exist = yes
+			FROM = {
+				has_capitulated = no
+				exists = yes
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+	}
+	shared_suggest_allly_with = {
+		name = BRA_invite_to_organization_faction
+		icon = hol_exchange_intelligence_data
+		cost = 25
+	    targets = {
+			BEL LUX
+		}
+		fire_only_once = yes
+		available = {
+			luxo_belguim_eu_exist = yes
+			FROM = {
+				has_capitulated = no
+				exists = yes
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		days_remove = 14
+		remove_effect = {
+			if = {
+				limit = { 
+					is_faction_leader = yes
+				}
+				FROM = {
+					country_event = {
+						id = denmark_protection_event.130
+						days = 1
+						random_hours = 12
+						hours = 4
+					}
+				}
+			}
+			else = {
+				create_faction = luxo_belgum_faction
+				FROM = {
+					country_event = {
+						id = denmark_protection_event.130
+						days = 1
+						random_hours = 12
+						hours = 4
+					}
+				}
+			}
+		}
+	}
+	shared_suggest_technology_sharing = {
+		name = PER_tech_share_bonus
+		icon = generic_research
+		targets = {
+			BEL LUX
+		}
+		fire_only_once = yes
+		available = {
+			luxo_belguim_eu_exist = yes
+			FROM = {
+				has_capitulated = no
+				exists = yes
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+	}
+	shared_suggest_economic_integration = {
+		icon = generic_civil_support
+		targets = {
+			BEL LUX
+		}
+		fire_only_once = yes
+		cost = 150
+		available = {
+			luxo_belguim_eu_exist = yes
+			FROM = {
+				has_capitulated = no
+				exists = yes
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		remove_effect = {
+			FROM = {
+                country_event = {
+                    id = LUX_diplomacy.114
+				    random_hours = 12
+				    hours = 4
+				    days = 1
+			    }
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = generic_ultimatum_event_how_to_increase_chance_tt
+		}
+	}
+    shared_suggest_unification_with = {
+		name = BRA_invite_to_ussa
+		icon = eng_trade_unions_demand
+		targets = {
+			BEL LUX
+		}
+		fire_only_once = yes
+		visible = {
+			FROM = {
+				is_ally_with = ROOT
+			}
+		}
+		available = {
+			luxo_belguim_eu_exist = yes
+			FROM = {
+				has_capitulated = no
+				exists = yes
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		cost = 185
+		days_remove = 30
+		remove_effect = {
+			FROM = {
+				country_event = {
+					id = JUNO_brazil_events.170
+					random_hours = 12
+					hours = 4
+				}
+			}
+		}
+	}
+	shared_go_out_from_economic_union = {
+		priority = 100
+        icon = generic_break_treaty
+		fire_only_once = yes
+		cost = 15
+		visible = {
+			OR = {
+				has_idea = LUX_shared_BLEU_idea
+				has_idea = BEL_shared_BLEU_idea
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = { 
+					has_idea = LUX_shared_BLEU_idea
+				}
+				remove_ideas = LUX_shared_BLEU_idea
+			}
+			else_if = {
+				limit = { 
+					has_idea = BEL_shared_BLEU_idea
+				}
+				remove_ideas = BEL_shared_BLEU_idea
+			}
+			custom_effect_tooltip = THIS_go_out_from_economic_union
+		}
+	}
+}

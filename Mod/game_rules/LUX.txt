@@ -1,0 +1,81 @@
+LUX_ai_behavior = {
+	name = "LUX_AI_BEHAVIOR"
+	group = "RULE_GROUP_AI_BEHAVIOR"
+	default = {
+		name = DEFAULT #hist
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_AI_DESC"
+	}
+	option = {
+		name = HISTORICAL
+		text = "RULE_OPTION_HISTORICAL"
+		desc = "RULE_HISTORICAL_LUX_AI_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = DEMOCRATIC_ALT #early join allies or unite with benilux
+		text = "RULE_OPTION_DEMOCRATIC_ALT"
+		desc = "RULE_DEMOCRATIC_ALT_LUX_AI_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = DEMOCRATIC_ALT_BENELUX_UNION #anti communist
+		text = "RULE_OPTION_DEMOCRATIC_ALT_BENELUX_UNION_AI"
+		desc = "RULE_DEMOCRATIC_ALT_BENELUX_UNION_AI_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = DEMOCRATIC_ALT_BENELUX_UNION_AI_ALLY_WITH_SOVIET
+		text = "RULE_OPTION_DEMOCRATIC_ALT_BENELUX_UNION_AI_ALLY_WITH_SOVIET"
+		desc = "RULE_DEMOCRATIC_ALT_BENELUX_UNION_AI_ALLY_WITH_SOVIET_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = AUTOCRACY
+		text = "RULE_OPTION_AUTOCRACY"
+		desc = "RULE_AUTOCRACY_LUX_AI_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = AUTOCRACY_RHAIN
+		text = "RULE_OPTION_AUTOCRACY_RHAIN"
+		desc = "RULE_AUTOCRACY_RHAIN_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = ANARCHIST
+		text = "LUX_RULE_OPTION_ANARCHIST"
+		desc = "LUX_RULE_OPTION_ANARCHIST_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = ANARCHIST_AGRESSIVE
+		text = "LUX_RULE_OPTION_ANARCHIST_AGRESSIVE"
+		desc = "LUX_RULE_OPTION_ANARCHIST_AGRESSIVE_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = COMMUNISM_TROTSKY
+		text = "RULE_OPTION_COMMUNISM_TROTSKY"
+		desc = "RULE_COMMUNISM_TROTSKY_LUX_AI_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = COMMUNISM_MARXIST
+		text = "RULE_OPTION_COMMUNISM_MARXIST"
+		desc = "RULE_COMMUNISM_MARXIST_LUX_AI_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = FASCISM
+		text = "RULE_OPTION_FASCISM"
+		desc = "RULE_FASCISM_LUX_AI_DESC"
+		allow_achievements = yes
+	}
+	option = {
+		name = RANDOM
+		text = "RULE_OPTION_RANDOM"
+		desc = "RULE_OPTION_RANDOM_AI_DESC"
+		allow_achievements = yes
+	}
+}

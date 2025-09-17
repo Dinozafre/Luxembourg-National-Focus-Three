@@ -1,0 +1,133 @@
+ideas = {
+    country = {
+		### anarchist ###
+		shared_anarsihst_revolution_ns = {
+			allowed = {
+				always = yes
+			}
+			modifier = {
+				consumer_goods_factor = 0.15
+				production_speed_buildings_factor = 0.05
+				resistance_damage_to_garrison_on_our_occupied_states = 0.15
+				equipment_capture = 0.05
+				neutrality_drift = 0.25
+				fascism_acceptance = -100
+				democratic_acceptance = -100
+				communism_acceptance = -100
+				neutrality_acceptance = -100
+				political_power_factor = -0.2
+				drift_defence_factor = 0.25
+			}
+			picture = generic_anarchist_conflict
+		}
+		shared_anarsihst_revolution2_ns = {
+			name = shared_anarsihst_revolution_ns
+			allowed = {
+				always = yes
+			}
+			modifier = {
+				consumer_goods_factor = 0.15
+				production_speed_buildings_factor = 0.05
+				resistance_damage_to_garrison_on_our_occupied_states = 0.15
+				equipment_capture = 0.05
+				neutrality_drift = 0.25
+				fascism_acceptance = -100
+				democratic_acceptance = -100
+				communism_acceptance = -100
+				neutrality_acceptance = -100
+				political_power_factor = -0.2
+				drift_defence_factor = 0.25
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.1
+			}
+			picture = generic_anarchist_conflict
+		}
+		shared_anarshist_propaganda = {
+			allowed = {
+				always = yes
+			}
+			modifier = {
+				neutrality_drift = 0.10
+				neutrality_acceptance = 50
+			}
+			picture = scw_intervention_republicans_focus
+		}
+		shared_anarchist_help_in_liberation_ns = {
+			modifier = {
+				autonomy_gain = 0.8
+				stability_weekly = -0.010
+				neutrality_drift = 0.03
+				resistance_activity = 0.05
+				resistance_target = 0.10
+				political_power_factor = 0.05
+				custom_modifier_tooltip = shared_anarchist_help_in_liberation_ns_when_remove_tt
+			}
+			picture = chi_war_of_resistance2
+			cancel = {
+				is_subject = no
+			}
+			on_add = {
+				set_country_flag = anarchist_influance_flag
+			}
+			on_remove = {
+				leave_faction = yes
+				clr_country_flag = anarchist_influance_flag
+		    }
+		}
+		shared_anarchist_support ={
+
+		}
+		RHI_separatist_rising = {
+			picture = MEX_politicised_army_2
+			modifier = {
+				army_core_defence_factor = 0.45
+				army_core_attack_factor = 0.35
+				army_defence_factor = 1
+				army_attack_factor = 1
+				surrender_limit = 1
+				ai_focus_aggressive_factor = 1
+				army_org_factor = 0.65
+				army_strength_factor = 1
+			}
+			cancel = {
+				has_war = no
+			}
+			rule = {
+				can_join_factions = no
+			}
+		}
+		BAS_militia = {
+			picture = ast_volunteer_defence_corps
+			name = militia
+			modifier = {
+				army_attack_factor = 0.05
+				army_core_defence_factor = 0.05
+				weekly_manpower = 150
+			}
+		}
+		BAS_trade_unions = {
+            picture = generic_production_bonus
+		    name = ARG_state_unions_idea
+		    modifier = {
+			   production_factory_efficiency_gain_factor = 0.05
+			   production_factory_max_efficiency_factor = 0.1
+			   neutrality_drift = 0.05
+		    }
+		}
+		BAS_shocked_army = {
+			picture = generic_disjointed_gov
+            modifier = {
+				stability_factor = -0.1
+				army_attack_factor = -0.2
+				army_defence_factor = -0.15
+			}
+		}
+		BAS_masters_our_fate_ns = {
+			picture = generic_volunteer_expedition_bonus
+			modifier = {
+				political_power_factor = 0.15
+				production_factory_max_efficiency_factor = 0.05
+			}
+		}
+	}
+}
